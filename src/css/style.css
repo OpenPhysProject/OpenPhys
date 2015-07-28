@@ -1,0 +1,55 @@
+body {
+  background: black;
+  font-family: sans-serif;
+}
+
+.wrapper {
+  background: white;
+  margin: auto;
+  padding: 10px;
+  width: 50%;
+}
+
+h1 {
+  text-align: left;
+  padding: 0 20px;
+  margin: 5px;
+}
+
+ul.tabs {
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 1.5em;
+  text-align: center;
+}
+
+ul.tabs li {
+  float: left;
+  margin: -.02em;
+  width: 33%;
+  height: 4em;
+  line-height: 2em;
+  background: #48D1CC;
+}
+
+ul.tabs li a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+ul.tabs li.active {
+  background: #5F9EA0;
+}
+
+ul.tabs li.active a {
+  color: white;
+}
+
+.clr {
+  clear: both;
+}
+
+article {
+  padding: 0 1em;
+}
