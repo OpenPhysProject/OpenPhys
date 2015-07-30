@@ -6,7 +6,7 @@ body {
 .content {
   background: white;
   margin: auto;
-  width: 80%;
+  width: 100%;
   padding: 0 0 15px 0;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
@@ -17,7 +17,7 @@ body {
 }
 
 h1 {
-  text-align: left;
+  text-align: center;
   padding: 20px 20px;
   margin: 5px;
 }
@@ -33,7 +33,7 @@ ul.tabs {
 ul.tabs li {
   float: left;
   margin: -.02em;
-  width: 33.37%;
+  width: 33.33%;
   height: 4em;
   line-height: 4em;
   background: #48D1CC;
@@ -75,9 +75,14 @@ h2 {
   margin: 0.8em 0;
 }
 
+#tab1 {
+  padding:5%;
+  text-align:center;
+}
+
 p {
   text-align: left;
-  margin: 0.8em 0;
+  margin:0.8em 0;
 }
 
 ul {
@@ -85,7 +90,21 @@ ul {
   margin: 0.5em 0;
 }
 
+img {
+  width:18%;
+  height:auto;
+  margin:0.5em 0;
+}
+
+#tab2 {
+  text-align:center;
+}
+
+
 @media screen and (max-width: 980px) {
+  .content {
+    width:100%;
+  }
   ul.tabs li {
     float: none;
     width: 100%;
