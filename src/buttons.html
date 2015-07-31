@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
+  h8 {
+   width: 0px;
+   height: 0px;
+   border-left: 20px solid orange;
+   border-right: 20px solid grey;
+   border-top: 20px solid lightblue;
+   border-bottom: 20px solid lightgreen;
+   margin: 10px auto;
+  }
+  .left_triangle, .right_triangle, .up_triangle, .down_triangle {
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    margin: 10px; /* Purely Presentational */
+    float: left; /* Purely Presentational */
+  }
+  .left_triangle {
+      border-right-color: black;
+      border-left: none;
+  }
+  .right_triangle {
+      border-left-color: black;
+      border-right: none;
+  }
+  .up_triangle {
+      border-bottom-color: black;
+      border-top: none;
+  }
+  .down_triangle {
+      border-top-color: black;
+      border-bottom: none;
+  }
+  .top_right_triangle, .top_left_triangle, .bottom_left_triangle, .bottom_right_triangle {
+    display: inline;
+    width: 0px;
+    height: 0px;
+    margin: 0px; /* Purely Presentational */
+    float: left; /* Purely Presentational */
+  }
+
+  .top_left_triangle, .bottom_right_triangle {
+      border-right: 1024px solid transparent;
+      border-top: 300px solid transparent;   
+  }
+
+  .top_left_triangle { border-top-color: black; }
+  .bottom_right_triangle { border-right-color: #FD2636; }
+
+  .top_right_triangle, .bottom_left_triangle {
+      border-bottom: 300px solid transparent;
+      border-right: 1024px solid transparent;
+  }
+  .top_right_triangle { border-right-color: black; }
+  .bottom_left_triangle { border-bottom-color: #00D2D2;}
+  #container2 {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  }
+  #navi,
+  #infoi {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  #infoi {
+    z-index: 10;
+  }
+  .imageDiv
+  {
+    border-bottom: 300px solid transparent;
+    border-right: 1024px solid transparent;
+  }
+
+  .bottomDiv{
+   position:relative;
+   border-right: 1024px solid transparent;
+   border-top: 300px solid transparent;   
+   bottom:150px;
+   left:150px;
+  }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <center>
+  <button type="button" class="btn btn-default">WAVELENGTH</button>
+  <button type="button" class="btn btn-primary">ENERGY</button>
+  <button type="button" class="btn btn-success">FREQUENCY</button>
+  <button type="button" class="btn btn-info">FACTOID</button>
+  </center>
+</div>
+<div class="imageDiv"></div>
+<div class="imageDiv bottomDiv"></div>
+</body>
+</html>
