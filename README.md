@@ -4,6 +4,7 @@ Run everything in "" below from the command prompt
 Check if you have node (at-least 0.10.x)
 "node -v"
 If you don't have node, go install it form http://nodejs.org/
+** NOTE node v 0.12.0 will not work, and there is an outstanding bug with them for it.
 
 Check if you have yeoman, bower, grunt, and gulp installed.
 "npm yo -v"
