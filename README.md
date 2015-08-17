@@ -10,7 +10,12 @@ Next we need yeoman
 "npm install -g generator-webapp"
 http://yeoman.io/learning/ for more info
 
+We need to install NPM and Bower Dependencies from the root folder of the project
+"npm install"
+"bower install"
 
+
+### Usage
 The content in the repo was generated using https://github.com/yeoman/generator-backbone
 Since this has already been generated, you should be able to do things like
 "yo backbone:view name"
