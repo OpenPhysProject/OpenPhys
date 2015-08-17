@@ -5,12 +5,19 @@ Check if you have node (at-least 0.10.x)
 "node -v"
 If you don't have node, go install it form http://nodejs.org/
 
-Next we need yeoman
+Check if you have yeoman, bower, grunt, and gulp installed.
+"npm yo -v"
+"npm generator -v"
+"npm bower -v"
+"npm grunt -v"
+"npm gulp -v"
+
+If not, run the following.
 "npm install -g yo bower grunt-cli gulp"
 "npm install -g generator-webapp"
 http://yeoman.io/learning/ for more info
 
-We need to install NPM and Bower Dependencies from the root folder of the project
+Install NPM and Bower Dependencies from the root folder of the project
 "npm install"
 "bower install"
 
