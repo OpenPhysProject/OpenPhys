@@ -16,12 +16,26 @@ Check if you have yeoman, bower, grunt, and gulp installed.
 If not, run the following.
 "npm install -g yo bower grunt-cli gulp"
 "npm install -g generator-webapp"
+
+For windows user, you might add two more lines:
+
+"npm install -g nvmw"
+"npm install %version% around 0.10.28"
+
+These two lines will 100% for you to switch version.
 http://yeoman.io/learning/ for more info
 
 Install NPM and Bower Dependencies from the root folder of the project
 "npm install"
 "bower install"
 
+For windows user, I suggest that you do the following steps:
+1. Open up the cmd in admin mode and get to your project directory
+2. Run "nvmw use v0.10.28" to switch to the previous version.
+3. Run "npm install" to set up the npm dependencies.
+4. Shut down the cmd and open up git shell.
+5. Run "bower install" to set up the same folder.
+6. You can use "grunt server" to check if you have successfully set up the dependencies.
 
 ### Usage
 The content in the repo was generated using https://github.com/yeoman/generator-backbone
