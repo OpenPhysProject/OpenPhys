@@ -11,20 +11,38 @@ OER.Views = OER.Views || {};
 
         tagName: 'div',
 
-        id: '',
+        //template: _.template($('#item-template').html()),
 
-        className: '',
+        //id: 'RLO',
 
-        events: {},
+        //className: 'view',
+
+        /*events: {
+            'load .div': 'ToggleCompleted',
+            'mouseover .toggle': 'selected'
+        },*/
 
         initialize: function () {
-            this.listenTo(this.model, 'change', this.render);
+            this.render();
         },
 
-        render: function () {
-            this.$el.html(this.template(this.model.toJSON()));
+        render: function(){
+            // Load the compiled HTML into the Backbone "el"
+            this.$el.html( this.template );
         }
+
+
+
+        /*render: function () {
+
+            if (this.model.changed.id !== undefined) {
+                return;
+            }
+
+            this.$el.html(this.template(this.model.toJSON()));
+            return this;
+        },*/
 
     });
 
-})();
+})(jQuery);

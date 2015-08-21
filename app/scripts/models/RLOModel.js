@@ -20,6 +20,7 @@ OER.Models = OER.Models || {};
         defaults: {
             title: '',
             preview: '',
+            selected: false,
             info: ''
         },
 

@@ -9,6 +9,13 @@ OER.Collections = OER.Collections || {};
 
         model: OER.Models.RLOModel,
 
+        selected: function () {
+        	return this.where ({selected: true});
+        },
+
+        remaining: function () {
+        	return this.where({selected:false});
+        },
 
 		// We keep the Oers in grid order.
 		// GUID in the database. This generates the next order number for new item.
