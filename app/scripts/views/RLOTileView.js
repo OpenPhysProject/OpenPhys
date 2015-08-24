@@ -1,5 +1,3 @@
-/*global OER, Backbone, JST*/
-
 OER.Views = OER.Views || {};
 
 (function () {

@@ -1,5 +1,3 @@
-/*global OER, $*/
-
 
 window.OER = {
     Models: {},

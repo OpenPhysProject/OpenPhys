@@ -1,5 +1,3 @@
-/*global OER, Backbone*/
-
 OER.Collections = OER.Collections || {};
 
 (function () {
@@ -9,25 +7,26 @@ OER.Collections = OER.Collections || {};
 
         model: OER.Models.RLOModel,
 
+        // Selected might not be used now since design work is still under construction
         selected: function () {
         	return this.where ({selected: true});
         },
 
+        // The same as selected
         remaining: function () {
         	return this.where({selected:false});
         },
 
-		// We keep the Oers in grid order.
-		// GUID in the database. This generates the next order number for new item.
+		// We keep the RLOModels in grid order.
 		nextOrder:function() {
 			return this.length ? this.last().get('order') + 1 : 1;
 		},
 
-		// Oers are sorted by their original insertion order.
+		// RLOModels are sorted by their original insertion order.
 		comparator: 'order'
 	});
 
-	// Create our global collection of **oers**
+	// Create our global collection of **RLOCollection**
 	// OER.Collections = new OER.Collections.RLOCollection();
 
 })();

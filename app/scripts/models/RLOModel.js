@@ -1,5 +1,3 @@
-/*global OER, Backbone*/
-
 OER.Models = OER.Models || {};
 
 (function () {
@@ -8,8 +6,7 @@ OER.Models = OER.Models || {};
     // Oer Model
     // ---------
 
-    // Our basic **Todo** model has `title`, `order`, `selected`, `hovered`
-    // and `info` attributes. 
+    // Our basic **RLO** model has `title`, `preview`, `selected`, `info` attributes
     OER.Models.RLOModel = Backbone.Model.extend({
 
         url: '',
@@ -24,7 +21,7 @@ OER.Models = OER.Models || {};
             info: ''
         },
 
-        // Make it a rectangular div and `hovered` state of this oer item
+        // Initialize the model in JSON
         initialize: function() {
             //alert("Initialized");
         },
