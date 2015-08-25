@@ -42,14 +42,19 @@
     };
     
     p.createTileView = function() {
-        // todo use data to create views
+        var v;
+        for (var i = 0, l = this.RLOs.length; i < l; i++ ) {
+            v = new scope.Views.RLOTileView({model:this.RLOs.at(i)});
+            this.homeView.append(v.el);
+        }
     };
     
     p.showHomeView = function() {
-        
+        this.homeView.addClass("in");
     };
     
     p.showRLOView = function() {
+        this.homeView.addClass("out");
         
     };
     
