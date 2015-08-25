@@ -20,7 +20,7 @@
     p.init = function () {
         this.loader = new scope.Loader();
         this.loader.hide();
-        this.homeView = $(".RLOList");
+        this.homeView = $(".rlo-list");
         
         this.loadData();
         this.createTileView();
@@ -36,7 +36,7 @@
         //placeholder data
         this.RLOs = new scope.Collections.RLOCollection();
         for (var i = 0; i < 12; i++) {
-            var m = new scope.Models.RLOModel({"title":"title " + i});
+            var m = new scope.Models.RLOModel({"title":"title " + i, "info":"This is info text"});
             this.RLOs.add(m);
         }
     };
