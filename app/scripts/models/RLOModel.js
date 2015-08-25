@@ -24,6 +24,7 @@ OER.Models = OER.Models || {};
         // Initialize the model in JSON
         initialize: function() {
             //alert("Initialized");
+            return this;
         },
 
         validate: function(attrs, options) {

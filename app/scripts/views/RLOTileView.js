@@ -7,7 +7,7 @@ OER.Views = OER.Views || {};
 
         template: JST['app/scripts/templates/RLOTileView.ejs'],
 
-        tagName: 'div',
+        //tagName: 'div',
 
         //template: _.template($('#item-template').html()),
 
@@ -26,21 +26,10 @@ OER.Views = OER.Views || {};
 
         render: function(){
             // Load the compiled HTML into the Backbone "el"
-            this.$el.html( this.template );
-        }
-
-
-
-        /*render: function () {
-
-            if (this.model.changed.id !== undefined) {
-                return;
-            }
-
             this.$el.html(this.template(this.model.toJSON()));
             return this;
-        },*/
+        }
 
     });
 
-})(jQuery);
+})();
