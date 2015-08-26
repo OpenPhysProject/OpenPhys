@@ -26,7 +26,7 @@ OER.Views = OER.Views || {};
 
         render: function(){
             // Load the compiled HTML into the Backbone "el"
-            this.$el.html(this.template(this.model.toJSON()));
+            this.setElement(this.template(this.model.toJSON()));
             return this;
         }
 
