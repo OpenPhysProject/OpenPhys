@@ -1,0 +1,78 @@
+.rlo-view-container{
+    position:absolute;
+    margin: 0 auto;
+    left: 5px;
+    right: 0;
+}
+@mixin aspect-ratio($ratio, $col-number,$row-number) {
+    $padding: percentage(1/$ratio);
+    $width: percentage(0.99/$col-number);
+    $height: percentage(0.8/$row-number);
+    &>.rlo-tile {
+        width: $width;
+        padding-bottom: $padding;
+        &>.rlo-tile-intro-content{
+            height: $height;
+            width: $width;
+        }
+    }
+}
+
+.rlo-list {
+    @include aspect-ratio(4.6,3,2);
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    &>.rlo-tile {
+        margin: 1px 1px;
+        background: #8AC007;
+        &>.rlo-tile-intro-title{
+            position:absolute;
+            padding: 10px;
+            overflow:auto;
+            font-size: large;
+        }
+        &>.rlo-tile-intro-content{
+            position:absolute;
+            padding-left: 10px;
+            margin-top: 35px;
+            overflow:auto;
+            &>p{
+            }
+        }
+        &>.rlo-tile-preview{
+            
+        }
+        &>.rlo-tile-title{
+            
+        }
+        &>.rlo-tile-info{
+            
+        }
+    }
+}
+@media screen and (max-width: 640px) {
+    .rlo-list {
+        @include aspect-ratio(1.53,1,6);
+    }
+}
+@media screen and (max-width: 1024px) {
+    .rlo-list {
+        @include aspect-ratio(3.07,2,3);
+    }
+}
+@media screen and (max-width: 480px) {
+    .rlo-list {
+        @include aspect-ratio(1.53,1,6);
+    }
+}
+@media screen and (max-width: 640px) {
+    .rlo-list {
+        @include aspect-ratio(1.53,1,6);
+    }
+}
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .rlo-list {
+        @include aspect-ratio(1.53,1,6);
+    }
+}
