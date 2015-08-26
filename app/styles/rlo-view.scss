@@ -7,12 +7,12 @@
 @mixin aspect-ratio($ratio, $col-number,$row-number) {
     $padding: percentage(1/$ratio);
     $width: percentage(0.99/$col-number);
-    $height: percentage(0.8/$row-number);
+    $intro-content-height: percentage(0.8/$row-number);
     &>.rlo-tile {
         width: $width;
         padding-bottom: $padding;
         &>.rlo-tile-intro-content{
-            height: $height;
+            height: $intro-content-height;
             width: $width;
         }
     }
