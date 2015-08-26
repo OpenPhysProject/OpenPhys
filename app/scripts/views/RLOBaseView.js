@@ -9,20 +9,15 @@ OER.Views = OER.Views || {};
 
         template: JST['app/scripts/templates/RLOBaseView.ejs'],
 
-        tagName: 'div',
-
-        id: '',
-
-        className: '',
-
         events: {},
 
         initialize: function () {
-            this.listenTo(this.model, 'change', this.render);
+            //this.listenTo(this.model, 'change', this.render); // OJR currently model will not change
+            this.render();
         },
 
         render: function () {
-            this.$el.html(this.template(this.model.toJSON()));
+            this.setTemplate(this.template(this.model.toJSON()));
         }
 
     });

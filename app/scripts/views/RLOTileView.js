@@ -7,27 +7,16 @@ OER.Views = OER.Views || {};
 
         template: JST['app/scripts/templates/RLOTileView.ejs'],
 
-        //tagName: 'div',
-
-        //template: _.template($('#item-template').html()),
-
-        //id: 'RLO',
-
-        //className: 'view',
-
-        /*events: {
-            'load .div': 'ToggleCompleted',
-            'mouseover .toggle': 'selected'
-        },*/
+        events: {
+        },
 
         initialize: function () {
+            //this.listenTo(this.model, 'change', this.render); // OJR currently model will not change
             this.render();
         },
 
         render: function(){
-            // Load the compiled HTML into the Backbone "el"
             this.setElement(this.template(this.model.toJSON()));
-            return this;
         }
 
     });
