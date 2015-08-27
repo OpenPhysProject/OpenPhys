@@ -1,7 +1,7 @@
 .rlo-view-container{
     position: absolute;
     margin: 0 auto;
-    left: 5px;
+    left: 1px;
     right: 0;
 }
 @mixin aspect-ratio($ratio, $col-number,$row-number) {
