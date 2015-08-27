@@ -24,7 +24,7 @@
 }
 
 .rlo-list {
-    @include aspect-ratio(3,3,2);
+    @include aspect-ratio(3,3,5);
     display: flex;
     flex-flow: row wrap;
     width: 100%;
@@ -62,28 +62,62 @@
         }
     }
 }
+
+
 @media screen and (max-width: 640px) {
-    .rlo-list {
-        @include aspect-ratio(1,1,13);
-    }
-}
-@media screen and (max-width: 1024px) {
     .rlo-list {
         @include aspect-ratio(2,2,7);
     }
 }
+
 @media screen and (max-width: 480px) {
     .rlo-list {
         @include aspect-ratio(1,1,13);
     }
 }
-@media screen and (max-width: 640px) {
+/*Tablets Landscape */
+@media screen and (min-device-width: 768px) 
+               and (max-device-width: 1024px) 
+               and (orientation: landscape)  {
+    .rlo-list {
+        @include aspect-ratio(3,3,5);
+    }
+}
+/*Tablets Portrait */
+@media screen and (min-device-width: 768px) 
+               and (max-device-width: 1024px) 
+               and (orientation: portrait)  {
     .rlo-list {
         @include aspect-ratio(1,1,13);
     }
 }
-@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+
+/*Mobile Phones Portrait */
+@media screen and (max-device-width: 640px) 
+               and (orientation: portrait){
+    .rlo-list {
+        @include aspect-ratio(3,3,5);
+    }
+}
+
+/* Mobile Phones Landscape */
+@media screen and (max-device-width: 640px) 
+               and (orientation: landscape){
+    .rlo-list {
+        @include aspect-ratio(2,2,7);
+    }
+}
+/* Mobile Phones portrait */
+@media screen and (max-device-width: 480px) 
+               and (orientation: portrait){
     .rlo-list {
         @include aspect-ratio(1,1,13);
+    }
+}
+/* Mobile Phones Landscape */
+@media screen and (max-device-width: 480px) 
+               and (orientation: landscape){
+    .rlo-list {
+        @include aspect-ratio(2,2,7);
     }
 }
