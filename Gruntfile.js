@@ -27,20 +27,6 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         yeoman: yeomanConfig,
-        concat: {
-            foo: {
-
-            },
-            bar: {
-
-            },
-        },
-        uglify: {
-            bar: {
-
-            }
-        },
-
         watch: {
             options: {
                 nospawn: true,
