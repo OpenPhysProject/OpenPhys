@@ -96,7 +96,7 @@
 @media screen and (max-device-width: 640px) 
                and (orientation: portrait){
     .rlo-list {
-        @include aspect-ratio(3,3,5);
+        @include aspect-ratio(1,1,13);
     }
 }
 
