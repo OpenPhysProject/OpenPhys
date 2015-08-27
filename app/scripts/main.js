@@ -12,7 +12,7 @@
     p.Routers = {};
     
     p.homeView = null;
-    p.RLOView = null;
+    p.RLOBaseView = null;
     p.loader = null;
     
     p.RLOs = null;
@@ -36,7 +36,7 @@
         //placeholder data
         this.RLOs = new scope.Collections.RLOCollection();
         for (var i = 0; i < 12; i++) {
-            var m = new scope.Models.RLOModel({"title":"title " + i, "info":"This is info text"});
+            var m = new scope.Models.RLOModel({"title":"RLO " + (i+1), "info":""});
             this.RLOs.add(m);
         }
     };
