@@ -1,13 +1,14 @@
 .rlo-view-container{
-    position:absolute;
+    position: absolute;
     margin: 0 auto;
     left: 5px;
     right: 0;
 }
 @mixin aspect-ratio($ratio, $col-number,$row-number) {
-    $padding: percentage(1/$ratio);
+    $padding: percentage(0.99/$ratio);
     $width: percentage(0.99/$col-number);
     $intro-content-height: percentage(0.8/$row-number);
+    $title-margin-top: percentage(0.99/$col-number);
     &>.rlo-tile {
         width: $width;
         padding-bottom: $padding;
@@ -15,11 +16,15 @@
             height: $intro-content-height;
             width: $width;
         }
+        &>.rlo-tile-title{
+            width: $width;            
+            margin-top: calc(#{$title-margin-top} - 3em);
+        }
     }
 }
 
 .rlo-list {
-    @include aspect-ratio(4.6,3,2);
+    @include aspect-ratio(3,3,2);
     display: flex;
     flex-flow: row wrap;
     width: 100%;
@@ -27,50 +32,58 @@
         margin: 1px 1px;
         background: #8AC007;
         &>.rlo-tile-intro-title{
-            position:absolute;
+            position: absolute;
             padding: 10px;
-            overflow:auto;
+            overflow: auto;
             font-size: large;
         }
         &>.rlo-tile-intro-content{
-            position:absolute;
+            position: absolute;
             padding-left: 10px;
             margin-top: 35px;
-            overflow:auto;
+            overflow: auto;
         }
         &>.rlo-tile-preview{
-            
+            position: absolute;
+            padding: 10px;
         }
         &>.rlo-tile-title{
-            
+            position: absolute;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            height: 3em;
+            padding: 15px;
+            font: 15px Sans-Serif;
         }
         &>.rlo-tile-info{
-            
+            position: absolute;
+            padding-left: 10px;
+            margin-top: 35px;
         }
     }
 }
 @media screen and (max-width: 640px) {
     .rlo-list {
-        @include aspect-ratio(1.53,1,6);
+        @include aspect-ratio(1,1,13);
     }
 }
 @media screen and (max-width: 1024px) {
     .rlo-list {
-        @include aspect-ratio(3.07,2,3);
+        @include aspect-ratio(2,2,7);
     }
 }
 @media screen and (max-width: 480px) {
     .rlo-list {
-        @include aspect-ratio(1.53,1,6);
+        @include aspect-ratio(1,1,13);
     }
 }
 @media screen and (max-width: 640px) {
     .rlo-list {
-        @include aspect-ratio(1.53,1,6);
+        @include aspect-ratio(1,1,13);
     }
 }
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     .rlo-list {
-        @include aspect-ratio(1.53,1,6);
+        @include aspect-ratio(1,1,13);
     }
 }
