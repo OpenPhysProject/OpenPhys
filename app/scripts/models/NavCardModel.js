@@ -21,12 +21,13 @@ OER.Models = OER.Models || {};
         
         // Toggle the `visited` state of this card item.
         visited: function () {
-            this.save({
+            this.set({
                 visited: true
             });
         },
         
         validate: function (attrs, options) {
+            
         },
         
         parse: function (response, options) {
