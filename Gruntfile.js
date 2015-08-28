@@ -27,20 +27,6 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         yeoman: yeomanConfig,
-        concat: {
-            foo: {
-
-            },
-            bar: {
-
-            },
-        },
-        uglify: {
-            bar: {
-
-            }
-        },
-
         watch: {
             options: {
                 nospawn: true,
@@ -49,6 +35,8 @@ module.exports = function (grunt) {
             sass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['sass:server']
+                //files: ['sass/**/*.scss'],
+                //tasks:['compass:dev']
             },
             livereload: {
                 options: {
@@ -186,7 +174,7 @@ module.exports = function (grunt) {
             html: ['<%= yeoman.dist %>/{,*/}*.html'],
             css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
             options: {
-                dirs: ['<%= yeoman.dist %>']
+                dirs: ['<%= yeoman.dist %>'],
             }
         },
         imagemin: {
@@ -271,6 +259,11 @@ module.exports = function (grunt) {
         }
     });
 
+    //grunt.loadNpmTasks('grunt-contrib-compass');
+
+    //grunt.registerTask('build',['compass:prod']);
+    //grunt.registerTask('default',['watch']);
+
     grunt.registerTask('createDefaultTemplate', function () {
         grunt.file.write('.tmp/scripts/templates.js', 'this.JST = this.JST || {};');
     });
@@ -327,6 +320,7 @@ module.exports = function (grunt) {
             return grunt.task.run(testTasks);
         }
     });
+
 
     grunt.registerTask('build', [
         'clean:dist',
