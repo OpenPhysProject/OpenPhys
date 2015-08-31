@@ -6,19 +6,31 @@ OER.Models = OER.Models || {};
     'use strict';
 
     OER.Models.NavCardModel = Backbone.Model.extend({
-
+        
         url: '',
-
-        initialize: function() {
-        },
-
+        
         defaults: {
+            title: '',
+            image: '',
+            visited: false
         },
-
-        validate: function(attrs, options) {
+        
+        initialize: function () {
+            return this;
         },
-
-        parse: function(response, options)  {
+        
+        // Toggle the `visited` state of this card item.
+        visited: function () {
+            this.set({
+                visited: true
+            });
+        },
+        
+        validate: function (attrs, options) {
+            
+        },
+        
+        parse: function (response, options) {
             return response;
         }
     });
