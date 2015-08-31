@@ -24,17 +24,38 @@ Install NPM and Bower Dependencies from the root folder of the project
 "bower install"
 
 ###Trouble Shooting
+
 For windows user, you can use the following if you run into trouble:
+
 If you have trouble with node version.
+
 1. "npm install -g nvmw"
+
 2. "npm install %version% around 0.10.28"
+
 3. Run "nvmw use v0.10.28" to switch to the previous version.
+
 4. Open up the cmd in admin mode and get to your project directory
+
 5. Run "npm install" to set up the npm dependencies.
+
 6. Shut down the cmd and open up git shell.
+
 7. Run "bower install" to set up the same folder.
+
 8. You can use "grunt server" to check if you have successfully set up the dependencies.
 
+### Grunt Prefix Syntax
+
+One of our goals is to compile *.scss & *.sass files in different subdirectories.
+
+However, the premium version that Gruntfile.js generated includes a syntax that
+is not clearly documented in Grunt README.
+
+I found this link: http://gruntjs.com/configuring-tasks#globbing-patterns is helpful for
+me to change the syntax. Basically, what I did is to change the "{,*/}*." to "**/*".
+
+"**"  matches any number of characters, including "/", as long as it's the only thing in a path part.
 
 ### Usage
 The content in the repo was generated using https://github.com/yeoman/generator-backbone
@@ -42,9 +63,13 @@ Since this has already been generated, you should be able to do things like
 "yo backbone:view name"
 
 Available Generators:
+
 yo backbone:model blog
+
 yo backbone:collection blog
+
 yo backbone:router blog
+
 yo backbone:view blog
 
 
