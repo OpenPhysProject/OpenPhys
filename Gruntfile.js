@@ -110,7 +110,7 @@ module.exports = function (grunt) {
             }
         },
         clean: {
-            all: {
+            dist: {
                 src: ['.tmp/**/*','dist/**/*'],
                 filter: function(filepath) {
                     if (!grunt.file.isDir(filepath)) { return true; }
@@ -118,7 +118,7 @@ module.exports = function (grunt) {
                 }
             },
             server: {
-                src: ['.tmp/**/*','dist/**/*'],
+                src: ['.tmp/**/*'],
                 filter: function(filepath) {
                     if (!grunt.file.isDir(filepath)) { return true; }
                     return (fs.readdirSync(filepath).length === 0);

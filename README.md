@@ -45,18 +45,6 @@ If you have trouble with node version.
 
 8. You can use "grunt server" to check if you have successfully set up the dependencies.
 
-### Grunt Prefix Syntax
-
-One of our goals is to compile *.scss & *.sass files in different subdirectories.
-
-However, the premium version that Gruntfile.js generated includes a syntax that
-is not clearly documented in Grunt README.
-
-I found this link: http://gruntjs.com/configuring-tasks#globbing-patterns is helpful for
-me to change the syntax. Basically, what I did is to change the "{,*/}*." to "**/*".
-
-"**"  matches any number of characters, including "/", as long as it's the only thing in a path part.
-
 ### Usage
 The content in the repo was generated using https://github.com/yeoman/generator-backbone
 Since this has already been generated, you should be able to do things like
@@ -78,3 +66,19 @@ We Use Grunt to run tasks for testing and building the project
 "grunt build"
 
 For a quick walkthrough, check out http://code.tutsplus.com/tutorials/building-apps-with-the-yeoman-workflow--net-33254
+
+
+### Notes on Editing Grunt Tasks
+
+#### Grunt Prefix Syntax
+
+One of our goals is to compile *.scss & *.sass files in different subdirectories.
+
+However, the premium version that Gruntfile.js generated includes a syntax that
+is not clearly documented in Grunt README.
+
+I found this link: http://gruntjs.com/configuring-tasks#globbing-patterns is helpful for
+me to change the syntax. Basically, what I did is to change the "{,*/}*." to "**/*".
+
+"**"  matches any number of characters, including "/", as long as it's the only thing in a path part.
+
