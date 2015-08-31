@@ -17,7 +17,8 @@ OER.Views = OER.Views || {};
         "click .rlo-base-menu-button":"toggleNav",
     };
     
-    p.initialize = function() {
+    p.initialize = function(model) {
+        this.model = model;
         this.render();
         this.contentContainer = $("#rlo-base-content-container", this.$el);
         this.setSubViews();
@@ -43,7 +44,7 @@ OER.Views = OER.Views || {};
     };
  
     p.render = function() {
-        this.setTemplate(this.template(this.model.toJSON()));
+        this.setElement(this.template(this.model.toJSON()));
     };
     
     p.updateModel = function(newModel) {
@@ -58,6 +59,16 @@ OER.Views = OER.Views || {};
     
     p.toggleNav = function () {
         this.navView.toggle();
+    };
+    
+    p.hide = function () {
+        this.$el.removeClass("in");
+        this.$el.addClass("out");
+    };
+    
+    p.show = function () {
+        this.$el.removeClass("out");
+        this.$el.addClass("in");
     };
 
     OER.Views.RLOBaseView = Backbone.View.extend(p, s);

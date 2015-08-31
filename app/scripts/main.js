@@ -21,12 +21,16 @@
         this.loader = new scope.Loader();
         this.loader.hide();
         this.homeView = $(".rlo-list");
-        
+                
         this.loadData();
         this.createTileView();
         
+        this.RLOBaseView = new OER.Views.RLOBaseView(this.RLOs.at(0));
+        $(".rlo-view-container").append(this.RLOBaseView.el);
+        
         // todo start preloading assets with PreloadJS
         // todo setup router and route handling
+        
         this.showHomeView(); // OJR when route handling is in, this may need to route to different RLO views instead
     };
     
@@ -50,11 +54,15 @@
     };
     
     p.showHomeView = function() {
+        this.RLOBaseView.hide();
+        this.homeView.removeClass("out");
         this.homeView.addClass("in");
     };
     
     p.showRLOView = function() {
+        this.homeView.removeClass("in");
         this.homeView.addClass("out");
+        this.RLOBaseView.show();
         
     };
     

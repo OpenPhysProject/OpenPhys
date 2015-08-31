@@ -16,7 +16,7 @@ OER.Views = OER.Views || {};
         },
 
         render: function () {
-            this.setTemplate(this.template(this.model.toJSON()));
+            this.setElement(this.template(this.model.toJSON()));
         },
         
         toggleNav: function() {
