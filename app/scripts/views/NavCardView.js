@@ -11,7 +11,7 @@ OER.Views = OER.Views || {};
 
         events: {
             'mouseup': 'visited',
-            'click': 'showBaseView'
+            'click': 'showDetailContent'
         },
         
         initialize: function () {
