@@ -42,6 +42,7 @@ module.exports = function (grunt) {
                 },
                 files: [
                     '<%= yeoman.app %>/*.html',
+                    //'{.tmp,<%= yeoman.app %>/styles/{,*/}*.{scss,sass}',
                     '{.tmp,<%= yeoman.app %>}/styles/**/*.css',
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
@@ -109,8 +110,20 @@ module.exports = function (grunt) {
             }
         },
         clean: {
-            dist: ['.tmp', '<%= yeoman.dist %>/*'],
-            server: '.tmp'
+            all: {
+                src: ['.tmp/**/*','dist/**/*'],
+                filter: function(filepath) {
+                    if (!grunt.file.isDir(filepath)) { return true; }
+                    return (fs.readdirSync(filepath).length === 0);
+                }
+            },
+            server: {
+                src: ['.tmp/**/*','dist/**/*'],
+                filter: function(filepath) {
+                    if (!grunt.file.isDir(filepath)) { return true; }
+                    return (fs.readdirSync(filepath).length === 0);
+                }
+            }
         },
         jshint: {
             options: {

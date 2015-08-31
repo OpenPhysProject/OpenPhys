@@ -23,7 +23,7 @@ OER.Views = OER.Views || {};
 
         render: function () {
             this.$el.html(this.template(this.model.toJSON()));
-        }
+        },
 
     });
 
