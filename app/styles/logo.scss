@@ -1,0 +1,58 @@
+/* Small view (default) */
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
+/* Show the icon */
+.logo-icon{
+     display: block;
+}
+
+/* Hide wordmark and tagline */
+.logo-wordmark{
+     display: none;
+}
+
+.logo-tagline{
+     display: none;
+}
+
+
+/* 
+Medium view 
+Show the icon and wordmark only
+*/
+@media only screen and (min-width: 768px) {
+    .logo-wordmark{
+         display: block;
+    }
+
+    .logo-tagline{
+         display: none;
+    }
+
+    .logo {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* 
+Large view 
+Show the icon, wordmark and tagline
+*/
+@media only screen and (min-width: 960px) {
+    .logo-wordmark{
+         display: block;
+    }
+
+    .logo-tagline{
+         display: block;
+    }
+
+    .logo {
+    	width: 200px;
+    	height: 200px;
+    }
+}
