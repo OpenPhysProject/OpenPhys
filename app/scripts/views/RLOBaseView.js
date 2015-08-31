@@ -1,5 +1,3 @@
-/*global OER, Backbone, JST*/
-
 OER.Views = OER.Views || {};
 
 (function () {
@@ -13,22 +11,39 @@ OER.Views = OER.Views || {};
     p.navView = null;
     p.content = null;
     p.contentContainer = null;
-    p.currentView = null;
+    p.currentView = "intro";
     
     p.events = {
-        
+        "click .rlo-base-menu-button":"toggleNav",
     };
     
     p.initialize = function() {
+        this.render();
         this.contentContainer = $("#rlo-base-content-container", this.$el);
-        //this.currentView = "intro";   // OJR this will depend on how we set up the model
         this.setSubViews();
     };
     
     p.setSubViews = function() {
         this.navView = new OER.Views.NavView(this.model);
+        this.$el.append(this.navView);
         
-        //this.content = new OER.Views[this.currentView]();
+        this.updateContent("intro");
+    };
+    
+    p.updateContent = function(targetView) {
+        if (this.content) { this.content.remove(); }
+        this.currentView = targetView;
+        // check if view exists, which should always be the case in final release
+        if (OER.Views[this.currentView]) {
+            this.content = new OER.Views[this.currentView]();
+        } else {
+            this.content = new OER.Views.DefaultContentView();
+        }
+        this.contentContainer.append(this.content);
+    };
+ 
+    p.render = function() {
+        this.setTemplate(this.template(this.model.toJSON()));
     };
     
     p.updateModel = function(newModel) {
@@ -36,14 +51,14 @@ OER.Views = OER.Views || {};
       this.content.remove();
       this.navView.remove();
       
-      //set this.currentView
+      this.render();
       
       this.setSubViews();
     };
     
-    p.render = function() {
-        this.setTemplate(this.template(this.model.toJSON()));
+    p.toggleNav = function () {
+        this.navView.toggle();
     };
-    
+
     OER.Views.RLOBaseView = Backbone.View.extend(p, s);
 })();
