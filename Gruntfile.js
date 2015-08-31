@@ -33,10 +33,8 @@ module.exports = function (grunt) {
                 livereload: LIVERELOAD_PORT
             },
             sass: {
-                files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+                files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}'],
                 tasks: ['sass:server']
-                //files: ['sass/**/*.scss'],
-                //tasks:['compass:dev']
             },
             livereload: {
                 options: {
@@ -44,7 +42,7 @@ module.exports = function (grunt) {
                 },
                 files: [
                     '<%= yeoman.app %>/*.html',
-                    '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
+                    '{.tmp,<%= yeoman.app %>}/styles/**/*.css',
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
                     '<%= yeoman.app %>/scripts/templates/*.{ejs,mustache,hbs}',
@@ -143,7 +141,7 @@ module.exports = function (grunt) {
             files: [{
               expand: true,
               cwd: '<%= yeoman.app %>/styles',
-              src: ['*.{scss,sass}'],
+              src: ['**/*.{scss,sass}'],
               dest: '.tmp/styles',
               ext: '.css'
             }]
@@ -152,7 +150,7 @@ module.exports = function (grunt) {
             files: [{
               expand: true,
               cwd: '<%= yeoman.app %>/styles',
-              src: ['*.{scss,sass}'],
+              src: ['**/*.{scss,sass}'],
               dest: '.tmp/styles',
               ext: '.css'
             }]
@@ -172,9 +170,10 @@ module.exports = function (grunt) {
         },
         usemin: {
             html: ['<%= yeoman.dist %>/{,*/}*.html'],
-            css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+            css: ['<%= yeoman.dist %>/styles/**/*.css'],
             options: {
-                dirs: ['<%= yeoman.dist %>'],
+                basedir: '<%= yeoman.app %>',
+                dirs: ['<%= yeoman.app %>','<%= yeoman.dist %>']
             }
         },
         imagemin: {
