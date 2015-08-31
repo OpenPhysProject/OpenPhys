@@ -70,6 +70,9 @@ $chartColors: #56c7fa, #f76540, #ffcb05, #62cd9f, #b67baa;
             margin-top: 35px;
         }
     }
+    &.out {
+        display: none;
+    }
 }
 
 

@@ -1,0 +1,10 @@
+.rlo-base-view {
+    position: absolute;
+    margin: 0 auto;
+    left: 1px;
+    right: 0;
+    
+    &.out {
+        display: none;
+    }
+}
