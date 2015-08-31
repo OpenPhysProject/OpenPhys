@@ -4,6 +4,9 @@
     left: 1px;
     right: 0;
 }
+
+$chartColors: #56c7fa, #f76540, #ffcb05, #62cd9f, #b67baa;
+
 @mixin aspect-ratio($ratio, $col-number,$row-number) {
     $padding: percentage(0.99/$ratio);
     $width: percentage(0.99/$col-number);
@@ -30,7 +33,13 @@
     width: 100%;
     &>.rlo-tile {
         margin: 1px 1px;
-        background: #8AC007;
+        &:nth-of-type(odd) {
+            background: #56c7fa;
+        }
+
+        &:nth-of-type(even) {
+            background: #f76540;
+        }
         &>.rlo-tile-intro-title{
             position: absolute;
             padding: 10px;

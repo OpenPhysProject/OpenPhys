@@ -27,9 +27,9 @@ OER.Views = OER.Views || {};
             this.model.visited();
         },
         
-        // show the base view of the clicked card.
+        // show the detail content of the clicked card.
         // have not been used now since design work is still under construction
-        showBaseView: function () {
+        showDetailContent: function () {
             
         }
     });
