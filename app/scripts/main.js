@@ -29,11 +29,11 @@
         $(".rlo-view-container").append(this.RLOBaseView.el);
         
         // todo start preloading assets with PreloadJS
-        // todo setup router and route handling
+        this.setUpRouter();
         
-        this.showHomeView(); // OJR when route handling is in, this may need to route to different RLO views instead
+        //this.showHomeView(); // OJR when route handling is in, this may need to route to different RLO views instead
     };
-    
+      
     p.loadData = function () {
         // todo load real data
         
@@ -44,6 +44,37 @@
             this.RLOs.add(m);
         }
     };
+    
+    p.setUpRouter = function () {
+        scope.router = new scope.AppRouter();
+
+        // Listen for specific changes
+        scope.router.on("route:default", this.showHomeView, this);
+        scope.router.on("route:rlo", this.showRLOView, this);
+
+        // Start listening for URL changes
+        //Backbone.history.start({pushState:!!window.history});
+        this.parseFirstRoute();
+        Backbone.history.start({ pushState: true });
+    };
+    
+    /**
+     * Check the first route for hashbangs.
+     * @method parseFirstRoute
+     */
+    p.parseFirstRoute = function () {
+            var route = window.location.hash;
+            if (/^#!\//.test(route)) {
+                    route = route.substr(3); // strip hashbang
+                    // rewrite the hash, since it is what Backbone reads when start is called.
+                    if (!!window.history) {
+                            window.history.replaceState({}, '', route);
+                    } else {
+                            window.location.replace(route);
+                    }
+            }
+    };
+
     
     p.createTileView = function() {
         var v;
@@ -59,11 +90,23 @@
         this.homeView.addClass("in");
     };
     
-    p.showRLOView = function() {
+    p.showRLOView = function(rloTitle, subView) {
+        var m = this.RLOs.findWhere({title: rloTitle});
+        if(!m) {
+            scope.router.go("");
+            return;
+        }
+        
         this.homeView.removeClass("in");
         this.homeView.addClass("out");
-        this.RLOBaseView.show();
         
+        this.RLOBaseView.updateModel(m);
+        
+        if(subView) {
+            this.RLOBaseView.updateSubView(subView);
+        }
+        
+        this.RLOBaseView.show();
     };
     
     scope.Application = Application;

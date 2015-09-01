@@ -28,7 +28,7 @@ OER.Views = OER.Views || {};
         this.navView = new OER.Views.NavView(this.model);
         this.$el.append(this.navView);
         
-        this.updateContent("intro");
+        this.updateContent("intro");    // OJR get first content name
     };
     
     p.updateContent = function(targetView) {
@@ -52,9 +52,16 @@ OER.Views = OER.Views || {};
       this.content.remove();
       this.navView.remove();
       
-      this.render();
+      //this.render();
+      // update current render
       
       this.setSubViews();
+    };
+    
+    p.updateSubViews = function(targetView) {
+        // update data
+        // refresh navView
+        this.updateContent(targetView);  // OJR this might not be needed if this listens to data change
     };
     
     p.toggleNav = function () {
