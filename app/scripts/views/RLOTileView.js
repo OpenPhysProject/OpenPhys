@@ -8,6 +8,7 @@ OER.Views = OER.Views || {};
         template: JST['app/scripts/templates/RLOTileView.ejs'],
 
         events: {
+            "click":"handleClick"
         },
 
         initialize: function () {
@@ -17,6 +18,10 @@ OER.Views = OER.Views || {};
 
         render: function(){
             this.setElement(this.template(this.model.toJSON()));
+        },
+        
+        handleClick: function() {
+            OER.router.go(this.model.get("title").toString());
         }
 
     });

@@ -30,8 +30,6 @@
         
         // todo start preloading assets with PreloadJS
         this.setUpRouter();
-        
-        //this.showHomeView(); // OJR when route handling is in, this may need to route to different RLO views instead
     };
       
     p.loadData = function () {
@@ -40,7 +38,7 @@
         //placeholder data
         this.RLOs = new scope.Collections.RLOCollection();
         for (var i = 0; i < 12; i++) {
-            var m = new scope.Models.RLOModel({"title":"RLO " + (i+1), "info":""});
+            var m = new scope.Models.RLOModel({"title":"RLO" + (i+1), "info":""});
             this.RLOs.add(m);
         }
     };
@@ -52,10 +50,9 @@
         scope.router.on("route:default", this.showHomeView, this);
         scope.router.on("route:rlo", this.showRLOView, this);
 
-        // Start listening for URL changes
-        //Backbone.history.start({pushState:!!window.history});
         this.parseFirstRoute();
         Backbone.history.start({ pushState: true });
+        //Backbone.history.start({pushState:!!window.history});
     };
     
     /**
@@ -63,16 +60,16 @@
      * @method parseFirstRoute
      */
     p.parseFirstRoute = function () {
-            var route = window.location.hash;
-            if (/^#!\//.test(route)) {
-                    route = route.substr(3); // strip hashbang
-                    // rewrite the hash, since it is what Backbone reads when start is called.
-                    if (!!window.history) {
-                            window.history.replaceState({}, '', route);
-                    } else {
-                            window.location.replace(route);
-                    }
+        var route = window.location.hash;
+        if (/^#!\//.test(route)) {
+            route = route.substr(3); // strip hashbang
+            // rewrite the hash, since it is what Backbone reads when start is called.
+            if (!!window.history) {
+                    window.history.replaceState({}, '', route);
+            } else {
+                    window.location.replace(route);
             }
+        }
     };
 
     
