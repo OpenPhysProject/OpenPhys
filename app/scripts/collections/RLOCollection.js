@@ -8,23 +8,24 @@ OER.Collections = OER.Collections || {};
         model: OER.Models.RLOModel,
 
         // Selected might not be used now since design work is still under construction
-        selected: function () {
-        	return this.where ({selected: true});
+       
+        visited: function () {
+        	return this.where ({visited: true});
         },
 
-        // The same as selected
+
         remaining: function () {
-        	return this.where({selected:false});
+        	return this.where({visited: false});
         },
 
-		// We keep the RLOModels in grid order.
-		nextOrder:function() {
-			return this.length ? this.last().get('order') + 1 : 1;
-		},
+	// We keep the RLOModels in grid order.
+	nextOrder:function() {
+		return this.length ? this.last().get('order') + 1 : 1;
+	},
 
-		// RLOModels are sorted by their original insertion order.
-		comparator: 'order'
-	});
+	// RLOModels are sorted by their original insertion order.
+	comparator: 'order'
+    });
 
 	// Create our global collection of **RLOCollection**
 	// OER.Collections = new OER.Collections.RLOCollection();

@@ -17,8 +17,15 @@ OER.Models = OER.Models || {};
         defaults: {
             title: '',
             preview: '',
-            selected: false,
+            visited: false,
+            current: false,
             info: ''
+        },
+        
+        setVisited: function(){
+            this.set({
+                visited: true
+            });
         },
 
         // Initialize the model in JSON

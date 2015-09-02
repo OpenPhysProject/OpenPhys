@@ -12,7 +12,8 @@ OER.Models = OER.Models || {};
         defaults: {
             title: '',
             image: '',
-            visited: false
+            visited: false,
+            current: false
         },
         
         initialize: function () {
@@ -20,14 +21,20 @@ OER.Models = OER.Models || {};
         },
         
         // Toggle the `visited` state of this card item.
-        visited: function () {
+        setVisited: function () {
             this.set({
                 visited: true
             });
         },
         
+        toggleCurrent: function () {
+            this.set({
+                current: !this.get('current')
+            });
+        },
+        
         validate: function (attrs, options) {
-            
+
         },
         
         parse: function (response, options) {

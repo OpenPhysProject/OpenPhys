@@ -18,6 +18,10 @@ OER.Collections = OER.Collections || {};
             return this.where({visited: false});
         },
         
+        current: function() {
+            return this.where({current: true});
+        },
+        
         // Keep navigation card in grid order.
         nextOrder: function () {
             return this.length ? this.last().get('order') + 1 : 1;
