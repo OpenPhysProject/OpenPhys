@@ -62,68 +62,89 @@ module.exports = function (grunt) {
             }
         },
         connect: {
-            /*
             options: {
                 port: grunt.option('port') || SERVER_PORT,
-                // change this to '0.0.0.0' to access the server from outside
-                hostname: 'localhost'
-            },
-            */
-            //server: {
-                options: {
-                    port: grunt.option('port') || SERVER_PORT,
-                    hostname: 'localhost',
-                    base: '<%= yeoman.app %>',
-                    open: true,
-                    middleware: function (connect, options) {
-                            var mw = [];
-                            /* rewrite the path as a hash after the index for the app to parse and strip trailing slash
-                             don't match if route contains '#' since that means we've already redirected
-                             don't match if route contains '.' since we don’t want to redirect files */
-                            var expressions = [
-                                    '^\/(.*)/$ /$1 [R]',
-                                    '^\/([^#.?]+)(\\?.*)?$ /$2#$1 [R,L]'
-                            ];
-                            // https://www.npmjs.com/package/connect-modrewrite
-                            mw.push(require('connect-modrewrite')(expressions));
-                            for (var i = 0, l = options.base.length; i < l; i++) {
-                                    mw.push(connect.static(options.base[i]));
-                            }
-
-                            return mw;
+                hostname: 'localhost',
+                base: '<%= yeoman.app %>',
+                open: true,
+                middleware: function (connect, options, mw) {
+                    //var mw = [];
+                    /* rewrite the path as a hash after the index for the app to parse and strip trailing slash
+                     don't match if route contains '#' since that means we've already redirected
+                     don't match if route contains '.' since we don’t want to redirect files */
+                    var expressions = [
+                        '^\/(.*)/$ /$1 [R]',
+                        '^\/([^#.?]+)(\\?.*)?$ /$2#$1 [R,L]'
+                    ];
+                    // https://www.npmjs.com/package/connect-modrewrite
+                    mw.push(require('connect-modrewrite')(expressions));
+                    for (var i = 0, l = options.base.length; i < l; i++) {
+                        mw.push(connect.static(options.base[i]));
                     }
-            //    }
+
+                    return mw;
+                }
             },
             livereload: {
                 options: {
-                    middleware: function (connect) {
-                        return [
+                    middleware: function (connect, options, mw) {
+                        var expressions = [
+                            '^\/(.*)/$ /$1 [R]',
+                            '^\/([^#.?]+)(\\?.*)?$ /$2#$1 [R,L]'
+                        ];
+                        // https://www.npmjs.com/package/connect-modrewrite
+                        mw.push(require('connect-modrewrite')(expressions));
+                        for (var i = 0, l = options.base.length; i < l; i++) {
+                            mw.push(connect.static(options.base[i]));
+                        }
+                            
+                        return mw.concat([
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
                             mountFolder(connect, yeomanConfig.app)
-                        ];
+                        ]);
                     }
                 }
             },
             test: {
                 options: {
                     port: 9001,
-                    middleware: function (connect) {
-                        return [
+                    middleware: function (connect, options, mw) {
+                        var expressions = [
+                            '^\/(.*)/$ /$1 [R]',
+                            '^\/([^#.?]+)(\\?.*)?$ /$2#$1 [R,L]'
+                        ];
+                        // https://www.npmjs.com/package/connect-modrewrite
+                        mw.push(require('connect-modrewrite')(expressions));
+                        for (var i = 0, l = options.base.length; i < l; i++) {
+                            mw.push(connect.static(options.base[i]));
+                        }
+                            
+                        return mw.concat([
                             mountFolder(connect, 'test'),
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
                             mountFolder(connect, yeomanConfig.app)
-                        ];
+                        ]);
                     }
                 }
             },
             dist: {
                 options: {
-                    middleware: function (connect) {
-                        return [
-                            mountFolder(connect, yeomanConfig.dist)
+                    middleware: function (connect, options, mw) {
+                        var expressions = [
+                            '^\/(.*)/$ /$1 [R]',
+                            '^\/([^#.?]+)(\\?.*)?$ /$2#$1 [R,L]'
                         ];
+                        // https://www.npmjs.com/package/connect-modrewrite
+                        mw.push(require('connect-modrewrite')(expressions));
+                        for (var i = 0, l = options.base.length; i < l; i++) {
+                            mw.push(connect.static(options.base[i]));
+                        }
+                            
+                        return mw.concat([
+                            mountFolder(connect, yeomanConfig.dist)
+                        ]);
                     }
                 }
             }
