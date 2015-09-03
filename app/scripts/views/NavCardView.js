@@ -30,14 +30,14 @@ OER.Views = OER.Views || {};
         },
         
         toggleCurrent: function(){
-            this.model.toggleCurrent();
+            if(!this.model.get('current'))
+                this.model.toggleCurrent();
         },
-        
         
         onCurrentChange: function(){
             if(this.model.get('current')){
                 this.$el.addClass("current");
-            } else {               
+            } else {
                 this.$el.removeClass("current");
                 if(!this.model.get('visited'))
                     this.setVisited();

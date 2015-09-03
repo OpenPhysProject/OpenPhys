@@ -9,6 +9,20 @@ OER.Collections = OER.Collections || {};
         
         model: OER.Models.NavCardCollection,
         
+        initialize: function() {
+            this.lastCurrent = null;
+            this.on( "change:current", this.setLastCurrent, this);
+        },
+        
+        setLastCurrent: function(model) {
+            if(model.get('current')){
+                if (this.lastCurrent) {
+                    this.lastCurrent.toggleCurrent();
+                }
+                    this.lastCurrent = model;
+            }
+        },
+        
         // Filter down the list of all the visited card are finished.
         visited: function () {
             return this.where({visited: true});
