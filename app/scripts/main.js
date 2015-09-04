@@ -12,6 +12,7 @@
     p.Routers = {};
     
     p.homeView = null;
+    p.outroTile = null;
     p.RLOBaseView = null;
     p.loader = null;
     
@@ -21,6 +22,7 @@
         this.loader = new scope.Loader();
         this.loader.hide();
         this.homeView = $(".rlo-list");
+        this.outroTile = $(".outro-tile", this.homeView);
                 
         this.loadData();
         this.createTileView();
@@ -77,7 +79,7 @@
         var v;
         for (var i = 0, l = this.RLOs.length; i < l; i++ ) {
             v = new scope.Views.RLOTileView({model:this.RLOs.at(i)});
-            this.homeView.append(v.el);
+            this.outroTile.before(v.el);
         }
     };
     
