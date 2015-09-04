@@ -6,7 +6,8 @@
     "jquery": "~2.1.0",
     "lodash": "~2.4.1",
     "backbone": "~1.1.0",
-    "modernizr": "~2.7.1"
+    "modernizr": "~2.7.1",
+    "fastclick": "~1.0.6"
   },
   "devDependencies": {
     "chai": "~3.2.0",

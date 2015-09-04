@@ -115,5 +115,7 @@
 $(document).ready(function () {
     'use strict';
     
+    $(function() {FastClick.attach(document.body);});
+    
     var app = new OER.Application();
 });
