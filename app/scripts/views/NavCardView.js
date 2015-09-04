@@ -7,8 +7,8 @@ OER.Views = OER.Views || {};
 
     OER.Views.NavCardView = Backbone.View.extend({
         
-        template: JST['app/scripts/templates/NavCardView.ejs'],
-        
+        templateWithContent: JST['app/scripts/templates/NavCardView.ejs'],
+        templateEmpty: JST['app/scripts/templates/NavCardViewEmpty.ejs'],
         
         events: {
             'click': 'toggleCurrent'
@@ -18,11 +18,14 @@ OER.Views = OER.Views || {};
             this.listenTo(this.model, 'change:current', this.onCurrentChange);
             this.render();
         },
-        
         render: function () {
-            this.setElement(this.template(this.model.toJSON()));
+            if(this.model.get('title')){
+                 this.setElement(this.templateWithContent(this.model.toJSON()));
+            }
+            else{
+                 this.setElement(this.templateEmpty(this.model.toJSON()));
+            }
         },
-        
         // set the "visited" state of the model.
         setVisited: function () {
             this.model.setVisited();
