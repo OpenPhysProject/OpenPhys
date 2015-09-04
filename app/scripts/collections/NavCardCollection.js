@@ -7,7 +7,7 @@ OER.Collections = OER.Collections || {};
 
     OER.Collections.NavCardCollection = Backbone.Collection.extend({
         
-        model: OER.Models.NavCardCollection,
+        model: OER.Models.NavCardModel,
         
         initialize: function() {
             this.lastCurrent = null;
