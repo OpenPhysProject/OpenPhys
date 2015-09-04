@@ -24,9 +24,40 @@ OER.Models = OER.Models || {};
         // Initialize the model in JSON
         initialize: function() {
             //alert("Initialized");
+            if( !this.get('contentMap') ) {
+                this.set({
+                    contentMap: []
+                });
+            }
+            this.primaryPathIndex = null;
             return this;
         },
 
+        
+        setPrimaryPathIndex: function(index) {
+            this.primaryPathIndex = index;
+        },
+        
+        getPrimaryPathIndex: function() {
+            return this.primaryPathIndex;
+        },
+        
+        addContent: function( navCardCollection ) {
+            this.get('contentMap').push( navCardCollection ) ;
+        },
+        
+        getContentMap: function(){
+            return this.get('contentMap');
+        },
+        
+        getPrimaryContent: function() {
+            return this.get('contentMap')[this.primaryPathIndex];
+        },
+        
+        getContentByIndex: function(index){
+            return this.get('contentMap')[index];
+        },
+        
         validate: function(attrs, options) {
 
         },
