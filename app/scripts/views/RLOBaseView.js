@@ -26,8 +26,8 @@ OER.Views = OER.Views || {};
     
     p.setSubViews = function() {
         this.navView = new OER.Views.NavView({model:this.model});
-        this.$el.append(this.navView);
-        
+        this.$el.append(this.navView.el);
+
         this.updateContent("intro");    // OJR get first content name
     };
     
