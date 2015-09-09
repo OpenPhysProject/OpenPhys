@@ -40,7 +40,23 @@
         //placeholder data
         this.RLOs = new scope.Collections.RLOCollection();
         for (var i = 0; i < 12; i++) {
+            
             var m = new scope.Models.RLOModel({"title":"RLO" + (i+1), "info":""});
+            for(var j = 0; j < 3; j++){
+                var navCollection = new scope.Collections.NavCardCollection();
+                for(var l = 0; l < 4; l++){
+                     var navCard = null;
+                    if(j!==1 && l === j){
+                        navCard = new scope.Models.NavCardModel({});
+                    } else{
+                        navCard = new scope.Models.NavCardModel({"title":"NavCard " + "row " +(j) + "col " + (l)});
+                    }
+                    
+                    navCollection.add(navCard);
+                }
+                m.addContent(navCollection);
+            }
+            m.setPrimaryPathIndex(1);
             this.RLOs.add(m);
         }
     };
