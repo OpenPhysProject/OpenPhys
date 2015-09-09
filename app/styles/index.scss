@@ -1,0 +1,18 @@
+$icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+
+@import 'bootstrap-sass-official/assets/stylesheets/bootstrap.scss';
+
+// Settings (Imports do not compile CSS)
+@import "settings/breakpoint.scss";
+@import "settings/color.scss";
+@import "settings/font.scss";
+@import "settings/layout.scss";
+@import "settings/transition.scss";
+@import "settings/zindex.scss";
+
+// Space out content a bit
+body {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: $fontSize-root;
+}
