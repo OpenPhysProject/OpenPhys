@@ -21,3 +21,9 @@ $color_gray-darkest: 	rgba(16, 16, 16, 1);
 Whites
 *******************************************/
 $color_white-default: 	rgba(255, 255, 255, 1);
+
+/******************************************
+Specific
+******************************************/
+$color_background_transparent:  rgba(0, 0, 0, 0.1);
+$color_ui:                      $color_gray-darker;

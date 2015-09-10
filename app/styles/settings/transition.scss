@@ -8,6 +8,7 @@ TRANSITION SETTINGS
 TIMING
 NOTE js equivalents in /scripts/Core/Settings.js must be kept in sync and converted to ms
 *******************************************/
+$duration-loop:         1.2s;
 $duration-long: 	.5s;
 $duration-default: 	.3s;
 $duration-short: 	.1s;
@@ -16,4 +17,5 @@ $duration-short: 	.1s;
 EASING
 *******************************************/
 $ease-snappy: 		cubic-bezier(.22, .88, .01, .99);
+$ease-animation:        ease-in-out;
 // $ease-out-bounce: 	cubic-bezier(.11, .99, .5, 1.1);
