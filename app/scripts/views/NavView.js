@@ -10,14 +10,26 @@ OER.Views = OER.Views || {};
         events: {},
 
         initialize: function () {
-            this.primaryPathIndex = this.model.getPrimaryPathIndex();
-            this.contentMap = this.model.getContentMap();
+            /* Integer
+             * indicate which nav collection is the primary path
+             */
+            this.primaryPathIndex = null;
+            /* Array
+             * contains nav card collections.
+             */
+            this.contentMap = [];
+            this.loadContentMap();
             this.render();
             this.setNavCardViews();
         },
 
         render: function () {
             this.setElement(this.template(this.model.toJSON()));
+        },
+        
+        loadContentMap: function(){
+            this.contentMap = this.model.getContentMap();
+            this.primaryPathIndex = this.model.getPrimaryPathIndex();
         },
         
         setNavCardViews: function() {

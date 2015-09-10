@@ -1,27 +1,30 @@
+
 .rlo-view-container{
     position: absolute;
     margin: 0 auto;
+    top: 0;
     left: 1px;
     right: 0;
 }
 
-$chartColors: #56c7fa, #f76540, #ffcb05, #62cd9f, #b67baa;
-
 @mixin aspect-ratio($ratio, $col-number,$row-number) {
     $padding: percentage(0.99/$ratio);
     $width: percentage(0.99/$col-number);
-    $intro-content-height: percentage(0.8/$row-number);
-    $title-margin-top: percentage(0.99/$col-number);
+    $intro-title-margin-top: percentage(0.99/$col-number);
     &>.rlo-tile {
         width: $width;
         padding-bottom: $padding;
-        &>.rlo-tile-intro-content{
-            height: $intro-content-height;
+        &>.rlo-tile-intro-title{
             width: $width;
+            margin-top: calc(#{$intro-title-margin-top} - 20rem);
+        }
+        &>.rlo-tile-intro-content{
+            width: $width;
+            margin-top: calc(#{$intro-title-margin-top} - 15rem);
         }
         &>.rlo-tile-title{
             width: $width;            
-            margin-top: calc(#{$title-margin-top} - 3em);
+            margin-top: calc(#{$intro-title-margin-top} - 3.5em);
         }
     }
 }
@@ -42,31 +45,31 @@ $chartColors: #56c7fa, #f76540, #ffcb05, #62cd9f, #b67baa;
         }
         &>.rlo-tile-intro-title{
             position: absolute;
-            padding: 10px;
+            padding-left: $padding-small;
             overflow: auto;
             font-size: large;
         }
         &>.rlo-tile-intro-content{
             position: absolute;
-            padding-left: 10px;
-            margin-top: 35px;
+            height: 15rem;
+            padding-left: $padding-small;
             overflow: auto;
         }
         &>.rlo-tile-preview{
             position: absolute;
-            padding: 10px;
+            padding: $padding-small;
         }
         &>.rlo-tile-title{
             position: absolute;
             background: rgba(0, 0, 0, 0.75);
             color: white;
-            height: 3em;
-            padding: 15px;
+            height: 3.5em;
+            padding: 18px;
             font: 15px Sans-Serif;
         }
         &>.rlo-tile-info{
             position: absolute;
-            padding-left: 10px;
+            padding-left: $padding-small;
             margin-top: 35px;
         }
     }
@@ -74,61 +77,61 @@ $chartColors: #56c7fa, #f76540, #ffcb05, #62cd9f, #b67baa;
         display: none;
     }
 }
+/* Large View */
+@media screen and (max-width: 960px) {
+    .rlo-list {
+        @include aspect-ratio(2,2,7);
+    }
+}
+/* Small view */
+@media screen and (max-width: 580px) {
+    .rlo-list {
+        @include aspect-ratio(1,1,14);
+    }
+}
 
-
-@media screen and (max-width: 640px) {
+/*Tablets Landscape */
+@media screen and (min-device-width: $bp_width_small) 
+and (max-device-width: $bp_width_medium) 
+and (orientation: landscape)  {
+    .rlo-list {
+        @include aspect-ratio(3,3,5);
+    }
+}
+/* Tablets Portrait */
+@media screen and (min-device-width: $bp_width_small) 
+and (max-device-width: $bp_width_medium) 
+and (orientation: portrait)  {
     .rlo-list {
         @include aspect-ratio(2,2,7);
     }
 }
 
-@media screen and (max-width: 480px) {
-    .rlo-list {
-        @include aspect-ratio(1,1,13);
-    }
-}
-/*Tablets Landscape */
-@media screen and (min-device-width: 768px) 
-               and (max-device-width: 1024px) 
-               and (orientation: landscape)  {
-    .rlo-list {
-        @include aspect-ratio(3,3,5);
-    }
-}
-/*Tablets Portrait */
-@media screen and (min-device-width: 768px) 
-               and (max-device-width: 1024px) 
-               and (orientation: portrait)  {
-    .rlo-list {
-        @include aspect-ratio(1,1,13);
-    }
-}
-
-/*Mobile Phones Portrait */
+/* Mobile Phones Portrait */
 @media screen and (max-device-width: 640px) 
-               and (orientation: portrait){
+and (orientation: portrait){
     .rlo-list {
-        @include aspect-ratio(1,1,13);
+        @include aspect-ratio(1,1,14);
     }
 }
 
 /* Mobile Phones Landscape */
 @media screen and (max-device-width: 640px) 
-               and (orientation: landscape){
+and (orientation: landscape){
     .rlo-list {
         @include aspect-ratio(2,2,7);
     }
 }
 /* Mobile Phones portrait */
 @media screen and (max-device-width: 480px) 
-               and (orientation: portrait){
+and (orientation: portrait){
     .rlo-list {
-        @include aspect-ratio(1,1,13);
+        @include aspect-ratio(1,1,14);
     }
 }
 /* Mobile Phones Landscape */
 @media screen and (max-device-width: 480px) 
-               and (orientation: landscape){
+and (orientation: landscape){
     .rlo-list {
         @include aspect-ratio(2,2,7);
     }
