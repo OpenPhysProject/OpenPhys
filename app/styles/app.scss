@@ -10,13 +10,6 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstr
 @import "settings/transition.scss";
 @import "settings/zindex.scss";
 
-// Space out content a bit
-body {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    font-size: $fontSize-root;
-}
-
 //elements
 @import "logo.scss";
 
@@ -24,5 +17,6 @@ body {
 @import "controls/loader.scss";
 
 // Views
+@import "views/index.scss";
 @import "views/RLOTileView.scss";
 @import "views/RLOBaseView.scss";
