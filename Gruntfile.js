@@ -33,7 +33,7 @@ module.exports = function (grunt) {
                 livereload: LIVERELOAD_PORT
             },
             sass: {
-                files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}'],
+                files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['sass:server']
             },
             livereload: {
@@ -43,7 +43,7 @@ module.exports = function (grunt) {
                 files: [
                     '<%= yeoman.app %>/*.html',
                     //'{.tmp,<%= yeoman.app %>/styles/{,*/}*.{scss,sass}',
-                    '{.tmp,<%= yeoman.app %>}/styles/**/*.css',
+                    '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
                     '<%= yeoman.app %>/scripts/templates/*.{ejs,mustache,hbs}',
@@ -202,7 +202,7 @@ module.exports = function (grunt) {
             files: [{
               expand: true,
               cwd: '<%= yeoman.app %>/styles',
-              src: ['**/*.{scss,sass}'],
+              src: ['*.{scss,sass}'],
               dest: '.tmp/styles',
               ext: '.css'
             }]
@@ -211,7 +211,7 @@ module.exports = function (grunt) {
             files: [{
               expand: true,
               cwd: '<%= yeoman.app %>/styles',
-              src: ['**/*.{scss,sass}'],
+              src: ['*.{scss,sass}'],
               dest: '.tmp/styles',
               ext: '.css'
             }]
@@ -231,7 +231,7 @@ module.exports = function (grunt) {
         },
         usemin: {
             html: ['<%= yeoman.dist %>/{,*/}*.html'],
-            css: ['<%= yeoman.dist %>/styles/**/*.css'],
+            css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
             options: {
                 basedir: '<%= yeoman.app %>',
                 dirs: ['<%= yeoman.app %>','<%= yeoman.dist %>']
@@ -321,10 +321,10 @@ module.exports = function (grunt) {
         }
     });
 
-    //grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-compass');
 
-    //grunt.registerTask('build',['compass:prod']);
-    //grunt.registerTask('default',['watch']);
+    grunt.registerTask('build',['compass:prod']);
+    grunt.registerTask('default',['watch']);
 
     grunt.registerTask('createDefaultTemplate', function () {
         grunt.file.write('.tmp/scripts/templates.js', 'this.JST = this.JST || {};');
