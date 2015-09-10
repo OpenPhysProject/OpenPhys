@@ -1,0 +1,10 @@
+.nav-view {
+    position: absolute;
+    margin: 0 auto;
+    left: 1rem;
+    right: 1rem;
+    
+    &.out {
+        display: none;
+    }
+}
