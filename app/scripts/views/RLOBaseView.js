@@ -65,7 +65,7 @@ OER.Views = OER.Views || {};
     };
     
     p.toggleNav = function () {
-        this.navView.toggle();
+        this.navView.toggleNav();
     };
     
     p.hide = function () {
