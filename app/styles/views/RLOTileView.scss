@@ -10,17 +10,32 @@
 @mixin aspect-ratio($ratio, $col-number,$row-number) {
     $padding: percentage(0.99/$ratio);
     $width: percentage(0.99/$col-number);
+    $intro-content-height: percentage(0.80/$row-number);
     $intro-title-margin-top: percentage(0.99/$col-number);
     &>.rlo-tile {
         width: $width;
         padding-bottom: $padding;
-        &>.rlo-tile-intro-title{
-            width: $width;
-            margin-top: calc(#{$intro-title-margin-top} - 20rem);
+        &.intro-tile{
+            &>.rlo-tile-intro-title{
+                width: $width;
+                margin-top: calc(#{$intro-title-margin-top} - 20rem);
+            }
+            &>.rlo-tile-intro-content{
+                width: $width;
+                height: 15rem;
+                margin-top: calc(#{$intro-title-margin-top} - 15rem);
+            }
         }
-        &>.rlo-tile-intro-content{
-            width: $width;
-            margin-top: calc(#{$intro-title-margin-top} - 15rem);
+        &.outro-tile{
+            &>.rlo-tile-intro-title{
+                width: $width;
+                margin-top: 30px;
+            }
+            &>.rlo-tile-intro-content{
+                width: $width;
+                margin-top: 70px;
+                height: $intro-content-height;
+            }
         }
         &>.rlo-tile-title{
             width: $width;            
@@ -43,15 +58,16 @@
         &:nth-of-type(even) {
             background: #f76540;
         }
+
         &>.rlo-tile-intro-title{
             position: absolute;
             padding-left: $padding-small;
             overflow: auto;
             font-size: large;
         }
+
         &>.rlo-tile-intro-content{
             position: absolute;
-            height: 15rem;
             padding-left: $padding-small;
             overflow: auto;
         }
