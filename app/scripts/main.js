@@ -15,14 +15,15 @@
     p.outroTile = null;
     p.RLOBaseView = null;
     p.loader = null;
+    p.logo = null;
     
     p.RLOs = null;
     
     p.init = function () {
         this.loader = new scope.Loader();
-        this.loader.hide();
         this.homeView = $(".rlo-list");
         this.outroTile = $(".outro-tile", this.homeView);
+        this.logo = $(".logo");
                 
         this.loadData();
         this.createTileView();
@@ -32,6 +33,8 @@
         
         // todo start preloading assets with PreloadJS
         this.setUpRouter();
+        this.logo.click("click", this.handleLogoClick);
+        this.loader.hide();
     };
       
     p.loadData = function () {
@@ -126,6 +129,10 @@
         }
         
         this.RLOBaseView.show();
+    };
+    
+    p.handleLogoClick = function (){
+      scope.router.go();  
     };
     
     scope.Application = Application;
