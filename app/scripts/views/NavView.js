@@ -8,16 +8,17 @@ OER.Views = OER.Views || {};
         template: JST['app/scripts/templates/NavView.ejs'],
 
         events: {},
+        
+        /** Integer
+         * indicate which nav collection is the primary path
+         **/
+        primaryPathIndex: null,
+        /* Array
+         * contains nav card collections.
+         */
+        contentMap: null,
 
         initialize: function () {
-            /* Integer
-             * indicate which nav collection is the primary path
-             */
-            this.primaryPathIndex = null;
-            /* Array
-             * contains nav card collections.
-             */
-            this.contentMap = [];
             this.loadContentMap();
             this.render();
             this.setNavCardViews();
