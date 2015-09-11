@@ -1,58 +1,146 @@
+@mixin logo-ratio($ratio,$logo-show-state,$row-number) {
+    $logo-width: percentage($ratio*$row-number);
+
+    @if $logo-show-state == 0 {
+        //Show wordmark and tagline 
+        &>.logo-wordmark{
+            display: block;
+        }
+
+        &>.logo-tagline{
+            display: block;
+        }
+    } @else if $logo-show-state == 1 {
+        // Hide wordmark
+        &>.logo-wordmark{
+            display: block;
+        }
+        &>.logo-tagline{
+            display: none;
+        }
+
+    } @else if $logo-show-state == 2 {
+        // Hide wordmark and tagline 
+        &>.logo-wordmark{
+            display: none;
+        }
+        &>.logo-tagline{
+            display: none;
+        }
+
+    }
+    width:$logo-width;
+}
+
 /* Small view (default) */
 .logo {
-    width: 100px;
-    height: 100px;
-}
+    position: absolute;
+    z-index: $z-fg;
+    padding: 1rem;
+    /* Show the icon */
 
-/* Show the icon */
-.logo-icon{
-     display: block;
-}
-
-/* Hide wordmark and tagline */
-.logo-wordmark{
-     display: none;
-}
-
-.logo-tagline{
-     display: none;
-}
-
-
-/* 
-Medium view 
-Show the icon and wordmark only
-*/
-@media only screen and (min-width: 768px) {
-    .logo-wordmark{
-         display: block;
+    @include logo-ratio(0.025,0,5);
+    &>.logo-icon{
+        display: block;
     }
+}
 
-    .logo-tagline{
-         display: none;
-    }
-
+@media screen and (max-width: 1200px) {
     .logo {
-        width: 150px;
-        height: 150px;
+        @include logo-ratio(0.025,1,5);
     }
 }
 
-/* 
-Large view 
-Show the icon, wordmark and tagline
-*/
-@media only screen and (min-width: 960px) {
-    .logo-wordmark{
-         display: block;
-    }
-
-    .logo-tagline{
-         display: block;
-    }
-
+@media screen and (max-width: 1080px) {
     .logo {
-    	width: 200px;
-    	height: 200px;
+        @include logo-ratio(0.025,2,5);
+    }
+}
+
+/* Large View */
+@media screen and (max-width: 960px) {
+    .logo {
+        @include logo-ratio(0.028,0,7);
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .logo {
+        @include logo-ratio(0.028,1,7);
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .logo {
+        @include logo-ratio(0.03,2,7);
+    }
+}
+
+/* Small view */
+@media screen and (max-width: 600px) {
+    .logo {
+        @include logo-ratio(0.03,0,14);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo {
+        @include logo-ratio(0.03,1,14);
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .logo {
+        @include logo-ratio(0.03,2,14);
+    }
+}
+
+/*Tablets Landscape */
+@media screen and (min-device-width: $bp_width_small) 
+and (max-device-width: $bp_width_medium) 
+and (orientation: landscape)  {
+    .logo {
+        @include logo-ratio(0.03,2,5);
+    }
+}
+
+/* Tablets Portrait */
+@media screen and (min-device-width: $bp_width_small) 
+and (max-device-width: $bp_width_medium) 
+and (orientation: portrait)  {
+    .logo {
+        @include logo-ratio(0.03,2,7);
+    }
+}
+
+/* Mobile Phones Portrait */
+@media screen and (max-device-width: 640px) 
+and (orientation: portrait){
+    .logo {
+        @include logo-ratio(0.03,2,14);
+    }
+}
+
+/* Mobile Phones Landscape */
+@media screen and (max-device-width: 640px) 
+and (orientation: landscape){
+    .logo {
+        @include logo-ratio(0.03,2,7);
+    }
+}
+
+/* Mobile Phones portrait */
+@media screen and (max-device-width: 480px) 
+and (orientation: portrait){
+    .logo {
+        @include logo-ratio(0.03,2,14);
+    }
+}
+
+/* Mobile Phones Landscape */
+@media screen and (max-device-width: 480px) 
+and (orientation: landscape){
+    .logo {
+        @include logo-ratio(0.02,2,7);
     }
 }
