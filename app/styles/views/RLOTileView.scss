@@ -1,4 +1,5 @@
-
+$outro-margin-base: 30px;
+ 
 .rlo-view-container{
     position: absolute;
     margin: 0 auto;
@@ -10,7 +11,8 @@
 @mixin aspect-ratio($ratio, $col-number,$row-number) {
     $padding: percentage(0.99/$ratio);
     $width: percentage(0.99/$col-number);
-    $intro-content-height: percentage(0.80/$row-number);
+    $intro-content-height: percentage(0.79/$row-number);
+    $outro-content-height: percentage(0.82/$row-number);
     $intro-margin-top: percentage(0.99/$col-number);
     &>.rlo-tile {
         width: $width;
@@ -23,23 +25,23 @@
             &>.rlo-tile-intro-content{
                 width: $width;
                 height: 15rem;
-                margin-top: calc(#{$intro-margin-top} - 15rem);
+                margin-top: calc(#{$intro-margin-top} - 14rem);
             }
         }
         &.outro-tile{
             &>.rlo-tile-intro-title{
                 width: $width;
-                margin-top: 30px;
+                margin-top: $outro-margin-base;
             }
             &>.rlo-tile-intro-content{
                 width: $width;
-                margin-top: 70px;
-                height: $intro-content-height;
+                margin-top: $outro-margin-base*2;
+                height: $outro-content-height;
             }
         }
         &>.rlo-tile-title{
             width: $width;            
-            margin-top: calc(#{$intro-margin-top} - 3.5em);
+            margin-top: calc(#{$intro-margin-top} - 5rem);
         }
     }
 }
@@ -52,11 +54,11 @@
     &>.rlo-tile {
         margin: 1px 1px;
         &:nth-of-type(odd) {
-            background: #56c7fa;
+            background: $color_blue;
         }
 
         &:nth-of-type(even) {
-            background: #f76540;
+            background: $color_red;
         }
 
         &>.rlo-tile-intro-title{
@@ -64,7 +66,7 @@
             padding-left: $padding-small;
             padding-right: $padding-small;
             overflow: auto;
-            font-size: large;
+            font-size: $fontSize-large;
         }
 
         &>.rlo-tile-intro-content{
@@ -79,16 +81,16 @@
         }
         &>.rlo-tile-title{
             position: absolute;
-            background: rgba(0, 0, 0, 0.75);
+            background: $color_tile_background;
             color: white;
-            height: 3.5em;
-            padding: 18px;
-            font: 15px Sans-Serif;
+            height: 5rem;
+            padding: 1.5rem;
+            font-size: 1.5rem;
         }
         &>.rlo-tile-info{
             position: absolute;
             padding-left: $padding-small;
-            margin-top: 35px;
+            margin-top: 3rem;
         }
     }
     &.out {
@@ -96,13 +98,13 @@
     }
 }
 /* Large View */
-@media screen and (max-width: 960px) {
+@media screen and (max-width: $bp_width_col_two) {
     .rlo-list {
         @include aspect-ratio(2,2,7);
     }
 }
 /* Small view */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: $bp_width_col_one) {
     .rlo-list {
         @include aspect-ratio(1,1,14);
     }
@@ -126,7 +128,7 @@ and (orientation: portrait)  {
 }
 
 /* Mobile Phones Portrait */
-@media screen and (max-device-width: 640px) 
+@media screen and (max-device-width: $bp_width_medium_phone) 
 and (orientation: portrait){
     .rlo-list {
         @include aspect-ratio(1,1,14);
@@ -134,21 +136,21 @@ and (orientation: portrait){
 }
 
 /* Mobile Phones Landscape */
-@media screen and (max-device-width: 640px) 
+@media screen and (max-device-width: $bp_width_medium_phone) 
 and (orientation: landscape){
     .rlo-list {
         @include aspect-ratio(2,2,7);
     }
 }
 /* Mobile Phones portrait */
-@media screen and (max-device-width: 480px) 
+@media screen and (max-device-width: $bp_width_small_phone) 
 and (orientation: portrait){
     .rlo-list {
         @include aspect-ratio(1,1,14);
     }
 }
 /* Mobile Phones Landscape */
-@media screen and (max-device-width: 480px) 
+@media screen and (max-device-width: $bp_width_small_phone) 
 and (orientation: landscape){
     .rlo-list {
         @include aspect-ratio(2,2,7);
