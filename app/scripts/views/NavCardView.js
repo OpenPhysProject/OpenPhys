@@ -26,7 +26,7 @@ OER.Views = OER.Views || {};
         },
         // set the "visited" state of the model.
         setVisited: function () {
-            this.model.setVisited();
+            this.model.set("visited", true);
             this.$el.addClass('visited');
         },
         

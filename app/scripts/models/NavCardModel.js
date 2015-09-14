@@ -19,13 +19,6 @@ OER.Models = OER.Models || {};
             return this;
         },
         
-        // Toggle the `visited` state of this card item.
-        setVisited: function () {
-            this.set({
-                visited: true
-            });
-        },
-        
         toggleCurrent: function () {
             this.set({
                 current: !this.get('current')
