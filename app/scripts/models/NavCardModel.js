@@ -10,6 +10,7 @@ OER.Models = OER.Models || {};
         defaults: {
             title: '',
             image: '',
+            route: "",  // is both the url for route handling and the related viewname ie 200.1
             visited: false,
             current: false
         },

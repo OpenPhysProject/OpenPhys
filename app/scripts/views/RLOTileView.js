@@ -21,7 +21,7 @@ OER.Views = OER.Views || {};
         },
         
         handleClick: function() {
-            OER.router.go(this.model.get("title").toString());
+            OER.router.go(this.model.get("route").toString());
         }
 
     });

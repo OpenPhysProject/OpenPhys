@@ -59,6 +59,9 @@ OER.Views = OER.Views || {};
     };
     
     p.updateSubViews = function(targetView) {
+        var contentMap = this.model.get("contentMap");
+        // find NavCardModel for targetView
+        // update 
         // update data
         // refresh navView
         this.updateContent(targetView);  // OJR this might not be needed if this listens to data change
@@ -76,6 +79,14 @@ OER.Views = OER.Views || {};
     p.show = function () {
         this.$el.removeClass("out");
         this.$el.addClass("in");
+    };
+
+    p.showIntro = function () {
+        this.$el.removeClass("out");
+        this.$el.addClass("in");
+        // OJR show nav
+        // delay, then select first element of primary path
+        
     };
 
     OER.Views.RLOBaseView = Backbone.View.extend(p, s);

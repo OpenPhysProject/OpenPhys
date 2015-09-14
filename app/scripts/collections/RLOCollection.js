@@ -17,16 +17,13 @@ OER.Collections = OER.Collections || {};
         	return this.where({selected:false});
         },
 
-		// We keep the RLOModels in grid order.
-		nextOrder:function() {
-			return this.length ? this.last().get('order') + 1 : 1;
-		},
+        // We keep the RLOModels in grid order.
+        nextOrder:function() {
+                return this.length ? this.last().get('order') + 1 : 1;
+        },
 
-		// RLOModels are sorted by their original insertion order.
-		comparator: 'order'
-	});
-
-	// Create our global collection of **RLOCollection**
-	// OER.Collections = new OER.Collections.RLOCollection();
+        // RLOModels are sorted by their original insertion order.
+        comparator: 'order'
+    });
 
 })();

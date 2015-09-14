@@ -50,7 +50,7 @@
                 if (j !== 1 && l === j) {
                     navCard = new scope.Models.NavCardModel({});
                 } else {
-                    navCard = new scope.Models.NavCardModel({"title": "NavCard " + "row " + (j) + "col " + (l)});
+                    navCard = new scope.Models.NavCardModel({"title": "NavCard " + "row " + (j) + "col " + (l), "route": j.toString() + "00_" + l.toString()});
                 }
 
                 navCollection.add(navCard);
@@ -59,7 +59,7 @@
         }
         
         for (var i = 0; i < 12; i++) {
-            var m = new scope.Models.RLOModel({"title": "RLO" + (i + 1), "info": ""});
+            var m = new scope.Models.RLOModel({"title": "RLO" + (i + 1), "info": "", "route":"RLO"+(i+1).toString()});
             m.set("contentMap", contentMap);
             m.set("primaryPathIndex", 1);
             this.RLOs.add(m);
@@ -123,10 +123,12 @@
         this.RLOBaseView.updateModel(m);
         
         if(subView) {
-            this.RLOBaseView.updateSubView(subView);
+            this.RLOBaseView.updateSubViews(subView);
+            this.RLOBaseView.show();
+        } else {
+            this.RLOBaseView.showIntro();
         }
         
-        this.RLOBaseView.show();
     };
     
     p.handleLogoClick = function (){

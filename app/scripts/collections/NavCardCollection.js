@@ -1,5 +1,3 @@
-/*global OER, Backbone*/
-
 OER.Collections = OER.Collections || {};
 
 (function () {

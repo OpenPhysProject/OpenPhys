@@ -3,9 +3,9 @@ OER.Views = OER.Views || {};
 (function () {
     'use strict';
 
-    OER.Views.RLO1RLO103 = Backbone.View.extend({
+    OER.Views.RLO1_200_1 = Backbone.View.extend({
 
-        template: JST['app/scripts/templates/RLO1\RLO1_0_3.ejs'],
+        template: JST['app/scripts/templates/RLO1/RLO1_200_1.ejs'],
 
         events: {},
 

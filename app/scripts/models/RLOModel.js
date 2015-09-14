@@ -8,6 +8,7 @@ OER.Models = OER.Models || {};
         defaults: {
             title: '',
             preview: '',
+            route:"",
             selected: false,
             info: '',
             primaryPathIndex: null,
