@@ -7,8 +7,6 @@ OER.Models = OER.Models || {};
 
     OER.Models.NavCardModel = Backbone.Model.extend({
         
-        url: '',
-        
         defaults: {
             title: '',
             image: '',
@@ -31,15 +29,8 @@ OER.Models = OER.Models || {};
             this.set({
                 current: !this.get('current')
             });
-        },
-        
-        validate: function (attrs, options) {
-
-        },
-        
-        parse: function (response, options) {
-            return response;
         }
+        
     });
 
 })();

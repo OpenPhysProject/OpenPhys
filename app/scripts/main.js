@@ -57,13 +57,11 @@
             }
             contentMap.push(navCollection);
         }
+        
         for (var i = 0; i < 12; i++) {
-
             var m = new scope.Models.RLOModel({"title": "RLO" + (i + 1), "info": ""});
-            for(var j = 0; j < 3; j++){
-                m.addContent(contentMap[j]);
-            }
-            m.setPrimaryPathIndex(1);
+            m.set("contentMap", contentMap);
+            m.set("primaryPathIndex", 1);
             this.RLOs.add(m);
         }
     };

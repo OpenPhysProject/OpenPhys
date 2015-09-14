@@ -29,8 +29,8 @@ OER.Views = OER.Views || {};
         },
         
         loadContentMap: function(){
-            this.contentMap = this.model.getContentMap();
-            this.primaryPathIndex = this.model.getPrimaryPathIndex();
+            this.contentMap = this.model.get("contentMap");
+            this.primaryPathIndex = this.model.get("primaryPathIndex");
         },
         
         setNavCardViews: function() {
