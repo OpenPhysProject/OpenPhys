@@ -21,7 +21,7 @@
             margin-top: 10rem;
             
             transform: rotate(45deg);
-            animation: visitedAnimationFrames 0.8s;
+            animation: visitedAnimationFrames $duration-longer;
             animation-iteration-count: 1;
             transform-origin: 50% 50%;
 

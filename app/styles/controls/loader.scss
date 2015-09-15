@@ -34,16 +34,16 @@
         animation: stretchdelay $duration-loop infinite $ease-animation;
     }
     & .rect2 {
-        animation-delay: -1.1s;
+        animation-delay: $duration-delay-default - .1;
     }
     & .rect3 {
-        animation-delay: -1.0s;
+        animation-delay: $duration-delay-default;
     }
     & .rect4 {
-        animation-delay: -0.9s;
+        animation-delay: $duration-delay-default + .1;
     }
     & .rect5 {
-        animation-delay: -0.8s;
+        animation-delay: $duration-delay-default + .2;
     }
 }
 

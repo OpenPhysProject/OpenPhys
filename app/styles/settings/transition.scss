@@ -9,10 +9,14 @@ TIMING
 NOTE js equivalents in /scripts/Core/Settings.js must be kept in sync and converted to ms
 *******************************************/
 $duration-loop:         1.2s;
+$duration-longer: 	.8s;
+$duration-main-to-content: 0.7s;
 $duration-long: 	.5s;
 $duration-default: 	.3s;
+$duration_close_nav:    .25s;
 $duration-short: 	.1s;
 
+$duration-delay-default:    -1.0s;
 /*******************************************
 EASING
 *******************************************/
