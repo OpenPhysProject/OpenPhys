@@ -51,8 +51,11 @@ OER.Views = OER.Views || {};
                             newdiv.className += ' primary';
                         }
                     }
-                    navCardView = new OER.Views.NavCardView({model:this.contentMap[i].at(j)});
-                    navCardView.$el.on("click", this.handleCardClick.bind(this));    // add delay that matches animation
+                    var m = this.contentMap[i].at(j);
+                    navCardView = new OER.Views.NavCardView({model:m});
+                    if(m.get("title") != "" ) {
+                        navCardView.$el.on("click", this.handleCardClick.bind(this));
+                    }
                     $(newdiv).append(navCardView.el);
                 }
                 this.$el.append(newdiv);
