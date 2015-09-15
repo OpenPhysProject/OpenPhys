@@ -44,7 +44,8 @@ OER.Models = OER.Models || {};
          * update NavCardCollections to keep only one current NavCard accross all
          * @returns {undefined}
          */
-        handleCurrentChange: function(model) {
+        handleCurrentChange: function(model, value) {
+            if(!value) { return; }
             var navCardCollection = model.collection;
             if(navCardCollection.lastCurrent != null){
                 var c = this.get("lastCurrentCollection");

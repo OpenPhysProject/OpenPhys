@@ -13,10 +13,11 @@ OER.Views.RLO1 = OER.Views.RLO1 || {};
 
         initialize: function () {
             //this.listenTo(this.model, 'change', this.render);
+            this.render();
         },
 
         render: function () {
-            this.setElement(this.template(this.model.toJSON()));
+            this.setElement(this.template());
         }
 
     });

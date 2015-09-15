@@ -40,12 +40,12 @@ OER.Views = OER.Views || {};
             this.content = new OER.Views.DefaultContentView();  // OJR possibly better to redirect to intro
         }
         OER.router.noGo(RLOScope+"/"+targetView);   // change if we change default view handling
-        this.contentContainer.append(this.content);
+        this.contentContainer.append(this.content.el);
     };
  
     p.render = function() {
         this.setElement(this.template(this.model.toJSON()));
-        this.contentContainer = $("#rlo-base-content-container", this.$el);
+        this.contentContainer = $(".rlo-base-content-container", this.$el);
     };
     
     p.updateModel = function(newModel) {

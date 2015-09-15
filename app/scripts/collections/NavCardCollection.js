@@ -14,8 +14,8 @@ OER.Collections = OER.Collections || {};
             this.on( "change:current", this.setLastCurrent, this);
         },
         
-        setLastCurrent: function(model) {
-            if(model.get("current")){
+        setLastCurrent: function(model, value) {
+            if(value){
                 if (this.lastCurrent) {
                     this.lastCurrent.toggleCurrent();
                 }

@@ -9,10 +9,11 @@ OER.Views = OER.Views || {};
 
         initialize: function () {
             //this.listenTo(this.model, 'change', this.render);
+            this.render();
         },
 
         render: function () {
-            this.setElement(this.template(this.model.toJSON()));
+            this.setElement(this.template());
         }
 
     });
