@@ -47,11 +47,13 @@ OER.Models = OER.Models || {};
         handleCurrentChange: function(model) {
             var navCardCollection = model.collection;
             if(navCardCollection.lastCurrent != null){
-                if (this.lastCurrentCollection && this.lastCurrentCollection != navCardCollection) {
-                    this.lastCurrentCollection.removeCurrent();
+                var c = this.get("lastCurrentCollection");
+                if (c && c != navCardCollection) {
+                    c.removeCurrent();
                 }
-                this.lastCurrentCollection = navCardCollection;
+                this.set("lastCurrentCollection", navCardCollection);
             }
+            this.trigger("change:current",model);
         },
         
     });

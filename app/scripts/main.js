@@ -50,7 +50,9 @@
                 if (j !== 1 && l === j) {
                     navCard = new scope.Models.NavCardModel({});
                 } else {
-                    navCard = new scope.Models.NavCardModel({"title": "NavCard " + "row " + (j) + "col " + (l), "route": j.toString() + "00_" + l.toString()});
+                    navCard = new scope.Models.NavCardModel(
+                        {"title": "NavCard " + "row " + (j) + "col " + (l), "route": "L"+ j.toString() + "00_" + l.toString()}
+                    );
                 }
 
                 navCollection.add(navCard);

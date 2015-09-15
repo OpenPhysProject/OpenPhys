@@ -20,8 +20,6 @@ OER.Views = OER.Views || {};
     p.initialize = function(model) {
         this.model = model;
         this.render();
-        this.contentContainer = $("#rlo-base-content-container", this.$el);
-        this.setSubViews();
     };
     
     p.setSubViews = function() {
@@ -34,37 +32,51 @@ OER.Views = OER.Views || {};
     p.updateContent = function(targetView) {
         if (this.content) { this.content.remove(); }
         this.currentView = targetView;
+        var RLOScope = this.model.get("route");
         // check if view exists, which should always be the case in final release
-        if (OER.Views[this.currentView]) {
-            this.content = new OER.Views[this.currentView]();
+        if (OER.Views[RLOScope] && OER.Views[RLOScope][this.currentView]) {
+            this.content = new OER.Views[RLOScope][this.currentView]();
         } else {
-            this.content = new OER.Views.DefaultContentView();
+            this.content = new OER.Views.DefaultContentView();  // OJR possibly better to redirect to intro
         }
+        OER.router.noGo(RLOScope+"/"+targetView);   // change if we change default view handling
         this.contentContainer.append(this.content);
     };
  
     p.render = function() {
         this.setElement(this.template(this.model.toJSON()));
+        this.contentContainer = $("#rlo-base-content-container", this.$el);
     };
     
     p.updateModel = function(newModel) {
-      this.model = newModel;
-      this.content.remove();
-      this.navView.remove();
-      
-      //this.render();
-      // update current render
-      
-      this.setSubViews();
+        if (this.model) {
+            this.model.off();
+        }
+        if (this.content) {
+            this.content.remove();
+            this.navView.off();
+            this.navView.remove();
+        }
+        this.model = newModel;
+        this.model.on("change:current", this.handleCurrentChange, this);
+
+        //this.render();
+        // OJR update render, which requires reattaching el or altering existing dom
+
+        this.setSubViews();
     };
     
     p.updateSubViews = function(targetView) {
         var contentMap = this.model.get("contentMap");
-        // find NavCardModel for targetView
-        // update 
-        // update data
-        // refresh navView
-        this.updateContent(targetView);  // OJR this might not be needed if this listens to data change
+        var navCardModel;
+        for(var l = contentMap.length; l--; ) {
+            navCardModel = contentMap[l].findWhere({"route":targetView});
+            if(navCardModel) {
+                navCardModel.toggleCurrent();
+                break; 
+            }
+        }
+        //this.updateContent(targetView);  // OJR this is not be needed if this listens to data change
     };
     
     p.toggleNav = function () {
@@ -86,7 +98,12 @@ OER.Views = OER.Views || {};
         this.$el.addClass("in");
         // OJR show nav
         // delay, then select first element of primary path
-        
+    };
+    
+    p.handleCurrentChange = function(model) {
+        //var currentModel = this.model.get("lastCurrentCollection").findWhere({"current":true});
+        var targetView = model.get("route");
+        this.updateContent(targetView);
     };
 
     OER.Views.RLOBaseView = Backbone.View.extend(p, s);

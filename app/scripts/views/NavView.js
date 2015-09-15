@@ -9,14 +9,20 @@ OER.Views = OER.Views || {};
 
         events: {},
         
-        /** Integer
+        /** 
+         * Integer
          * indicate which nav collection is the primary path
          **/
         primaryPathIndex: null,
-        /* Array
+        /** 
+         * Array
          * contains nav card collections.
          */
         contentMap: null,
+        /**
+         * timeoutID used for setTimeout to allow animation time before close
+         */
+        closeTimeout: null,
 
         initialize: function () {
             this.loadContentMap();
@@ -46,10 +52,16 @@ OER.Views = OER.Views || {};
                         }
                     }
                     navCardView = new OER.Views.NavCardView({model:this.contentMap[i].at(j)});
+                    navCardView.on("click", this.handleCardClick);    // add delay that matches animation
                     $(newdiv).append(navCardView.el);
                 }
                 this.$el.append(newdiv);
             }
+        },
+        
+        handleCardClick: function() {
+            window.clearTimeout(this.closeTimeout);
+            this.closeTimeout = window.setTimeout(this.toggleNav, OER.settings.CLOSE_NAV);
         },
         
         toggleNav: function() {
