@@ -87,7 +87,8 @@ module.exports = function (grunt) {
             },
             livereload: {
                 options: {
-                    middleware: function (connect, options, mw) {
+                    middleware: function (connect, options) {
+                        var mw = [];
                         var expressions = [
                             '^\/(.*)/$ /$1 [R]',
                             '^\/([^#.?]+)(\\?.*)?$ /$2#$1 [R,L]'
@@ -97,7 +98,7 @@ module.exports = function (grunt) {
                         for (var i = 0, l = options.base.length; i < l; i++) {
                             mw.push(connect.static(options.base[i]));
                         }
-                            
+                        
                         return mw.concat([
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
@@ -109,7 +110,8 @@ module.exports = function (grunt) {
             test: {
                 options: {
                     port: 9001,
-                    middleware: function (connect, options, mw) {
+                    middleware: function (connect, options) {
+                        var mw = [];
                         var expressions = [
                             '^\/(.*)/$ /$1 [R]',
                             '^\/([^#.?]+)(\\?.*)?$ /$2#$1 [R,L]'
@@ -119,7 +121,7 @@ module.exports = function (grunt) {
                         for (var i = 0, l = options.base.length; i < l; i++) {
                             mw.push(connect.static(options.base[i]));
                         }
-                            
+
                         return mw.concat([
                             mountFolder(connect, 'test'),
                             lrSnippet,
@@ -131,7 +133,8 @@ module.exports = function (grunt) {
             },
             dist: {
                 options: {
-                    middleware: function (connect, options, mw) {
+                    middleware: function (connect, options) {
+                        var mw = [];
                         var expressions = [
                             '^\/(.*)/$ /$1 [R]',
                             '^\/([^#.?]+)(\\?.*)?$ /$2#$1 [R,L]'
@@ -141,10 +144,9 @@ module.exports = function (grunt) {
                         for (var i = 0, l = options.base.length; i < l; i++) {
                             mw.push(connect.static(options.base[i]));
                         }
+                        
                             
-                        return mw.concat([
-                            mountFolder(connect, yeomanConfig.dist)
-                        ]);
+                        return mw.push(mountFolder(connect, yeomanConfig.dist));
                     }
                 }
             }
