@@ -17,7 +17,7 @@ OER.Views = OER.Views || {};
             this.render();
         },
         render: function () {
-            if(this.model.get('title')){
+            if(this.model.get("title")){
                  this.setElement(this.templateWithContent(this.model.toJSON()));
             }
             else{
@@ -27,20 +27,19 @@ OER.Views = OER.Views || {};
         // set the "visited" state of the model.
         setVisited: function () {
             this.model.set("visited", true);
-            this.$el.addClass('visited');
+            this.$el.addClass("visited");
         },
-        
-        toggleCurrent: function(){
-            if(!this.model.get('current'))
+        toggleCurrent: function () {
+            if (!this.model.get("current")
+                    && this.model.get("title"))
                 this.model.toggleCurrent();
         },
-        
-        onCurrentChange: function(){
-            if(this.model.get('current')){
+        onCurrentChange: function () {
+            if (this.model.get("current")) {
                 this.$el.addClass("current");
             } else {
                 this.$el.removeClass("current");
-                if(!this.model.get('visited'))
+                if (!this.model.get("visited"))
                     this.setVisited();
             }
         }
