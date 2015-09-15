@@ -52,7 +52,7 @@ OER.Views = OER.Views || {};
                         }
                     }
                     navCardView = new OER.Views.NavCardView({model:this.contentMap[i].at(j)});
-                    navCardView.on("click", this.handleCardClick);    // add delay that matches animation
+                    navCardView.$el.on("click", this.handleCardClick.bind(this));    // add delay that matches animation
                     $(newdiv).append(navCardView.el);
                 }
                 this.$el.append(newdiv);
@@ -61,7 +61,7 @@ OER.Views = OER.Views || {};
         
         handleCardClick: function() {
             window.clearTimeout(this.closeTimeout);
-            this.closeTimeout = window.setTimeout(this.toggleNav, OER.settings.CLOSE_NAV);
+            this.closeTimeout = window.setTimeout(this.toggleNav.bind(this), OER.settings.CLOSE_NAV);
         },
         
         toggleNav: function() {
