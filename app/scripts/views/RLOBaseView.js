@@ -22,13 +22,6 @@ OER.Views = OER.Views || {};
         this.render();
     };
     
-    p.setSubViews = function() {
-        this.navView = new OER.Views.NavView({model:this.model});
-        this.$el.append(this.navView.el);
-
-        this.updateContent("intro");    // OJR get first content name
-    };
-    
     p.updateContent = function(targetView) {
         if (this.content) { this.content.remove(); }
         this.currentView = targetView;
@@ -63,7 +56,10 @@ OER.Views = OER.Views || {};
         //this.render();
         // OJR update render, which requires reattaching el or altering existing dom
 
-        this.setSubViews();
+        this.navView = new OER.Views.NavView({model:this.model});
+        this.$el.append(this.navView.el);
+        
+        //var defaultView = this.model.get("contentMap")[this.model.get("primaryPathIndex")].at(0).toggleCurrent();
     };
     
     p.updateSubViews = function(targetView) {
@@ -76,7 +72,6 @@ OER.Views = OER.Views || {};
                 break; 
             }
         }
-        //this.updateContent(targetView);  // OJR this is not be needed if this listens to data change
     };
     
     p.toggleNav = function () {
@@ -96,8 +91,12 @@ OER.Views = OER.Views || {};
     p.showIntro = function () {
         this.$el.removeClass("out");
         this.$el.addClass("in");
-        // OJR show nav
-        // delay, then select first element of primary path
+        this.navView.toggleNav();
+        var navView = this.navView; // for hoisting in timeout
+        var introModel = this.model.get("contentMap")[this.model.get("primaryPathIndex")].at(0);
+        setTimeout(function() {introModel.toggleCurrent();}, OER.settings.FIRST_SHOW);
+        setTimeout(function() {navView.toggleNav();}, OER.settings.FIRST_SHOW + OER.settings.CLOSE_NAV);
+        //var defaultView = this.model.get("contentMap")[this.model.get("primaryPathIndex")].at(0).toggleCurrent();
     };
     
     p.handleCurrentChange = function(model) {
