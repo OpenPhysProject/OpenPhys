@@ -7,7 +7,7 @@ OER.Collections = OER.Collections || {};
         
         model: OER.Models.NavCardModel,
         
-        lastCurrent: null,
+        lastCurrent: null,  // NavCardModel
         
         initialize: function() {
             this.lastCurrent = null;
@@ -17,7 +17,7 @@ OER.Collections = OER.Collections || {};
         setLastCurrent: function(model, value) {
             if(value){
                 if (this.lastCurrent) {
-                    this.lastCurrent.toggleCurrent();
+                    this.lastCurrent.set("current", false);
                 }
                 this.lastCurrent = model;
             }
@@ -29,7 +29,7 @@ OER.Collections = OER.Collections || {};
          */
         removeCurrent: function() {
             if (this.lastCurrent) {
-                this.lastCurrent.toggleCurrent();
+                this.lastCurrent.set("current", false);
             }
             this.lastCurrent = null;
         },

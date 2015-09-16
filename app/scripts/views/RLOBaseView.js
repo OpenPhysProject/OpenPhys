@@ -58,8 +58,6 @@ OER.Views = OER.Views || {};
 
         this.navView = new OER.Views.NavView({model:this.model});
         this.$el.append(this.navView.el);
-        
-        //var defaultView = this.model.get("contentMap")[this.model.get("primaryPathIndex")].at(0).toggleCurrent();
     };
     
     p.updateSubViews = function(targetView) {
@@ -68,7 +66,7 @@ OER.Views = OER.Views || {};
         for(var l = contentMap.length; l--; ) {
             navCardModel = contentMap[l].findWhere({"route":targetView});
             if(navCardModel) {
-                navCardModel.toggleCurrent();
+                navCardModel.set("current", true);
                 break; 
             }
         }
@@ -94,9 +92,8 @@ OER.Views = OER.Views || {};
         this.navView.toggleNav();
         var navView = this.navView; // for hoisting in timeout
         var introModel = this.model.get("contentMap")[this.model.get("primaryPathIndex")].at(0);
-        setTimeout(function() {introModel.toggleCurrent();}, OER.settings.FIRST_SHOW);
+        setTimeout(function() {introModel.set("current", true);}, OER.settings.FIRST_SHOW);
         setTimeout(function() {navView.toggleNav();}, OER.settings.FIRST_SHOW + OER.settings.CLOSE_NAV);
-        //var defaultView = this.model.get("contentMap")[this.model.get("primaryPathIndex")].at(0).toggleCurrent();
     };
     
     p.handleCurrentChange = function(model) {

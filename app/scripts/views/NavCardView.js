@@ -9,13 +9,20 @@ OER.Views = OER.Views || {};
         templateEmpty: JST['app/scripts/templates/NavCardViewEmpty.ejs'],
         
         events: {
-            'click': 'toggleCurrent'
+            'click': 'setCurrent'
         },
         
         initialize: function () {
             this.listenTo(this.model, 'change:current', this.onCurrentChange);
             this.render();
+            if (this.model.get("current")) {
+                this.$el.addClass("current");
+            } 
+            if (this.model.get("visited")) {
+                this.setVisited();
+            }
         },
+        
         render: function () {
             if(this.model.get("title")){
                  this.setElement(this.templateWithContent(this.model.toJSON()));
@@ -29,10 +36,9 @@ OER.Views = OER.Views || {};
             this.model.set("visited", true);
             this.$el.addClass("visited");
         },
-        toggleCurrent: function () {
-            if (!this.model.get("current")
-                    && this.model.get("title"))
-                this.model.toggleCurrent();
+        setCurrent: function () {
+            if (!this.model.get("current") && this.model.get("title"))
+                this.model.set("current", true);
         },
         onCurrentChange: function () {
             if (this.model.get("current")) {
