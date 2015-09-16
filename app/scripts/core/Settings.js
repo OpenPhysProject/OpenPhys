@@ -1,7 +1,3 @@
-
-
-
-
 (function (scope) {
     "use strict";
     // mirrored in styles/settings/transition.scss, must be kept in sync

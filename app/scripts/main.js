@@ -38,9 +38,8 @@
     };
       
     p.loadData = function () {
-        // todo load real data
-        
         //placeholder data
+        /*
         this.RLOs = new scope.Collections.RLOCollection();
         var contentMap = new Array();
         for (var j = 0; j < 3; j++) {
@@ -66,6 +65,25 @@
             m.set("primaryPathIndex", 1);
             this.RLOs.add(m);
         }
+        */
+       this.RLOs = new scope.Collections.RLOCollection();
+       var m = new scope.Models.RLOModel(OER.data.RLO1);
+       this.buildContentMap(m);
+       this.RLOs.add(m);
+    };
+    
+    /**
+     * converts contentMap data from arrays to NavCardCollections
+     * @param {RLOModel} RLOModel
+     */
+    // OJR consider building this into the init of RLOModel?
+    p.buildContentMap = function(RLOModel) {
+      var newMap = new Array();
+      var currentMap = RLOModel.get("contentMapData");
+      for (var l = currentMap.length; l--; ) {
+          newMap[l] = new scope.Collections.NavCardCollection(currentMap[l]);
+      }
+      RLOModel.set("contentMap", newMap);
     };
     
     p.setUpRouter = function () {
@@ -112,8 +130,8 @@
         this.homeView.addClass("in");
     };
     
-    p.showRLOView = function(rloTitle, subView) {
-        var m = this.RLOs.findWhere({title: rloTitle});
+    p.showRLOView = function(rloRoute, contentRoute) {
+        var m = this.RLOs.findWhere({route: rloRoute});
         if(!m) {
             scope.router.go("");
             return;
@@ -124,8 +142,8 @@
         
         this.RLOBaseView.updateModel(m);
         
-        if(subView) {
-            this.RLOBaseView.updateSubViews(subView);
+        if(contentRoute) {
+            this.RLOBaseView.updateSubViews(contentRoute);
             this.RLOBaseView.show();
         } else {
             this.RLOBaseView.showIntro();
