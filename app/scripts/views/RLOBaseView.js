@@ -8,10 +8,11 @@ OER.Views = OER.Views || {};
     
     p.template = JST['app/scripts/templates/RLOBaseView.ejs'];
     
-    p.navView = null;
-    p.content = null;
-    p.contentContainer = null;
-    p.currentView = "intro";
+    p.title = null;     // dom title div
+    p.navView = null;   // NavView
+    p.content = null;   // Content specific views, ie OER.Views.RLO1.L200_2
+    p.contentContainer = null;  // dom  div that holds content views
+    p.currentView = "";     // string   the name/route of the the current view
     
     p.events = {
         "click .rlo-base-menu-button":"toggleNav",
@@ -20,6 +21,8 @@ OER.Views = OER.Views || {};
     p.initialize = function(model) {
         this.model = model;
         this.render();
+        this.title = $(".rlo-base-title", this.$el);
+        this.contentContainer = $(".rlo-base-content-container", this.$el);
     };
     
     p.updateContent = function(targetView) {
@@ -38,7 +41,6 @@ OER.Views = OER.Views || {};
  
     p.render = function() {
         this.setElement(this.template(this.model.toJSON()));
-        this.contentContainer = $(".rlo-base-content-container", this.$el);
     };
     
     p.updateModel = function(newModel) {
@@ -52,8 +54,7 @@ OER.Views = OER.Views || {};
         this.model = newModel;
         this.model.on("change:current", this.handleCurrentChange, this);
 
-        //this.render();
-        // OJR update render, which requires reattaching el or altering existing dom
+        this.title.html(this.model.get("title"));
 
         this.navView = new OER.Views.NavView({model:this.model});
         this.$el.append(this.navView.el);
