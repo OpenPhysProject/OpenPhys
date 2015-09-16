@@ -128,6 +128,7 @@
         this.RLOBaseView.hide();
         this.homeView.removeClass("out");
         this.homeView.addClass("in");
+        this.logo.removeClass("mini");
     };
     
     p.showRLOView = function(rloRoute, contentRoute) {
@@ -149,6 +150,7 @@
             this.RLOBaseView.showIntro();
         }
         
+        this.logo.addClass("mini");
     };
     
     p.handleLogoClick = function (){
