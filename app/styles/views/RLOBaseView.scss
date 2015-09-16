@@ -1,3 +1,8 @@
+$menu-width-height: 5rem;
+$menu-bar-width-height:1.2rem;
+$menu-bar-gap: .2rem;
+$menu-gap: $color_gray-darker;
+
 @mixin animationSetting{
     animation-duration: $duration-long;
     animation-fill-mode: both; 
@@ -19,7 +24,7 @@
         text-align: center;
         margin-top: 10rem;
         font-size: $fontSize-large;
-        
+
     }
     &>.rlo-base-menu-button{
         position: absolute;
@@ -27,9 +32,9 @@
         right: 10%;
         cursor: pointer;
         position:fixed;
-        width: 5rem;
-        height: 5rem;
-        border: .5rem solid $color_red;
+        width: $menu-width-height;
+        height: $menu-width-height;
+        border: .5rem solid $menu-gap;
         transition: $duration-default $ease-animation;
 
         &:hover {
@@ -70,21 +75,21 @@
             display: inline-block;
             height: 100%;
             width: 100%;
-            background: $color_red;
+            background: $menu-gap;
             transition: $duration-default $ease-animation;
 
             &>.menu-bar1{
                 position: absolute;
                 height: 100%;
-                width: 1.2rem;
+                width: $menu-bar-width-height;
                 background: $color_blue;
                 @include animationSetting;
             }
             &>.menu-bar2{
                 position: absolute;
                 height: 100%;
-                left: 1.4rem;
-                width: 1.2rem;
+                left: $menu-bar-width-height + $menu-bar-gap;
+                width: $menu-bar-width-height;
                 background: $color_blue;
                 @include animationSetting;
             }
@@ -92,24 +97,24 @@
                 position: absolute;
                 height: 100%;
                 right: 0;
-                width: 1.2rem;
+                width: $menu-bar-width-height;
                 background: $color_blue;
             }
             &>.menu-bar4{
                 position: absolute;
                 width: 100%;
-                height: .2rem;
-                top: 1.2rem;
+                height: $menu-bar-gap;
+                top: $menu-bar-width-height;
                 transition: $duration-default $ease-animation;
-                background: $color_red;
+                background: $menu-gap;
             }
             &>.menu-bar5{
                 position: absolute;
                 width: 100%;
-                height: .2rem;
-                bottom: 1.2rem;
+                height: $menu-bar-gap;
+                bottom: $menu-bar-width-height;
                 transition: $duration-default $ease-animation;
-                background: $color_red;
+                background: $menu-gap;
             }
         }
     }
