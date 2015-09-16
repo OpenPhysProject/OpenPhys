@@ -9,20 +9,10 @@ OER.Views = OER.Views || {};
 
         events: {},
         
-        /** 
-         * Integer
-         * indicate which nav collection is the primary path
-         **/
-        primaryPathIndex: null,
-        /** 
-         * Array
-         * contains nav card collections.
-         */
-        contentMap: null,
-        /**
-         * timeoutID used for setTimeout to allow animation time before close
-         */
-        closeTimeout: null,
+        primaryPathIndex: null, // int  indicate which nav collection is the primary path
+        contentMap: null,       // array     contains nav card collections
+        closeTimeout: null,     // timeoutID used for setTimeout to allow animation time before close
+        navcardViews: null,     // array of NavCardView, used to properly cleanup
 
         initialize: function () {
             this.loadContentMap();
@@ -40,6 +30,7 @@ OER.Views = OER.Views || {};
         },
         
         setNavCardViews: function() {
+            this.navCardViews = [];
             var navCardView = null;
             var newdiv = null;
             for (var i = 0, l = this.contentMap.length; i < l; i++ ) {
@@ -57,6 +48,7 @@ OER.Views = OER.Views || {};
                         navCardView.$el.on("click", this.handleCardClick.bind(this));
                     }
                     $(newdiv).append(navCardView.el);
+                    this.navCardViews.push(navCardView);
                 }
                 this.$el.append(newdiv);
             }
@@ -70,6 +62,13 @@ OER.Views = OER.Views || {};
         toggleNav: function() {
             this.$el.toggleClass("out");
             this.$el.toggleClass("in");
+        },
+        
+        destroy: function() {
+            for(var l = this.navCardViews.length; l--; ) {
+                this.navCardViews[l].remove();
+            }
+            this.remove();
         }
 
     });

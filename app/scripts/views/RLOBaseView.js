@@ -47,8 +47,7 @@ OER.Views = OER.Views || {};
         }
         if (this.content) {
             this.content.remove();
-            this.navView.off();
-            this.navView.remove();
+            this.navView.destroy();
         }
         this.model = newModel;
         this.model.on("change:current", this.handleCurrentChange, this);
