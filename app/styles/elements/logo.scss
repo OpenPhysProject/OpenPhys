@@ -1,5 +1,5 @@
-@mixin logo-ratio($ratio,$logo-show-state,$row-number) {
-    $logo-width: percentage($ratio*$row-number);
+@mixin logo-ratio($ratio,$logo-show-state) {
+    $logo-width: percentage($ratio);
 
     @if $logo-show-state == 0 {
         //Show wordmark and tagline 
@@ -34,67 +34,77 @@
 
 /* Small view (default) */
 .logo {
-    position: absolute;
+    position: fixed;
     z-index: $z-fg;
+    top: 1rem;
     padding: 1rem;
     /* Show the icon */
 
-    @include logo-ratio(0.025,0,5);
+    @include logo-ratio(0.125,0);
     &>.logo-icon{
         display: block;
     }
     &.mini {
-       @include logo-ratio(0.25,2,1);
+        @include logo-ratio(0.125,2);
     }
 }
 
 @media screen and (max-width: 1200px) {
     .logo {
-        @include logo-ratio(0.025,1,5);
+        @include logo-ratio(0.125,1);
     }
 }
 
 @media screen and (max-width: 1080px) {
     .logo {
-        @include logo-ratio(0.025,2,5);
+        @include logo-ratio(0.125,2);
     }
 }
 
 /* Large View */
 @media screen and (max-width: $bp_width_col_two) {
     .logo {
-        @include logo-ratio(0.028,0,7);
+        @include logo-ratio(0.196,0);
+        &.mini {
+            @include logo-ratio(0.196,2);
+        }
     }
 }
 
 @media screen and (max-width: 850px) {
     .logo {
-        @include logo-ratio(0.028,1,7);
+        @include logo-ratio(0.196,1);
     }
 }
 
 @media screen and (max-width: 790px) {
     .logo {
-        @include logo-ratio(0.03,2,7);
+        @include logo-ratio(0.21,2);
+        &.mini {
+            @include logo-ratio(0.21,2);
+        }
     }
 }
 
 /* Small view */
 @media screen and (max-width: $bp_width_col_one) {
     .logo {
-        @include logo-ratio(0.03,0,14);
+        @include logo-ratio(0.42,0);
+        &.mini {
+            @include logo-ratio(0.42,2);
+        }
     }
 }
 
 @media screen and (max-width: 480px) {
     .logo {
-        @include logo-ratio(0.03,1,14);
+        @include logo-ratio(0.42,1);
     }
 }
 
 @media screen and (max-width: 400px) {
     .logo {
-        @include logo-ratio(0.03,2,14);
+        @include logo-ratio(0.42,2);
     }
 }
 
@@ -103,7 +113,10 @@
 and (max-device-width: $bp_width_medium) 
 and (orientation: landscape)  {
     .logo {
-        @include logo-ratio(0.03,2,5);
+        @include logo-ratio(0.15,2);
+        &.mini {
+            @include logo-ratio(0.15,2);
+        }
     }
 }
 
@@ -112,7 +125,10 @@ and (orientation: landscape)  {
 and (max-device-width: $bp_width_medium) 
 and (orientation: portrait)  {
     .logo {
-        @include logo-ratio(0.03,2,7);
+        @include logo-ratio(0.21,2);
+        &.mini {
+            @include logo-ratio(0.21,2);
+        }
     }
 }
 
@@ -120,7 +136,10 @@ and (orientation: portrait)  {
 @media screen and (max-device-width: $bp_width_medium_phone) 
 and (orientation: portrait){
     .logo {
-        @include logo-ratio(0.03,2,14);
+        @include logo-ratio(0.42,2);
+        &.mini {
+            @include logo-ratio(0.21,2);
+        }
     }
 }
 
@@ -128,7 +147,10 @@ and (orientation: portrait){
 @media screen and (max-device-width: $bp_width_medium_phone) 
 and (orientation: landscape){
     .logo {
-        @include logo-ratio(0.03,2,7);
+        @include logo-ratio(0.21,2);
+        &.mini {
+            @include logo-ratio(0.21,2);
+        }
     }
 }
 
@@ -136,7 +158,10 @@ and (orientation: landscape){
 @media screen and (max-device-width: $bp_width_small_phone) 
 and (orientation: portrait){
     .logo {
-        @include logo-ratio(0.03,2,14);
+        @include logo-ratio(0.42,2);
+        &.mini {
+            @include logo-ratio(0.42,2);
+        }
     }
 }
 
@@ -144,6 +169,9 @@ and (orientation: portrait){
 @media screen and (max-device-width: $bp_width_small_phone) 
 and (orientation: landscape){
     .logo {
-        @include logo-ratio(0.02,2,7);
+        @include logo-ratio(0.14,2);
+        &.mini {
+            @include logo-ratio(0.14,2);
+        }
     }
 }
