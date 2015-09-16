@@ -1,10 +1,133 @@
+@mixin animationSetting{
+    animation-duration: $duration-long;
+    animation-fill-mode: both; 
+    animation-timing-function: $ease-animation;
+}
+
 .rlo-base-view {
-    position: absolute;
+    position: fixed;
     margin: 0 auto;
-    left: 1px;
+    left: 0;
     right: 0;
-    
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll;
+    background: $color_blue;
+    &> .rlo-base-title {
+
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 10rem;
+        font-size: $fontSize-large;
+        
+    }
+    &>.rlo-base-menu-button{
+        position: absolute;
+        top: 2rem;
+        right: 10%;
+        cursor: pointer;
+        position:fixed;
+        width: 5rem;
+        height: 5rem;
+        border: .5rem solid $color_red;
+        transition: $duration-default $ease-animation;
+
+        &:hover {
+            border-color: $color_white-default;
+            &>.menu-bar{
+                background: $color_white-default;
+                &>.menu-bar4,.menu-bar5{
+                    background: $color_white-default;
+                }
+            }
+        }
+
+        &.active {
+            transform: rotate(-225deg);
+            &>.menu-bar{
+                &>.menu-bar1{
+                    left: 1.4rem;
+                    transform: rotate(90deg);
+                    animation-name: fadeIn; 
+                }
+                &>.menu-bar2{
+                    animation-name: fadeIn; 
+                }
+                &>.menu-bar3{
+                    opacity: 0;
+                }
+                &>.menu-bar4{
+                    opacity: 0;
+                }
+                &>.menu-bar5{
+                    opacity: 0;
+                }
+            }
+        }
+
+        &>.menu-bar{
+            position: absolute;
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            background: $color_red;
+            transition: $duration-default $ease-animation;
+
+            &>.menu-bar1{
+                position: absolute;
+                height: 100%;
+                width: 1.2rem;
+                background: $color_blue;
+                @include animationSetting;
+            }
+            &>.menu-bar2{
+                position: absolute;
+                height: 100%;
+                left: 1.4rem;
+                width: 1.2rem;
+                background: $color_blue;
+                @include animationSetting;
+            }
+            &>.menu-bar3{
+                position: absolute;
+                height: 100%;
+                right: 0;
+                width: 1.2rem;
+                background: $color_blue;
+            }
+            &>.menu-bar4{
+                position: absolute;
+                width: 100%;
+                height: .2rem;
+                top: 1.2rem;
+                transition: $duration-default $ease-animation;
+                background: $color_red;
+            }
+            &>.menu-bar5{
+                position: absolute;
+                width: 100%;
+                height: .2rem;
+                bottom: 1.2rem;
+                transition: $duration-default $ease-animation;
+                background: $color_red;
+            }
+        }
+    }
+    &>.rlo-base-content-container{
+        background: $color_red;
+        margin: auto;
+        width: 80%;
+        height: 80%;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+        padding: $padding-medium;
+    }
     &.out {
         display: none;
     }
 }
+
+@keyframes fadeIn { 
+    0% {opacity: 0;} 
+    100% {opacity: 1;} 
+} 
