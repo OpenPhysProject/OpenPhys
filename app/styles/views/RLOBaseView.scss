@@ -1,7 +1,7 @@
 $menu-width-height: 5rem;
 $menu-bar-width-height:1.2rem;
 $menu-bar-gap: .2rem;
-$menu-gap: $color_gray-darker;
+$color_menu-gap: $color_gray-darker;
 
 @mixin animationSetting{
     animation-duration: $duration-long;
@@ -19,12 +19,18 @@ $menu-gap: $color_gray-darker;
     height: calc(100% - 8rem);
     overflow: auto;
     background: $color_blue;
+
     &> .rlo-base-title {
-        margin: 0 auto;
+        position: fixed;
+        top: 0;
+        left: calc(10% + 13rem);
+        right: calc(13% + 5rem);
         margin-top: 2rem;
         text-align: center;
+        z-index: $z-fg;
         font-size: $fontSize-large;
     }
+
     &>.rlo-base-menu-bar{
         position: fixed;
         top: 0;
@@ -33,6 +39,7 @@ $menu-gap: $color_gray-darker;
         z-index: $z-mg;
         background: $color_white-default;
     }
+
     &>.rlo-base-menu-button{
         position: fixed;
         top: 1rem;
@@ -40,9 +47,9 @@ $menu-gap: $color_gray-darker;
         width: $menu-width-height;
         height: $menu-width-height;
         z-index: $z-fg;
-        background: $menu-gap;
+        background: $color_menu-gap;
         cursor: pointer;
-        border: .5rem solid $menu-gap;
+        border: .5rem solid $color_menu-gap;
         transition: $duration-default $ease-animation;
 
         &:hover {
@@ -102,7 +109,7 @@ $menu-gap: $color_gray-darker;
             height: $menu-bar-gap;
             top: $menu-bar-width-height;
             transition: $duration-default $ease-animation;
-            background: $menu-gap;
+            background: $color_menu-gap;
         }
         &>.menu-button5{
             position: absolute;
@@ -110,10 +117,31 @@ $menu-gap: $color_gray-darker;
             height: $menu-bar-gap;
             bottom: $menu-bar-width-height;
             transition: $duration-default $ease-animation;
-            background: $menu-gap;
+            background: $color_menu-gap;
         }
-
     }
+
+    &>.rlo-base-menu-separator{
+        display: none;
+        z-index: $z-fg;
+        position:fixed;
+        top: 8rem;
+        width:100%;
+        &>.rlo-base-menu-separator-mask {
+            overflow:hidden;
+            height:2rem; 
+            &:after { 
+                content:''; 
+                display:block; 
+                margin:-2.5rem auto 0;
+                width:100%; 
+                height:2.5rem;  
+                border-radius:125px / 12px;  
+                box-shadow:0 0 .8rem $color_gray-darkest;
+            }
+        }
+    }
+
     &>.rlo-base-content-container{
         margin: auto;
         margin-bottom: 2rem;
@@ -124,6 +152,7 @@ $menu-gap: $color_gray-darker;
         background: $color_red;
         overflow: auto;
     }
+
     &.out {
         display: none;
     }
@@ -133,3 +162,21 @@ $menu-gap: $color_gray-darker;
     0% {opacity: 0;} 
     100% {opacity: 1;} 
 } 
+
+@media screen and (max-width: $bp_width_small) {
+    .rlo-base-view {
+        top: 16rem;
+        height: calc(100% - 16rem);
+        &> .rlo-base-title {
+            top: 8rem;
+            left: 1rem;
+            right: 1rem;
+        }
+        &>.rlo-base-menu-bar{
+            height:16rem;
+        }
+        &>.rlo-base-menu-separator{
+            display: block;
+        }
+    }
+}
