@@ -14,6 +14,14 @@ OER.Views = OER.Views || {};
     p.contentContainer = null;  // dom  div that holds content views
     p.currentView = "";     // string   the name/route of the the current view
     
+    // nav
+    p.rowInContentMap = 0;
+    p.colInContentMap = 0;
+    p.navLeft = null;
+    p.navUp = null;
+    p.navDown = null;
+    p.navRight = null;
+    
     p.events = {
         "click .rlo-base-menu-button":"toggleNav",
     };
@@ -23,6 +31,10 @@ OER.Views = OER.Views || {};
         this.render();
         this.title = $(".rlo-base-title", this.$el);
         this.contentContainer = $(".rlo-base-content-container", this.$el);
+        this.navLeft = $(".ui-nav-left", this.$el);
+        this.navUp = $(".ui-nav-up", this.$el);
+        this.navDown = $(".ui-nav-down", this.$el);
+        this.navRight = $(".ui-nav-right", this.$el);
     };
     
     p.updateContent = function(targetView) {
@@ -37,6 +49,7 @@ OER.Views = OER.Views || {};
         }
         OER.router.noGo(RLOScope+"/"+targetView);   // change if we change default view handling
         this.contentContainer.append(this.content.el);
+        this.$el.scrollTop(0);
     };
  
     p.render = function() {
@@ -98,8 +111,55 @@ OER.Views = OER.Views || {};
     
     p.handleCurrentChange = function(model) {
         //var currentModel = this.model.get("lastCurrentCollection").findWhere({"current":true});
+        var contentMap = this.model.get("contentMap");
+        var currentNavCollection = this.model.get("lastCurrentCollection");
+        this.rowInContentMap = contentMap.indexOf(currentNavCollection);
+        this.colInContentMap = currentNavCollection.indexOf(model);
+        
+        this.navigateColumn(currentNavCollection, -1, 0, this.navLeft);
+        this.navigateColumn(currentNavCollection, 1, 0, this.navRight);
+        this.navigateRow(contentMap, -1, this.navUp);
+        this.navigateRow(contentMap, 1, this.navDown);
+       
         var targetView = model.get("route");
         this.updateContent(targetView);
+    };
+    
+    p.navigateColumn = function (navCollection, colChange, rowChange, navEl) {
+         if(navCollection.at(this.colInContentMap+colChange) && navCollection.at(this.colInContentMap+colChange).get("title")) {
+            if(navEl.hasClass("out")) {
+                navEl.on("click", {col:colChange, row:rowChange}, this.navigate.bind(this));
+                navEl.removeClass("out");
+                navEl.addClass("in");
+            }
+        } else {
+            this.navOut(navEl);
+        }       
+    };
+    
+    p.navigateRow = function (contentMap, rowChange, navEl) {
+        if(contentMap[this.rowInContentMap+rowChange]) {
+            var navCollection = contentMap[this.rowInContentMap+rowChange];
+            this.navigateColumn(navCollection, 0, rowChange, navEl);
+        } else {
+            this.navOut(navEl);
+        }
+    };
+    
+    p.navOut = function(navEl) {
+        navEl.off("click");
+        navEl.removeClass("in");
+        navEl.addClass("out");          
+    };
+    
+    p.navigate = function(event) {
+        var rowChange = event.data.row;
+        var colChange = event.data.col;
+        
+        // we don't need to check if it exists because we do that when adding click listener
+        var contentMap = this.model.get("contentMap");
+        var targetModel = contentMap[this.rowInContentMap+rowChange].at(this.colInContentMap+colChange);
+        targetModel.set("current", true);
     };
 
     OER.Views.RLOBaseView = Backbone.View.extend(p, s);
