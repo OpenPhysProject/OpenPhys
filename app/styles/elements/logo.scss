@@ -39,13 +39,25 @@
     top: 1rem;
     padding: 1rem;
     /* Show the icon */
+    transition-property: width;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
 
     @include logo-ratio(0.125,0);
     &>.logo-icon{
         display: block;
     }
     &.mini {
-        @include logo-ratio(0.125,2);
+        left:9%;
+        padding: 0rem;
+        width: 13rem;
+        &>.logo-wordmark{
+            display: none;
+        }
+        &>.logo-tagline{
+            display: none;
+        }
+
     }
 }
 
@@ -65,9 +77,6 @@
 @media screen and (max-width: $bp_width_col_two) {
     .logo {
         @include logo-ratio(0.196,0);
-        &.mini {
-            @include logo-ratio(0.196,2);
-        }
     }
 }
 
@@ -80,9 +89,6 @@
 @media screen and (max-width: 790px) {
     .logo {
         @include logo-ratio(0.21,2);
-        &.mini {
-            @include logo-ratio(0.21,2);
-        }
     }
 }
 
@@ -90,9 +96,6 @@
 @media screen and (max-width: $bp_width_col_one) {
     .logo {
         @include logo-ratio(0.42,0);
-        &.mini {
-            @include logo-ratio(0.42,2);
-        }
     }
 }
 
@@ -114,9 +117,6 @@ and (max-device-width: $bp_width_medium)
 and (orientation: landscape)  {
     .logo {
         @include logo-ratio(0.15,2);
-        &.mini {
-            @include logo-ratio(0.15,2);
-        }
     }
 }
 
@@ -126,9 +126,6 @@ and (max-device-width: $bp_width_medium)
 and (orientation: portrait)  {
     .logo {
         @include logo-ratio(0.21,2);
-        &.mini {
-            @include logo-ratio(0.21,2);
-        }
     }
 }
 
@@ -137,9 +134,6 @@ and (orientation: portrait)  {
 and (orientation: portrait){
     .logo {
         @include logo-ratio(0.42,2);
-        &.mini {
-            @include logo-ratio(0.21,2);
-        }
     }
 }
 
@@ -148,9 +142,6 @@ and (orientation: portrait){
 and (orientation: landscape){
     .logo {
         @include logo-ratio(0.21,2);
-        &.mini {
-            @include logo-ratio(0.21,2);
-        }
     }
 }
 
@@ -159,9 +150,6 @@ and (orientation: landscape){
 and (orientation: portrait){
     .logo {
         @include logo-ratio(0.42,2);
-        &.mini {
-            @include logo-ratio(0.42,2);
-        }
     }
 }
 
@@ -170,8 +158,5 @@ and (orientation: portrait){
 and (orientation: landscape){
     .logo {
         @include logo-ratio(0.14,2);
-        &.mini {
-            @include logo-ratio(0.14,2);
-        }
     }
 }

@@ -12,120 +12,117 @@ $menu-gap: $color_gray-darker;
 .rlo-base-view {
     position: fixed;
     margin: 0 auto;
+    top: 8rem;
     left: 0;
     right: 0;
     width: 100%;
-    height: 100%;
-    overflow-x: scroll;
+    height: calc(100% - 8rem);
+    overflow: auto;
     background: $color_blue;
     &> .rlo-base-title {
-
         margin: 0 auto;
+        margin-top: 2rem;
         text-align: center;
-        margin-top: 10rem;
         font-size: $fontSize-large;
-
+    }
+    &>.rlo-base-menu-bar{
+        position: fixed;
+        top: 0;
+        width:100%;
+        height:8rem;
+        z-index: $z-mg;
+        background: $color_white-default;
     }
     &>.rlo-base-menu-button{
-        position: absolute;
-        top: 2rem;
-        right: 10%;
-        cursor: pointer;
-        position:fixed;
+        position: fixed;
+        top: 1rem;
+        right: 12%;
         width: $menu-width-height;
         height: $menu-width-height;
+        z-index: $z-fg;
+        background: $menu-gap;
+        cursor: pointer;
         border: .5rem solid $menu-gap;
         transition: $duration-default $ease-animation;
 
         &:hover {
             border-color: $color_white-default;
-            &>.menu-bar{
+            background: $color_white-default;
+            &>.menu-button4,.menu-button5{
                 background: $color_white-default;
-                &>.menu-bar4,.menu-bar5{
-                    background: $color_white-default;
-                }
             }
         }
 
         &.active {
             transform: rotate(-225deg);
-            &>.menu-bar{
-                &>.menu-bar1{
-                    left: 1.4rem;
-                    transform: rotate(90deg);
-                    animation-name: fadeIn; 
-                }
-                &>.menu-bar2{
-                    animation-name: fadeIn; 
-                }
-                &>.menu-bar3{
-                    opacity: 0;
-                }
-                &>.menu-bar4{
-                    opacity: 0;
-                }
-                &>.menu-bar5{
-                    opacity: 0;
-                }
+            &>.menu-button1{
+                left: 1.4rem;
+                transform: rotate(90deg);
+                animation-name: fadeIn; 
+            }
+            &>.menu-button2{
+                animation-name: fadeIn; 
+            }
+            &>.menu-button3{
+                opacity: 0;
+            }
+            &>.menu-button4{
+                opacity: 0;
+            }
+            &>.menu-button5{
+                opacity: 0;
             }
         }
 
-        &>.menu-bar{
+        &>.menu-button1{
             position: absolute;
-            display: inline-block;
             height: 100%;
-            width: 100%;
-            background: $menu-gap;
-            transition: $duration-default $ease-animation;
-
-            &>.menu-bar1{
-                position: absolute;
-                height: 100%;
-                width: $menu-bar-width-height;
-                background: $color_blue;
-                @include animationSetting;
-            }
-            &>.menu-bar2{
-                position: absolute;
-                height: 100%;
-                left: $menu-bar-width-height + $menu-bar-gap;
-                width: $menu-bar-width-height;
-                background: $color_blue;
-                @include animationSetting;
-            }
-            &>.menu-bar3{
-                position: absolute;
-                height: 100%;
-                right: 0;
-                width: $menu-bar-width-height;
-                background: $color_blue;
-            }
-            &>.menu-bar4{
-                position: absolute;
-                width: 100%;
-                height: $menu-bar-gap;
-                top: $menu-bar-width-height;
-                transition: $duration-default $ease-animation;
-                background: $menu-gap;
-            }
-            &>.menu-bar5{
-                position: absolute;
-                width: 100%;
-                height: $menu-bar-gap;
-                bottom: $menu-bar-width-height;
-                transition: $duration-default $ease-animation;
-                background: $menu-gap;
-            }
+            width: $menu-bar-width-height;
+            background: $color_blue;
+            @include animationSetting;
         }
+        &>.menu-button2{
+            position: absolute;
+            height: 100%;
+            left: $menu-bar-width-height + $menu-bar-gap;
+            width: $menu-bar-width-height;
+            background: $color_blue;
+            @include animationSetting;
+        }
+        &>.menu-button3{
+            position: absolute;
+            height: 100%;
+            right: 0;
+            width: $menu-bar-width-height;
+            background: $color_blue;
+        }
+        &>.menu-button4{
+            position: absolute;
+            width: 100%;
+            height: $menu-bar-gap;
+            top: $menu-bar-width-height;
+            transition: $duration-default $ease-animation;
+            background: $menu-gap;
+        }
+        &>.menu-button5{
+            position: absolute;
+            width: 100%;
+            height: $menu-bar-gap;
+            bottom: $menu-bar-width-height;
+            transition: $duration-default $ease-animation;
+            background: $menu-gap;
+        }
+
     }
     &>.rlo-base-content-container{
-        background: $color_red;
         margin: auto;
-        width: 80%;
-        height: 80%;
         margin-bottom: 2rem;
         margin-top: 2rem;
+        width: 80%;
+        height: 80%;
         padding: $padding-medium;
+        background: $color_red;
+        overflow: auto;
     }
     &.out {
         display: none;
