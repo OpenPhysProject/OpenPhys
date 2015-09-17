@@ -1,12 +1,12 @@
 OER.Views = OER.Views || {};
-OER.Views.RLO1 = OER.Views.RLO1 || {};
+OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom || {};
 
 (function () {
     'use strict';
 
-    OER.Views.RLO1.L200_3 = Backbone.View.extend({
+    OER.Views.ElectronicStructureOfTheAtom.StandingWaves = Backbone.View.extend({
 
-        template: JST['app/scripts/templates/RLO1/L200_3.ejs'],
+        template: JST['app/scripts/templates/RLO1/Row1_Col3.ejs'],
 
         events: {},
 
