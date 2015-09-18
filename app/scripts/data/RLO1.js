@@ -32,7 +32,7 @@
             {title:"", image:"", route:""},
             {title:"300.2 Failure of Classical Electron Orbits", image:"", route:"ClassicalElectronOrbits"},
             {title:"300.3 Bohr Model with Equations", image:"", route:"BohrModel"},
-            {title:"300.4 Math of Standing Waves", image:"", route:"StandingWaves"},
+            {title:"300.4 Math of Standing Waves", image:"", route:"StandingWavesMath"},
         ],
     ];
 

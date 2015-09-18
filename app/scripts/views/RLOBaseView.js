@@ -92,16 +92,19 @@ OER.Views = OER.Views || {};
     p.hide = function () {
         this.$el.removeClass("in");
         this.$el.addClass("out");
+        $(document).off("keydown");
     };
     
     p.show = function () {
         this.$el.removeClass("out");
         this.$el.addClass("in");
+        $(document).on("keydown", this.handleKeydown.bind(this));
     };
 
     p.showIntro = function () {
         this.$el.removeClass("out");
         this.$el.addClass("in");
+        $(document).on("keydown", this.handleKeydown.bind(this));
         this.navView.toggleNav();
         var navView = this.navView; // for hoisting in timeout
         var introModel = this.model.get("contentMap")[this.model.get("primaryPathIndex")].at(0);
@@ -160,6 +163,36 @@ OER.Views = OER.Views || {};
         var contentMap = this.model.get("contentMap");
         var targetModel = contentMap[this.rowInContentMap+rowChange].at(this.colInContentMap+colChange);
         targetModel.set("current", true);
+    };
+    
+    p.handleKeydown = function(event) {
+        var change = {data:{row: 0, col: 0}};
+        switch (event.keyCode) {
+            case 37:
+                if (this.navLeft.hasClass("in")) {
+                    change.data.col = -1;
+                    this.navigate(change);
+                }
+                break;
+            case 38:
+                if (this.navUp.hasClass("in")) {
+                    change.data.row = -1;
+                    this.navigate(change);
+                }
+                break;
+            case 39:
+                if (this.navRight.hasClass("in")) {
+                    change.data.col = 1;
+                    this.navigate(change);
+                }
+                break;
+            case 40:
+                if (this.navDown.hasClass("in")) {
+                    change.data.row = 1;
+                    this.navigate(change);
+                }
+                break;
+        }
     };
 
     OER.Views.RLOBaseView = Backbone.View.extend(p, s);
