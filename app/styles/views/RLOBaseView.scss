@@ -20,7 +20,7 @@ $color_menu-gap: $color_gray-darker;
     overflow: auto;
     background: $color_blue;
 
-    &> .rlo-base-title {
+    >.rlo-base-title {
         position: fixed;
         top: 0;
         left: calc(10% + 13rem);
@@ -31,7 +31,7 @@ $color_menu-gap: $color_gray-darker;
         font-size: $fontSize-large;
     }
 
-    &>.rlo-base-menu-bar{
+    >.rlo-base-menu-bar{
         position: fixed;
         top: 0;
         width:100%;
@@ -40,7 +40,7 @@ $color_menu-gap: $color_gray-darker;
         background: $color_white-default;
     }
 
-    &>.rlo-base-menu-button{
+    >.rlo-base-menu-button{
         position: fixed;
         top: 1rem;
         right: 12%;
@@ -62,33 +62,33 @@ $color_menu-gap: $color_gray-darker;
 
         &.active {
             transform: rotate(-225deg);
-            &>.menu-button1{
+            >.menu-button1{
                 left: 1.4rem;
                 transform: rotate(90deg);
                 animation-name: fadeIn; 
             }
-            &>.menu-button2{
+            >.menu-button2{
                 animation-name: fadeIn; 
             }
-            &>.menu-button3{
+            >.menu-button3{
                 opacity: 0;
             }
-            &>.menu-button4{
+            >.menu-button4{
                 opacity: 0;
             }
-            &>.menu-button5{
+            >.menu-button5{
                 opacity: 0;
             }
         }
 
-        &>.menu-button1{
+        >.menu-button1{
             position: absolute;
             height: 100%;
             width: $menu-bar-width-height;
             background: $color_blue;
             @include animationSetting;
         }
-        &>.menu-button2{
+        >.menu-button2{
             position: absolute;
             height: 100%;
             left: $menu-bar-width-height + $menu-bar-gap;
@@ -96,14 +96,14 @@ $color_menu-gap: $color_gray-darker;
             background: $color_blue;
             @include animationSetting;
         }
-        &>.menu-button3{
+        >.menu-button3{
             position: absolute;
             height: 100%;
             right: 0;
             width: $menu-bar-width-height;
             background: $color_blue;
         }
-        &>.menu-button4{
+        >.menu-button4{
             position: absolute;
             width: 100%;
             height: $menu-bar-gap;
@@ -111,7 +111,7 @@ $color_menu-gap: $color_gray-darker;
             transition: $duration-default $ease-animation;
             background: $color_menu-gap;
         }
-        &>.menu-button5{
+        >.menu-button5{
             position: absolute;
             width: 100%;
             height: $menu-bar-gap;
@@ -121,13 +121,13 @@ $color_menu-gap: $color_gray-darker;
         }
     }
 
-    &>.rlo-base-menu-separator{
+    >.rlo-base-menu-separator{
         display: none;
         z-index: $z-fg;
         position:fixed;
         top: 8rem;
         width:100%;
-        &>.rlo-base-menu-separator-mask {
+        >.rlo-base-menu-separator-mask {
             overflow:hidden;
             height:2rem; 
             &:after { 
@@ -142,7 +142,7 @@ $color_menu-gap: $color_gray-darker;
         }
     }
 
-    &>.rlo-base-content-container{
+    >.rlo-base-content-container{
         margin: auto;
         margin-bottom: 2rem;
         margin-top: 2rem;
@@ -152,7 +152,22 @@ $color_menu-gap: $color_gray-darker;
         background: $color_red;
         overflow: auto;
     }
+    >.nav-button-container{
+        position:fixed;
+        right: 0rem;
+        height: 12rem;
+        width: 42rem;
+        right:1.6rem;
+        bottom: 1.6rem;
+        background: $color_nav_button_background;
+        padding-top:1rem;
+        padding-left:1rem;
+        >div{
+            display: inline-block;
+            transform:scale(0.5);
+        }
 
+    }
     &.out {
         display: none;
     }
@@ -167,15 +182,15 @@ $color_menu-gap: $color_gray-darker;
     .rlo-base-view {
         top: 16rem;
         height: calc(100% - 16rem);
-        &> .rlo-base-title {
+        > .rlo-base-title {
             top: 8rem;
             left: 1rem;
             right: 1rem;
         }
-        &>.rlo-base-menu-bar{
+        >.rlo-base-menu-bar{
             height:16rem;
         }
-        &>.rlo-base-menu-separator{
+        >.rlo-base-menu-separator{
             display: block;
         }
     }
