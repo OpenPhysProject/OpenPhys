@@ -1,31 +1,46 @@
 .nav-card-view {
-    
-
     width: 20rem;
     height: 20rem;
     display: inline-block;
     background: $color_blue;
     vertical-align: top;
     margin: 3rem;
+    white-space: normal;
+    >.nav-card-title-container{
+        position: absolute;
+        display: table;
+        width: 20rem;
+        height: 3rem;
+        margin-top: 17rem;
+        background: $color_nav_card_title_background;
+        >.nav-card-title{
+            display: table-cell;
+            vertical-align: middle; 
+            padding-left:1rem;
+            font: $fontFamily-title;
+            font-size: 1rem;
+            color: $color_white-default;
+        }
+    }
+
     &.empty{
         background: transparent;
     }
-    &>.nav-card-visited-state{
+    >.nav-card-visited-state{
         display: none;
     }
     &.visited{
-        &>.nav-card-visited-state{
+        >.nav-card-visited-state{
             position: absolute;
             display: block;
             margin-left: 10rem;
-            margin-top: 10rem;
-            
+            margin-top: 8rem;
             transform: rotate(45deg);
             animation: visitedAnimationFrames $duration-longer;
             animation-iteration-count: 1;
             transform-origin: 50% 50%;
 
-            &>.visited_checkmark_circle {
+            >.visited_checkmark_circle {
                 position: absolute;
                 width:5rem;
                 height:5rem;
@@ -35,7 +50,7 @@
                 top:0;
             }
 
-            &>.visited_checkmark_stem {
+            >.visited_checkmark_stem {
                 position: absolute;
                 width:0.9rem;
                 height:2.7rem;
@@ -44,7 +59,7 @@
                 top:1.0rem;
             }
 
-            &>.visited_checkmark_kick {
+            >.visited_checkmark_kick {
                 position: absolute;
                 width:0.9rem;
                 height:0.9rem;

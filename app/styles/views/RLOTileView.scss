@@ -38,8 +38,8 @@ $outro-margin-base: 1.5rem;
                 height: calc(#{$outro-margin-top} - 3rem);
             }
         }
-        >.rlo-tile-title{
-            width: $width;            
+        >.rlo-tile-title-container{
+            width: calc(#{$width} + .4px);
             margin-top: calc(#{$intro-margin-top} - 5rem);
         }
     }
@@ -60,7 +60,7 @@ $outro-margin-base: 1.5rem;
             background: $color_red;
         }
 
-        &>.rlo-tile-intro-title{
+        >.rlo-tile-intro-title{
             position: absolute;
             padding-left: $padding-small;
             padding-right: $padding-small;
@@ -78,13 +78,19 @@ $outro-margin-base: 1.5rem;
             position: absolute;
             padding: $padding-small;
         }
-        >.rlo-tile-title{
+        >.rlo-tile-title-container{
             position: absolute;
-            background: $color_tile_background;
-            color: white;
+            display: table;
             height: 5rem;
-            padding: 1.5rem;
-            font-size: 1.5rem;
+            background: $color_tile_title_background;
+            >.rlo-tile-title{
+                display: table-cell;
+                vertical-align: middle;
+                font: $fontFamily-title;
+                font-size: 1.5rem;
+                padding-left: $fontSize-large;
+                color: white;
+            }
         }
         >.rlo-tile-info{
             position: absolute;
