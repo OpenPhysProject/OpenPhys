@@ -151,27 +151,36 @@ $color_menu-gap: $color_gray-darker;
         background: $color_red;
         overflow: auto;
     }
-    >.nav-button-container{
-        position:fixed;
-        right: 0rem;
-        height: 12rem;
-        width: 42rem;
-        right:1.6rem;
-        bottom: 1.6rem;
-        background: $color_nav_button_background;
-        padding-top:1rem;
-        padding-left:1rem;
-        >div{
-            display: inline-block;
-            transform:scale(0.5);
-        }
 
-    }
     &.out {
         display: none;
     }
 }
 
+.nav-button-container{
+    position:fixed;
+    right: 0rem;
+    height: 8rem;
+    width: 26rem;
+    right:1.6rem;
+    bottom: 1.6rem;
+    background: $color_nav_button_background;
+    padding-top:1rem;
+    padding-left:1rem;
+    >div{
+        display: inline-block;
+        transform:scale(0.5);
+    }
+}
+
+.ui-nav-left, .ui-nav-up, .ui-nav-down, .ui-nav-right {
+    width: 6rem;
+    height: 6rem;
+    &.out {
+        opacity: 0.3;
+    }
+}
+    
 @keyframes fadeIn { 
     0% {opacity: 0;} 
     100% {opacity: 1;} 
