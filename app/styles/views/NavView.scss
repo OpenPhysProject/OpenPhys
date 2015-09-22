@@ -1,9 +1,9 @@
 .nav-view {
     position: fixed;
     margin: 0 auto;
-    top: 8rem;
+    top: 7rem;
     width:100%;
-    height: calc(100% - 8rem);
+    height: calc(100% - 7rem);
     background: $color_gray-darker;
     overflow: scroll;
 
@@ -18,7 +18,15 @@
 
 @media screen and (max-width: $bp_width_small) {
     .nav-view  {
-        top: 16rem;
-        height: calc(100% - 16rem);
+        top: 14rem;
+        height: calc(100% - 14rem);
+    }
+}
+
+@media screen and (max-device-width:$bp_width_small) 
+and (orientation: landscape){
+    .nav-view  {
+        top: 7rem;
+        height: calc(100% - 7rem);
     }
 }

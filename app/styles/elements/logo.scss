@@ -50,7 +50,7 @@
     &.mini {
         left:9%;
         padding: 0rem;
-        width: 13rem;
+        width: 10rem;
         &>.logo-wordmark{
             display: none;
         }
@@ -111,12 +111,23 @@
     }
 }
 
+@media screen and (max-device-width:$bp_width_small) 
+and (orientation: landscape){
+    .logo {
+        &.mini {
+            left:1%;
+            top: 1.5rem;
+            width: 8rem;
+        }
+    }
+}
 /*Tablets Landscape */
 @media screen and (min-device-width: $bp_width_small) 
 and (max-device-width: $bp_width_medium) 
 and (orientation: landscape)  {
     .logo {
         @include logo-ratio(0.15,2);
+
     }
 }
 
@@ -142,6 +153,11 @@ and (orientation: portrait){
 and (orientation: landscape){
     .logo {
         @include logo-ratio(0.21,2);
+        &.mini {
+            left:1%;
+            top: 1.5rem;
+            width: 8rem;
+        }
     }
 }
 
