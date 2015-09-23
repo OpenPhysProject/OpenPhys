@@ -143,6 +143,13 @@
         
         this.RLOBaseView.updateModel(m);
         
+        // determine if we have already visited this learning object.  If so, return to same place
+        var lcc = m.get("lastCurrentCollection");
+        if(!contentRoute && lcc) {
+            contentRoute = lcc.lastCurrent.get("route");
+            scope.router.noGo(rloRoute+"/"+contentRoute);
+        }
+        
         if(contentRoute) {
             this.RLOBaseView.updateSubViews(contentRoute);
             this.RLOBaseView.show();

@@ -79,8 +79,12 @@ OER.Views = OER.Views || {};
         for(var l = contentMap.length; l--; ) {
             navCardModel = contentMap[l].findWhere({"route":targetView});
             if(navCardModel) {
-                navCardModel.set("current", true);
-                break; 
+                if (navCardModel.get("current")) {
+                    this.handleCurrentChange(navCardModel);
+                } else {
+                    navCardModel.set("current", true);
+                }
+                break;
             }
         }
     };
