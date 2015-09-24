@@ -17,6 +17,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
 
         render: function () {
             this.setElement(this.template());
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub,this.el]);
         }
 
     });
