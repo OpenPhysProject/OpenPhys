@@ -1,4 +1,4 @@
-$menu-width-height: 5rem;
+$ui-button-width: 5rem;
 $menu-bar-width-height:1.2rem;
 $menu-bar-gap: .2rem;
 $color_menu-gap: $color_gray-darker;
@@ -16,183 +16,121 @@ $color_menu-gap: $color_gray-darker;
     left: 0;
     right: 0;
     bottom: 0;
-    >.rlo-base-title-container{
-        position: fixed;
-        display: table;
-        top: 0;
-        width: 100%;
-        height: 7rem;
-        z-index: $z-fg;
-
-        >.rlo-base-title {
-            display: table-cell;
-            vertical-align: middle;
-            text-align: center;
-            font: $fontFamily-title;
-            font-size: $fontSize-large;
-        }
-    }
-
-
-    >.rlo-base-menu-bar{
-        position: fixed;
-        top: 0;
-        width:100%;
-        height:7rem;
-        z-index: $z-mg;
-        background: $color_white-default;
-    }
-
-    >.rlo-base-menu-button{
-        position: fixed;
-        top: 1rem;
-        right: 11%;
-        width: $menu-width-height;
-        height: $menu-width-height;
-        z-index: $z-fg;
-        background: $color_menu-gap;
-        cursor: pointer;
-        border: .5rem solid $color_menu-gap;
-        transition: $duration-default $ease-animation;
-
-        &:hover {
-            border-color: $color_white-default;
-            background: $color_white-default;
-            &>.menu-button4,.menu-button5{
-                background: $color_white-default;
-            }
-        }
-
-        &.active {
-            transform: rotate(-225deg);
-            >.menu-button1{
-                left: 1.4rem;
-                transform: rotate(90deg);
-                animation-name: fadeIn; 
-            }
-            >.menu-button2{
-                animation-name: fadeIn; 
-            }
-            >.menu-button3{
-                opacity: 0;
-            }
-            >.menu-button4{
-                opacity: 0;
-            }
-            >.menu-button5{
-                opacity: 0;
-            }
-        }
-
-        >.menu-button1{
-            position: absolute;
-            height: 100%;
-            width: $menu-bar-width-height;
-            background: $color_blue;
-            @include animationSetting;
-        }
-        >.menu-button2{
-            position: absolute;
-            height: 100%;
-            left: $menu-bar-width-height + $menu-bar-gap;
-            width: $menu-bar-width-height;
-            background: $color_blue;
-            @include animationSetting;
-        }
-        >.menu-button3{
-            position: absolute;
-            height: 100%;
-            right: 0;
-            width: $menu-bar-width-height;
-            background: $color_blue;
-        }
-        >.menu-button4{
-            position: absolute;
-            width: 100%;
-            height: $menu-bar-gap;
-            top: $menu-bar-width-height;
-            transition: $duration-default $ease-animation;
-            background: $color_menu-gap;
-        }
-        >.menu-button5{
-            position: absolute;
-            width: 100%;
-            height: $menu-bar-gap;
-            bottom: $menu-bar-width-height;
-            transition: $duration-default $ease-animation;
-            background: $color_menu-gap;
-        }
-    }
-
-    >.rlo-base-menu-separator{
-        display: none;
-        z-index: $z-fg;
-        position:fixed;
-        top: 7rem;
-        width:100%;
-        >.rlo-base-menu-separator-mask {
-            overflow:hidden;
-            height:2rem; 
-            &:after { 
-                content:''; 
-                display:block; 
-                margin:-2.5rem auto 0;
-                width:100%; 
-                height:2.5rem;  
-                border-radius:125px / 12px;  
-                box-shadow:0 0 .8rem $color_gray-darkest;
-            }
-        }
-    }
-    >.rlo-base-content-body{
-        position:absolute;
-        top: 7rem;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: calc(100% - 7rem);
-        background: $color_blue;
-        overflow: auto;
-        >.rlo-base-content-container{
-            margin: auto;
-            margin-bottom: 2rem;
-            margin-top: 2rem;
-            width: 80%;
-            min-height: 90%;
-            padding: $padding-medium;
-            background: $color_red;
-        }
-    }
 
     &.out {
         display: none;
     }
+}
+
+.rlo-base-content-container{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: $padding-small;
+    background: $color_gray-light;
+    overflow: auto;
 }
 
 .nav-button-container{
     position:fixed;
-    right: 0rem;
-    height: 8rem;
-    width: 26rem;
-    right:1.6rem;
-    bottom: 1.6rem;
+    height: auto;
+    width: auto;
+    max-width: 66%;
+    right: 0;
+    bottom: 0;
+    padding: $padding-small;
+    z-index: $z-fg;
     background: $color_nav_button_background;
-    padding-top:1rem;
-    padding-left:1rem;
-    >div{
-        display: inline-block;
-        transform:scale(0.5);
-    }
 }
 
-.ui-nav-left, .ui-nav-up, .ui-nav-down, .ui-nav-right {
-    width: 6rem;
-    height: 6rem;
+.ui-nav-left, .ui-nav-up, .ui-nav-down, .ui-nav-right, .rlo-base-menu-button {
+    display: inline-block;
+    width: $ui-button-width;
+    height: $ui-button-width;
+    cursor: pointer;
+
     &.out {
         opacity: 0.3;
     }
 }
-    
+
+.rlo-base-menu-button{
+    transform: scale(1);    // OJR hack to keep it working, replace this whole thing with svg button
+    background: $color_menu-gap;
+    border: .5rem solid $color_menu-gap;
+    transition: $duration-default $ease-animation;
+
+    &:hover {
+        border-color: $color_white-default;
+        background: $color_white-default;
+        &>.menu-button4,.menu-button5{
+            background: $color_white-default;
+        }
+    }
+
+    &.active {
+        transform: rotate(-225deg);
+        >.menu-button1{
+            left: 1.4rem;
+            transform: rotate(90deg);
+            animation-name: fadeIn; 
+        }
+        >.menu-button2{
+            animation-name: fadeIn; 
+        }
+        >.menu-button3{
+            opacity: 0;
+        }
+        >.menu-button4{
+            opacity: 0;
+        }
+        >.menu-button5{
+            opacity: 0;
+        }
+    }
+
+    >.menu-button1{
+        position: absolute;
+        height: 100%;
+        width: $menu-bar-width-height;
+        background: $color_blue;
+        @include animationSetting;
+    }
+    >.menu-button2{
+        position: absolute;
+        height: 100%;
+        left: $menu-bar-width-height + $menu-bar-gap;
+        width: $menu-bar-width-height;
+        background: $color_blue;
+        @include animationSetting;
+    }
+    >.menu-button3{
+        position: absolute;
+        height: 100%;
+        right: 0;
+        width: $menu-bar-width-height;
+        background: $color_blue;
+    }
+    >.menu-button4{
+        position: absolute;
+        width: 100%;
+        height: $menu-bar-gap;
+        top: $menu-bar-width-height;
+        transition: $duration-default $ease-animation;
+        background: $color_menu-gap;
+    }
+    >.menu-button5{
+        position: absolute;
+        width: 100%;
+        height: $menu-bar-gap;
+        bottom: $menu-bar-width-height;
+        transition: $duration-default $ease-animation;
+        background: $color_menu-gap;
+    }
+}
+
 @keyframes fadeIn { 
     0% {opacity: 0;} 
     100% {opacity: 1;} 

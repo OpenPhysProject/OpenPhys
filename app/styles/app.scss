@@ -3,11 +3,11 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstr
 @import 'bootstrap-sass-official/assets/stylesheets/bootstrap.scss';
 
 // Settings (Imports do not compile CSS)
+@import "settings/animation.scss";
 @import "settings/breakpoint.scss";
 @import "settings/color.scss";
 @import "settings/font.scss";
 @import "settings/layout.scss";
-@import "settings/transition.scss";
 @import "settings/zindex.scss";
 
 //elements

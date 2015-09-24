@@ -48,7 +48,9 @@
         display: block;
     }
     &.mini {
-        left:9%;
+        left:$padding-small;
+        top: auto;
+        bottom:$padding-small;
         padding: 0rem;
         width: 10rem;
         &>.logo-wordmark{
