@@ -29,8 +29,8 @@ $color_menu-gap: $color_gray-darker;
     width: 100%;
     height: 100%;
     padding: $padding-small;
-    background: $color_gray-light;
     overflow: auto;
+    background : $color_background-gradient;
 }
 
 .nav-button-container{

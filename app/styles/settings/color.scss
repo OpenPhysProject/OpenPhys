@@ -35,3 +35,6 @@ $color_nav_button_background:   rgba(125, 125, 125, 0.50);
 $color_background_transparent:  rgba(0, 0, 0, 0.1);
 $color_ui:                      $color_gray-darker;
 $color_content_text:            $color_gray-darkest;
+
+//$color_background-default: #E8E8E8;   /* OJR we don't need this for modern browsers
+$color_background-gradient: linear-gradient(180deg, rgba(217, 217, 217, 1) 0%, rgba(235, 235, 235, 1) 47.52%, rgba(251, 251, 251, 1) 100%);
