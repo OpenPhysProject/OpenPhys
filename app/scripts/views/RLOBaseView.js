@@ -5,15 +5,15 @@ OER.Views = OER.Views || {};
 
     var p = {};
     var s = {};
-    
+
     p.template = JST['app/scripts/templates/RLOBaseView.ejs'];
-    
+
     p.title = null;     // dom title div
     p.navView = null;   // NavView
     p.content = null;   // Content specific views, ie OER.Views.RLO1.L200_2
     p.contentContainer = null;  // dom  div that holds content views
     p.currentView = "";     // string   the name/route of the the current view
-    
+
     // nav
     p.rowInContentMap = 0;
     p.colInContentMap = 0;
@@ -21,12 +21,12 @@ OER.Views = OER.Views || {};
     p.navUp = null;
     p.navDown = null;
     p.navRight = null;
-    
+
     p.events = {
-        "click .rlo-base-menu-button":"toggleNav",
+        "click .rlo-base-menu-button": "toggleNav",
     };
-    
-    p.initialize = function(model) {
+
+    p.initialize = function (model) {
         this.model = model;
         this.render();
         this.title = $(".rlo-base-title", this.$el);
@@ -36,9 +36,11 @@ OER.Views = OER.Views || {};
         this.navDown = $(".ui-nav-down", this.$el);
         this.navRight = $(".ui-nav-right", this.$el);
     };
-    
-    p.updateContent = function(targetView) {
-        if (this.content) { this.content.remove(); }
+
+    p.updateContent = function (targetView) {
+        if (this.content) {
+            this.content.remove();
+        }
         this.currentView = targetView;
         var RLOScope = this.model.get("route");
         // check if view exists, which should always be the case in final release
@@ -47,16 +49,16 @@ OER.Views = OER.Views || {};
         } else {
             this.content = new OER.Views.DefaultContentView();  // OJR possibly better to redirect to intro
         }
-        OER.router.noGo(RLOScope+"/"+targetView);   // change if we change default view handling
+        OER.router.noGo(RLOScope + "/" + targetView);   // change if we change default view handling
         this.contentContainer.append(this.content.el);
         this.$el.scrollTop(0);
     };
- 
-    p.render = function() {
+
+    p.render = function () {
         this.setElement(this.template(this.model.toJSON()));
     };
-    
-    p.updateModel = function(newModel) {
+
+    p.updateModel = function (newModel) {
         if (this.model) {
             this.model.off();
         }
@@ -69,16 +71,16 @@ OER.Views = OER.Views || {};
 
         this.title.html(this.model.get("title"));
 
-        this.navView = new OER.Views.NavView({model:this.model});
+        this.navView = new OER.Views.NavView({model: this.model});
         this.$el.append(this.navView.el);
     };
-    
-    p.updateSubViews = function(targetView) {
+
+    p.updateSubViews = function (targetView) {
         var contentMap = this.model.get("contentMap");
         var navCardModel;
-        for(var l = contentMap.length; l--; ) {
-            navCardModel = contentMap[l].findWhere({"route":targetView});
-            if(navCardModel) {
+        for (var l = contentMap.length; l--; ) {
+            navCardModel = contentMap[l].findWhere({"route": targetView});
+            if (navCardModel) {
                 if (navCardModel.get("current")) {
                     this.handleCurrentChange(navCardModel);
                 } else {
@@ -88,17 +90,17 @@ OER.Views = OER.Views || {};
             }
         }
     };
-    
+
     p.toggleNav = function () {
         this.navView.toggleNav();
     };
-    
+
     p.hide = function () {
         this.$el.removeClass("in");
         this.$el.addClass("out");
         $(document).off("keydown");
     };
-    
+
     p.show = function () {
         this.$el.removeClass("out");
         this.$el.addClass("in");
@@ -112,65 +114,76 @@ OER.Views = OER.Views || {};
         this.navView.toggleNav();
         var navView = this.navView; // for hoisting in timeout
         var introModel = this.model.get("contentMap")[this.model.get("primaryPathIndex")].at(0);
-        setTimeout(function() {introModel.set("current", true);}, OER.settings.FIRST_SHOW);
-        setTimeout(function() {navView.toggleNav();}, OER.settings.FIRST_SHOW + OER.settings.CLOSE_NAV);
+        setTimeout(function () {
+            introModel.set("current", true);
+        }, OER.settings.FIRST_SHOW);
+        setTimeout(function () {
+            navView.toggleNav();
+        }, OER.settings.FIRST_SHOW + OER.settings.CLOSE_NAV);
     };
-    
-    p.handleCurrentChange = function(model) {
+
+    p.handleCurrentChange = function (model) {
         //var currentModel = this.model.get("lastCurrentCollection").findWhere({"current":true});
         var contentMap = this.model.get("contentMap");
         var currentNavCollection = this.model.get("lastCurrentCollection");
         this.rowInContentMap = contentMap.indexOf(currentNavCollection);
         this.colInContentMap = currentNavCollection.indexOf(model);
-        
+
         this.navigateColumn(currentNavCollection, -1, 0, this.navLeft);
         this.navigateColumn(currentNavCollection, 1, 0, this.navRight);
         this.navigateRow(contentMap, -1, this.navUp);
         this.navigateRow(contentMap, 1, this.navDown);
-       
+
         var targetView = model.get("route");
         this.updateContent(targetView);
     };
-    
+
     p.navigateColumn = function (navCollection, colChange, rowChange, navEl) {
-         if(navCollection.at(this.colInContentMap+colChange) && navCollection.at(this.colInContentMap+colChange).get("title")) {
-            if(navEl.hasClass("out")) {
-                navEl.on("click", {col:colChange, row:rowChange}, this.navigate.bind(this));
+        if (navCollection.at(this.colInContentMap + colChange) && navCollection.at(this.colInContentMap + colChange).get("title")) {
+            if (navEl.hasClass("out")) {
+                navEl.on("click", {col: colChange, row: rowChange}, this.navigate.bind(this));
                 navEl.removeClass("out");
                 navEl.addClass("in");
             }
         } else {
             this.navOut(navEl);
-        }       
+        }
     };
-    
+
     p.navigateRow = function (contentMap, rowChange, navEl) {
-        if(contentMap[this.rowInContentMap+rowChange]) {
-            var navCollection = contentMap[this.rowInContentMap+rowChange];
+        if (contentMap[this.rowInContentMap + rowChange]) {
+            var navCollection = contentMap[this.rowInContentMap + rowChange];
             this.navigateColumn(navCollection, 0, rowChange, navEl);
         } else {
             this.navOut(navEl);
         }
     };
-    
-    p.navOut = function(navEl) {
+
+    p.navOut = function (navEl) {
         navEl.off("click");
         navEl.removeClass("in");
-        navEl.addClass("out");          
+        navEl.addClass("out");
     };
-    
-    p.navigate = function(event) {
+
+    p.navigate = function (event) {
         var rowChange = event.data.row;
         var colChange = event.data.col;
-        
+
         // we don't need to check if it exists because we do that when adding click listener
         var contentMap = this.model.get("contentMap");
-        var targetModel = contentMap[this.rowInContentMap+rowChange].at(this.colInContentMap+colChange);
+        var targetModel = contentMap[this.rowInContentMap + rowChange].at(this.colInContentMap + colChange);
         targetModel.set("current", true);
+
+        var currentNavCard = $(".current", this.navView.$el);
+        this.navView.$el.scrollTop(0);
+        this.navView.$el.scrollLeft(0);
+        this.navView.$el.scrollTop(currentNavCard.offset().top - 100);
+        this.navView.$el.scrollLeft(currentNavCard.offset().left - 30);
+
     };
-    
-    p.handleKeydown = function(event) {
-        var change = {data:{row: 0, col: 0}};
+
+    p.handleKeydown = function (event) {
+        var change = {data: {row: 0, col: 0}};
         switch (event.keyCode) {
             case 37:
                 if (this.navLeft.hasClass("in")) {
