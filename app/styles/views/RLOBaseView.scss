@@ -38,7 +38,6 @@ $color_menu-gap: $color_gray-darker;
     position:fixed;
     height: auto;
     width: auto;
-    max-width: 66%;
     right: 0;
     bottom: 0;
     padding: $padding-small;
@@ -137,53 +136,12 @@ $color_menu-gap: $color_gray-darker;
     100% {opacity: 1;} 
 } 
 
-@media screen and (max-width: $bp_width_small) {
-    .rlo-base-view {
-
-        >.rlo-base-title-container{
-            top: 7rem;
-        }
-        >.rlo-base-menu-bar{
-            height:14rem;
-        }
-        >.rlo-base-menu-separator{
-            display: block;
-        }
-        >.rlo-base-content-body{
-            top: 14rem;
-            height: calc(100% - 14rem);
-            >.rlo-base-content-container{
-                width:90%;
-            }
-        }
+@media screen and (max-device-width: $bp_width_small) {
+    .nav-button-container {
+        padding: 0.3rem;
     }
-}
-/* Mobile Phones Landscape */
-@media screen and (max-device-width:$bp_width_small) 
-and (orientation: landscape){
-    .rlo-base-view {
-
-        >.rlo-base-title-container{
-            top: 0rem;
-            >.rlo-base-title {
-                font-size: 1.8rem;
-            }
-        }
-        >.rlo-base-menu-button{
-            right: 3%;
-        }
-        >.rlo-base-menu-bar{
-            height:7rem;
-        }
-        >.rlo-base-menu-separator{
-            display: none;
-        }
-        >.rlo-base-content-body{
-            top: 7rem;
-            height: calc(100% - 7rem);
-            >.rlo-base-content-container{
-                width:90%;
-            }
-        }
+    .ui-nav-left, .ui-nav-up, .ui-nav-down, .ui-nav-right, .rlo-base-menu-button {
+        width: $ui-button-width*0.7;
+        height: $ui-button-width*0.7;
     }
 }

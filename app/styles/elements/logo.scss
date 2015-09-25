@@ -49,10 +49,11 @@
     }
     &.mini {
         left:$padding-small;
-        top: auto;
+        top: auto !important;
         bottom:$padding-small;
         padding: 0rem;
         width: 10rem;
+        cursor: pointer;
         &>.logo-wordmark{
             display: none;
         }
@@ -114,15 +115,16 @@
 }
 
 @media screen and (max-device-width:$bp_width_small) 
-and (orientation: landscape){
+{
     .logo {
         &.mini {
-            left:1%;
-            top: 1.5rem;
-            width: 8rem;
+            left:0.3rem;
+            bottom:0.3rem;
+            width: 7rem;
         }
     }
 }
+
 /*Tablets Landscape */
 @media screen and (min-device-width: $bp_width_small) 
 and (max-device-width: $bp_width_medium) 
