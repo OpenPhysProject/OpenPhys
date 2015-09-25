@@ -177,7 +177,7 @@ OER.Views = OER.Views || {};
         var currentNavCard = $(".current", this.navView.$el);
         this.navView.$el.scrollTop(0);
         this.navView.$el.scrollLeft(0);
-        this.navView.$el.scrollTop(currentNavCard.offset().top - 100);
+        this.navView.$el.scrollTop(currentNavCard.offset().top - 30);
         this.navView.$el.scrollLeft(currentNavCard.offset().left - 30);
 
     };

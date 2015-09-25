@@ -60,7 +60,7 @@ OER.Views = OER.Views || {};
             this.$el.toggleClass("in");
             if (this.$el.hasClass("in")) {
                 var currentNavCard = $(".current", this.$el);
-                this.$el.scrollTop(currentNavCard.offset().top - 100);
+                this.$el.scrollTop(currentNavCard.offset().top - 30);
                 this.$el.scrollLeft(currentNavCard.offset().left - 30);
             }
         },
