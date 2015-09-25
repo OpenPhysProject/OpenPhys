@@ -66,6 +66,14 @@ $color_menu-gap: $color_gray-darker;
     width: 7rem;
 }
 
+.ui-button-svg {
+    fill:$color_gray-darker;
+    
+    &:hover {
+        fill:$color_gray-dark;
+    }
+}
+
 @keyframes fadeIn { 
     0% {opacity: 0;} 
     100% {opacity: 1;} 
@@ -78,5 +86,8 @@ $color_menu-gap: $color_gray-darker;
     .ui-nav-left, .ui-nav-up, .ui-nav-down, .ui-nav-right, .rlo-base-menu-button {
         width: $ui-button-width*0.7;
         height: $ui-button-width*0.7;
+    }
+    .rlo-base-menu-button {
+        width: 7rem*0.7;
     }
 }
