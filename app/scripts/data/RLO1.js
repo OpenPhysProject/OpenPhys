@@ -11,7 +11,7 @@
     // index 0
         [
             {title:"100.1 Classical Physics", image: "", route:"ClassicalPhysics"},
-            {title:"100.2 Introduction to Classical Electromagnetism", image:"", route:"ClassicalElectormagnetism"},
+            {title:"100.2 Introduction to Classical Electromagnetism", image:"", route:"ClassicalElectromagnetism"},
         ],
         
     // index 1, primary path
