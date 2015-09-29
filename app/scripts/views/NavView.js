@@ -58,8 +58,8 @@ OER.Views = OER.Views || {};
             }
             this.$el.toggleClass("out");
             this.$el.toggleClass("in");
-            if (this.$el.hasClass("in")) {
-                var currentNavCard = $(".current", this.$el);
+            var currentNavCard = $(".current", this.$el);
+            if (this.$el.hasClass("in") && currentNavCard !== null) {
                 this.$el.scrollTop(currentNavCard.offset().top - 30);
                 this.$el.scrollLeft(currentNavCard.offset().left - 30);
             }
