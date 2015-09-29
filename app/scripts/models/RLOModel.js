@@ -16,10 +16,25 @@ OER.Models = OER.Models || {};
             lastCurrentCollection: null,
         },
         
+        /*
         initialize: function(){
             this.on("change:contentMap", this.setContentMapListeners);
         },
-
+        */
+        
+        parse: function(response, options) {
+            //convert contentMap data from arrays to NavCardCollections
+            var newMap = new Array();
+            var currentMap = response.contentMapData;
+            for (var l = currentMap.length; l--; ) {
+                newMap[l] = new OER.Collections.NavCardCollection(currentMap[l]);
+                newMap[l].on("change:current", this.handleCurrentChange, this); // add change event listener
+            }
+            response.contentMap = newMap;
+            delete response.contentMapData; // no longer needed
+            return response;
+        },
+        
         getPrimaryContent: function() {
             return this.get('contentMap')[this.primaryPathIndex];
         },
@@ -29,6 +44,7 @@ OER.Models = OER.Models || {};
         },
         
         /**
+         * OJR this is no longer used and could be deleted
          * add change listeners to all NavCardCollections to handle keeping a single current
          * @returns {undefined}
          */

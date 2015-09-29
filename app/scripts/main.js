@@ -67,23 +67,8 @@
         }
         */
        this.RLOs = new scope.Collections.RLOCollection();
-       var m = new scope.Models.RLOModel(OER.data.RLO1);
-       this.buildContentMap(m);
+       var m = new scope.Models.RLOModel(OER.data.RLO1, {parse: true});
        this.RLOs.add(m);
-    };
-    
-    /**
-     * converts contentMap data from arrays to NavCardCollections
-     * @param {RLOModel} RLOModel
-     */
-    // OJR consider building this into the init of RLOModel?
-    p.buildContentMap = function(RLOModel) {
-      var newMap = new Array();
-      var currentMap = RLOModel.get("contentMapData");
-      for (var l = currentMap.length; l--; ) {
-          newMap[l] = new scope.Collections.NavCardCollection(currentMap[l]);
-      }
-      RLOModel.set("contentMap", newMap);
     };
     
     p.setUpRouter = function () {
