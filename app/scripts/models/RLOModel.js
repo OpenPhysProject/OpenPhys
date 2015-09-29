@@ -16,22 +16,36 @@ OER.Models = OER.Models || {};
             lastCurrentCollection: null,
         },
         
-        /*
-        initialize: function(){
-            this.on("change:contentMap", this.setContentMapListeners);
-        },
-        */
-        
+        /**
+         * backbone parse function, doing the following for us
+         * - change data from an array to a NavCardCollection
+         * - add change listeners to each NavCardCollection so we only ever have 1 current
+         * - create views when they don't already exist
+         * @param {type} response
+         * @param {type} options
+         * @returns {unresolved}
+         */
         parse: function(response, options) {
-            //convert contentMap data from arrays to NavCardCollections
             var newMap = new Array();
             var currentMap = response.contentMapData;
             for (var l = currentMap.length; l--; ) {
-                newMap[l] = new OER.Collections.NavCardCollection(currentMap[l]);
-                newMap[l].on("change:current", this.handleCurrentChange, this); // add change event listener
+                // convert to NavCardCollection
+                var c = newMap[l] = new OER.Collections.NavCardCollection(currentMap[l]);
+                // add change listener
+                c.on("change:current", this.handleCurrentChange, this);
+                // create views
+                for (var i = c.length; i--; ) {
+                    var subRoute = c.at(i).get("route");
+                    if (!OER.Views[response.route][subRoute]) {
+                        // OJR if we ever need something different, add a .template property to data and use it if it's populated
+                         OER.Views.RLOTemplate.template = JST["app/scripts/templates/"+options.viewPath+"/Row"+l.toString()+ "_Col" +i.toString()+".ejs"];
+                         OER.Views[response.route][subRoute] = Backbone.View.extend(OER.Views.RLOTemplate);
+                    }
+                }
             }
             response.contentMap = newMap;
             delete response.contentMapData; // no longer needed
+            
             return response;
         },
         
@@ -41,19 +55,6 @@ OER.Models = OER.Models || {};
         
         getContentByIndex: function(index){
             return this.get('contentMap')[index];
-        },
-        
-        /**
-         * OJR this is no longer used and could be deleted
-         * add change listeners to all NavCardCollections to handle keeping a single current
-         * @returns {undefined}
-         */
-        setContentMapListeners: function() {
-            // TODO if contentMap could ever change, add .off from previous collection
-            var cm = this.get("contentMap");
-            for(var l = cm.length; l--; ) {
-                cm[l].on("change:current", this.handleCurrentChange, this);
-            }
         },
         
         /**

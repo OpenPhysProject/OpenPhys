@@ -1,10 +1,9 @@
 OER.Views = OER.Views || {};
-OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom || {};
 
 (function () {
     'use strict';
 
-    OER.Views.ElectronicStructureOfTheAtom.ClassicalPhysics = Backbone.View.extend({
+    OER.Views.RLOTemplate = {
 
         template: JST['app/scripts/templates/RLO1/Row0_Col0.ejs'],
 
@@ -24,6 +23,6 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
             }
         }
 
-    });
+    };
 
 })();

@@ -67,7 +67,7 @@
         }
         */
        this.RLOs = new scope.Collections.RLOCollection();
-       var m = new scope.Models.RLOModel(OER.data.RLO1, {parse: true});
+       var m = new scope.Models.RLOModel(OER.data.RLO1, {parse: true, viewPath: "RLO1"});
        this.RLOs.add(m);
     };
     
