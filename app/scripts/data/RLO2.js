@@ -17,7 +17,8 @@
             {title:"", image:"", route:""},
             {title:"", image:"", route:""},
             {title:"", image:"", route:""},
-            {title: "10.8 The Power of Atoms", image: "", route: "AtomPower"},       ],
+            {title: "10.8 The Power of Atoms", image: "", route: "AtomPower"},
+        ],
         // index 1
         [
             {title: "30.1 The Atomic Nucleus", image: "", route: "AtomicNucleus"},
@@ -27,7 +28,7 @@
             {title:"", image:"", route:""},
             {title:"", image:"", route:""},
             {title:"", image:"", route:""},
-            {title: "30.8 Radionuclides in Real Life", image: "", route: "Radionuclides"},
+            {title: "30.8 Radionuclides in Real Life", image: "", route: "RadionuclidesIRL"},
         ],
         //index 2
         [
@@ -36,18 +37,18 @@
             {title: "100.3 Stable Nuclides", image: "", route: "StableNuclides"},
             {title: "100.4 Unstable Nuclides", image: "", route: "UnstableNuclides"},
             {title: "100.5 Alpha Particle Radiation", image: "", route: "AlphaParticleRadiation"},
-            {title: "100.6 Beta Radiation", image: "", route: "BetaRadiation"},
+            {title: "100.6 Beta Particle Radiation", image: "", route: "BetaParticleRadiation"},
             {title: "100.7 Gamma Radiation", image: "", route: "GammaRadiation"},
-            {title: "100.8 Real World Radioactivity Radiation", image: "", route: "RadioactivityRadiation"},
+            {title: "100.8 Radiation in the World", image: "", route: "RadiationInWorld"},
             
         ],
         //index 3, primary path
         [
             {title: "200.1 The Sleeper at the Heart", image: "", route: "SleeperAtHeart"},
-            {title: "200.2 Simple Models of Nuclear Structure", image: "", route: "NuclearStructure"},
+            {title: "200.2 Shell Model of Nuclear Structure", image: "", route: "NuclearStructure"},
             {title: "200.3 Binding Energy and Mass Defect", image: "", route: "BindingEnegery"},
             {title: "200.4 Activity and Exponential Decay", image: "", route: "ExponentialDecay"},
-            {title: "200.5 Alpha Decay", image: "", route: "AlphaDecay"},
+            {title: "200.5 Alpha Decay Process", image: "", route: "AlphaDecay"},
             {title: "200.6 Weak-force Medicated Nuclear Change", image: "", route: "NuclearChange"},
             {title: "200.7 Decay of Excited States", image: "", route: "ExcitedStateDecay"},
             {title: "200.8 Nuclear Structure in the Real World", image: "", route: "NuclearStructureIRL"},
@@ -55,16 +56,38 @@
         //index 4
         [
             {title:"", image:"", route:""},
-            {title: "Ext.  Link to table of nuclides", image: "", route: "TableofNuclidesLink"},
+            {title: "250.2 Liquid Drop Model", image: "", route: "LiquidDropModel"},
             {title: "250.3 Special Relativity", image: "", route: "SpecialRelativity"},
             {title:"", image:"", route:""},
-            {title: "250.5 Decay Series", image: "", route: "DecaySeries"},
-            {title: "250.6 Beta- Plus/Min example", image: "", route: "BetaPlusMinus"},
-            {title:"", image:"", route:""},
+            {title: "250.5 Decay Chain / Series", image: "", route: "DecayChain"},
+            {title: "250.6 Positron Release or Electron Capture?", image: "", route: "ReleaseCapture"},
+            {title: "250.7 Internal Conversion of Excitation", image:"", route:"ICE"},
             {title: "250.8 Links to Other Resources", image: "", route: "OtherResourcesLinks"},
         ],
+        //index 5
+        [
+            {title:"", image:"", route:""},
+            {title:"", image:"", route:""},
+            {title:"", image:"", route:""},
+            {title:"", image:"", route:""},
+            {title:"", image:"", route:""},
+            {title: "260.6 Decay Schemes", image: "", route: "DecaySchemes"},
+            {title: "260.7 Holes in an Inner Shell", image: "", route: "InnerShellHoles"},
+            {title:"", image:"", route:""},
+        ],
+        //index 6
+        [
+           {title:"", image:"", route:""},
+           {title:"", image:"", route:""},
+           {title:"", image:"", route:""},
+           {title:"", image:"", route:""},
+           {title:"", image:"", route:""},
+           {title:"", image:"", route:""},
+           {title: "270.7 AUGER", image: "", route: "Auger"},
+           {title:"", image:"", route:""},
+        ],
     ];
-
+    
     scope.RLO2 = s;
 
 }(window.OER.data = window.OER.data || {}));
