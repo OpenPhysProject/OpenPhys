@@ -67,7 +67,11 @@
         }
         */
        this.RLOs = new scope.Collections.RLOCollection();
+       OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom || {};
        var m = new scope.Models.RLOModel(OER.data.RLO1, {parse: true, viewPath: "RLO1"});
+       this.RLOs.add(m);
+       OER.Views.Radioactivity = OER.Views.Radioactivity || {};
+       m  =  new scope.Models.RLOModel(OER.data.RLO2, {parse: true, viewPath: "RLO2"});
        this.RLOs.add(m);
     };
     
