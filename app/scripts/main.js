@@ -118,6 +118,7 @@
         this.homeView.removeClass("out");
         this.homeView.addClass("in");
         this.logo.removeClass("mini");
+        window.scrollTo(0,1);   // OJR hides chrome on mobile browser
     };
     
     p.showRLOView = function(rloRoute, contentRoute) {

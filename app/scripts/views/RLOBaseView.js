@@ -52,6 +52,7 @@ OER.Views = OER.Views || {};
         OER.router.noGo(RLOScope + "/" + targetView);   // change if we change default view handling
         this.contentContainer.append(this.content.el);
         this.$el.scrollTop(0);
+        window.scrollTo(0,1);   // hide chrome on mobile browser
     };
 
     p.render = function () {
@@ -105,6 +106,7 @@ OER.Views = OER.Views || {};
         this.$el.removeClass("out");
         this.$el.addClass("in");
         $(document).on("keydown", this.handleKeydown.bind(this));
+        window.scrollTo(0,1);
     };
 
     p.showIntro = function () {
