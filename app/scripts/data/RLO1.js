@@ -34,8 +34,13 @@
         [
             {title:"", image:"", route:""},
             {title:"300.2 Failure of Classical Electron Orbits", image:"", route:"ClassicalElectronOrbits"},
-            {title:"300.3 Bohr Model with Equations", image:"", route:"BohrModel"},
-            {title:"300.4 Math of Standing Waves", image:"", route:"StandingWavesMath"},
+            {title:"", image:"", route:""},
+            {title:"300.4 Bohr Model with Equations", image:"", route:"BohrModel"},
+            {title:"300.5 Math of Standing Waves", image:"", route:"StandingWavesMath"},
+            {title:"", image:"", route:""},
+            {title:"", image:"", route:""},
+            {title:"", image:"", route:""},
+            {title:"300.9 Beyond the Schrodinger Eqn. Atom", image:"", route:"BeyondSchrodinger"},
         ],
     ];
 
