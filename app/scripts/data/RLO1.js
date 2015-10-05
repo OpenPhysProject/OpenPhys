@@ -10,8 +10,11 @@
     s.contentMapData = [
     // index 0
         [
-            {title:"100.1 Classical Physics", image: "", route:"ClassicalPhysics"},
-            {title:"100.2 Introduction to Classical Electromagnetism", image:"", route:"ClassicalElectromagnetism"},
+            {title:"100.1 Classical EM", image: "", route:"ClassicalEM"},
+            {title:"", image:"", route:""},
+            {title:"100.3 Atomic Spectra & Rydberg Formula", image:"", route:"AtomicSpectra"},
+            {title:"100.4 Angular Momentum", image:"", route:"AngularMomentum"},
+            {title:"100.5 Waves and Standing Waves", image:"", route:"WavesStanding"},
         ],
         
     // index 1, primary path
