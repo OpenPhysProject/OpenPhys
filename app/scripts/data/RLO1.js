@@ -19,15 +19,15 @@
         
     // index 1, primary path
         [
-            {title:"200.1 What is the structure of the atom?", image:"", route:"StructureOfTheAtom"},
-            {title:"200.2 Why do stable atoms exist?", image:"", route:"WhyStableAtoms"},
-            {title:"200.3 Bohr introduces quantization", image:"", route:"BohrQuantization"},
-            {title:"200.4 Standing Waves (1920s)", image:"", route:"StandingWaves"},
-            {title:"200.5 Classical Nuclear Potential", image:"", route:"NuclearPotential"},
-            {title:"200.6 Orbitals are trapped electron waves", image:"", route:"Orbitals"},
-            {title:"200.7 Modern Shell Model", image:"", route:"ShellModel"},
-            {title:"200.8 Successes of Schrodinger Atom", image:"", route:"SchrodingerAtom"},
-            {title:"200.9 Beyond the Schrodinger Atom", image:"", route:"BeyondSchrodinger"},
+            {title:"200.1 Classical Physics", image:"", route:"ClassicalPhysics"},
+            {title:"200.2 Mysterious Stability of Atoms", image:"", route:"StabilityOfAtoms"},
+            {title:"200.3 Cracks", image:"", route:"Cracks"},
+            {title:"200.4 Bohr Atom & Quantization", image:"", route:"BohrQuantization"},
+            {title:"200.5 Standing Waves of Matter", image:"", route:"StandingWaves"},
+            {title:"200.6 Classical Nuclear Potential", image:"", route:"NuclearPotential"},
+            {title:"200.7 Orbitals as trapped electron waves", image:"", route:"Orbitals"},
+            {title:"200.8 Modern Electron Shell Model", image:"", route:"ElectronShellModel"},
+            {title:"200.9 Successes of Schrodinger Eqn. Atom", image:"", route:"SchrodingerAtomSuccess"},
         ],
         
     //index 2
