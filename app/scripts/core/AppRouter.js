@@ -22,13 +22,17 @@
 		this.navigate(route, {trigger:true});
 	};
 
-	p.noGo = function(route) {
+	p.noEventGo = function(route) {
 		this.navigate(route, {trigger:false});
 	};
 
-	p.noHistoryGo = function(route) {
-		this.navigate(route, {trigger:false, remove: true});
+	p.noEventReplaceHistoryGo = function(route) {
+		this.navigate(route, {trigger:false, replace: true});
 	};
+        
+        p.replaceHistoryGo = function(route) {
+            this.navigate(route, {trigger:true, replace: true});
+        };
 
 	scope.AppRouter = Backbone.Router.extend(p, s);
 

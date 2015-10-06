@@ -49,7 +49,7 @@ OER.Views = OER.Views || {};
         } else {
             this.content = new OER.Views.DefaultContentView();  // OJR possibly better to redirect to intro
         }
-        OER.router.noGo(RLOScope + "/" + targetView);   // change if we change default view handling
+        OER.router.noEventGo(RLOScope + "/" + targetView);   // change if we change default view handling
         this.contentContainer.append(this.content.el);
         this.$el.scrollTop(0);
         window.scrollTo(0,1);   // hide chrome on mobile browser
@@ -101,22 +101,25 @@ OER.Views = OER.Views || {};
         this.$el.addClass("out");
         $(document).off("keydown");
     };
-
-    p.show = function () {
+    
+    p._show = function () {
         this.$el.removeClass("out");
         this.$el.addClass("in");
         $(document).on("keydown", this.handleKeydown.bind(this));
+    };
+
+    p.show = function () {
+        this._show();
         window.scrollTo(0,1);
     };
 
     p.showIntro = function () {
-        this.$el.removeClass("out");
-        this.$el.addClass("in");
-        $(document).on("keydown", this.handleKeydown.bind(this));
+        this._show();
         this.navView.toggleNav();
         var navView = this.navView; // for hoisting in timeout
         var introModel = this.model.get("contentMap")[this.model.get("primaryPathIndex")].at(0);
         setTimeout(function () {
+            OER.router.noEventReplaceHistoryGo("");
             introModel.set("current", true);
         }, OER.settings.FIRST_SHOW);
         setTimeout(function () {
