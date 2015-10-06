@@ -28,14 +28,12 @@ OER.Views = OER.Views || {};
             var navCardView = null;
             var newdiv = null;
             for (var i = 0, l = this.contentMap.length; i < l; i++) {
+                newdiv = document.createElement('div');
+                newdiv.className = 'nav-collection';
+                if (i === this.primaryPathIndex) {
+                    newdiv.className += ' primary';
+                }
                 for (var j = 0, n = this.contentMap[i].length; j < n; j++) {
-                    if (j === 0) {
-                        newdiv = document.createElement('div');
-                        newdiv.className = 'nav-collection';
-                        if (i === this.primaryPathIndex) {
-                            newdiv.className += ' primary';
-                        }
-                    }
                     var m = this.contentMap[i].at(j);
                     navCardView = new OER.Views.NavCardView({model: m});
                     if (m.get("title") != "") {
