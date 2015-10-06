@@ -38,39 +38,9 @@
     };
       
     p.loadData = function () {
-        //placeholder data
-        /*
-        this.RLOs = new scope.Collections.RLOCollection();
-        var contentMap = new Array();
-        for (var j = 0; j < 3; j++) {
-            var navCollection = new scope.Collections.NavCardCollection();
-            for (var l = 0; l < 4; l++) {
-                var navCard = null;
-                if (j !== 1 && l === j) {
-                    navCard = new scope.Models.NavCardModel({});
-                } else {
-                    navCard = new scope.Models.NavCardModel(
-                        {"title": "NavCard " + "row " + (j) + "col " + (l), "route": "L"+ j.toString() + "00_" + l.toString()}
-                    );
-                }
-
-                navCollection.add(navCard);
-            }
-            contentMap.push(navCollection);
-        }
-        
-        for (var i = 0; i < 12; i++) {
-            var m = new scope.Models.RLOModel({"title": "RLO" + (i + 1), "info": "", "route":"RLO"+(i+1).toString()});
-            m.set("contentMap", contentMap);
-            m.set("primaryPathIndex", 1);
-            this.RLOs.add(m);
-        }
-        */
        this.RLOs = new scope.Collections.RLOCollection();
-       OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom || {};
        var m = new scope.Models.RLOModel(OER.data.RLO1, {parse: true, viewPath: "RLO1"});
        this.RLOs.add(m);
-       OER.Views.Radioactivity = OER.Views.Radioactivity || {};
        m  =  new scope.Models.RLOModel(OER.data.RLO2, {parse: true, viewPath: "RLO2"});
        this.RLOs.add(m);
     };

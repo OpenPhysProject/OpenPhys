@@ -28,6 +28,8 @@ OER.Models = OER.Models || {};
         parse: function(response, options) {
             var newMap = new Array();
             var currentMap = response.contentMapData;
+            // if view namespace does not exist, create it
+            OER.Views[response.route] = OER.Views[response.route] || {};
             for (var l = currentMap.length; l--; ) {
                 // convert to NavCardCollection
                 var c = newMap[l] = new OER.Collections.NavCardCollection(currentMap[l]);
