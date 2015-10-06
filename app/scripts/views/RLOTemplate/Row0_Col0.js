@@ -22,6 +22,7 @@ OER.Views.RLORoute = OER.Views.RLORoute || {};
             } else {
                 this.setElement(this.template());
             }
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub,this.el]);
         }
 
     });

@@ -133,5 +133,10 @@ $(document).ready(function () {
     
     $(function() {FastClick.attach(document.body);});
     
+    MathJax.Hub.Config({
+        showProcessingMessages: false,
+        jax: ["input/TeX", "output/HTML-CSS"],
+      });
+    
     var app = new OER.Application();
 });
