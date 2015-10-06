@@ -1,7 +1,4 @@
 $ui-button-width: 5rem;
-$menu-bar-width-height:1.2rem;
-$menu-bar-gap: .2rem;
-$color_menu-gap: $color_gray-darker;
 
 @mixin animationSetting{
     animation-duration: $duration-long;
@@ -16,6 +13,7 @@ $color_menu-gap: $color_gray-darker;
     left: 0;
     right: 0;
     bottom: 0;
+    
 
     &.out {
         display: none;
@@ -29,6 +27,7 @@ $color_menu-gap: $color_gray-darker;
     width: 100%;
     height: 100%;
     padding: $padding-small;
+    padding-bottom: $ui-button-width + $padding-small*3;
     overflow: auto;
     background : $color_background-gradient;
     font-family: $fontFamily-default;
