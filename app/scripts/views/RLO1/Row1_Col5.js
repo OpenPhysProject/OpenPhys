@@ -6,7 +6,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
 
     OER.Views.ElectronicStructureOfTheAtom.NuclearPotential = Backbone.View.extend({
 
-        template: JST['app/scripts/templates/RLO1/Row1_Col4.ejs'],
+        template: JST['app/scripts/templates/RLO1/Row1_Col5.ejs'],
 
         events: {},
 
