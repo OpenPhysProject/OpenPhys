@@ -6,10 +6,7 @@ $outro-margin-base: 1.5rem;
     top: 0;
     left: 1px;
     right: 0;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    @include user-select(none);
 }
 
 @mixin aspect-ratio($ratio, $col-number,$row-number) {
