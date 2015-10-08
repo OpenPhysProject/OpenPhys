@@ -2,7 +2,7 @@ $ui-button-width: 5rem;
 
 @mixin animationSetting{
     animation-duration: $duration-long;
-    animation-fill-mode: both; 
+    animation-fill-mode: both;
     animation-timing-function: $ease-animation;
 }
 
@@ -13,7 +13,7 @@ $ui-button-width: 5rem;
     left: 0;
     right: 0;
     bottom: 0;
-    
+
 
     &.out {
         display: none;
@@ -21,6 +21,7 @@ $ui-button-width: 5rem;
 }
 
 .rlo-base-content-container{
+    @extend .container;
     position:absolute;
     top: 0;
     left: 0;
@@ -53,7 +54,7 @@ $ui-button-width: 5rem;
     &.out {
         opacity: 0.3;
     }
-    
+
     // OJR change this to target the svg itself and change the color
     &:hover {
         border-color: $color_white-default;
@@ -67,16 +68,16 @@ $ui-button-width: 5rem;
 
 .ui-button-svg {
     fill:$color_gray-darker;
-    
+
     &:hover {
         fill:$color_gray-dark;
     }
 }
 
-@keyframes fadeIn { 
-    0% {opacity: 0;} 
-    100% {opacity: 1;} 
-} 
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
 
 @media screen and (max-device-width: $bp_width_small) {
     .nav-button-container {
