@@ -64,7 +64,7 @@ module.exports = function (grunt) {
         connect: {
             options: {
                 port: grunt.option('port') || SERVER_PORT,
-                hostname: 'localhost',
+                hostname: '0.0.0.0',
                 base: '<%= yeoman.app %>',
                 open: true,
                 middleware: function (connect, options, mw) {
@@ -98,7 +98,7 @@ module.exports = function (grunt) {
                         for (var i = 0, l = options.base.length; i < l; i++) {
                             mw.push(connect.static(options.base[i]));
                         }
-                        
+
                         return mw.concat([
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
@@ -144,8 +144,8 @@ module.exports = function (grunt) {
                         for (var i = 0, l = options.base.length; i < l; i++) {
                             mw.push(connect.static(options.base[i]));
                         }
-                        
-                            
+
+
                         return mw.push(mountFolder(connect, yeomanConfig.dist));
                     }
                 }
