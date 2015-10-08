@@ -8,16 +8,8 @@ $ui-button-width: 5rem;
 
 .rlo-base-view {
     margin: 0 auto;
-<<<<<<< HEAD
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-=======
     width: 100%;
     height: 100%;
->>>>>>> origin/master
 
     &.out {
         display: none;
@@ -25,13 +17,7 @@ $ui-button-width: 5rem;
 }
 
 .rlo-base-content-container{
-<<<<<<< HEAD
     @extend .container;
-    position:absolute;
-    top: 0;
-    left: 0;
-=======
->>>>>>> origin/master
     width: 100%;
     height: 100%;
     padding: $padding-small;

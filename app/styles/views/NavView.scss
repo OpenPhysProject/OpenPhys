@@ -14,11 +14,7 @@
     }
 
     &.in {
-<<<<<<< HEAD
-        transform: scale(1,1);
-=======
         //transform: scale(.98,.98);
->>>>>>> origin/master
         opacity: .98;
         transition: $duration-long;
         visibility: visible;
