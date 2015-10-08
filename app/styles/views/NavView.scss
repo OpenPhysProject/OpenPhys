@@ -10,7 +10,18 @@
         white-space: nowrap;
     }
 
+    &.in {
+        transform: scale(.98,.98);
+        opacity: .98;
+        transition: .7s;
+        visibility: visible;
+    }
+
     &.out {
-        display: none;
+        transform: scale(0.2,0.2);
+        transform-origin: bottom right;
+        opacity: 0;
+        transition: .7s;
+        visibility: hidden;
     }
 }
