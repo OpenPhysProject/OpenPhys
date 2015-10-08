@@ -2,6 +2,8 @@
     position: fixed;
     top: 0;
     margin: 0 auto;
+    top: 0;
+    left: 0;
     width:100%;
     height: 100%;
     background: $color_gray-darker;
@@ -12,9 +14,13 @@
     }
 
     &.in {
+<<<<<<< HEAD
         transform: scale(1,1);
+=======
+        //transform: scale(.98,.98);
+>>>>>>> origin/master
         opacity: .98;
-        transition: .7s;
+        transition: $duration-long;
         visibility: visible;
     }
 
@@ -22,7 +28,7 @@
         transform: scale(0.2,0.2);
         transform-origin: bottom right;
         opacity: 0;
-        transition: .7s;
+        transition: $duration-long;
         visibility: hidden;
     }
 }
