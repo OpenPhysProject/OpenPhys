@@ -7,13 +7,9 @@ $ui-button-width: 5rem;
 }
 
 .rlo-base-view {
-    position: fixed;
     margin: 0 auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    
+    width: 100%;
+    height: 100%;
 
     &.out {
         display: none;
@@ -21,14 +17,10 @@ $ui-button-width: 5rem;
 }
 
 .rlo-base-content-container{
-    position:absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     padding: $padding-small;
     padding-bottom: $ui-button-width + $padding-small*3;
-    overflow: auto;
     background : $color_background-gradient;
     font-family: $fontFamily-default;
 }
