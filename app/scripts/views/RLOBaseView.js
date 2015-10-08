@@ -51,6 +51,7 @@ OER.Views = OER.Views || {};
         }
         OER.router.noEventGo(RLOScope + "/" + targetView);   // change if we change default view handling
         this.contentContainer.append(this.content.el);
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,this.content.el]);
         this.$el.scrollTop(0);
         window.scrollTo(0,1);   // hide chrome on mobile browser
     };

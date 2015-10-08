@@ -21,7 +21,7 @@ OER.Views = OER.Views || {};
             } else {
                 this.setElement(this.template());
             }
-            MathJax.Hub.Queue(["Typeset",MathJax.Hub,this.el]);
+           
         }
 
     };
