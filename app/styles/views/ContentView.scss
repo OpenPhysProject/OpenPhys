@@ -16,5 +16,9 @@
 .rlo-content-body {
    font: $fontFamily-default;
    font-size: $fontSize-body;
-   
+}
+
+.rlo-content-image {
+  width: 100%;
+  max-width: 400px;
 }
