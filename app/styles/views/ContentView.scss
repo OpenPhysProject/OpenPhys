@@ -1,11 +1,16 @@
 .rlo-content {
     color: $color_content_text;
+    padding:$padding-small;
+    min-height: 100%;
+    height: 100%;
+
 }
 
 .rlo-content-title {
     font: $fontFamily-title;
     font-size: $fontSize-large;
-    
+    font-weight: 900;
+    margin-bottom: 1rem;
 }
 
 .rlo-content-body {
