@@ -1,5 +1,6 @@
 .nav-view {
     position: fixed;
+    top: 0;
     margin: 0 auto;
     width:100%;
     height: 100%;
@@ -11,7 +12,7 @@
     }
 
     &.in {
-        transform: scale(.98,.98);
+        transform: scale(1,1);
         opacity: .98;
         transition: .7s;
         visibility: visible;
