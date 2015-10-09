@@ -52,7 +52,6 @@ OER.Views = OER.Views || {};
         OER.router.noEventGo(RLOScope + "/" + targetView);   // change if we change default view handling
         this.contentContainer.append(this.content.el);
         MathJax.Hub.Queue(["Typeset",MathJax.Hub,this.content.el]);
-        this.$el.scrollTop(0);
         window.scrollTo(0,1);   // hide chrome on mobile browser
     };
 
@@ -179,13 +178,6 @@ OER.Views = OER.Views || {};
         var contentMap = this.model.get("contentMap");
         var targetModel = contentMap[this.rowInContentMap + rowChange].at(this.colInContentMap + colChange);
         targetModel.set("current", true);
-
-        var currentNavCard = $(".current", this.navView.$el);
-        this.navView.$el.scrollTop(0);
-        this.navView.$el.scrollLeft(0);
-        this.navView.$el.scrollTop(currentNavCard.offset().top - 30);
-        this.navView.$el.scrollLeft(currentNavCard.offset().left - 30);
-
     };
 
     p.handleKeydown = function (event) {

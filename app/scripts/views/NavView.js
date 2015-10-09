@@ -50,17 +50,15 @@ OER.Views = OER.Views || {};
             this.closeTimeout = window.setTimeout(this.toggleNav.bind(this), OER.settings.CLOSE_NAV);
         },
         toggleNav: function () {
-            if (this.$el.hasClass("in")) {
-                this.$el.scrollTop(0);
-                this.$el.scrollLeft(0);
-            }
             this.$el.toggleClass("out");
             this.$el.toggleClass("in");
             var currentNavCard = $(".current", this.$el);
             if (this.$el.hasClass("in") && currentNavCard.length !== 0) {
-
-                this.$el.scrollTop(currentNavCard.offset().top - 30);
-                this.$el.scrollLeft(currentNavCard.offset().left - 30);
+                //this.$el.scrollTop(currentNavCard.parent().position().top/0.2);
+                //this.$el.scrollLeft(currentNavCard.position().left/0.2);
+                this.$el.animate({ scrollTop: currentNavCard.parent().position().top/0.2,
+                                scrollLeft: currentNavCard.position().left/0.2
+                            }, 700, "swing");
             }
         },
         destroy: function () {
