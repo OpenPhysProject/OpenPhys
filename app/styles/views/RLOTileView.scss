@@ -4,29 +4,30 @@ $outro-margin-base: 1.5rem;
     position: absolute;
     margin: 0 auto;
     top: 0;
-    left: 1px;
+    left: 0;
     right: 0;
     height: 100%;
+    font-size: $fontSize-body;
     @include user-select(none);
 }
 
 @mixin aspect-ratio($ratio, $col-number,$row-number) {
     $padding: percentage(0.99/$ratio);
-    $width: percentage(0.99/$col-number);
+    $width: percentage(1/$col-number);
     $outro-margin-top: percentage(0.99/$row-number);
     $intro-margin-top: percentage(0.99/$col-number);
     >.rlo-tile {
-        width: $width;
+        width: calc(#{$width} - .5rem);
         padding-bottom: $padding;
         &.intro-tile{
             >.rlo-tile-intro-title{
                 width: $width;
-                margin-top: calc(#{$intro-margin-top} - 20rem);
+                margin-top: calc(#{$intro-margin-top} - 25rem);
             }
             >.rlo-tile-intro-content{
                 width: $width;
                 height: 15rem;
-                margin-top: calc(#{$intro-margin-top} - 14rem);
+                margin-top: calc(#{$intro-margin-top} - 18rem);
             }
         }
         &.outro-tile{
@@ -41,10 +42,62 @@ $outro-margin-base: 1.5rem;
             }
         }
         >.rlo-tile-title-container{
-            width: calc(#{$width} + .4px);
+            width: calc(#{$width} );
             margin-top: calc(#{$intro-margin-top} - 5rem);
         }
     }
+}
+
+.rlo-tile {
+    margin-top: .5rem;
+    margin-left: .5rem;
+    background: $color_background-gradient;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.rlo-tile-preview{
+    position: absolute;
+}
+
+.rlo-tile-title-container{
+    position: absolute;
+    display: table;
+    height: 5rem;
+    background: $color_tile_title_background;
+    opacity: 0.9;
+}
+
+.rlo-tile-title{
+    display: table-cell;
+    vertical-align: middle;
+    font-family: $fontFamily-title;
+    font-size: 1.5rem;
+    padding-left: $fontSize-large;
+    color: white;
+}
+
+.rlo-tile-info{
+    position: absolute;
+    padding-left: $padding-small;
+    margin-top: 3rem;
+}
+
+.intro-tile, .outro-tile {
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,.3);
+}
+
+.rlo-tile-intro-title{
+    position: absolute;
+    padding-left: $padding-small;
+    padding-right: $padding-small;
+    font-size: $fontSize-large;
+}
+
+.rlo-tile-intro-content{
+    position: absolute;
+    padding-left: $padding-small;
+    padding-right: $padding-small;
 }
 
 .rlo-list {
@@ -52,54 +105,7 @@ $outro-margin-base: 1.5rem;
     display: flex;
     flex-flow: row wrap;
     width: 100%;
-    >.rlo-tile {
-        margin: 1px 1px;
-        &:nth-of-type(odd) {
-            background: $color_blue;
-        }
 
-        &:nth-of-type(even) {
-            background: $color_red;
-        }
-
-        >.rlo-tile-intro-title{
-            position: absolute;
-            padding-left: $padding-small;
-            padding-right: $padding-small;
-            overflow: auto;
-            font-size: $fontSize-large;
-        }
-
-        >.rlo-tile-intro-content{
-            position: absolute;
-            padding-left: $padding-small;
-            padding-right: $padding-small;
-            overflow: auto;
-        }
-        >.rlo-tile-preview{
-            position: absolute;
-            padding: $padding-small;
-        }
-        >.rlo-tile-title-container{
-            position: absolute;
-            display: table;
-            height: 5rem;
-            background: $color_tile_title_background;
-            >.rlo-tile-title{
-                display: table-cell;
-                vertical-align: middle;
-                font-family: $fontFamily-title;
-                font-size: 1.5rem;
-                padding-left: $fontSize-large;
-                color: white;
-            }
-        }
-        >.rlo-tile-info{
-            position: absolute;
-            padding-left: $padding-small;
-            margin-top: 3rem;
-        }
-    }
     &.out {
         display: none;
     }
