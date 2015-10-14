@@ -32,9 +32,14 @@
     width:$logo-width;
 }
 
+$logo-ratio-small: 0.10;
+$logo-ratio-medium: 0.16;
+$logo-ratio-large: 0.18;
+$logo-ratio-huge: 0.36;
+
 /* Small view (default) */
 .logo {
-    position: fixed;
+    position: relative;
     z-index: $z-fg;
     top: 1rem;
     padding: 1rem;
@@ -43,11 +48,12 @@
     transition-duration: 0.3s;
     transition-timing-function: linear;
 
-    @include logo-ratio(0.125,0);
+    @include logo-ratio($logo-ratio-small,0);
     &>.logo-icon{
         display: block;
     }
     &.mini {
+        position: absolute;
         left:$padding-small;
         top: auto !important;
         bottom:$padding-small;
@@ -66,51 +72,51 @@
 
 @media screen and (max-width: 1200px) {
     .logo {
-        @include logo-ratio(0.125,1);
+        @include logo-ratio($logo-ratio-small,1);
     }
 }
 
 @media screen and (max-width: 1080px) {
     .logo {
-        @include logo-ratio(0.125,2);
+        @include logo-ratio($logo-ratio-small,2);
     }
 }
 
 /* Large View */
 @media screen and (max-width: $bp_width_col_two) {
     .logo {
-        @include logo-ratio(0.196,0);
+        @include logo-ratio($logo-ratio-medium,0);
     }
 }
 
 @media screen and (max-width: 850px) {
     .logo {
-        @include logo-ratio(0.196,1);
+        @include logo-ratio($logo-ratio-medium,1);
     }
 }
 
 @media screen and (max-width: 790px) {
     .logo {
-        @include logo-ratio(0.21,2);
+        @include logo-ratio($logo-ratio-large,2);
     }
 }
 
 /* Small view */
 @media screen and (max-width: $bp_width_col_one) {
     .logo {
-        @include logo-ratio(0.42,0);
+        @include logo-ratio($logo-ratio-huge,0);
     }
 }
 
 @media screen and (max-width: 480px) {
     .logo {
-        @include logo-ratio(0.42,1);
+        @include logo-ratio($logo-ratio-huge,1);
     }
 }
 
 @media screen and (max-width: 400px) {
     .logo {
-        @include logo-ratio(0.42,2);
+        @include logo-ratio($logo-ratio-huge,2);
     }
 }
 
@@ -130,7 +136,7 @@
 and (max-device-width: $bp_width_medium) 
 and (orientation: landscape)  {
     .logo {
-        @include logo-ratio(0.15,2);
+        @include logo-ratio($logo-ratio-small,2);
 
     }
 }
@@ -140,7 +146,7 @@ and (orientation: landscape)  {
 and (max-device-width: $bp_width_medium) 
 and (orientation: portrait)  {
     .logo {
-        @include logo-ratio(0.21,2);
+        @include logo-ratio($logo-ratio-large,2);
     }
 }
 
@@ -148,7 +154,7 @@ and (orientation: portrait)  {
 @media screen and (max-device-width: $bp_width_medium_phone) 
 and (orientation: portrait){
     .logo {
-        @include logo-ratio(0.42,2);
+        @include logo-ratio($logo-ratio-huge,2);
     }
 }
 
@@ -156,7 +162,7 @@ and (orientation: portrait){
 @media screen and (max-device-width: $bp_width_medium_phone) 
 and (orientation: landscape){
     .logo {
-        @include logo-ratio(0.21,2);
+        @include logo-ratio($logo-ratio-huge,2);
         &.mini {
             left:1%;
             top: 1.5rem;
@@ -169,7 +175,7 @@ and (orientation: landscape){
 @media screen and (max-device-width: $bp_width_small_phone) 
 and (orientation: portrait){
     .logo {
-        @include logo-ratio(0.42,2);
+        @include logo-ratio($logo-ratio-huge,2);
     }
 }
 
@@ -177,6 +183,6 @@ and (orientation: portrait){
 @media screen and (max-device-width: $bp_width_small_phone) 
 and (orientation: landscape){
     .logo {
-        @include logo-ratio(0.14,2);
+        @include logo-ratio($logo-ratio-small,2);
     }
 }
