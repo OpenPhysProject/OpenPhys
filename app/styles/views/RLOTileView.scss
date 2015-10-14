@@ -1,4 +1,5 @@
 $outro-margin-base: 1.5rem;
+$tile-margin: 0.5rem;
 
 .rlo-view-container{
     position: absolute;
@@ -12,12 +13,12 @@ $outro-margin-base: 1.5rem;
 }
 
 @mixin aspect-ratio($ratio, $col-number,$row-number) {
-    $padding: percentage(0.99/$ratio);
+    $padding: percentage(1/$ratio);
     $width: percentage(1/$col-number);
-    $outro-margin-top: percentage(0.99/$row-number);
-    $intro-margin-top: percentage(0.99/$col-number);
+    $outro-margin-top: percentage(1/$row-number);
+    $intro-margin-top: percentage(1/$col-number);
     >.rlo-tile {
-        width: calc(#{$width} - .5rem);
+        width: calc(#{$width} - #{$tile-margin});
         padding-bottom: $padding;
         &.intro-tile{
             >.rlo-tile-intro-title{
@@ -27,18 +28,7 @@ $outro-margin-base: 1.5rem;
             >.rlo-tile-intro-content{
                 width: $width;
                 height: 15rem;
-                margin-top: calc(#{$intro-margin-top} - 18rem);
-            }
-        }
-        &.outro-tile{
-            >.rlo-tile-intro-title{
-                width: $width;
-                margin-top: $outro-margin-base;
-            }
-            >.rlo-tile-intro-content{
-                width: $width;
-                margin-top: $outro-margin-base*2;
-                height: calc(#{$outro-margin-top} - 3rem);
+                margin-top: calc(#{$intro-margin-top} - 20rem);
             }
         }
         >.rlo-tile-title-container{
@@ -49,8 +39,8 @@ $outro-margin-base: 1.5rem;
 }
 
 .rlo-tile {
-    margin-top: .5rem;
-    margin-left: .5rem;
+    margin-top: $tile-margin;
+    margin-left: $tile-margin;
     background: $color_background-gradient;
     overflow: hidden;
     cursor: pointer;
@@ -87,17 +77,38 @@ $outro-margin-base: 1.5rem;
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,.3);
 }
 
-.rlo-tile-intro-title{
-    position: absolute;
+.rlo-tile-intro-title, .rlo-tile-outro-title {
+    width: 100%;
     padding-left: $padding-small;
     padding-right: $padding-small;
     font-size: $fontSize-large;
 }
 
-.rlo-tile-intro-content{
+.rlo-tile-intro-title {
     position: absolute;
+}
+
+.rlo-tile-outro-title {
+    padding-top: $padding-small;
+}
+
+.rlo-tile-intro-content, .rlo-tile-outro-content {
+    width: 100%;
     padding-left: $padding-small;
     padding-right: $padding-small;
+}
+
+.rlo-tile-intro-content {
+    position: absolute;
+}
+
+.outro-tile {
+    height: 0;
+}
+
+.rlo-tile-outro-content {
+    width: 100%;
+    height: 100%;
 }
 
 .rlo-list {
