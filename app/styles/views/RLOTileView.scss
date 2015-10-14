@@ -20,6 +20,7 @@ $tile-margin: 0.5rem;
     >.rlo-tile {
         width: calc(#{$width} - #{$tile-margin});
         padding-bottom: $padding;
+        /*
         &.intro-tile{
             >.rlo-tile-intro-title{
                 width: $width;
@@ -31,6 +32,7 @@ $tile-margin: 0.5rem;
                 margin-top: calc(#{$intro-margin-top} - 20rem);
             }
         }
+        */
         >.rlo-tile-title-container{
             width: calc(#{$width} );
             margin-top: calc(#{$intro-margin-top} - 5rem);
@@ -75,6 +77,8 @@ $tile-margin: 0.5rem;
 
 .intro-tile, .outro-tile {
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,.3);
+    height: 0;
+    position: relative;
 }
 
 .rlo-tile-intro-title, .rlo-tile-outro-title {
@@ -84,12 +88,12 @@ $tile-margin: 0.5rem;
     font-size: $fontSize-large;
 }
 
-.rlo-tile-intro-title {
-    position: absolute;
-}
-
 .rlo-tile-outro-title {
     padding-top: $padding-small;
+}
+
+.rlo-tile-intro-title {
+    padding-bottom: $padding-small;
 }
 
 .rlo-tile-intro-content, .rlo-tile-outro-content {
@@ -98,17 +102,17 @@ $tile-margin: 0.5rem;
     padding-right: $padding-small;
 }
 
-.rlo-tile-intro-content {
+.rlo-tile-container {
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.rlo-tile-content-container {
     position: absolute;
-}
-
-.outro-tile {
-    height: 0;
-}
-
-.rlo-tile-outro-content {
-    width: 100%;
-    height: 100%;
+    bottom: $padding-small;
 }
 
 .rlo-list {
