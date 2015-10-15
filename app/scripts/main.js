@@ -26,6 +26,7 @@
         this.logo = $(".logo");
         
         this.setTileMinHeight();
+        window.addEventListener("resize", _.debounce(this.setTileMinHeight.bind(this), 60), false);
                 
         this.loadData();
         this.createTileView();
@@ -39,7 +40,8 @@
         this.loader.hide();
     };
     
-    p.setTileMinHeight = function ($el) {
+    p.setTileMinHeight = function () {
+        console.log("resized")
         var introTile =   $(".intro-tile", this.homeView);
         var h = $(".rlo-tile-content-container-intro", introTile).height() + this.logo.outerHeight() + this.logo.position().top;
         introTile.css("min-height", h);
