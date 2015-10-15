@@ -24,6 +24,8 @@
         this.homeView = $(".rlo-list");
         this.outroTile = $(".outro-tile", this.homeView);
         this.logo = $(".logo");
+        
+        this.setTileMinHeight();
                 
         this.loadData();
         this.createTileView();
@@ -35,6 +37,15 @@
         this.setUpRouter();
         this.logo.click("click", this.handleLogoClick);
         this.loader.hide();
+    };
+    
+    p.setTileMinHeight = function ($el) {
+        var introTile =   $(".intro-tile", this.homeView);
+        var h = $(".rlo-tile-content-container-intro", introTile).height() + this.logo.outerHeight() + this.logo.position().top;
+        introTile.css("min-height", h);
+        
+        h = $(".rlo-tile-content-container", this.outroTile).height();
+        this.outroTile.css("min-height", h);
     };
       
     p.loadData = function () {

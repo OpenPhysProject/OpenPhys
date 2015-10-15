@@ -40,6 +40,8 @@ $tile-margin: 0.5rem;
     }
 }
 
+
+// RLO TILE ********************************************************************
 .rlo-tile {
     margin-top: $tile-margin;
     margin-left: $tile-margin;
@@ -75,9 +77,12 @@ $tile-margin: 0.5rem;
     margin-top: 3rem;
 }
 
+
+// Intro & Outro TILE **********************************************************
 .intro-tile, .outro-tile {
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,.3);
     height: 0;
+    min-height: 1000px;  // arbitrary value that forces content to start with correct height, overwritten in code
     position: relative;
 }
 
@@ -88,12 +93,12 @@ $tile-margin: 0.5rem;
     font-size: $fontSize-large;
 }
 
-.rlo-tile-outro-title {
-    padding-top: $padding-small;
-}
-
 .rlo-tile-intro-title {
     padding-bottom: $padding-small;
+}
+
+.rlo-tile-outro-title {
+    padding-top: $padding-small;
 }
 
 .rlo-tile-intro-content, .rlo-tile-outro-content {
@@ -110,11 +115,18 @@ $tile-margin: 0.5rem;
     right: 0;
 }
 
-.rlo-tile-content-container {
+.rlo-tile-content-container, .rlo-tile-content-container-intro {
     position: absolute;
+    width: 100%;
+    overflow: visible;
+}
+
+.rlo-tile-content-container-intro {
     bottom: $padding-small;
 }
 
+
+// rlo list ********************************************************************
 .rlo-list {
     @include aspect-ratio(3,3,1);
     display: flex;
