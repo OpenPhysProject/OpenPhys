@@ -9,7 +9,7 @@ $nav-card-margin: 0.5rem;
     margin-left: $nav-card-margin;
     margin-top: $nav-card-margin;
     white-space: normal;
-    background: $color_gray-light;
+    background: $color_gray-darker;
     cursor: pointer;
     overflow: hidden;
 
@@ -17,9 +17,9 @@ $nav-card-margin: 0.5rem;
         visibility: hidden;
     }
     &.visited{
-        background: $color_gray-darker;
+        background: $color_gray-light;
         .nav-card-title {
-           color:  $color_gray-default;
+           color:  $color_gray-dark;
         }
     }
     &.current{
@@ -35,5 +35,5 @@ $nav-card-margin: 0.5rem;
     padding-left:0.2rem;
     font: $fontFamily-title;
     font-size: $fontSize-small;
-    color: $color_gray-dark;
+    color: $color_gray-default;
 }
