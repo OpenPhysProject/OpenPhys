@@ -53,7 +53,7 @@ $logo-ratio-huge: 0.36;
         display: block;
     }
     &.mini {
-        position: absolute;
+        position: fixed;
         left:$padding-small;
         top: auto !important;
         bottom:$padding-small;
