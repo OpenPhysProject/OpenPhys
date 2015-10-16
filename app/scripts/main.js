@@ -41,7 +41,6 @@
     };
     
     p.setTileMinHeight = function () {
-        console.log("resized")
         var introTile =   $(".intro-tile", this.homeView);
         var h = $(".rlo-tile-content-container-intro", introTile).height() + this.logo.outerHeight() + this.logo.position().top;
         introTile.css("min-height", h);
