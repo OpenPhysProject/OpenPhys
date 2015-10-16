@@ -1,3 +1,5 @@
+$iphone-bottom-bar-size: 4.4rem;    // 44px
+
 @mixin animationSetting{
     animation-duration: $duration-long;
     animation-fill-mode: both;
@@ -29,8 +31,9 @@
     height: auto;
     width: auto;
     right: 0;
-    bottom: 0;
+    bottom: -$iphone-bottom-bar-size;
     padding: $padding-small;
+    padding-bottom: $iphone-bottom-bar-size + $padding-small;
     z-index: $z-fg;
     background: $color_nav_button_background;
 }
