@@ -94,6 +94,7 @@ OER.Views = OER.Views || {};
 
     p.toggleNav = function () {
         this.navView.toggleNav();
+        window.scrollTo(0,1);   // hide chrome on mobile browser
     };
 
     p.hide = function () {
