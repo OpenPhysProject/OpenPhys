@@ -54,11 +54,17 @@ OER.Views = OER.Views || {};
             this.$el.toggleClass("in");
             var currentNavCard = $(".current", this.$el);
             if (this.$el.hasClass("in") && currentNavCard.length !== 0) {
-                //this.$el.scrollTop(currentNavCard.parent().position().top/0.2);
-                //this.$el.scrollLeft(currentNavCard.position().left/0.2);
-                this.$el.animate({ scrollTop: currentNavCard.parent().position().top/0.2,
-                                scrollLeft: currentNavCard.position().left/0.2
+                // container - card - scroll bars
+                var w = this.$el.width() - currentNavCard.outerWidth(true) - 50;    
+                var h = this.$el.height() - currentNavCard.outerHeight(true) - 25;
+                var scale = 0.2; // css transform value
+                this.$el.scrollTop(currentNavCard.position().top/scale  - h / 2 + this.$el.scrollTop());
+                this.$el.scrollLeft(currentNavCard.position().left/scale - w / 2 + this.$el.scrollLeft() );
+                /* OJR we could animate these, but it doesn't feel right to me
+                this.$el.animate({ scrollTop: currentNavCard.position().top/scale  - h / 2 + this.$el.scrollTop(),
+                                scrollLeft: currentNavCard.position().left/scale - w / 2 + this.$el.scrollLeft()
                             }, 700, "swing");
+                            */
             }
         },
         destroy: function () {
