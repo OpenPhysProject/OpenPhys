@@ -10,6 +10,7 @@
     s.contentMapData = [
     // index 0
         [
+            {title: "10.0 Atoms", image: "", route: "Atom"},
             {title: "10.1 Almost Everything Is Made from Atoms", image: "", route: "AtomsMakeUpEverything"},
             {title:"", image:"", route:""},
             {title: "10.3 Different Types of Atom", image: "", route: "AtomTypes"},
@@ -21,6 +22,7 @@
         ],
         // index 1
         [
+            {title: "30.0 The Active Nucleus", image: "", route: "ActiveNucleus"},
             {title: "30.1 The Atomic Nucleus", image: "", route: "AtomicNucleus"},
             {title: "30.2 Inside the Nucleus", image: "", route: "InsideNucleus"},
             {title: "30.3 Periodic Table", image: "", route: "PeriodicTable"},
@@ -32,7 +34,8 @@
         ],
         //index 2
         [
-            {title: "100.1 Nuclei Can Radiate ", image: "", route: "NucleiRadiate"},
+            {title: "100.0 Nuclear Radiation", image: "", route: "NuclearRadiation"},
+            {title: "100.1 Nuclei Can Radiate", image: "", route: "NucleiRadiate"},
             {title: "100.2 Labeling Nuclides", image: "", route: "LabelingNuclides"},
             {title: "100.3 Stable Nuclides", image: "", route: "StableNuclides"},
             {title: "100.4 Unstable Nuclides", image: "", route: "UnstableNuclides"},
@@ -44,6 +47,7 @@
         ],
         //index 3, primary path
         [
+            {title: "200.0 Structure & Decay", image: "", route: "StructureDecay"},
             {title: "200.1 The Sleeper at the Heart", image: "", route: "SleeperAtHeart"},
             {title: "200.2 Shell Model of Nuclear Structure", image: "", route: "NuclearStructure"},
             {title: "200.3 Binding Energy and Mass Defect", image: "", route: "BindingEnegery"},
@@ -55,6 +59,7 @@
         ],
         //index 4
         [
+            {title: "250.0 BONUS LEVEL 1", image: "", route: "Bonus21"},
             {title:"", image:"", route:""},
             {title: "250.2 Liquid Drop Model", image: "", route: "LiquidDropModel"},
             {title: "250.3 Special Relativity", image: "", route: "SpecialRelativity"},
@@ -66,6 +71,7 @@
         ],
         //index 5
         [
+            {title: "260.0 BONUS LEVEL 2", image: "", route: "Bonus2"},
             {title:"", image:"", route:""},
             {title:"", image:"", route:""},
             {title:"", image:"", route:""},
@@ -77,6 +83,7 @@
         ],
         //index 6
         [
+           {title: "270.0 BONUS LEVEL 3", image: "", route: "Bonus3"},
            {title:"", image:"", route:""},
            {title:"", image:"", route:""},
            {title:"", image:"", route:""},
