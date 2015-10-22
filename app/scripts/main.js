@@ -146,16 +146,5 @@ $(document).ready(function () {
     
     $(function() {FastClick.attach(document.body);});
 
-/*
-    MathJax.Hub.Config({
-        config: ["MMLorHTML.js"],
-        jax: ["input/TeX", "input/MathML", "output/HTML-CSS", "output/NativeMML", "output/CommonHTML"],
-        extensions: ["tex2jax.js", "mml2jax.js", "MathMenu.js", "MathZoom.js", "CHTML-preview.js"],
-        TeX: {
-            extensions: ["AMSmath.js", "AMSsymbols.js", "noErrors.js", "noUndefined.js"]
-        }
-    });
-    */
-
     var app = new OER.Application();
 });
