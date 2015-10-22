@@ -9,7 +9,7 @@ OER.Views.RLORoute = OER.Views.RLORoute || {};
         template: JST['app/scripts/templates/RLO1/Row0_Col0.ejs'],
 
         events: {},
-
+        
         initialize: function (model) {
             if (model) { this.model = model; }
             //this.listenTo(this.model, 'change', this.render);
@@ -22,9 +22,8 @@ OER.Views.RLORoute = OER.Views.RLORoute || {};
             } else {
                 this.setElement(this.template());
             }
-            MathJax.Hub.Queue(["Typeset",MathJax.Hub,this.el]);
         }
-
+        
     });
 
 })();
