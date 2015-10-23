@@ -53,7 +53,7 @@
             {title: "200.3 Binding Energy and Mass Defect", image: "", route: "BindingEnegery"},
             {title: "200.4 Activity and Exponential Decay", image: "", route: "ExponentialDecay"},
             {title: "200.5 Alpha Decay Process", image: "", route: "AlphaDecay"},
-            {title: "200.6 Weak-force Medicated Nuclear Change", image: "", route: "NuclearChange"},
+            {title: "200.6 Weak-force Mediated Nuclear Change", image: "", route: "NuclearChange"},
             {title: "200.7 Decay of Excited States", image: "", route: "ExcitedStateDecay"},
             {title: "200.8 Nuclear Structure in the Real World", image: "", route: "NuclearStructureIRL"},
         ],
