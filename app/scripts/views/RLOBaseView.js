@@ -97,10 +97,14 @@ OER.Views = OER.Views || {};
         window.scrollTo(0,1);   // hide chrome on mobile browser
     };
 
-    p.hide = function () {
+    p.out = function () {
         this.$el.removeClass("in");
-        this.$el.addClass("out hidden");
+        this.$el.addClass("out");
         $(document).off("keydown");
+    };
+    
+    p.hide = function () {
+        this.$el.addClass("hidden");
     };
     
     p._show = function () {

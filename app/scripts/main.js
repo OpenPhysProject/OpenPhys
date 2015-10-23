@@ -96,6 +96,12 @@
     };
     
     p.showHomeView = function() {
+        this.RLOBaseView.out();
+        
+        setTimeout(this.showHomeViewIn.bind(this), OER.settings.MAIN_TO_CONTENT);
+    };
+    
+    p.showHomeViewIn = function() {
         this.RLOBaseView.hide();
         this.homeView.removeClass("out hidden");
         this.homeView.addClass("in");
@@ -112,7 +118,8 @@
         }
         
         this.homeView.removeClass("in");
-        this.homeView.addClass("out hidden");
+        this.homeView.addClass("out");
+        this.logo.addClass("mini");
         
         this.RLOBaseView.updateModel(m);
         
@@ -122,15 +129,26 @@
             contentRoute = lcc.lastCurrent.get("route");
         }
         
+        var showIntro = true;
         if(contentRoute) {
             scope.router.noEventReplaceHistoryGo(rloRoute+"/"+contentRoute);
             this.RLOBaseView.updateSubViews(contentRoute);
-            this.RLOBaseView.show();
+            showIntro = false;
+            //this.RLOBaseView.show();
         } else {
-            this.RLOBaseView.showIntro();
+            //this.RLOBaseView.showIntro();
         }
         
-        this.logo.addClass("mini");
+        var homeView = this.homeView;   // for function hoisting
+        var RLOBaseView = this.RLOBaseView;
+        setTimeout(function () {
+            homeView.addClass("hidden");
+            if (showIntro) {
+                RLOBaseView.showIntro();
+            } else {
+                RLOBaseView.show();
+            }
+        }, OER.settings.MAIN_TO_CONTENT);
     };
     
     p.handleLogoClick = function (){
