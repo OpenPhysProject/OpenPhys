@@ -99,12 +99,12 @@ OER.Views = OER.Views || {};
 
     p.hide = function () {
         this.$el.removeClass("in");
-        this.$el.addClass("out");
+        this.$el.addClass("out hidden");
         $(document).off("keydown");
     };
     
     p._show = function () {
-        this.$el.removeClass("out");
+        this.$el.removeClass("out hidden");
         this.$el.addClass("in");
         $(document).on("keydown", this.handleKeydown.bind(this));
     };

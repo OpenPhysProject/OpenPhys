@@ -97,7 +97,7 @@
     
     p.showHomeView = function() {
         this.RLOBaseView.hide();
-        this.homeView.removeClass("out");
+        this.homeView.removeClass("out hidden");
         this.homeView.addClass("in");
         this.logo.removeClass("mini");
         this.setTileMinHeight();
@@ -112,7 +112,7 @@
         }
         
         this.homeView.removeClass("in");
-        this.homeView.addClass("out");
+        this.homeView.addClass("out hidden");
         
         this.RLOBaseView.updateModel(m);
         
