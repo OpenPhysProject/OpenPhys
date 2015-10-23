@@ -118,7 +118,12 @@ OER.Views = OER.Views || {};
     };
     
     p._show = function () {
-        this.$el.removeClass("out hidden");
+        this.$el.removeClass("hidden");
+        setTimeout(this._showIn.bind(this), 33);
+    };
+    
+    p._showIn = function() {
+        this.$el.removeClass("out");
         this.$el.addClass("in");
         $(document).on("keydown", this.handleKeydown.bind(this));
     };

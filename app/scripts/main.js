@@ -98,19 +98,24 @@
     p.showHomeView = function() {
         this.RLOBaseView.out();
         
-        setTimeout(this.showHomeViewIn.bind(this), OER.settings.MAIN_TO_CONTENT);
+        setTimeout(this.showHomeViewHide.bind(this), OER.settings.MAIN_TO_CONTENT);
+    };
+    
+    p.showHomeViewHide = function() {
+        this.RLOBaseView.hide();
+        this.homeView.removeClass("hidden");
+        setTimeout(this.showHomeViewIn.bind(this), 33);
     };
     
     p.showHomeViewIn = function() {
-        this.RLOBaseView.hide();
-        this.homeView.removeClass("out hidden");
+        this.homeView.removeClass("in");
         this.homeView.addClass("in");
         this.logo.removeClass("mini");
         var currentTile = $(".current", this.homeView);
         currentTile.removeClass("current");
         this.setTileMinHeight();
         window.scrollTo(0,1);   // OJR hides chrome on mobile browser
-    };
+    }
     
     p.showRLOView = function(rloRoute, contentRoute) {
         var m = this.RLOs.findWhere({route: rloRoute});
