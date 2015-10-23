@@ -53,6 +53,16 @@ OER.Views = OER.Views || {};
         this.contentContainer.append(this.content.el);
         MathJax.Hub.Queue(["Typeset",MathJax.Hub,this.content.el]);
         window.scrollTo(0,1);   // hide chrome on mobile browser
+        
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, this.content.el]);
+        window.scrollTo(0, 1);   // hide chrome on mobile browser
+        
+        var hammerObject = new Hammer(this.content.el);
+        hammerObject.get('swipe').set({
+            threshold: 60,
+            direction: Hammer.DIRECTION_ALL
+        });
+        hammerObject.on("swipeleft swiperight swipeup swipedown", this.handleSwipe.bind(this));
     };
 
     p.render = function () {
@@ -214,6 +224,36 @@ OER.Views = OER.Views || {};
                 break;
         }
     };
+    p.handleSwipe = function (event) {
+        var change = {data: {row: 0, col: 0}};
+        switch (event.type) {
+            case 'swiperight':
+                if (this.navLeft.hasClass("in")) {
+                    change.data.col = -1;
+                    this.navigate(change);
+                }
+                break;
+            case 'swipedown':
+                if ($(window).scrollTop() === 0 && this.navUp.hasClass("in")) {
+                    change.data.row = -1;
+                    this.navigate(change);
+                }
+                break;
+            case 'swipeleft':
+                if (this.navRight.hasClass("in")) {
+                    change.data.col = 1;
+                    this.navigate(change);
+                }
+                break;
 
+            case 'swipeup':
+                if ($(window).height() + $(window).scrollTop()
+                        === $(document).height() && this.navDown.hasClass("in")) {
+                    change.data.row = 1;
+                    this.navigate(change);
+                }
+                break;
+        }
+    };
     OER.Views.RLOBaseView = Backbone.View.extend(p, s);
 })();
