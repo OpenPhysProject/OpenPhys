@@ -106,6 +106,8 @@
         this.homeView.removeClass("out hidden");
         this.homeView.addClass("in");
         this.logo.removeClass("mini");
+        var currentTile = $(".current", this.homeView);
+        currentTile.removeClass("current");
         this.setTileMinHeight();
         window.scrollTo(0,1);   // OJR hides chrome on mobile browser
     };

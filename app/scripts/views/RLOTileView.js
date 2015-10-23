@@ -21,6 +21,7 @@ OER.Views = OER.Views || {};
         },
         
         handleClick: function() {
+            this.$el.addClass("current");
             OER.router.go(this.model.get("route").toString());
         }
 
