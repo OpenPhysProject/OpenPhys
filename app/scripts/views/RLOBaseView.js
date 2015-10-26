@@ -191,10 +191,34 @@ OER.Views = OER.Views || {};
         var rowChange = event.data.row;
         var colChange = event.data.col;
 
+        this.handleContentTransaction(rowChange, colChange);
         // we don't need to check if it exists because we do that when adding click listener
         var contentMap = this.model.get("contentMap");
         var targetModel = contentMap[this.rowInContentMap + rowChange].at(this.colInContentMap + colChange);
         targetModel.set("current", true);
+    };
+
+    p.handleContentTransaction = function (rowChange, colChange) {
+        var changeDirection = "";  // string   the direction of current view changing. 
+        if (rowChange === 1) {
+            changeDirection = "down";
+        } else if (rowChange === -1) {
+            changeDirection = "up";
+        } else if (colChange === 1) {
+            changeDirection = "next";
+        } else {
+            changeDirection = "prev";
+        }
+        this.contentContainer
+                .clone()
+                .addClass(changeDirection)
+                .insertBefore(".rlo-base-content-container")
+                .queue(function () {
+                    $(this).one("animationend", function () {
+                        $(this).remove();
+                        $(this).dequeue();
+                    });
+                });
     };
 
     p.handleKeydown = function (event) {
