@@ -28,14 +28,41 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
             var c = $(".rlo-content-canvas", this.$el)[0];
             this.stage = new createjs.Stage(c);
             
-            var circle = new createjs.Shape();
-            circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
-            circle.x = 100;
-            circle.y = 100;
-            this.stage.addChild(circle);
+            this.createGraph();
 
             createjs.Ticker.timingMode = createjs.Ticker.RAF;
             createjs.Ticker.addEventListener("tick", this.tick.bind(this));
+        },
+        
+        createGraph: function() {
+            var STROKE_COLOR = 'red';
+            var FILL_COLOR = 'blue';
+            var margin = 20;
+            var container = new createjs.Container();
+            
+            var graph = new createjs.Shape();
+            graph.graphics.beginStroke(STROKE_COLOR).moveTo(margin, 0).lineTo(margin, 200).endStroke(); // y axis
+            graph.graphics.beginStroke(STROKE_COLOR).moveTo(0, margin).lineTo(200, margin).endStroke(); // x axis
+            
+            // draw hint lines?
+            var hintLines = new createjs.Shape();
+            for(var i = margin*2; i < 200; ) {
+                hintLines.graphics.beginStroke("grey").moveTo(margin, i).lineTo(200, i).endStroke(); // y axis
+                i = i + 20;
+            }
+            
+            // draw curve
+            var curve = new createjs.Shape();
+            curve.graphics.beginStroke("yellow").moveTo(margin, 200).quadraticCurveTo(margin, margin, 200, margin).endStroke();
+            
+            // draw point
+            var circle = new createjs.Shape();
+            circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 5);
+            circle.x = 40;
+            circle.y = 40;
+
+            container.addChild(graph, hintLines, curve, circle);
+            this.stage.addChild(container);  
         },
         
         tick: function(event) {
