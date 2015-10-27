@@ -108,7 +108,7 @@
     };
     
     p.showHomeViewIn = function() {
-        this.homeView.removeClass("in");
+        this.homeView.removeClass("out");
         this.homeView.addClass("in");
         this.logo.removeClass("mini");
         var currentTile = $(".current", this.homeView);
