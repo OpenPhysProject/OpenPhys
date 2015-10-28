@@ -1,8 +1,10 @@
+$button-bar-size: $ui-button-width + $padding-small*3;
+
 .rlo-content {
     color: $color_content_text;
     min-height: 100%;
     height: 100%;
-
+    margin-bottom: $button-bar-size;
 }
 
 .rlo-content-title {
@@ -25,7 +27,14 @@
 
 .rlo-content-canvas {
     background: $color_content_canvas_background;
+    width: 100%;
+    margin-top: $padding-small;
 }
+
+.rlo-content-bottom {
+    margin-bottom: $button-bar-size;
+}
+
 
 figure {
     margin: 1rem;
