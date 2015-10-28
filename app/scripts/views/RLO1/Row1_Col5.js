@@ -11,6 +11,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         events: {},
         
         stage: null,        // easeljs stage
+        
         graph: null,        // container
         graphCurve: null,   // shape
         graphPoint: null,   // shape
@@ -74,7 +75,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
                 step = (x - margin) / margin;
                 y = this.equation(step)*margin+margin;
             }
-            curve.graphics.beginStroke("yellow").moveTo(x, y);
+            curve.graphics.setStrokeStyle(2,"round", "bevel").beginStroke("yellow").moveTo(x, y);
             
             for( ; x <= maxX; x += iteration) {
                 step = (x - margin) / margin;
