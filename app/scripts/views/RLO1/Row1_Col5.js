@@ -14,9 +14,16 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         width: null,
         height: null,
         padding: 20,        // padding between objects and edge of canvas
-        graph: null,        // container
-        graphCurve: null,   // shape
-        graphPoint: null,   // shape
+        graph: {
+            container: null,    // container
+            graphCurve: null,   // shape
+            graphPoint: null,   // shape
+            scale: 20,          // graph scale in pixels, for example a difference of 1 is represented by 20 pixels
+            lineColor: "grey",
+            curveColor: "yellow",
+            dotColor: "DeepSkyBlue",
+            dotSize: 5,
+        },
 
         initialize: function (model) {
             if (model) { this.model = model; }
@@ -33,40 +40,47 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
             
             var c = $(".rlo-content-canvas", this.$el)[0];
             this.stage = new createjs.Stage(c);
+            createjs.Touch.enable(this.stage);
             this.width = c.width;
             this.height = c.height;
             
             var slice = (this.width - this.padding*4)/ 3;   // 3 objects, 4 gutters
             
-            this.graph = this.createGraph();
-            this.graph.y = this.padding;
-            this.graph.x = slice*2 + this.padding*3;    // 2 objects and 3 gutters over
-            
-            this.stage.addChild(this.graph);  
+            var g = this.graph.container = this.createGraph();
+            g.y = this.padding;
+            g.x = slice*2 + this.padding*3;    // 2 objects and 3 gutters over
+            g.addEventListener("mousedown", this.handleGraphMouseDown.bind(this));
+            g.addEventListener("mouseup", this.handleGraphMouseUp.bind(this));
+        
+            this.stage.addChild(g);  
 
             createjs.Ticker.timingMode = createjs.Ticker.RAF;
             createjs.Ticker.addEventListener("tick", this.tick.bind(this));
         },
         
+        tick: function(event) {
+            this.stage.update(event);
+        },
+        
+    // GRAPH *********************************************************************************8
         createGraph: function() {
-            var STROKE_COLOR = 'grey';
-            var margin = 20;
+            var margin = this.graph.scale;
             var container = new createjs.Container();
             
             var graph = new createjs.Shape();
-            graph.graphics.beginStroke(STROKE_COLOR).moveTo(margin, 0).lineTo(margin, 200).endStroke(); // y axis
-            graph.graphics.beginStroke(STROKE_COLOR).moveTo(0, margin).lineTo(200, margin).endStroke(); // x axis
+            graph.graphics.beginStroke(this.graph.lineColor).moveTo(margin, 0).lineTo(margin, 200).endStroke(); // y axis
+            graph.graphics.beginStroke(this.graph.lineColor).moveTo(0, margin).lineTo(200, margin).endStroke(); // x axis
             
             // draw hint lines
             var hintLines = new createjs.Shape();
             for(var i = margin*2; i < 200; i += margin) {
-                hintLines.graphics.beginStroke("grey").moveTo(margin, i).lineTo(200, i).endStroke(); // y axis
+                hintLines.graphics.beginStroke(this.graph.lineColor).moveTo(margin, i).lineTo(200, i).endStroke(); // y axis
             }
             
-            this.graphCurve = this.drawGraphCurve(margin, 200);
-            this.graphPoint = this.drawGraphPoint(margin);
+            this.graph.graphCurve = this.drawGraphCurve(margin, 200);
+            this.graph.graphPoint = this.drawGraphPoint(margin);
 
-            container.addChild(graph, hintLines, this.graphCurve, this.graphPoint);
+            container.addChild(graph, hintLines, this.graph.graphCurve, this.graph.graphPoint);
             
             return container;
         },
@@ -83,7 +97,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
                 step = (x - margin) / margin;
                 y = this.equation(step)*margin+margin;
             }
-            curve.graphics.setStrokeStyle(2,"round", "bevel").beginStroke("yellow").moveTo(x, y);
+            curve.graphics.setStrokeStyle(2,"round", "bevel").beginStroke(this.graph.curveColor).moveTo(x, y);
             
             for( ; x <= maxX; x += iteration) {
                 step = (x - margin) / margin;
@@ -98,7 +112,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         
         drawGraphPoint: function(margin) {
             var circle = new createjs.Shape();
-            circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 5);
+            circle.graphics.beginFill(this.graph.dotColor).drawCircle(0, 0, this.graph.dotSize);
             var step = 4;   // replace with value from equation
             circle.x = step*margin+margin;  // step = (x - margin) / margin
             circle.y = this.equation(step)*margin+margin;
@@ -110,11 +124,21 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
             return 4 / x;  // OJR replace with proper forumla
         },
         
-        tick: function(event) {
-            this.stage.update(event);
-        }
+        handleGraphMouseDown: function() {
+          this.graph.container.addEventListener("mousemove", this.handleGraphMouseMove.bind(this));  
+        },
         
+        handleGraphMouseUp: function() {
+            if (!event.primary) { return; }
+            this.graph.container.removeEventListener("mousemove");
+        },
+        
+        
+        /*
         // TODO clean up stage
+        createjs.Touch.disable(stage);
+        createjs.Ticker.removeEventListener("tick");
+        */
 
     });
 
