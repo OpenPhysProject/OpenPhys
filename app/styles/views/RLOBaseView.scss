@@ -24,6 +24,27 @@
     font-family: $fontFamily-default;
 }
 
+.rlo-base-content-container.prev{
+    position: fixed;
+    animation-duration: $duration-loop;
+    animation-name: animationPrev; 
+}
+.rlo-base-content-container.next{
+    position: fixed;
+    animation-duration: $duration-loop;
+    animation-name: animationNext; 
+}
+.rlo-base-content-container.down{
+    position: fixed;
+    animation-duration: $duration-loop;
+    animation-name: animationDown; 
+}
+.rlo-base-content-container.up{
+    position: fixed;
+    animation-duration: $duration-loop;
+    animation-name: animationUp; 
+}
+
 .nav-button-container{
     position:fixed;
     height: auto;
@@ -68,6 +89,50 @@
     0% {opacity: 0;}
     100% {opacity: 1;}
 }
+
+@keyframes animationPrev { 
+    0% { 
+        opacity: 1; 
+        transform: translateX(0); 
+    } 
+    100% { 
+        opacity: 0; 
+        transform: translateX(2000px); 
+    } 
+} 
+
+@keyframes animationNext { 
+    0% { 
+        opacity: 1;
+        transform: translateX(0); 
+    }
+    100% { 
+        opacity: 0; 
+        transform: translateX(-2000px); 
+    } 
+}
+
+@keyframes animationDown { 
+    0% { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+    100% { 
+        opacity: 0; 
+        transform: translateY(-2000px); 
+    } 
+}
+
+@keyframes animationUp { 
+    0% { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+    100% { 
+        opacity: 0; 
+        transform: translateY(2000px); 
+    } 
+} 
 
 @media screen and (max-device-width: $bp_width_small) {
     .nav-button-container {
