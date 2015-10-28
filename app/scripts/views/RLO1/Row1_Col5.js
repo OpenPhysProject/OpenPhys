@@ -11,7 +11,9 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         events: {},
         
         stage: null,        // easeljs stage
-        
+        width: null,
+        height: null,
+        padding: 20,        // padding between objects and edge of canvas
         graph: null,        // container
         graphCurve: null,   // shape
         graphPoint: null,   // shape
@@ -31,8 +33,14 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
             
             var c = $(".rlo-content-canvas", this.$el)[0];
             this.stage = new createjs.Stage(c);
+            this.width = c.width;
+            this.height = c.height;
+            
+            var slice = (this.width - this.padding*4)/ 3;   // 3 objects, 4 gutters
             
             this.graph = this.createGraph();
+            this.graph.y = this.padding;
+            this.graph.x = slice*2 + this.padding*3;    // 2 objects and 3 gutters over
             
             this.stage.addChild(this.graph);  
 
