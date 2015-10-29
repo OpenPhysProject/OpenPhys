@@ -23,7 +23,6 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
             curveColor: "yellow",
             dotColor: "DeepSkyBlue",
             dotSize: 5,
-            targetPoint: null,  // creatjs Point
         },
 
         initialize: function (model) {
@@ -50,8 +49,6 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
             var g = this.graph.container = this.createGraph();
             g.y = this.padding;
             g.x = slice*2 + this.padding*3;    // 2 objects and 3 gutters over
-            g.addEventListener("mousedown", this.handleGraphMouseDown.bind(this));
-            g.addEventListener("mouseup", this.handleGraphMouseUp.bind(this));
         
             this.stage.addChild(g);  
 
@@ -61,6 +58,18 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         
         tick: function(event) {
             this.stage.update(event);
+        },
+        
+        /*
+         * clean up stage events and call super remove
+         * @param {type} options
+         */
+        remove: function(options) {
+            this.graphRemove();
+            createjs.Touch.disable(this.stage);
+            createjs.Ticker.removeEventListener("tick");
+
+            Backbone.View.prototype.remove.call(this, options);
         },
         
     // GRAPH *********************************************************************************8
@@ -87,6 +96,9 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
             hitArea.graphics.beginFill(this.graph.lineColor).drawRect(0, 0, 200, 200);
             container.hitArea = hitArea;
             
+            container.addEventListener("mousedown", this.handleGraphMouseDown.bind(this));
+            container.addEventListener("mouseup", this.handleGraphMouseUp.bind(this));
+
             return container;
         },
         
@@ -140,7 +152,6 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         
         handleGraphMouseDown: function(event) {
             if (!event.primary) { return; }
-            this.graph.targetPoint = new createjs.Point(event.localX, event.localY);
             this.updateGraphPoint(event.localX);
             this.graph.container.addEventListener("pressmove", this.handleGraphMouseMove.bind(this));
         },
@@ -154,13 +165,12 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
             this.graph.container.removeEventListener("pressmove");
         },
         
+        graphRemove: function(event) {
+            this.graph.container.addEventListener("mousedown");
+            this.graph.container.addEventListener("mouseup");
+            this.graph.container.removeEventListener("pressmove");
+        },
         
-        /*
-        // TODO clean up stage
-        createjs.Touch.disable(stage);
-        createjs.Ticker.removeEventListener("tick");
-        */
-
     });
 
 })();
