@@ -23,6 +23,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
             curveColor: "yellow",
             dotColor: "DeepSkyBlue",
             dotSize: 5,
+            targetPoint: null,  // creatjs Point
         },
 
         initialize: function (model) {
@@ -82,6 +83,10 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
 
             container.addChild(graph, hintLines, this.graph.graphCurve, this.graph.graphPoint);
             
+            var hitArea = new createjs.Shape();
+            hitArea.graphics.beginFill(this.graph.lineColor).drawRect(0, 0, 200, 200);
+            container.hitArea = hitArea;
+            
             return container;
         },
         
@@ -120,17 +125,33 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
             return circle;
         },
         
+        updateGraphPoint: function (x) {
+            var scale = this.graph.scale;
+            var step = (x - scale) / scale;
+            var y = this.equation(step)*scale+scale;
+            if (x > 200 || x < scale || y < scale || y > 200) {return;}
+            this.graph.graphPoint.x = x;
+            this.graph.graphPoint.y = this.equation(step)*scale+scale;
+        },
+        
         equation: function(x) {
             return 4 / x;  // OJR replace with proper forumla
         },
         
-        handleGraphMouseDown: function() {
-          this.graph.container.addEventListener("mousemove", this.handleGraphMouseMove.bind(this));  
+        handleGraphMouseDown: function(event) {
+            if (!event.primary) { return; }
+            this.graph.targetPoint = new createjs.Point(event.localX, event.localY);
+            this.updateGraphPoint(event.localX);
+            this.graph.container.addEventListener("pressmove", this.handleGraphMouseMove.bind(this));
         },
         
-        handleGraphMouseUp: function() {
+        handleGraphMouseMove: function(event) {
+            this.updateGraphPoint(event.localX);
+        },
+        
+        handleGraphMouseUp: function(event) {
             if (!event.primary) { return; }
-            this.graph.container.removeEventListener("mousemove");
+            this.graph.container.removeEventListener("pressmove");
         },
         
         
