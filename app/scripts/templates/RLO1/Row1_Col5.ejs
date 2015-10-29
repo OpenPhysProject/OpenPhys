@@ -69,4 +69,51 @@ of the nucleus, Ze, where Z is the number of protons, and e is the elemental uni
 
     </div>
     <canvas class="rlo-content-canvas" width="680" height="240"></canvas>
+    <div class"rlo1-row1-col5-controls">
+        <div class="rlo1-row1-col5-v">
+            <div>v potential</div>
+            <div id="vOut">5.10ev</div>
+        </div>
+        <div class="rlo1-row1-col5-e">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                        <mo>=</mo>
+                        <mo>-</mo>
+                        <mfrac linethickness="1">
+                                <mrow>
+                                        <mi>1</mi>
+                                </mrow>
+                                <mrow>
+                                        <mrow>
+                                                <mo form="prefix">(</mo>
+                                                <mn>4</mn>
+                                                <mi>&#x003C0;</mi>
+                                                <msub>
+                                                        <mi>&#x003F5;</mi>
+                                                        <mn>0</mn>
+                                                </msub>
+                                                <mo form="postfix">)</mo>
+                                        </mrow>
+                                </mrow>
+                        </mfrac>
+                </mrow>
+            </math>
+        </div>
+        <div class="rlo1-row1-col5-z">
+            <div>
+                <label for=z>z  atomic number</label>
+                <input type=range min=1 max=5 value=3 id=z step=1>
+                <output for=z id=zOut>3</output>
+            </div>
+        </div>
+          <div class="rlo1-row1-col5-r">
+            <div>
+                <label for=r>r  radial distance</label>
+                <input type=range min=1 max=5 value=0 id=r step=1>
+                <output for=r id=rOut>5.29</output>
+                <div>x10<sup>-11</sup>m</div>
+            </div>
+        </div>
+    </div>
+
 </div>
