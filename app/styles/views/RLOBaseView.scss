@@ -25,23 +25,44 @@
 
 .rlo-base-content-container.prev{
     position: fixed;
-    animation-duration: $duration-loop;
-    animation-name: animationPrev; 
+    animation-duration: $duration-long;
+    animation-name: animationCurrentPrev; 
 }
 .rlo-base-content-container.next{
     position: fixed;
-    animation-duration: $duration-loop;
-    animation-name: animationNext; 
+    animation-duration: $duration-long;
+    animation-name: animationCurrentNext; 
 }
 .rlo-base-content-container.down{
     position: fixed;
-    animation-duration: $duration-loop;
-    animation-name: animationDown; 
+    animation-duration: $duration-long;
+    animation-name: animationCurrentDown; 
 }
 .rlo-base-content-container.up{
     position: fixed;
-    animation-duration: $duration-loop;
-    animation-name: animationUp; 
+    animation-duration: $duration-long;
+    animation-name: animationCurrentUp; 
+}
+
+.rlo-base-content-container.transition.prev{
+    position: fixed;
+    animation-duration: $duration-long;
+    animation-name: animationOldPrev; 
+}
+.rlo-base-content-container.transition.next{
+    position: fixed;
+    animation-duration: $duration-long;
+    animation-name: animationOldNext; 
+}
+.rlo-base-content-container.transition.down{
+    position: fixed;
+    animation-duration: $duration-long;
+    animation-name: animationOldDown; 
+}
+.rlo-base-content-container.transition.up{
+    position: fixed;
+    animation-duration: $duration-long;
+    animation-name: animationOldUp; 
 }
 
 .nav-button-container{
@@ -89,47 +110,74 @@
     100% {opacity: 1;}
 }
 
-@keyframes animationPrev { 
+@keyframes animationCurrentPrev { 
     0% { 
-        opacity: 1; 
-        transform: translateX(0); 
+        transform: translateX(-100%); 
     } 
     100% { 
-        opacity: 0; 
-        transform: translateX(2000px); 
+        transform: translateX(0); 
     } 
 } 
 
-@keyframes animationNext { 
+@keyframes animationCurrentNext { 
     0% { 
-        opacity: 1;
+        transform: translateX(100%); 
+    }
+    100% { 
+        transform: translateX(0); 
+    } 
+}
+
+@keyframes animationCurrentDown { 
+    0% { 
+        transform: translateY(100%); 
+    } 
+    100% { 
+        transform: translateY(0); 
+    } 
+}
+
+@keyframes animationCurrentUp { 
+    0% { 
+        transform: translateY(-100%); 
+    } 
+    100% { 
+        transform: translateY(0); 
+    } 
+} 
+@keyframes animationOldPrev { 
+    0% { 
+        transform: translateX(0); 
+    } 
+    100% { 
+        transform: translateX(100%); 
+    } 
+} 
+
+@keyframes animationOldNext { 
+    0% { 
         transform: translateX(0); 
     }
     100% { 
-        opacity: 0; 
-        transform: translateX(-2000px); 
+        transform: translateX(-100%); 
     } 
 }
 
-@keyframes animationDown { 
+@keyframes animationOldDown { 
     0% { 
-        opacity: 1; 
         transform: translateY(0); 
     } 
     100% { 
-        opacity: 0; 
-        transform: translateY(-2000px); 
+        transform: translateY(-100%); 
     } 
 }
 
-@keyframes animationUp { 
+@keyframes animationOldUp { 
     0% { 
-        opacity: 1; 
         transform: translateY(0); 
     } 
     100% { 
-        opacity: 0; 
-        transform: translateY(2000px); 
+        transform: translateY(100%); 
     } 
 } 
 

@@ -210,8 +210,16 @@ OER.Views = OER.Views || {};
             changeDirection = "prev";
         }
         this.contentContainer
-                .clone()
                 .addClass(changeDirection)
+                .queue(function () {
+                    $(this).one("animationend", function () {
+                        $(this).removeClass("down up next prev");
+                        $(this).dequeue();
+                    });
+                });
+        this.contentContainer
+                .clone()
+                .addClass("transition " + changeDirection)
                 .insertBefore(".rlo-base-content-container")
                 .queue(function () {
                     $(this).one("animationend", function () {
