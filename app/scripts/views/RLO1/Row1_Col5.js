@@ -45,6 +45,8 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
 
         createjs.Ticker.timingMode = createjs.Ticker.RAF;
         createjs.Ticker.addEventListener("tick", this.tick.bind(this));
+        
+        this.formulaSetUp();
     };
 
     p.tick= function(event) {
@@ -181,7 +183,6 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         r: null,
         rOut: null,
     };
-    // oninput="createjs.proxy(handleSlider(value, 'SMOOTHING_TIME'),this)"
     /*
             function addInput(propName, elName) {
                     var el = elHash[propName] = document.querySelector(elName+"Out");
@@ -189,12 +190,34 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
                     slider.value = el.value = this[propName];
             }
      */
-    /*
-    function handleSlider(val, hashString) {
-        this.elHash[hashString].value = val;
-        this[hashString] = val;
-    */
+    p.formulaSetUp = function() {
+        var f = this.formula;
+        f.vOut = $("#vOut", this.$el)[0];
+        f.z = $("#z", this.$el)[0];
+        f.zOut = $("#zOut", this.$el)[0];
+        f.zOut.innerHTML = f.z.value;
+        f.r = $("#r", this.$el)[0];
+        f.rOut = $("#rOut", this.$el)[0];
+        f.rOut.innerHTML = f.r.value * 1.01;
 
+        f.z.addEventListener("input",this.handleZSlider.bind(this));
+        f.r.addEventListener("input",this.handleRSlider.bind(this));
+        // input does not work in IE 10, needs change event
+        // http://www.impressivewebs.com/onchange-vs-oninput-for-range-sliders/
+        // http://stackoverflow.com/questions/18544890/onchange-event-on-input-type-range-is-not-triggering-in-firefox-while-dragging
+    };
+
+    p.handleZSlider = function(event) {
+        this.formula.zOut.innerHTML = event.srcElement.value;
+    };
+
+    p.handleRSlider = function(event) {
+        this.formula.rOut.innerHTML = 1.01 * event.srcElement.value;    // OJR fix length for 3 error
+    };
+    
+    p.updateV = function() {
+        // set value * z / r * 10 -11
+    };
 
     OER.Views.ElectronicStructureOfTheAtom.NuclearPotential = Backbone.View.extend(p, s);
 
