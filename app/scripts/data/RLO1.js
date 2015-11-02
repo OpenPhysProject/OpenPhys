@@ -2,7 +2,7 @@
     var s = {};
     
     s.title = "The Electronic Structure of the Atom";
-    s.preview = ""; //svg image
+    s.preview = "/images/RLO1/Charge_and_Field_001.png"; //svg image
     s.route = "ElectronicStructureOfTheAtom";
     s.info = "";
     s.primaryPathIndex = 1;

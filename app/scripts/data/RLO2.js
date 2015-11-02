@@ -2,7 +2,7 @@
     var s = {};
     
     s.title = "Radioactivity";
-    s.preview = ""; //svg image
+    s.preview = "/images/RLO2/Nucleus.svg"; //svg image
     s.route = "Radioactivity";
     s.info = "";
     s.primaryPathIndex = 3;
