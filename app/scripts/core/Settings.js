@@ -17,7 +17,8 @@
     s.MAIN_TO_CONTENT = t.duration_short;    // delay when switching between home/tile view and base/content view
     s.CLOSE_NAV = t.duration_default;       // delay before closing NavView after card selected
     s.FIRST_SHOW = t.duration_default;      // delay before a nav card is selected
-
+    s.TRANS_CONTENT = t.duration_long;
+    
     scope.settings = s;
 
 }(window.OER = window.OER || {}));

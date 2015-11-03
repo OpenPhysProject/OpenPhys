@@ -3,7 +3,11 @@
     animation-fill-mode: both;
     animation-timing-function: $ease-animation;
 }
-
+@mixin transitionSetting{
+    transition-property: transform;
+    transition-timing-function: ease-in-out;
+    transition-duration: $duration-long;
+}
 .rlo-base-view {
     margin: 0 auto;
     width: 100%;
@@ -24,45 +28,55 @@
 }
 
 .rlo-base-content-container.prev{
+    @include transitionSetting;
     position: fixed;
-    animation-duration: $duration-long;
-    animation-name: animationCurrentPrev; 
+    left:-100%;
+    transform: translateX(100%);
 }
+
 .rlo-base-content-container.next{
+    @include transitionSetting;
     position: fixed;
-    animation-duration: $duration-long;
-    animation-name: animationCurrentNext; 
+    left:100%;
+    transform: translateX(-100%);
 }
+
 .rlo-base-content-container.down{
+    @include transitionSetting;
     position: fixed;
-    animation-duration: $duration-long;
-    animation-name: animationCurrentDown; 
+    top:-100%;
+    transform: translateY(100%);
 }
 .rlo-base-content-container.up{
+    @include transitionSetting;
     position: fixed;
-    animation-duration: $duration-long;
-    animation-name: animationCurrentUp; 
+    top:100%;
+    transform: translateY(-100%);
 }
 
 .rlo-base-content-container.transition.prev{
+    @include transitionSetting;
     position: fixed;
-    animation-duration: $duration-long;
-    animation-name: animationOldPrev; 
+    left:0;
+    transform: translateX(100%);
 }
 .rlo-base-content-container.transition.next{
+    @include transitionSetting;
     position: fixed;
-    animation-duration: $duration-long;
-    animation-name: animationOldNext; 
+    left:0;
+    transform: translateX(-100%);
 }
 .rlo-base-content-container.transition.down{
+    @include transitionSetting;
     position: fixed;
-    animation-duration: $duration-long;
-    animation-name: animationOldDown; 
+    top:0;
+    transform: translateY(100%);
 }
 .rlo-base-content-container.transition.up{
+     @include transitionSetting;
     position: fixed;
-    animation-duration: $duration-long;
-    animation-name: animationOldUp; 
+    top:0;
+    transform: translateY(-100%);
 }
 
 .nav-button-container{
@@ -109,77 +123,6 @@
     0% {opacity: 0;}
     100% {opacity: 1;}
 }
-
-@keyframes animationCurrentPrev { 
-    0% { 
-        transform: translateX(-100%); 
-    } 
-    100% { 
-        transform: translateX(0); 
-    } 
-} 
-
-@keyframes animationCurrentNext { 
-    0% { 
-        transform: translateX(100%); 
-    }
-    100% { 
-        transform: translateX(0); 
-    } 
-}
-
-@keyframes animationCurrentDown { 
-    0% { 
-        transform: translateY(100%); 
-    } 
-    100% { 
-        transform: translateY(0); 
-    } 
-}
-
-@keyframes animationCurrentUp { 
-    0% { 
-        transform: translateY(-100%); 
-    } 
-    100% { 
-        transform: translateY(0); 
-    } 
-} 
-@keyframes animationOldPrev { 
-    0% { 
-        transform: translateX(0); 
-    } 
-    100% { 
-        transform: translateX(100%); 
-    } 
-} 
-
-@keyframes animationOldNext { 
-    0% { 
-        transform: translateX(0); 
-    }
-    100% { 
-        transform: translateX(-100%); 
-    } 
-}
-
-@keyframes animationOldDown { 
-    0% { 
-        transform: translateY(0); 
-    } 
-    100% { 
-        transform: translateY(-100%); 
-    } 
-}
-
-@keyframes animationOldUp { 
-    0% { 
-        transform: translateY(0); 
-    } 
-    100% { 
-        transform: translateY(100%); 
-    } 
-} 
 
 @media screen and (max-device-width: $bp_width_small) {
     .nav-button-container {

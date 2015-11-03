@@ -209,21 +209,25 @@ OER.Views = OER.Views || {};
         } else {
             changeDirection = "prev";
         }
-        this.contentContainer
-                .addClass(changeDirection)
+        var clonedContentContainer = this.contentContainer.clone()
+                .insertBefore(".rlo-base-content-container")
                 .queue(function () {
-                    $(this).one("animationend", function () {
-                        $(this).removeClass("down up next prev");
+                    $(this).one("transitionend", function () {
+                        $(this).remove();
                         $(this).dequeue();
                     });
                 });
+        setTimeout(function () {
+            clonedContentContainer.addClass("transition " + changeDirection);
+        }, 0);
+        setTimeout(function () {
+            clonedContentContainer.remove();
+        }, OER.settings.TRANS_CONTENT);
         this.contentContainer
-                .clone()
-                .addClass("transition " + changeDirection)
-                .insertBefore(".rlo-base-content-container")
+                .addClass(changeDirection)
                 .queue(function () {
-                    $(this).one("animationend", function () {
-                        $(this).remove();
+                    $(this).one("transitionend", function () {
+                        $(this).removeClass("down up next prev");
                         $(this).dequeue();
                     });
                 });
