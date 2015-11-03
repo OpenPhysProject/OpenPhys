@@ -2,8 +2,6 @@ $button-bar-size: $ui-button-width + $padding-small*3;
 
 .rlo-content {
     color: $color_content_text;
-    min-height: 100%;
-    height: 100%;
     margin-bottom: $button-bar-size;
 }
 
