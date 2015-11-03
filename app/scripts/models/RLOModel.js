@@ -14,6 +14,7 @@ OER.Models = OER.Models || {};
             primaryPathIndex: null,
             contentMap: null,  // 2D array of NavCardCollection
             lastCurrentCollection: null,
+            jumpNav: false,
         },
         
         /**

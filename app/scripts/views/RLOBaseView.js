@@ -151,13 +151,38 @@ OER.Views = OER.Views || {};
         this.rowInContentMap = contentMap.indexOf(currentNavCollection);
         this.colInContentMap = currentNavCollection.indexOf(model);
 
-        this.navigateColumn(currentNavCollection, -1, 0, this.navLeft);
-        this.navigateColumn(currentNavCollection, 1, 0, this.navRight);
+        var jumpNav = this.model.get("jumpNav");
+        if(jumpNav) {
+            this.navigateColumnJump(currentNavCollection, -1, 0, this.navLeft);
+            this.navigateColumnJump(currentNavCollection, 1, 0, this.navRight);
+        } else {
+            this.navigateColumn(currentNavCollection, -1, 0, this.navLeft);
+            this.navigateColumn(currentNavCollection, 1, 0, this.navRight);
+        }
         this.navigateRow(contentMap, -1, this.navUp);
         this.navigateRow(contentMap, 1, this.navDown);
 
         var targetView = model.get("route");
         this.updateContent(targetView);
+    };
+    
+    p.navigateColumnJump = function (navCollection, colChange, rowChange, navEl) {
+        var next = false;
+        for (var i = this.colInContentMap + colChange; i < navCollection.length && i >= 0; i += colChange) {
+            if (navCollection.at(i) && navCollection.at(i).get("title")) {
+                next = true;
+                break;
+            }
+        }
+        if (next) {
+            if (navEl.hasClass("out")) {
+                navEl.on("click", {col: colChange, row: rowChange}, this.navigate.bind(this));
+                navEl.removeClass("out");
+                navEl.addClass("in");
+            }
+        } else {
+            this.navOut(navEl);
+        }
     };
 
     p.navigateColumn = function (navCollection, colChange, rowChange, navEl) {
@@ -194,7 +219,17 @@ OER.Views = OER.Views || {};
         this.handleContentTransaction(rowChange, colChange);
         // we don't need to check if it exists because we do that when adding click listener
         var contentMap = this.model.get("contentMap");
-        var targetModel = contentMap[this.rowInContentMap + rowChange].at(this.colInContentMap + colChange);
+        var targetModel;
+        if(colChange != 0 && this.model.get("jumpNav")) {
+            var i = this.colInContentMap + colChange;
+            var navCollection = contentMap[this.rowInContentMap];
+            while (navCollection.at(i) && !navCollection.at(i).get("title")) {
+                i += colChange;
+            }
+            targetModel = navCollection.at(i);
+        } else {
+            targetModel = contentMap[this.rowInContentMap + rowChange].at(this.colInContentMap + colChange);
+        }
         targetModel.set("current", true);
     };
 

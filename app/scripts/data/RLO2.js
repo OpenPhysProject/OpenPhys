@@ -5,6 +5,7 @@
     s.preview = "/images/RLO2/Nucleus.svg"; //svg image
     s.route = "Radioactivity";
     s.info = "";
+    s.jumpNav = true;
     s.primaryPathIndex = 3;
     
     s.contentMapData = [
