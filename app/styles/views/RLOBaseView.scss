@@ -44,14 +44,14 @@
 .rlo-base-content-container.down{
     @include transitionSetting;
     position: fixed;
-    top:-100%;
-    transform: translateY(100%);
+    top:100%;
+    transform: translateY(-100%);
 }
 .rlo-base-content-container.up{
     @include transitionSetting;
     position: fixed;
-    top:100%;
-    transform: translateY(-100%);
+    top:-100%;
+    transform: translateY(100%);
 }
 
 .rlo-base-content-container.transition.prev{
@@ -70,13 +70,13 @@
     @include transitionSetting;
     position: fixed;
     top:0;
-    transform: translateY(100%);
+    transform: translateY(-100%);
 }
 .rlo-base-content-container.transition.up{
-     @include transitionSetting;
+    @include transitionSetting;
     position: fixed;
     top:0;
-    transform: translateY(-100%);
+    transform: translateY(100%);
 }
 
 .nav-button-container{
