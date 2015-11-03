@@ -26,6 +26,7 @@ OER.Views = OER.Views || {};
         "click .rlo-base-menu-button": "toggleNav",
     };
 
+// Setup ********************************************************************
     p.initialize = function (model) {
         this.model = model;
         this.render();
@@ -37,6 +38,11 @@ OER.Views = OER.Views || {};
         this.navRight = $(".ui-nav-right", this.$el);
     };
 
+    p.render = function () {
+        this.setElement(this.template(this.model.toJSON()));
+    };
+
+// Model and Content changing ********************************************************************
     p.updateContent = function (targetView) {
         if (this.content) {
             this.content.remove();
@@ -60,10 +66,6 @@ OER.Views = OER.Views || {};
             direction: Hammer.DIRECTION_ALL
         });
         hammerObject.on("swipeleft swiperight swipeup swipedown", this.handleSwipe.bind(this));
-    };
-
-    p.render = function () {
-        this.setElement(this.template(this.model.toJSON()));
     };
 
     p.updateModel = function (newModel) {
@@ -99,6 +101,7 @@ OER.Views = OER.Views || {};
         }
     };
 
+// In Outs  ********************************************************************
     p.toggleNav = function () {
         this.navView.toggleNav();
         window.scrollTo(0,1);   // hide chrome on mobile browser
@@ -144,8 +147,8 @@ OER.Views = OER.Views || {};
         }, OER.settings.FIRST_SHOW + OER.settings.CLOSE_NAV);
     };
 
+// Navigation ********************************************************************
     p.handleCurrentChange = function (model) {
-        //var currentModel = this.model.get("lastCurrentCollection").findWhere({"current":true});
         var contentMap = this.model.get("contentMap");
         var currentNavCollection = this.model.get("lastCurrentCollection");
         this.rowInContentMap = contentMap.indexOf(currentNavCollection);
@@ -211,6 +214,68 @@ OER.Views = OER.Views || {};
         navEl.removeClass("in");
         navEl.addClass("out");
     };
+    
+    p.handleKeydown = function (event) {
+        var change = {data: {row: 0, col: 0}};
+        switch (event.keyCode) {
+            case 37:
+                if (this.navLeft.hasClass("in")) {
+                    change.data.col = -1;
+                    this.navigate(change);
+                }
+                break;
+            case 38:
+                if (this.navUp.hasClass("in")) {
+                    change.data.row = -1;
+                    this.navigate(change);
+                }
+                break;
+            case 39:
+                if (this.navRight.hasClass("in")) {
+                    change.data.col = 1;
+                    this.navigate(change);
+                }
+                break;
+            case 40:
+                if (this.navDown.hasClass("in")) {
+                    change.data.row = 1;
+                    this.navigate(change);
+                }
+                break;
+        }
+    };
+    
+    p.handleSwipe = function (event) {
+        var change = {data: {row: 0, col: 0}};
+        switch (event.type) {
+            case 'swiperight':
+                if (this.navLeft.hasClass("in")) {
+                    change.data.col = -1;
+                    this.navigate(change);
+                }
+                break;
+            case 'swipedown':
+                if ($(window).scrollTop() === 0 && this.navUp.hasClass("in")) {
+                    change.data.row = -1;
+                    this.navigate(change);
+                }
+                break;
+            case 'swipeleft':
+                if (this.navRight.hasClass("in")) {
+                    change.data.col = 1;
+                    this.navigate(change);
+                }
+                break;
+
+            case 'swipeup':
+                if ($(window).height() + $(window).scrollTop()
+                        === $(document).height() && this.navDown.hasClass("in")) {
+                    change.data.row = 1;
+                    this.navigate(change);
+                }
+                break;
+        }
+    };
 
     p.navigate = function (event) {
         var rowChange = event.data.row;
@@ -268,65 +333,5 @@ OER.Views = OER.Views || {};
                 });
     };
 
-    p.handleKeydown = function (event) {
-        var change = {data: {row: 0, col: 0}};
-        switch (event.keyCode) {
-            case 37:
-                if (this.navLeft.hasClass("in")) {
-                    change.data.col = -1;
-                    this.navigate(change);
-                }
-                break;
-            case 38:
-                if (this.navUp.hasClass("in")) {
-                    change.data.row = -1;
-                    this.navigate(change);
-                }
-                break;
-            case 39:
-                if (this.navRight.hasClass("in")) {
-                    change.data.col = 1;
-                    this.navigate(change);
-                }
-                break;
-            case 40:
-                if (this.navDown.hasClass("in")) {
-                    change.data.row = 1;
-                    this.navigate(change);
-                }
-                break;
-        }
-    };
-    p.handleSwipe = function (event) {
-        var change = {data: {row: 0, col: 0}};
-        switch (event.type) {
-            case 'swiperight':
-                if (this.navLeft.hasClass("in")) {
-                    change.data.col = -1;
-                    this.navigate(change);
-                }
-                break;
-            case 'swipedown':
-                if ($(window).scrollTop() === 0 && this.navUp.hasClass("in")) {
-                    change.data.row = -1;
-                    this.navigate(change);
-                }
-                break;
-            case 'swipeleft':
-                if (this.navRight.hasClass("in")) {
-                    change.data.col = 1;
-                    this.navigate(change);
-                }
-                break;
-
-            case 'swipeup':
-                if ($(window).height() + $(window).scrollTop()
-                        === $(document).height() && this.navDown.hasClass("in")) {
-                    change.data.row = 1;
-                    this.navigate(change);
-                }
-                break;
-        }
-    };
     OER.Views.RLOBaseView = Backbone.View.extend(p, s);
 })();
