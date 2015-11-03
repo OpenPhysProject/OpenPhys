@@ -54,7 +54,7 @@ $tile-margin: 0.5rem;
     transition-timing-function: ease;
     transition-duration: .3s;
     transition-delay: 0s;
-    transform-origin: 50% 50%;
+    transform-origin: 0% 0%;
     transform: translate(-50%, -50%);
     &:hover {
         transition-duration:10s;
