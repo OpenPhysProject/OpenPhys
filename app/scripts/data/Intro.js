@@ -2,7 +2,7 @@
     var s = {};
     
     s.title = "Instructions";
-    s.preview = "/images/RLO1/Charge_and_Field_001.png"; //svg image
+    s.preview = "/images/Intro/info-icon-01.svg"; //svg image
     s.route = "Instructions";
     s.info = "";
     s.primaryPathIndex = 0;
