@@ -9,12 +9,6 @@
     background: $color_nav_view_background;
     overflow: auto;
 
-    >.nav-collection{
-        width: fit-content;
-        padding-right: $padding-small+$nav-card-margin;
-        white-space: nowrap;
-    }
-
     &.in {
         //opacity: .95;
         transition: $duration-long;
@@ -29,3 +23,20 @@
         visibility: hidden;
     }
 }
+
+.nav-collection{
+    width: fit-content;
+    padding-right: $padding-small+$nav-card-margin;
+    white-space: nowrap;
+}
+
+.nav-view-title {
+    font: $fontFamily-title;
+    font-size: $fontSize-large;
+    font-weight: 900;
+    padding-left: 0.5rem;
+    margin-left: 0.5rem;
+    color: $color_gray-lighter;
+    background: $color_gray-darkest;
+}
+
