@@ -51,6 +51,8 @@
       
     p.loadData = function () {
        this.RLOs = new scope.Collections.RLOCollection();
+       var m = new scope.Models.RLOModel(OER.data.Intro, {parse: true, viewPath: "Intro"});
+       this.RLOs.add(m);
        var m = new scope.Models.RLOModel(OER.data.RLO1, {parse: true, viewPath: "RLO1"});
        this.RLOs.add(m);
        m  =  new scope.Models.RLOModel(OER.data.RLO2, {parse: true, viewPath: "RLO2"});
