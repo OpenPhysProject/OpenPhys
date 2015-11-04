@@ -12,7 +12,7 @@
         [
             {title:"Navigation", image: "", route:"Nav"},
             {title:"Content Map", image:"", route:"ContentMap"},
-            {title:"Open Phys Logo", image:"", route:"Logo"},
+            {title:"OpenPhys Logo", image:"", route:"Logo"},
         ],
     ];
 

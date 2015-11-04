@@ -84,6 +84,7 @@
     height: auto;
     width: auto;
     background: $color_nav_button_background;
+    padding: $padding-small;
 }
 
 .nav-button-container {
@@ -97,7 +98,13 @@
     z-index: $z-fg;
 }
 
-.ui-nav, .ui-nav-left, .ui-nav-up, .ui-nav-down, .ui-nav-right, .rlo-base-menu-button {
+.ui-nav {
+    display: inline-block;
+    width: $ui-button-width;
+    height: $ui-button-width;
+}
+
+.ui-nav-left, .ui-nav-up, .ui-nav-down, .ui-nav-right, .rlo-base-menu-button {
     display: inline-block;
     width: $ui-button-width;
     height: $ui-button-width;
@@ -116,6 +123,10 @@
 
 .rlo-base-menu-button {
     width: 7rem;
+}
+
+.ui-button-svg-display {
+    fill:$color_gray-darker;
 }
 
 .ui-button-svg {
