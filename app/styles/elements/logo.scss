@@ -49,9 +49,10 @@ $logo-ratio-huge: 0.36;
     transition-timing-function: linear;
 
     @include logo-ratio($logo-ratio-small,0);
-    &>.logo-icon{
+    &.logo-icon{
         display: block;
     }
+    
     &.mini {
         position: fixed;
         left:$padding-small;
@@ -66,7 +67,20 @@ $logo-ratio-huge: 0.36;
         &>.logo-tagline{
             display: none;
         }
-
+    }
+    
+    &.display {
+        position: static;
+        z-index: $z-mg;
+        top: auto !important;
+        padding: 0rem;
+        width: 10rem;
+        &>.logo-wordmark{
+            display: none;
+        }
+        &>.logo-tagline{
+            display: none;
+        }
     }
 }
 
