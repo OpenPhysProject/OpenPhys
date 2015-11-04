@@ -79,18 +79,25 @@
     transform: translateY(100%);
 }
 
-.nav-button-container{
-    position:fixed;
+.display-container {
+    display: inline-block;
     height: auto;
     width: auto;
+    background: $color_nav_button_background;
+}
+
+.nav-button-container {
+    height: auto;
+    width: auto;
+    background: $color_nav_button_background;
+    position:fixed;
     right: 0;
     bottom: 0;
     padding: $padding-small;
     z-index: $z-fg;
-    background: $color_nav_button_background;
 }
 
-.ui-nav-left, .ui-nav-up, .ui-nav-down, .ui-nav-right, .rlo-base-menu-button {
+.ui-nav, .ui-nav-left, .ui-nav-up, .ui-nav-down, .ui-nav-right, .rlo-base-menu-button {
     display: inline-block;
     width: $ui-button-width;
     height: $ui-button-width;

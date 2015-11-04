@@ -1,9 +1,9 @@
 (function (scope) {
     var s = {};
     
-    s.title = "Introduction";
+    s.title = "Instructions";
     s.preview = "/images/RLO1/Charge_and_Field_001.png"; //svg image
-    s.route = "Intro";
+    s.route = "Instructions";
     s.info = "";
     s.primaryPathIndex = 0;
     
