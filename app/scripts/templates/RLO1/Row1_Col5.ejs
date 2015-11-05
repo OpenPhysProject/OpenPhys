@@ -1,120 +1,27 @@
 <div class="rlo-content">
-    <div class="rlo-content-title">200.6 Classical Nuclear Potential</div>
-    <div class="rlo-content-body">The Schrodinger wave equation describes how a quantum electron wave is constrained
-spatially by an attractive classical inverse-square electric potential. Despite this hybrid
-classical-quantum approach, the Schrodinger equation has proven extremely successful. The
-attractive nuclear potential constrains the electron wave. The field is determined by the charge
-of the nucleus, Ze, where Z is the number of protons, and e is the elemental unit of charge, e=
-1.6 x 10-19 C.
-        <br/>
-        Electric Field <span class="rlo-content-formula">
-            <!-- (your LaTeX) $E = \frac{Ze}{(4\pi \epsilon _{0})r^{2}}$ -->
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow>
-	<mi>E</mi>
-	<mo>=</mo>
-	<mfrac linethickness="1">
-		<mrow>
-			<mi>Z</mi>
-			<mi>e</mi>
-		</mrow>
-		<mrow>
-			<mrow>
-				<mo form="prefix">(</mo>
-				<mn>4</mn>
-				<mi>&#x003C0;</mi>
-				<msub>
-					<mi>&#x003F5;</mi>
-					<mn>0</mn>
-				</msub>
-				<mo form="postfix">)</mo>
-			</mrow>
-			<msup>
-				<mi>r</mi>
-				<mn>2</mn>
-			</msup>
-		</mrow>
-	</mfrac>
-</mrow>
-</math></span>
-        <br/>
-        Electric Potential <span class="rlo-content-formula">
-            <!-- (your LaTeX) $V = -\frac{Ze}{(4\pi \epsilon _{0})r}$ -->
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow>
-	<mi>V</mi>
-	<mo>=</mo>
-	<mo>-</mo>
-	<mfrac linethickness="1">
-		<mrow>
-			<mi>Z</mi>
-			<mi>e</mi>
-		</mrow>
-		<mrow>
-			<mrow>
-				<mo form="prefix">(</mo>
-				<mn>4</mn>
-				<mi>&#x003C0;</mi>
-				<msub>
-					<mi>&#x003F5;</mi>
-					<mn>0</mn>
-				</msub>
-				<mo form="postfix">)</mo>
-			</mrow>
-			<mi>r</mi>
-		</mrow>
-	</mfrac>
-</mrow>
-</math></span>
-
+    <div class="rlo-content-title">200.5 Waves and Standing Waves</div>
+    <div class="rlo-content-body">
+        <h4>Traveling Waves</h4>
+        Traveling waves can be of any shape and move outward freely from a 
+        source through a medium, carrying energy but not 
+        material. A familiar example are waves propagating on the surface of water. 
+        Traveling wave velocity is the product of frequency and wavelength (v = fλ).
+        
+        <br/><br/>
+        <h4>Waves Confined by Reflections</h4>
+        <strong>Standing Waves</strong> arise when waves are confined within an 
+        enclosed container. At each location the amplitude of the oscillation remains constant over time.
+        Only certain patterns are possible - 
+        those that arise from <strong>Constructive Interference</strong> of 
+        the reflections from the boundaries. <strong>Destructive 
+        Interference</strong> eliminates other patterns. This gives rise 
+        to certain allowed modes of oscillation (or natural resonances) and is the origin 
+        of quantization. 
     </div>
-    <canvas class="rlo-content-canvas" width="680" height="240"></canvas>
     
-    <div class=rlo1-row1-col5-controls">
-        <div class="rlo1-row1-col5-v">
-            <div>v potential</div>
-            <div id="vOut">5.10ev</div>
-        </div>
-        <div class="rlo1-row1-col5-e">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mrow>
-                        <mo>=</mo>
-                        <mo>-</mo>
-                        <mfrac linethickness="1">
-                                <mrow>
-                                        <mi>1</mi>
-                                </mrow>
-                                <mrow>
-                                        <mrow>
-                                                <mo form="prefix">(</mo>
-                                                <mn>4</mn>
-                                                <mi>&#x003C0;</mi>
-                                                <msub>
-                                                        <mi>&#x003F5;</mi>
-                                                        <mn>0</mn>
-                                                </msub>
-                                                <mo form="postfix">)</mo>
-                                        </mrow>
-                                </mrow>
-                        </mfrac>
-                </mrow>
-            </math>
-        </div>
-        <div class="rlo1-row1-col5-z">
-            <div>
-                <label for=z>z  atomic number</label>
-                <input type=range min=1 max=5 value=1 id=z step=1>
-                <output for=z id=zOut>3</output>
-            </div>
-        </div>
-          <div class="rlo1-row1-col5-r">
-            <div>
-                <label for=r>r  radial distance</label>
-                <input type=range min=1 max=5 value=1 id=r step=1>
-                <output for=r id=rOut>5.29</output>
-                <div>x10<sup>-11</sup>m</div>
-            </div>
-        </div>
-    </div>
-
+    <figure>
+    <img class="img-responsive rlo-content-image" src="/images/RLO1/Wave.svg" />
+    <figcaption></figcaption>
+    </figure>
+    
 </div>

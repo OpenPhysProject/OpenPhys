@@ -5,43 +5,87 @@
     s.preview = "/images/RLO1/Charge_and_Field_001.png"; //svg image
     s.route = "ElectronicStructureOfTheAtom";
     s.info = "";
-    s.primaryPathIndex = 1;
+    s.primaryPathIndex = 3;
     
     s.contentMapData = [
     // index 0
         [
-            {title:"100.1 Classical EM", image: "", route:"ClassicalEM"},
+            {title:"", image: "", route:"100_0"},
             {title:"", image:"", route:""},
-            {title:"100.3 Atomic Spectra & Rydberg Formula", image:"", route:"AtomicSpectra"},
-            {title:"100.4 Angular Momentum", image:"", route:"AngularMomentum"},
-            {title:"100.5 Waves and Standing Waves", image:"", route:"WavesStanding"},
+            {title:"", image:"", route:""},
+            {title:"", image:"", route:""},
+            {title:"", image:"", route:""},
         ],
         
     // index 1, primary path
         [
-            {title:"200.1 Classical Physics", image:"", route:"ClassicalPhysics"},
-            {title:"200.2 Mysterious Stability of Atoms", image:"", route:"StabilityOfAtoms"},
-            {title:"200.3 Cracks", image:"", route:"Cracks"},
-            {title:"200.4 Bohr Atom & Quantization", image:"", route:"BohrQuantization"},
-            {title:"200.5 Standing Waves of Matter", image:"", route:"StandingWaves"},
-            {title:"200.6 Classical Nuclear Potential", image:"", route:"NuclearPotential"},
-            {title:"200.7 Orbitals as trapped electron waves", image:"", route:"Orbitals"},
-            {title:"200.8 Modern Electron Shell Model", image:"", route:"ElectronShellModel"},
-            {title:"200.9 Successes of Schrodinger Eqn. Atom", image:"", route:"SchrodingerAtomSuccess"},
+            {title:"", image:"", route:"200_0"},
+            {title:"", image:"", route:"200_1"},
+            {title:"", image:"", route:""},           
+            {title:"200.3 Classical Physics", image:"", route:"200_3"},
+            {title:"", image:"", route:""},
+            {title:"200.5 Classical Waves and Standing Waves", image:"", route:"200_5"},
+            {title:"", image:"", route:""},
+            {title:"", image:"", route:""},
+            {title:"", image:"", route:""},
         ],
         
     //index 2
         [
             {title:"", image:"", route:""},
-            {title:"300.2 Failure of Classical Electron Orbits", image:"", route:"ClassicalElectronOrbits"},
             {title:"", image:"", route:""},
-            {title:"300.4 Bohr Model with Equations", image:"", route:"BohrModel"},
-            {title:"300.5 Math of Standing Waves", image:"", route:"StandingWavesMath"},
-            {title:"", image:"", route:""},
-            {title:"", image:"", route:""},
-            {title:"", image:"", route:""},
-            {title:"300.9 Beyond the Schrodinger Eqn. Atom", image:"", route:"BeyondSchrodinger"},
+            {title:"", image:"", route:""},          
+            {title:"300.3 Classical EM", image:"", route:"300_3"},
+            {title:"300.4 Angular Momentum", image:"", route:"300_4"},
+            {title:"300.5 Math of Classical Standing Waves", image:"", route:"StandingWavesMath"},
+            {title:"", image:"", route:""}, 
+            {title:"300.7 Quantum Mechanics", image:"", route:"300_7"},           
         ],
+        
+    // index 3 
+        [
+           {title:"400.0 Intro",        image:"", route:"400_0"},
+           {title:"400.1 Dalton's Atoms",       image:"", route:"400_1"},
+           {title:"400.2 Plum Pudding Atom", image:"", route:"400_2"},  
+           {title:"400.3 Solar System Atom", image:"", route:"400_3"}, 
+           {title:"400.4 Bohr Atom", image:"", route:"400_4"}, 
+           {title:"400.5 QM Atom 1: Matter Waves", image:"", route:"400_5"},
+           {title:"400.6 QM Atom 2: Nuclear Potential", image:"", route:"NuclearPotential"}, 
+           {title:"400.7 QM Atom 3: Trapped Waves", image:"", route:"400_7"},
+           {title:"400.8 Beyond the Quantum Atom", image:"", route:"400_8"},          
+        ],
+       
+    // index 4 
+        [
+           {title:"",        image:"", route:"500_0"},
+           {title:"",       image:"", route:"500_1"},
+           {title:"",       image:"", route:"500_2"},
+           {title:"500.3 Failure of Classical Orbital", image:"", route:"500_3"},
+           {title:"500.4 Bohr Model with Equations", image:"", route:"500_4"}, 
+           {title:"",       image:"", route:""},
+           {title:"",       image:"", route:"500_6"},
+           {title:"500.7 Modern Electron Shell Model", image:"", route:"500_7"},          
+        ],      
+    // index 5  
+        [
+           {title:"", image:"", route:""},
+           {title:"", image:"", route:""},
+           {title:"", image:"", route:""},
+           {title:"600.3 Cracks ", image:"", route:"600_3"}, 
+           {title:"", image:"", route:""},
+           {title:"", image:"", route:""},
+           {title:"", image:"", route:""}, 
+           {title:"600.7 Successes of Quantum Atom", image:"", route:"600_7"},          
+        ],
+        
+      // index 6  
+        [
+           {title:"", image:"", route:""},
+           {title:"", image:"", route:""},
+           {title:"", image:"", route:""},
+           {title:"700.3 Atomic Spectra & Rydberg Formula", image:"", route:"700_3"}      
+        ],
+        
     ];
 
     scope.RLO1 = s;
