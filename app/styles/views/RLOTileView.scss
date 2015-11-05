@@ -143,9 +143,19 @@ $tile-margin: 0.5rem;
     flex-flow: row wrap;
     width: 100%;
 
+    transition: all $duration-default linear;
+    transform-origin: top left;
+    &.in {
+        // add transition
+        opacity: 1;
+        transform: scale(1);
+    }
     &.out {
         // add transition
+        opacity: 0;
+        transform: scale(0.1);
     }
+
 }
 /* Large View */
 @media screen and (max-width: $bp_width_col_two) {
