@@ -26,6 +26,8 @@ what that means check out http://backbonejs.org/#View
 1. open app/index.html
 2. scroll to the very bottom
 3. following the existing pattern, add a reference for the view file you just created
-above the related data file  
+above the related data file
+```
 <!-- RLO 3 -->  
 <script src="scripts/views/RLO3/Row0_Col3.js"></script>
+```

@@ -31,7 +31,7 @@ and must be used for your file name.
 #### Add to Index
 1. open app/index.html
 2. scroll to the very bottom
-3. following the existing pattern, add a reference for the data file you just created  
+3. following the existing pattern, add a reference for the data file you just created
 ```
 <!-- RLO ## -->  
 <script src="scripts/data/RLO##.js"></script>
@@ -41,7 +41,7 @@ and must be used for your file name.
 1. open app/scripts/main.js
 2. Find the loadData function (line 52)
 3. Follow the pattern to add the new lesson.  
-For example if you added RLO3:  
+For example if you added RLO3:
 ```
 m  =  new scope.Models.RLOModel(OER.data.RLO3, {parse: true, viewPath: "RLO3"});  
 this.RLOs.add(m);  
