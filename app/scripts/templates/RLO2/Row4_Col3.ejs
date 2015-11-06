@@ -27,4 +27,39 @@
         <strong>Gravity</strong> is the subject of 
         Einstein’s second relativity theory (General Relativity). 
     </div>
+    
+<!-- QUIZ !-->  
+<font color ='crimson'>
+<br/><br/>
+<div class="rlo-content-body">
+<strong>QUIZ</strong>
+
+    <div>Q1) In what year did Einstein invent General Relativity
+    <button type="button" onclick="document.getElementById('Q1').innerHTML = '1915'"> ? ... </button>
+    <span id="Q1"></span>
+    </div>
+
+    <div>Q2) What is the speed of light
+    <button type="button" onclick="document.getElementById('Q2').innerHTML = '3x 10<sup>8</sup> m/s'"> ? ... </button>
+    <span id="Q2"></span>
+    </div>
+
+    <div>Q3) Is a nucleus lighter or heavier than its constituent parts
+    <button type="button" onclick="document.getElementById('Q3').innerHTML = 'Lighter'"> ? ... </button>
+    <span id="Q3"></span>
+    </div>
+
+    <button type="button" onclick="resetQuiz()"> RESET QUIZ </button>
+</div>
+
+<script>
+function resetQuiz() {
+    // clear all answers
+    document.getElementById('Q1').innerHTML = '';
+    document.getElementById('Q2').innerHTML = '';  
+    document.getElementById('Q3').innerHTML = '';   
+}
+</script>
+
+</font>
 </div>
