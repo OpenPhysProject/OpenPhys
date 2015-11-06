@@ -16,31 +16,33 @@
         </ul>
     </div>
     
-    <canvas id="myCanvas" width="600" height="100" style="border:1px solid #c3c3c3;">
+    <canvas id="myCanvas" width="450" height="100" style="border:1px solid #c3c3c3;">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
 <script>
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
-ctx.fillStyle = "#FF0000"; ctx.fillRect(0,0,150,75);
-ctx.fillStyle = "#00FF00"; ctx.fillRect(300,0,150,75);
-ctx.moveTo(0,0); ctx.lineTo(200,100); ctx.stroke();
-ctx.beginPath(); ctx.arc(95,50,40,0,2*Math.PI); ctx.stroke();
+ctx.fillStyle = "#FF0000"; ctx.fillRect(0,0,150,99);
+ctx.fillStyle = "#00FF00"; ctx.fillRect(150,0,150,99);
+ctx.fillStyle = "#0000FF"; ctx.fillRect(300,0,150,99);
+//ctx.moveTo(0,0); ctx.lineTo(200,100); ctx.stroke();
+//ctx.beginPath(); ctx.arc(95,50,40,0,2*Math.PI); ctx.stroke();
 </script>
  
-<p><button onclick="DoCanvas()">SHOW IMAGE</button></p>
+<p><button onclick="DoCanvas()">LOAD WAVE</button></p>
 
 <!-- IMAGE !-->
-<p>Image to use:</p>
+<span id='ima'>
 <img id="scream" src="/images/RLO1/Wave.svg" alt="The Scream" width = "300">
-
+</span>
 <script>
 function DoCanvas() {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     var img = document.getElementById("scream");
     ctx.drawImage(img,0,0);
+    document.getElementById("ima").innerHTML = " ";
 }
 </script>
 
