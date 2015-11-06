@@ -13,11 +13,26 @@
         This level introduces nuclear <strong>structure</strong> 
         and the factors that lead to decay of alpha, beta and gamma emitting nuclides and describes
         <strong>the nuclear shell model, binding energy, energy levels, radioactivity, the weak force, and the internal conversion process.</strong>
-        <br/>
+        <br/><br/>
  
-         <figure>
-            <img class="rlo-content-image" src="/images/RLO2/NuclearTransPanel01.svg"/>
-        </figure>
+    <font color='crimson'>        
+    <button onclick="myRandom()">RANDOMNESS GENERATOR</button>
+    <span id="random1"> ..... 0.000000000000000 </span>
+    <span id="random2"> ..... 0.000000000000000 </span>
+    <span id="random3"> ..... 0.000000000000000 </span>
+    <br/><br/>
+    </font>
+    <script>
+    function myRandom() {
+        document.getElementById("random1").innerHTML = "....." + Math.random();
+        document.getElementById("random2").innerHTML = "....." + Math.random();       
+        document.getElementById("random3").innerHTML = "....." + Math.random();  
+    }
+    </script>
+        
+         
+    <img class="rlo-content-image" src="/images/RLO2/NuclearTransPanel01.svg"/>
+        
         
     </div>
 </div>
