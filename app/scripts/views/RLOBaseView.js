@@ -218,29 +218,38 @@ OER.Views = OER.Views || {};
     p.handleKeydown = function (event) {
         var change = {data: {row: 0, col: 0}};
         switch (event.keyCode) {
+            // left arrow
             case 37:
                 if (this.navLeft.hasClass("in")) {
                     change.data.col = -1;
                     this.navigate(change);
                 }
                 break;
+            // up arrow
             case 38:
                 if (this.navUp.hasClass("in")) {
                     change.data.row = -1;
                     this.navigate(change);
                 }
                 break;
+            // right arrow
             case 39:
                 if (this.navRight.hasClass("in")) {
                     change.data.col = 1;
                     this.navigate(change);
                 }
                 break;
+            // down arrow
             case 40:
                 if (this.navDown.hasClass("in")) {
                     change.data.row = 1;
                     this.navigate(change);
                 }
+                break;
+            // m key
+            case 77:
+            case 109:
+                this.toggleNav();
                 break;
         }
     };
