@@ -1,7 +1,7 @@
 (function (scope) {
     var s = {};
     
-    s.title = "Instructions";
+    s.title = "User Guide";
     s.preview = "/images/Intro/info-icon-01.svg"; //svg image
     s.route = "Instructions";
     s.info = "";
@@ -10,9 +10,10 @@
     s.contentMapData = [
     // index 0
         [
-            {title:"Navigation", image: "", route:"Nav"},
-            {title:"Content Map", image:"", route:"ContentMap"},
-            {title:"OpenPhys Logo", image:"", route:"Logo"},
+            {title:"Arrow Keys", image: "", route:"Nav"},
+            {title:"Map Icon", image:"", route:"ContentMap"},
+             {title:"Larger Maps", image:"", route:"LargerMaps"}, 
+             {title:"OpenPhys Logo", image:"", route:"Logo"},            
         ],
     ];
 
