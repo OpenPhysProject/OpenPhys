@@ -2,7 +2,7 @@
     var s = {};
     
     s.title = "Pair Production";
-    s.preview = "/images/RLO2/Nucleus.svg"; //svg image
+    s.preview = "/images/RLO7/PairProd.svg"; //svg image
     s.route = "Pair";
     s.info = "";
     s.jumpNav = true;
