@@ -57,6 +57,9 @@
        this.RLOs.add(m);
        m  =  new scope.Models.RLOModel(OER.data.RLO2, {parse: true, viewPath: "RLO2"});
        this.RLOs.add(m);
+       
+       m  =  new scope.Models.RLOModel(OER.data.RLO7, {parse: true, viewPath: "RLO7"});
+       this.RLOs.add(m);       
     };
     
     p.setUpRouter = function () {

@@ -28,6 +28,12 @@ scope.RLO3 = s;
 Note contentMapData index is row and the 2nd arrow is column.  Both start at 0 
 and must be used for your file name.
 
+Files to Change:
+---------------
+app/index.html
+app/scripts/main.js
+
+
 #### Add to Index
 1. open app/index.html
 2. scroll to the very bottom
