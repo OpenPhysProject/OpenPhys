@@ -1,7 +1,7 @@
 (function (scope) {
     var s = {};
     
-    s.title = "User Guide";
+    s.title = "User Guide (Start Here)";
     s.preview = "/images/Intro/info-icon-01.svg"; //svg image
     s.route = "Instructions";
     s.info = "";

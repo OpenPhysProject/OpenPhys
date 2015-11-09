@@ -29,14 +29,24 @@
     </div>
     
 <!-- QUIZ !-->  
+<script>
+   // resetQuiz4_3()
+    </script>
+    
 <font color ='crimson'>
 <br/><br/>
 <div class="rlo-content-body">
 <strong>QUIZ</strong>
 
-    <div>Q1) In what year did Einstein invent General Relativity
-    <button type="button" onclick="document.getElementById('Q1').innerHTML = '1915'"> ? ... </button>
-    <span id="Q1"></span>
+    <div>Q1) In what year did Einstein invent Special Relativity
+    <button type="button" onclick="document.getElementById('Q1a').innerHTML = 'Yes___'"> 1905? </button>
+    <span id="Q1a">______</span>
+     <button type="button" onclick="document.getElementById('Q1b').innerHTML= 'No____'"> 1915? </button>
+    <span id="Q1b">______</span>   
+    <button type="button" onclick="document.getElementById('Q1c').innerHTML = 'No____'"> 1923? </button>
+    <span id="Q1c">______</span>
+     <button type="button" onclick="document.getElementById('Q1d').innerHTML= 'No____'"> 1927? </button>
+    <span id="Q1d">______</span>     
     </div>
 
     <div>Q2) What is the speed of light
@@ -49,15 +59,35 @@
     <span id="Q3"></span>
     </div>
 
-    <button type="button" onclick="resetQuiz()"> RESET QUIZ </button>
+    <div>Q4) In what year did Einstein invent General Relativity:
+    <button type="button" onclick="document.getElementById('Q4a').innerHTML = ' No____'"> 1905? </button>
+    <span id="Q4a">______</span>
+    <button type="button" onclick="document.getElementById('Q4b').innerHTML = ' Yes___'"> 1915? </button>
+    <span id="Q4b">______</span>  
+    <button type="button" onclick="document.getElementById('Q4c').innerHTML = ' No____'"> 1923? </button>
+    <span id="Q4c">______</span>
+    <button type="button" onclick="document.getElementById('Q4d').innerHTML = ' No____'"> 1927? </button>
+    <span id="Q4d">______</span>    
+    </div>
+
+    <button type="button" onclick="resetQuiz4_3()"> RESET QUIZ </button>
 </div>
 
 <script>
-function resetQuiz() {
+function resetQuiz4_3() {
     // clear all answers
-    document.getElementById('Q1').innerHTML = '';
+    document.getElementById('Q1a').innerHTML = '______';
+    document.getElementById('Q1b').innerHTML = '______';
+    document.getElementById('Q1c').innerHTML = '______';
+    document.getElementById('Q1d').innerHTML = '______';
+    
     document.getElementById('Q2').innerHTML = '';  
-    document.getElementById('Q3').innerHTML = '';   
+    document.getElementById('Q3').innerHTML = ''; 
+    
+    document.getElementById('Q4a').innerHTML = '______';   
+    document.getElementById('Q4b').innerHTML = '______';
+    document.getElementById('Q4c').innerHTML = '______';   
+    document.getElementById('Q4d').innerHTML = '______';  
 }
 </script>
 
