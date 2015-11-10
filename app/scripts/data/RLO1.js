@@ -42,7 +42,7 @@
             {title:"300.7 Quantum Mechanics", image:"", route:"300_7"},           
         ],
         
-    // Row 3 index 3 
+    // index 3 
         [
            {title:"400.0 Atomic Models",        image:"", route:"400_0"},
            {title:"400.1 Dalton's Atoms (1805)",  image:"", route:"400_1"},
