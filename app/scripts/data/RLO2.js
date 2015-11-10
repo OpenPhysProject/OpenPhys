@@ -78,7 +78,7 @@
             {title:"", image:"", route:""},
             {title:"", image:"", route:""},
             {title:"", image:"", route:""},
-            {title: "260.6 Decay Schemes", image: "", route: "DecaySchemes"},
+            {title: "", image: "", route: "DecaySchemes"},
             {title: "260.7 Holes in an Inner Shell", image: "", route: "InnerShellHoles"},
             {title:"", image:"", route:""},
         ],
