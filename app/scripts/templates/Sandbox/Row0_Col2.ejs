@@ -1,0 +1,61 @@
+
+<div class="rlo-content">
+
+<script>
+function changeRot(value)
+{
+    /* Sets value of 2D CSS rotation */
+    document.getElementById('sandbox-div2').style.transform=      "rotate(" + value + "deg)";
+    document.getElementById('sandbox-div2').style.msTransform=    "rotate(" + value + "deg)";
+    document.getElementById('sandbox-div2').style.webkitTransform="rotate(" + value + "deg)";
+    document.getElementById('sandbox-div2').style.MozTransform=   "rotate(" + value + "deg)";
+    document.getElementById('sandbox-div2').style.OTransform=     "rotate(" + value + "deg)";
+    document.getElementById('sandbox-disp-angle').innerHTML=value + "deg";
+    
+}
+
+function changeOrigin()
+{
+    /* sets transform origin  */ 
+    var x=document.getElementById('sandbox-ox').value;
+    var y=document.getElementById('sandbox-oy').value;
+    document.getElementById('sandbox-div2').style.transformOrigin      = x + '% ' + y + '%';
+    document.getElementById('sandbox-div2').style.msTransformOrigin    = x + '% ' + y + '%';
+    document.getElementById('sandbox-div2').style.webkitTransformOrigin= x + '% ' + y + '%';
+    document.getElementById('sandbox-div2').style.MozTransformOrigin   = x + '% ' + y + '%';
+    document.getElementById('sandbox-div2').style.OTransformOrigin     = x + '% ' + y + '%';
+    document.getElementById('sandbox-disp-origin-x').innerHTML= x + "%"; 
+    document.getElementById('sandbox-disp-origin-y').innerHTML= y + "% ";   
+}
+</script>
+
+    <div class="rlo-content-title">20.3 INTERACTION (TEST) HTML CSS3 JS </div>
+    <div class="rlo-content-body">
+       rlo content body<br/>
+       Rotate the red div element, try changing its X-axis and Y-axis:
+    </div>
+
+    <div id="sandbox-div1">
+      <div id="sandbox-div2">this is Sandbox-div2</div>
+    </div>
+
+    <div class='sandbox-content'>
+        The 2D Rotation:
+        <input type="range" min="-180" max="180" step="5" value="45" onchange="changeRot(this.value)" />
+        The transform is: rotateY <span id="sandbox-disp-angle">45deg</span>
+        <br><br>
+        X Origin ___ <span id="sandbox-disp-origin-x"> 20%</span>
+        <input type="range" min="-100" max="200" step="10" value="20" onchange="changeOrigin()" id="sandbox-ox" />
+        <br>
+        
+        Y Origin ___ <span id="sandbox-disp-origin-y"> 40%</span>
+        <input type="range" min="-100" max="200" step="10" value="40" onchange="changeOrigin()" id="sandbox-oy" />
+    </div>      
+            
+</div>
+
+
+      
+    
+
+

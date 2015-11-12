@@ -1,0 +1,104 @@
+/* 
+    CSS Reminders:
+        . means class 
+        # means id
+*/
+
+.sandbox-content { 
+    font-size: 1em;
+    background-color: lightgrey;
+    width:500px;
+}
+
+
+/* CSS3 translate */
+#sandbox-trans {
+   -ms-transform:     translate(50px,0px); /* IE 9 */
+   -webkit-transform: translate(50px,0px); /* Safari */
+   transform:         translate(50px,0px); 
+}
+
+#sandbox-rot {   
+     -ms-transform:    rotate(-20deg); /* IE 9 */
+    -webkit-transform: rotate(-20deg); /* Safari */
+    transform:         rotate(-20deg);  
+}
+
+#sandbox-scale {
+    background-color: grey;
+    width: 300px;
+    height: 300px;
+    /* scaale(width, height) */
+    -ms-transform:     scale(0.5, 0.5); /* IE 9 */
+    -webkit-transform: scale(0.5, 0.5); /* Safari */
+    transform:         scale(0.5, 0.5);
+}
+    
+
+/* ANIMATION 1 USING CLASS  */
+.sandbox-anim1 {
+    color: blue; font-size: 1em;
+    -webkit-animation-name: anim1;  -webkit-animation-duration: 4s; 
+    animation-name:         anim1;          animation-duration: 4s;
+}
+@-webkit-keyframes anim1 { from {color: blue; font-size: 1em} to {color: crimson; font-size: 2em} }
+@keyframes         anim1 { from {color: blue; font-size: 1em} to {color: crimson; font-size: 2em} }
+
+
+/* ANIMATION 2, USING AN ID */
+#sandbox-A {
+    text-align: center;
+    color: blue;
+    -webkit-animation-name: anim2;  -webkit-animation-duration: 4s; 
+    animation-name:         anim2;          animation-duration: 4s;
+}
+@-webkit-keyframes anim2 { from {color: blue; font-size: 1em} to {color: pink; font-size: 2em} }
+@keyframes         anim2 { from {color: blue; font-size: 1em} to {color: pink; font-size: 2em} }
+
+
+/* ANIMATION 3, USING AN ID */
+#sandbox-B {
+    margin-left: 20px;
+    -webkit-animation-name: anim3;  -webkit-animation-duration: 4s; 
+    animation-name:         anim3;          animation-duration: 4s;
+}
+@-webkit-keyframes anim3 { from {margin-left: 20px;} to {margin-left: 300px;} }
+@keyframes         anim3 { from {margin-left: 20px;} to {margin-left: 300px;} }
+
+
+/* ANIMATION 4, USING AN ID */
+#sandbox-C {
+    width: 100px;
+    background-color: pink;
+    -webkit-animation-name: anim4;  -webkit-animation-duration: 4s; 
+    animation-name:         anim4;          animation-duration: 4s;
+}
+@-webkit-keyframes anim4 { from {width: 100px;} to {width: 200px;} }
+@keyframes         anim4 { from {width: 100px;} to {width: 200px;} }
+
+
+
+/* Interaction */
+#sandbox-div1
+{
+position: relative;
+height: 200px;
+width: 200px;
+margin: 50px;
+padding:10px;
+border: 1px solid black;
+}
+
+#sandbox-div2
+{
+padding:50px;
+position: absolute;
+border: 1px solid black;
+background-color: pink;
+transform:         rotate(45deg);
+-ms-transform:     rotate(45deg); /* IE 9 */
+-webkit-transform: rotate(45deg); /* Opera, Chrome, and Safari */
+transform-origin:         20% 40%;
+-ms-transform-origin:     20% 40%; /* IE 9 */ 
+-webkit-transform-origin: 20% 40%; /* Opera, Chrome, and Safari */
+}
