@@ -5,7 +5,7 @@ OER.Views = OER.Views || {};
 
     OER.Views.RLOTemplate = {
 
-        template: JST['app/scripts/templates/RLO1/Row0_Col0.ejs'],
+        template: JST['app/scripts/templates/RLOTemplate/Row0_Col0.ejs'],
 
         events: {},
 
