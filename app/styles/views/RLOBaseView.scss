@@ -7,6 +7,8 @@
     margin: 0 auto;
     width: 100%;
     height: 100%;
+    left:0;
+    top:0;
     transition: all $duration-default linear;
     transform-origin: top left;
     &.in {
@@ -22,64 +24,67 @@
 }
 
 .rlo-base-content-container{
-    @extend .container;
     width: 100%;
     height: 100%;
-    padding: $padding-small;
+    position: relative;
+}
+.rlo-content{
+    @extend .container;
     background : $color_background-gradient;
+    padding: $padding-small;
     font-family: $fontFamily-default;
+    position: relative;
+    width: 100%;
+    height:100%;
 }
 
 .rlo-base-content-container.prev{
-    @include transitionSetting;
-    position: fixed;
-    left:-100%;
-    transform: translateX(100%);
+    .rlo-content{
+        @include transitionSetting;
+        position: fixed;
+        transform: translateX(100%) translateZ(0);
+        left:-100%;
+    }
+    .rlo-content.old{
+        left:0;
+    }
 }
 
 .rlo-base-content-container.next{
-    @include transitionSetting;
-    position: fixed;
-    left:100%;
-    transform: translateX(-100%);
+    .rlo-content{
+        @include transitionSetting;
+        position: fixed;
+        transform: translateX(-100%) translateZ(0);
+        left:100%;
+    }
+    .rlo-content.old{
+        left:0;
+    }
 }
 
 .rlo-base-content-container.down{
-    @include transitionSetting;
-    position: fixed;
-    top:100%;
-    transform: translateY(-100%);
+    .rlo-content{
+        @include transitionSetting;
+        position: fixed;
+        top:100%;
+        transform: translateY(-100%) translateZ(0);
+    }
+    .rlo-content.old{
+        top:0;
+    }
+
 }
 .rlo-base-content-container.up{
-    @include transitionSetting;
-    position: fixed;
-    top:-100%;
-    transform: translateY(100%);
-}
-
-.rlo-base-content-container.transition.prev{
-    @include transitionSetting;
-    position: fixed;
-    left:0;
-    transform: translateX(100%);
-}
-.rlo-base-content-container.transition.next{
-    @include transitionSetting;
-    position: fixed;
-    left:0;
-    transform: translateX(-100%);
-}
-.rlo-base-content-container.transition.down{
-    @include transitionSetting;
-    position: fixed;
-    top:0;
-    transform: translateY(-100%);
-}
-.rlo-base-content-container.transition.up{
-    @include transitionSetting;
-    position: fixed;
-    top:0;
-    transform: translateY(100%);
+    .rlo-content{
+        @include transitionSetting;
+        position: fixed;
+        top:-100%;
+        transform: translateY(100%) translateZ(0);
+    }
+    .rlo-content.old{
+        z-index:$zIncrement*3;
+        top:0;
+    }
 }
 
 .display-container {

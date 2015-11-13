@@ -21,7 +21,7 @@ OER.Views = OER.Views || {};
     p.navUp = null;
     p.navDown = null;
     p.navRight = null;
-
+    p.changeDirection = "";
     p.events = {
         "click .rlo-base-menu-button": "toggleNav",
     };
@@ -44,7 +44,7 @@ OER.Views = OER.Views || {};
 
 // Model and Content changing ********************************************************************
     p.updateContent = function (targetView) {
-        if (this.content) {
+        if (this.content && !this.changeDirection) {
             this.content.remove();
         }
         this.currentView = targetView;
@@ -56,16 +56,19 @@ OER.Views = OER.Views || {};
             this.content = new OER.Views.DefaultContentView();  // OJR possibly better to redirect to intro
         }
         OER.router.noEventGo(RLOScope + "/" + targetView);   // change if we change default view handling
+
         this.contentContainer.append(this.content.el);
         MathJax.Hub.Queue(["Typeset", MathJax.Hub, this.content.el]);
         window.scrollTo(0, 1);   // hide chrome on mobile browser
-        
+
         var hammerObject = new Hammer(this.content.el);
         hammerObject.get('swipe').set({
             threshold: 60,
             direction: Hammer.DIRECTION_ALL
         });
         hammerObject.on("swipeleft swiperight swipeup swipedown", this.handleSwipe.bind(this));
+        this.handleContentTransaction();
+        this.changeDirection = "";
     };
 
     p.updateModel = function (newModel) {
@@ -104,7 +107,7 @@ OER.Views = OER.Views || {};
 // In Outs  ********************************************************************
     p.toggleNav = function () {
         this.navView.toggleNav();
-        window.scrollTo(0,1);   // hide chrome on mobile browser
+        window.scrollTo(0, 1);   // hide chrome on mobile browser
     };
 
     p.out = function () {
@@ -112,17 +115,17 @@ OER.Views = OER.Views || {};
         this.$el.addClass("out");
         $(document).off("keydown");
     };
-    
+
     p.hide = function () {
         this.$el.addClass("hidden");
     };
-    
+
     p._show = function () {
         this.$el.removeClass("hidden");
         setTimeout(this._showIn.bind(this), 33);
     };
-    
-    p._showIn = function() {
+
+    p._showIn = function () {
         this.$el.removeClass("out");
         this.$el.addClass("in");
         $(document).on("keydown", this.handleKeydown.bind(this));
@@ -130,7 +133,7 @@ OER.Views = OER.Views || {};
 
     p.show = function () {
         this._show();
-        window.scrollTo(0,1);
+        window.scrollTo(0, 1);
     };
 
     p.showIntro = function () {
@@ -155,7 +158,7 @@ OER.Views = OER.Views || {};
         this.colInContentMap = currentNavCollection.indexOf(model);
 
         var jumpNav = this.model.get("jumpNav");
-        if(jumpNav) {
+        if (jumpNav) {
             this.navigateColumnJump(currentNavCollection, -1, 0, this.navLeft);
             this.navigateColumnJump(currentNavCollection, 1, 0, this.navRight);
         } else {
@@ -168,7 +171,7 @@ OER.Views = OER.Views || {};
         var targetView = model.get("route");
         this.updateContent(targetView);
     };
-    
+
     p.navigateColumnJump = function (navCollection, colChange, rowChange, navEl) {
         var next = false;
         for (var i = this.colInContentMap + colChange; i < navCollection.length && i >= 0; i += colChange) {
@@ -214,7 +217,7 @@ OER.Views = OER.Views || {};
         navEl.removeClass("in");
         navEl.addClass("out");
     };
-    
+
     p.handleKeydown = function (event) {
         var change = {data: {row: 0, col: 0}};
         switch (event.keyCode) {
@@ -225,35 +228,35 @@ OER.Views = OER.Views || {};
                     this.navigate(change);
                 }
                 break;
-            // up arrow
+                // up arrow
             case 38:
                 if (this.navUp.hasClass("in")) {
                     change.data.row = -1;
                     this.navigate(change);
                 }
                 break;
-            // right arrow
+                // right arrow
             case 39:
                 if (this.navRight.hasClass("in")) {
                     change.data.col = 1;
                     this.navigate(change);
                 }
                 break;
-            // down arrow
+                // down arrow
             case 40:
                 if (this.navDown.hasClass("in")) {
                     change.data.row = 1;
                     this.navigate(change);
                 }
                 break;
-            // m key
+                // m key
             case 77:
             case 109:
                 this.toggleNav();
                 break;
         }
     };
-    
+
     p.handleSwipe = function (event) {
         var change = {data: {row: 0, col: 0}};
         switch (event.type) {
@@ -289,12 +292,12 @@ OER.Views = OER.Views || {};
     p.navigate = function (event) {
         var rowChange = event.data.row;
         var colChange = event.data.col;
-
-        this.handleContentTransaction(rowChange, colChange);
         // we don't need to check if it exists because we do that when adding click listener
         var contentMap = this.model.get("contentMap");
+        $(".rlo-content").addClass("old");
+        this.determinChangeDirection(rowChange, colChange);
         var targetModel;
-        if(colChange != 0 && this.model.get("jumpNav")) {
+        if (colChange != 0 && this.model.get("jumpNav")) {
             var i = this.colInContentMap + colChange;
             var navCollection = contentMap[this.rowInContentMap];
             while (navCollection.at(i) && !navCollection.at(i).get("title")) {
@@ -307,40 +310,28 @@ OER.Views = OER.Views || {};
         targetModel.set("current", true);
     };
 
-    p.handleContentTransaction = function (rowChange, colChange) {
-        var changeDirection = "";  // string   the direction of current view changing. 
+    p.determinChangeDirection = function (rowChange, colChange) {
+        // string   the direction of current view changing. 
         if (rowChange === 1) {
-            changeDirection = "down";
+            this.changeDirection = "down";
         } else if (rowChange === -1) {
-            changeDirection = "up";
+            this.changeDirection = "up";
         } else if (colChange === 1) {
-            changeDirection = "next";
+            this.changeDirection = "next";
         } else {
-            changeDirection = "prev";
+            this.changeDirection = "prev";
         }
-        var clonedContentContainer = this.contentContainer.clone()
-                .insertBefore(".rlo-base-content-container")
-                .queue(function () {
-                    $(this).one("transitionend", function () {
-                        $(this).remove();
-                        $(this).dequeue();
-                    });
-                });
-        setTimeout(function () {
-            clonedContentContainer.addClass("transition " + changeDirection);
-        }, 0);
-        setTimeout(function () {
-            clonedContentContainer.remove();
-        }, OER.settings.TRANS_CONTENT);
-        this.contentContainer
-                .addClass(changeDirection)
-                .queue(function () {
-                    $(this).one("transitionend", function () {
-                        $(this).removeClass("down up next prev");
-                        $(this).dequeue();
-                    });
-                });
     };
+    p.handleContentTransaction = function () {
+        this.contentContainer
+                .addClass(this.changeDirection);
+        var contentContainer = this.contentContainer;
+        setTimeout(function () {
+            $(".rlo-content.old").remove();
+            contentContainer.removeClass("down up next prev");
+        }, OER.settings.TRANS_CONTENT);
+    };
+
 
     OER.Views.RLOBaseView = Backbone.View.extend(p, s);
 })();
