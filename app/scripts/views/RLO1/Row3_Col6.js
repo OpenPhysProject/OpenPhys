@@ -31,7 +31,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
 
         var c = $(".rlo-content-canvas", this.$el)[0];
         this.stage = new createjs.Stage(c);
-        createjs.Touch.enable(this.stage);
+        if (createjs.Touch.isSupported()) {createjs.Touch.enable(this.stage);}
         this.width = c.width;
         this.height = c.height;
 
@@ -59,7 +59,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
      */
     p.remove= function(options) {
         this.graphRemove();
-        createjs.Touch.disable(this.stage);
+        if (createjs.Touch.isSupported()) {createjs.Touch.disable(this.stage);}
         createjs.Ticker.removeEventListener("tick");
 
         Backbone.View.prototype.remove.call(this, options);
