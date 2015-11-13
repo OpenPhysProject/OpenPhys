@@ -47,6 +47,7 @@ module.exports = function (grunt) {
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
                     '<%= yeoman.app %>/scripts/templates/**/*.{ejs,mustache,hbs}',
+                    '<%= yeoman.app %>/scripts/assets/**/*.{png,jpg,jpeg,gif,webp,svg,json,js}',
                     'test/spec/**/*.js'
                 ]
             },
@@ -293,6 +294,7 @@ module.exports = function (grunt) {
                         '*.{ico,txt}',
                         'images/**/*.{webp,gif,jpg,jpeg,png,svg}',
                         'styles/fonts/{,*/}*.*',
+                        'scripts/assets/**/*.{png,jpg,jpeg,gif,webp,svg,json}',
                         'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*.*'
                     ]
                 }, {
