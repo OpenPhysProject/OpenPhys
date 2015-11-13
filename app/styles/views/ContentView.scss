@@ -12,6 +12,12 @@ $button-bar-size: $ui-button-width + $padding-small*3;
     margin-bottom: 1rem;
 }
 
+.rlo-content-memo {
+    color: blue;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
 .rlo-content-body {
    font: $fontFamily-default;
    font-size: $fontSize-body;
