@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 362.5 258.2" style="enable-background:new 0 0 362.5 258.2;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);stroke:#F2EBEB;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:url(#SVGID_2_);stroke:#F2EBEB;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st2{fill:url(#SVGID_3_);stroke:#F2EBEB;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
+<radialGradient id="SVGID_1_" cx="81.5" cy="159.5" r="25" gradientTransform="matrix(3 0 0 3 -169.5 -398.25)" gradientUnits="userSpaceOnUse">
+	<stop  offset="0" style="stop-color:#0E00BF"/>
+	<stop  offset="0.1294" style="stop-color:#362BCA"/>
+	<stop  offset="0.3715" style="stop-color:#7D75DC"/>
+	<stop  offset="0.5885" style="stop-color:#B5B0EB"/>
+	<stop  offset="0.772" style="stop-color:#DDDBF6"/>
+	<stop  offset="0.915" style="stop-color:#F6F5FD"/>
+	<stop  offset="1" style="stop-color:#FFFFFF"/>
+</radialGradient>
+<circle class="st0" cx="75" cy="80.2" r="75"/>
+<radialGradient id="SVGID_2_" cx="131.5" cy="170.6859" r="25" gradientTransform="matrix(2.09 0 0 2.08 -72.585 -194.7767)" gradientUnits="userSpaceOnUse">
+	<stop  offset="0" style="stop-color:#B400BF"/>
+	<stop  offset="0.1294" style="stop-color:#C12BCA"/>
+	<stop  offset="0.3715" style="stop-color:#D675DC"/>
+	<stop  offset="0.5885" style="stop-color:#E8B0EB"/>
+	<stop  offset="0.772" style="stop-color:#F4DBF6"/>
+	<stop  offset="0.915" style="stop-color:#FCF5FD"/>
+	<stop  offset="1" style="stop-color:#FFFFFF"/>
+</radialGradient>
+<ellipse class="st1" cx="202.2" cy="160.2" rx="52.2" ry="52"/>
+<radialGradient id="SVGID_3_" cx="186.3881" cy="187.2244" r="25" gradientTransform="matrix(1.55 0 0 1.5 28.8484 -60.0865)" gradientUnits="userSpaceOnUse">
+	<stop  offset="0" style="stop-color:#FB00BF"/>
+	<stop  offset="0.1294" style="stop-color:#FC2BCA"/>
+	<stop  offset="0.3715" style="stop-color:#FD75DC"/>
+	<stop  offset="0.5885" style="stop-color:#FEB0EB"/>
+	<stop  offset="0.772" style="stop-color:#FEDBF6"/>
+	<stop  offset="0.915" style="stop-color:#FFF5FD"/>
+	<stop  offset="1" style="stop-color:#FFFFFF"/>
+</radialGradient>
+<ellipse class="st2" cx="317.8" cy="220.8" rx="38.8" ry="37.5"/>
+</svg>
