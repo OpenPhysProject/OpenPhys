@@ -103,7 +103,12 @@
     height: auto;
     width: auto;
     background: $color_nav_button_background;
+    /*
     z-index: $z-fg;
+    iOS safari bug, z-index not properly supported
+    transform fixes iOS but breaks chrome...
+    transform: translateZ(30px);
+    */
 }
 
 .ui-nav {
@@ -116,6 +121,7 @@
     display: inline-block;
     width: $ui-button-width;
     height: $ui-button-width;
+    z-index: $z-fg;
     cursor: pointer;
 
     &.out {
