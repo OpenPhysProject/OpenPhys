@@ -5,7 +5,7 @@
     s.preview = "/images/Sandbox/DemoSign.svg"; //svg image
     s.route = "Sandbox";
     s.info = "";
-    s.primaryPathIndex = 0;
+    s.primaryPathIndex = 2;
     
     s.contentMapData = [
     // index 0
@@ -22,7 +22,7 @@
         ],
     // index 2
         [
-            {title:"", image: "", route:""},
+            {title:"Japanese 205", image: "", route:"Japan"},
             {title:"Japanese 1-1", image: "", route:"Japan1-1"},       
         ],
      // index 3
