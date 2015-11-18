@@ -291,16 +291,13 @@ module.exports = function (grunt) {
                     cwd: '<%= yeoman.app %>',
                     dest: '<%= yeoman.dist %>',
                     src: [
-                        '*.{ico,txt}',
+                        '*.{ico,txt,config}',
                         'images/**/*.{webp,gif,jpg,jpeg,png,svg}',
                         'styles/fonts/{,*/}*.*',
                         'scripts/assets/**/*.{png,jpg,jpeg,gif,webp,svg,json}',
                         'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*.*'
                     ]
-                }, {
-                    src: 'node_modules/apache-server-configs/dist/.htaccess',
-                    dest: '<%= yeoman.dist %>/.htaccess'
-                }]
+                }, ]
             }
         },
         jst: {
