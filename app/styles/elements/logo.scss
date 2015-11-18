@@ -140,7 +140,13 @@ $logo-ratio-huge: 0.36;
         &.mini {
             left:0.3rem;
             bottom:0.3rem;
-            width: 7rem;
+            width: 5rem;
+            .logo-icon {
+                svg {
+                    width: 5rem;
+                    height: 4.4rem;
+                }
+            }
         }
     }
 }

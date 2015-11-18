@@ -136,7 +136,7 @@
 }
 
 .rlo-base-menu-button {
-    width: 7rem;
+    width: $ui-button-width*1.4;
 }
 
 .ui-button-svg-display {
@@ -161,10 +161,10 @@
         padding: 0.3rem;
     }
     .ui-nav-left, .ui-nav-up, .ui-nav-down, .ui-nav-right, .rlo-base-menu-button {
-        width: $ui-button-width*0.7;
-        height: $ui-button-width*0.7;
+        width: $ui-button-min-width;
+        height: $ui-button-min-width;
     }
     .rlo-base-menu-button {
-        width: 7rem*0.7;
+        width: $ui-button-min-width*1.4;
     }
 }
