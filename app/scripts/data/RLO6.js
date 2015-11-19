@@ -24,9 +24,9 @@
  
     // index 1,
         [
-            {title:"100.0 LEVEL: Single Photon", image:"", route:"100_0"},
+            {title:"100 - PHOTON SCATTERING", image:"", route:"100_0"},
             {title:"100.1 Incident X-Ray",          image:"", route:"100_1"},
-            {title:"100.2 Absorber",       image:"", route:"100_2"},  
+            {title:"100.2 Interaction with Scatterer",       image:"", route:"100_2"},  
             {title:"100.3 Scattered X-Ray", image:"", route:"100_3"}, 
             {title:"100.4 Recoil Electron", image:"", route:"100_4"},
             {title:"100.5 Ionized Atom", image:"", route:"100_5"},
@@ -37,12 +37,12 @@
        
      // index 2,
         [
-            {title:"200.0 LEVEL: Multiple Scattering Angles", image:"", route:"200_0"},
+            {title:"200 - THE SCATTERING ANGLE", image:"", route:"200_0"},
             {title:"200.1 Incident X-Ray",          image:"", route:"200_1"},
-            {title:"200.2 Absorber",       image:"", route:"200_2"},  
+            {title:"200.2 Interaction with Scatterer",  image:"", route:"200_2"},  
             {title:"200.3 Scattered X-Ray", image:"", route:"200_3"}, 
             {title:"200.4 Recoil Electron", image:"", route:"200_4"},
-            {title:"200.5 Ionized Atom", image:"", route:"200_5"},             
+            {title:"200.5 Ionized Atom & Angle", image:"", route:"200_5"},             
             {title:"", image:"", route:""},
             {title:"200.7 Level Summary", image:"", route:"200_7"},  
             {title:"200.8 Level Quiz (Multi-Angle)", image:"", route:"200_8"},            
@@ -50,12 +50,12 @@
         
      // index 3,
         [
-            {title:"300.0 LEVEL: Multiple Incident Energies", image:"", route:"300_0"},
+            {title:"300 - INCIDENT PHOTON ENERGY", image:"", route:"300_0"},
             {title:"300.1 Incident X-Ray",          image:"", route:"300_1"},
-            {title:"300.2 Absorber",       image:"", route:"300_2"},  
+            {title:"300.2 Interaction with Scatterer",  image:"", route:"300_2"},  
             {title:"300.3 Scattered X-Ray", image:"", route:"300_3"}, 
             {title:"300.4 Recoil Electron", image:"", route:"300_4"},
-            {title:"300.5 Ionized Atom", image:"", route:"300_5"},             
+            {title:"300.5 Ionized Atom & Energy", image:"", route:"300_5"},             
             {title:"", image:"", route:""},          
             {title:"300.7 Level Summary", image:"", route:"300_7"},  
             {title:"300.8 Level Quiz (Multi-Energy)", image:"", route:"300_8"},            
