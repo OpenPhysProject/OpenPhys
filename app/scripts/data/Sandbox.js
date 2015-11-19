@@ -23,17 +23,23 @@
     // index 2
         [
             {title:"Japanese 205", image: "", route:"Japan"},
-            {title:"Japanese 1-1", image: "", route:"Japan1-1"},       
+            {title:"Japanese 1-1", image: "", route:"Japan1-1"},
+            {title:"Japanese 2-1", image: "", route:"Japan2-1"}, 
+            {title:"Japanese 3-1 My Day", image: "", route:"Japan3-1"},             
         ],
      // index 3
         [
             {title:"", image: "", route:""},
-            {title:"Japanese 1-2", image: "", route:"Japan1-2"},        
+            {title:"Japanese 1-2", image: "", route:"Japan1-2"},  
+            {title:"Japanese 2-2", image: "", route:"Japan2-2"},
+            {title:"Japanese 3-2 Weekend", image: "", route:"Japan3-2"},           
         ], 
      // index 4
         [
             {title:"", image: "", route:""},
-            {title:"Japanese 1-3", image: "", route:"Japan1-3"},        
+            {title:"Japanese 1-3", image: "", route:"Japan1-3"}, 
+            {title:"Japanese 2-3 Vegetables", image: "", route:"Japan2-3"},
+            {title:"Japanese 3-3", image: "", route:"Japan3-3"},            
         ],        
         
     ];
