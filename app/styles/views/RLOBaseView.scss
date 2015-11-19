@@ -109,6 +109,8 @@
     transform fixes iOS but breaks chrome...
     transform: translateZ(30px);
     */
+    transform: translateZ(30px);
+    z-index: $z-fg;
 }
 
 .ui-nav {
