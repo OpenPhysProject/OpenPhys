@@ -25,7 +25,8 @@
             {title:"Japanese 205", image: "", route:"Japan"},
             {title:"Japanese 1-1", image: "", route:"Japan1-1"},
             {title:"Japanese 2-1", image: "", route:"Japan2-1"}, 
-            {title:"Japanese 3-1 My Day", image: "", route:"Japan3-1"},             
+            {title:"Japanese 3-1 My Day", image: "", route:"Japan3-1"},   
+            {title:"Japanese 4-1 Word", image: "", route:"Japan4-1"},            
         ],
      // index 3
         [
