@@ -15,6 +15,7 @@ OER.Views = OER.Views || {};
     p.currentView = "";     // string   the name/route of the the current view
 
     // nav
+    p.hammerObject = null;  // Hammer JS object used for swipe
     p.rowInContentMap = 0;
     p.colInContentMap = 0;
     p.navLeft = null;
@@ -36,6 +37,14 @@ OER.Views = OER.Views || {};
         this.navUp = $(".ui-nav-up", this.$el);
         this.navDown = $(".ui-nav-down", this.$el);
         this.navRight = $(".ui-nav-right", this.$el);
+        
+        this.hammerObject = new Hammer(this.el, {
+            touchAction: 'auto',
+        });
+        this.hammerObject.get('swipe').set({
+            threshold: 60,
+            direction: Hammer.DIRECTION_ALL
+        });
     };
 
     p.render = function () {
@@ -61,17 +70,6 @@ OER.Views = OER.Views || {};
         MathJax.Hub.Queue(["Typeset", MathJax.Hub, this.content.el]);
         window.scrollTo(0, 1);   // hide chrome on mobile browser
 
-        var hammerObject = new Hammer(this.el, {
-            touchAction: 'auto',
-            preventDefault: false,
-        });
-        hammerObject.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
-        hammerObject.add(new Hammer.Swipe()).recognizeWith(hammerObject.get('pan'));
-        hammerObject.get('swipe').set({
-            threshold: 60,
-            direction: Hammer.DIRECTION_ALL
-        });
-        hammerObject.on("swipeleft swiperight swipeup swipedown", this.handleSwipe.bind(this));
         this.handleContentTransaction();
         this.changeDirection = "";
     };
@@ -119,6 +117,7 @@ OER.Views = OER.Views || {};
         this.$el.removeClass("in");
         this.$el.addClass("out");
         $(document).off("keydown");
+        this.hammerObject.off("swipeleft swiperight swipeup swipedown");
     };
 
     p.hide = function () {
@@ -134,6 +133,7 @@ OER.Views = OER.Views || {};
         this.$el.removeClass("out");
         this.$el.addClass("in");
         $(document).on("keydown", this.handleKeydown.bind(this));
+        this.hammerObject.on("swipeleft swiperight swipeup swipedown", this.handleSwipe.bind(this));
     };
 
     p.show = function () {
