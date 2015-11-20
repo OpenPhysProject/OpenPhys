@@ -61,7 +61,12 @@ OER.Views = OER.Views || {};
         MathJax.Hub.Queue(["Typeset", MathJax.Hub, this.content.el]);
         window.scrollTo(0, 1);   // hide chrome on mobile browser
 
-        var hammerObject = new Hammer(this.content.el);
+        var hammerObject = new Hammer(this.el, {
+            touchAction: 'auto',
+            preventDefault: false,
+        });
+        hammerObject.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
+        hammerObject.add(new Hammer.Swipe()).recognizeWith(hammerObject.get('pan'));
         hammerObject.get('swipe').set({
             threshold: 60,
             direction: Hammer.DIRECTION_ALL
