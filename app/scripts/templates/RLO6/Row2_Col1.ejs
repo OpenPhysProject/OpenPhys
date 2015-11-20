@@ -20,18 +20,49 @@
       The electron goes straight forward, while the photon goes straight back, with maximum energy of 255 keV. 
       Scattered radiation has important radiation protection consequences.
 
-     <table style="background: grey; width: 100%">
-  <tr>
-    <td>Case</td>
-    <td>Scattered Photon</td> 
-    <td>Recoil Electron</td>
+ <br/><br/>
+      
+ <table style="background: lightgrey; width: 100%; border: 1px solid black;">
+  <tr style="border: 1px solid black; background:#ECE9E9;">
+    <th>Case</th>
+    <th colspan="2">Scattered Photon</th> 
+    <th colspan="2">Recoil Electron</th>
   </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td> 
-    <td>94</td>
+  
+  <tr style="border: 1px solid black; background:#ECE9E9;">
+      <td></td>
+        <th>Scattering Angle</th>
+        <th>Scattered Energy</th>
+        <th>Recoil Direction</th>
+        <th>Recoil Energy</th> 
   </tr>
+  
+  <tr>
+    <td>Grazing Hit</td>
+    <td>(forwards) 0 deg</td>
+    <td>=incident energy</td>
+    <td>Sideways</td>
+    <td>very low</td>
+  </tr>
+  
+ <tr>
+    <td>90 deg</td>
+    <td>(sideways) 90 deg</td>
+    <td> <= 511 keV</td>
+    <td></td>
+    <td>(Incident - <=511) keV </td>
+  </tr>     
+ 
+ <tr>
+    <td>Direct Hit</td>
+    <td>(backwards) 180 deg</td>
+    <td><= 255 keV</td>
+    <td>Forward</td>
+    <td>(Incident - <=511) keV </td>
+  </tr> 
+  
 </table> 
+      
     </div>
      <img class="img-responsive rlo-content-image" src="/images/RLO6/ComptonIncident.svg" />
 </div>
