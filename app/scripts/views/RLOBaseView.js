@@ -37,7 +37,7 @@ OER.Views = OER.Views || {};
         this.navUp = $(".ui-nav-up", this.$el);
         this.navDown = $(".ui-nav-down", this.$el);
         this.navRight = $(".ui-nav-right", this.$el);
-        
+
         this.hammerObject = new Hammer(this.el, {
             touchAction: 'auto',
         });
@@ -132,6 +132,8 @@ OER.Views = OER.Views || {};
     p._showIn = function () {
         this.$el.removeClass("out");
         this.$el.addClass("in");
+        $(document).off("keydown");
+        this.hammerObject.off("swipeleft swiperight swipeup swipedown");
         $(document).on("keydown", this.handleKeydown.bind(this));
         this.hammerObject.on("swipeleft swiperight swipeup swipedown", this.handleSwipe.bind(this));
     };
