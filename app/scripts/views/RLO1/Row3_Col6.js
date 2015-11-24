@@ -169,9 +169,9 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         this.graph.container.removeEventListener("pressmove");
     };
 
-    p.graphRemove= function(event) {
-        this.graph.container.addEventListener("mousedown");
-        this.graph.container.addEventListener("mouseup");
+    p.graphRemove= function() {
+        this.graph.container.removeEventListener("mousedown");
+        this.graph.container.removeEventListener("mouseup");
         this.graph.container.removeEventListener("pressmove");
     };
 

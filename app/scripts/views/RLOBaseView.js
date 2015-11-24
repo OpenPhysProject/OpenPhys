@@ -80,6 +80,7 @@ OER.Views = OER.Views || {};
         }
         if (this.content) {
             this.content.remove();
+            this.content = null;
             this.navView.destroy();
         }
         this.model = newModel;
