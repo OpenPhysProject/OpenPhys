@@ -53,13 +53,19 @@
        this.RLOs = new scope.Collections.RLOCollection();
        var m = new scope.Models.RLOModel(OER.data.Intro, {parse: true, viewPath: "Intro"});
        this.RLOs.add(m);
+       
        var m = new scope.Models.RLOModel(OER.data.RLO1, {parse: true, viewPath: "RLO1"});
        this.RLOs.add(m);
+       
        m  =  new scope.Models.RLOModel(OER.data.RLO2, {parse: true, viewPath: "RLO2"});
        this.RLOs.add(m);
   
+       m  =  new scope.Models.RLOModel(OER.data.RLO3, {parse: true, viewPath: "RLO3"});
+       this.RLOs.add(m);
+  
        m  =  new scope.Models.RLOModel(OER.data.RLO6, {parse: true, viewPath: "RLO6"});
-       this.RLOs.add(m);        
+       this.RLOs.add(m);    
+       
        m  =  new scope.Models.RLOModel(OER.data.RLO7, {parse: true, viewPath: "RLO7"});
        this.RLOs.add(m); 
        
