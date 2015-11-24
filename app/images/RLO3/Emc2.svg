@@ -4,7 +4,7 @@
 	 viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:url(#SVGID_1_);}
-	.st1{font-family:'Trattatello';}
+	.st1{font-family:'TimesNewRomanPS-ItalicMT';}
 	.st2{font-size:64px;}
 	.st3{font-size:48px;}
 </style>
@@ -13,5 +13,5 @@
 	<stop  offset="1" style="stop-color:#ED1C24"/>
 </linearGradient>
 <rect x="-1" y="-1" class="st0" width="304.5" height="300"/>
-<text transform="matrix(1 0 0 1 60 160)"><tspan x="0" y="0" class="st1 st2">E = mc</tspan><tspan x="155.6" y="-14" class="st1 st3">2</tspan></text>
+<text transform="matrix(1 0 0 1 55 160)"><tspan x="0" y="0" class="st1 st2">E = mc</tspan><tspan x="188.9" y="-14" class="st1 st3">2</tspan></text>
 </svg>
