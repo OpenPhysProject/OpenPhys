@@ -62,7 +62,10 @@
   
        m  =  new scope.Models.RLOModel(OER.data.RLO3, {parse: true, viewPath: "RLO3"});
        this.RLOs.add(m);
-  
+ 
+       m  =  new scope.Models.RLOModel(OER.data.RLO5, {parse: true, viewPath: "RLO5"});
+       this.RLOs.add(m);       
+        
        m  =  new scope.Models.RLOModel(OER.data.RLO6, {parse: true, viewPath: "RLO6"});
        this.RLOs.add(m);    
        
