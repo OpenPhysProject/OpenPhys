@@ -15,10 +15,6 @@
              {title:"Larger Maps", image:"", route:"LargerMaps"}, 
              {title:"OpenPhys Logo", image:"", route:"Logo"},         
         ],
-        // index 1 OJR this is just testing and will be removed
-        [
-            {title:"Animation", image: "", route:"Animation"},
-        ]
     ];
 
     scope.Intro = s;

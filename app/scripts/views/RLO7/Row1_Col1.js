@@ -1,12 +1,12 @@
 OER.Views = OER.Views || {};
-OER.Views.Instructions = OER.Views.Instructions || {};
+OER.Views.Pair = OER.Views.Pair || {};
 
 (function () {
     'use strict';
 
-    OER.Views.Instructions.Animation = Backbone.View.extend({
+    OER.Views.Pair.Anim = Backbone.View.extend({
 
-        template: JST['app/scripts/templates/Intro/Row1_Col0.ejs'],
+        template: JST['app/scripts/templates/RLO7/Row1_Col1.ejs'],
 
         events: {},
         
