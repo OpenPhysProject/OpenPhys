@@ -6,12 +6,6 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
     
     var p = {};
     var s = {};
-    // Math for orbiting 
-    var angle = 0.0;
-    var originX = 100;
-    var originY = 100;
-    var radius = 40, radius2 = 60;
-    var i;
     
     p.template= JST['app/scripts/templates/Sandbox/Row0_Col3.ejs'];
     p.events = {};
@@ -20,8 +14,7 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
     p.stage = null;        // easeljs stage
     p.width = null;
     p.height = null;
-    p.electron = null;        // easeljs shape
-    p.electron2 = null;        // easeljs shape    
+    p.electrons = null;    // array of easeljs shapes
     p.nucleus = null;
      
     p.tickerBind = null;
@@ -49,7 +42,7 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
         
         // setup reference to button and click listener
         this.button = $(".rlo-content-button", this.$el)[0];
-        this.buttonBind = this.togglePause.bind(this);
+        this.buttonBind = this.handleButton.bind(this);
         this.button.addEventListener("click", this.buttonBind);
 
         // setup createjs stage and touch support
@@ -58,54 +51,30 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
         if (createjs.Touch.isSupported()) {createjs.Touch.enable(this.stage);}
         this.width = c.width;
         this.height = c.height;
-
+        
        // draw Static circle (nucleus)
         this.nucleus = new createjs.Shape();
         this.nucleus.graphics.beginFill("Red").drawCircle(0, 0, 8);
-        this.nucleus.x =  originX; // x position
-        this.nucleus.y =  originY;
+        this.nucleus.x =  this.electronProps.originX; // x position
+        this.nucleus.y =  this.electronProps.originY;
         this.stage.addChild(this.nucleus);
         
-        // draw circle and add it to the stage
-        this.electron = new createjs.Shape();
-        this.electron.graphics.beginFill("Blue").drawCircle(0, 0, 5); // electron radius
-        this.electron.x =  originX;           // initial x position
-        this.electron.y =  originY +radius;
-        this.stage.addChild(this.electron); 
-        
-          // draw 2nd electron and add it to the stage
-        this.electron2 = new createjs.Shape();
-        this.electron2.graphics.beginFill("Blue").drawCircle(0, 0, 5); // electron radius
-        this.electron2.x =  originX;           // initial x position
-        this.electron2.y =  originY + radius2;
-        this.stage.addChild(this.electron2); 
-        
+        // draw circle (electron)
+        this.electrons = [];
+        this.handleButton();
+
         // set up createjs ticker to update stage
         createjs.Ticker.timingMode = createjs.Ticker.RAF;
         this.tickerBind = this.tick.bind(this);
         createjs.Ticker.addEventListener("tick", this.tickerBind);
     };
-
+    
     /**
      * createjs tick event, that is run multiple frames per second
      * @param {type} event
      */
     p.tick = function(event) {
-        // if not paused, animate electron
-        if (!createjs.Ticker.getPaused()) {
-            // Increment Position
-            this.electron.x = originX + radius*Math.sin(angle*1.1);  // speed
-            this.electron.y = originY + radius*Math.cos(angle*1.1);
-            this.electron2.x = originX + radius2*Math.sin(angle);  // speed
-            this.electron2.y = originY + radius2*Math.cos(angle);           
-            angle += 0.06;
-            
-           // if (this.electron.x > this.width+50) 
-           //     { this.electron.x = -30; 
-           //       this.electron.y = 20 + 100*Math.random(); // random vertical position
-           //     }
-        }
-            
+        
         // update the stage
         this.stage.update(event);
     };
@@ -123,12 +92,54 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
     };
     
     /**
-     * click listener for button, sets animation to paused or running
+     * click listener for button
      */
-    p.togglePause = function() {
-        var paused = !createjs.Ticker.getPaused();
-        createjs.Ticker.setPaused(paused);
-        this.button.value = paused ? "Resume" : "Pause";
+    p.handleButton = function() {
+        var e = this.drawElectron();
+        this.stage.addChild(e);
+        this.electrons.push(e);
+    };
+
+// ELECTRON CODE *********************************************************************************
+    // Math for orbiting 
+    p.electronProps = {
+        angle: 0.0,
+        angleDelta: 3,
+        angleRandom: 1,
+        angleRandomDelta: 0.1,
+        angleChange: 0.05,
+        angleChangeDelta: 0.02,
+        originX: 100,
+        originY: 100,
+        radius: 40, 
+        radiusDelta: 20,
+    };
+    
+    // draw electron and add it to stage
+    p.drawElectron = function() {
+        var radius = Math.round(Math.random()*this.electronProps.radiusDelta + this.electronProps.radius);
+        
+        var electron = new createjs.Shape();
+        electron.graphics.beginFill("Blue").drawCircle(0, 0, 5); // electron radius
+        electron.x =  this.electronProps.originX;           // initial x position
+        electron.y =  this.electronProps.originY +radius;
+        electron.on("tick",this.electronTick);
+        
+        var v = electron.tickProps = {};
+        v.originX = this.electronProps.originX;
+        v.originY = this.electronProps.originY;
+        v.angle = Math.random()*this.electronProps.angleDelta + this.electronProps.angle;
+        v.angleRandom = Math.random()*this.electronProps.angleRandomDelta + this.electronProps.angleRandom;
+        v.angleChange = Math.random()*this.electronProps.angleChangeDelta + this.electronProps.angleChange;
+        v.radius = radius;
+        
+        return electron;
+    };
+    
+    p.electronTick = function () {
+        this.x = this.tickProps.originX + this.tickProps.radius*Math.sin(this.tickProps.angle*this.tickProps.angleRandom);  // speed
+        this.y = this.tickProps.originY + this.tickProps.radius*Math.cos(this.tickProps.angle*this.tickProps.angleRandom);
+        this.tickProps.angle += this.tickProps.angleChange;
     };
 
     OER.Views.Sandbox.CreateJS = Backbone.View.extend(p, s);
