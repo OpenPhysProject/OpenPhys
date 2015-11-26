@@ -11,6 +11,7 @@ OER.Views = OER.Views || {};
     p.title = null;     // dom title div
     p.navView = null;   // NavView
     p.content = null;   // Content specific views, ie OER.Views.RLO1.L200_2
+    p.oldContent = null;// content specific views that are being transitioned out
     p.contentContainer = null;  // dom  div that holds content views
     p.currentView = "";     // string   the name/route of the the current view
 
@@ -55,6 +56,9 @@ OER.Views = OER.Views || {};
     p.updateContent = function (targetView) {
         if (this.content && !this.changeDirection) {
             this.content.remove();
+            this.oldContent = null;
+        } else {
+            this.oldContent = this.content;
         }
         this.currentView = targetView;
         var RLOScope = this.model.get("route");
@@ -302,7 +306,7 @@ OER.Views = OER.Views || {};
         var colChange = event.data.col;
         // we don't need to check if it exists because we do that when adding click listener
         var contentMap = this.model.get("contentMap");
-        $(".rlo-content").addClass("old");
+        this.content.$el.addClass("old");
         this.determinChangeDirection(rowChange, colChange);
         var targetModel;
         if (colChange != 0 && this.model.get("jumpNav")) {
@@ -334,8 +338,9 @@ OER.Views = OER.Views || {};
         this.contentContainer
                 .addClass(this.changeDirection);
         var contentContainer = this.contentContainer;
+        var oldContent = this.oldContent;
         setTimeout(function () {
-            $(".rlo-content.old").remove();
+            if(oldContent) {oldContent.remove();}
             contentContainer.removeClass("down up next prev");
         }, OER.settings.TRANS_CONTENT);
     };
