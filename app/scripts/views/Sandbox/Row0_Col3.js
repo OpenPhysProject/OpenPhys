@@ -6,17 +6,24 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
     
     var p = {};
     var s = {};
+    // Math for orbiting 
+    var angle = 0.0;
+    var originX = 100;
+    var originY = 100;
+    var radius = 40, radius2 = 60;
+    var i;
     
     p.template= JST['app/scripts/templates/Sandbox/Row0_Col3.ejs'];
-
     p.events = {};
 
     p.button = null;        
     p.stage = null;        // easeljs stage
     p.width = null;
     p.height = null;
-    p.circle = null;        // easeljs shape
- 
+    p.electron = null;        // easeljs shape
+    p.electron2 = null;        // easeljs shape    
+    p.nucleus = null;
+     
     /**
      * backbone initialize function, called on creation 
      * @param {type} model
@@ -42,20 +49,34 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
         this.button.addEventListener("click", this.togglePause.bind(this));
 
         // setup createjs stage and touch support
-        var c = $(".rlo-content-canvas", this.$el)[0];
+        var c = $(".rlo-content-canvas-sandbox", this.$el)[0];
         this.stage = new createjs.Stage(c);
         if (createjs.Touch.isSupported()) {createjs.Touch.enable(this.stage);}
         this.width = c.width;
         this.height = c.height;
 
-        // draw something and add it to the stage
-        this.circle = new createjs.Shape();
-        this.circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
-        this.circle.x = 100;
-        this.circle.y = 100;
-        this.stage.addChild(this.circle);  
-
-        // setup createjs ticker to update stage
+       // draw Static circle (nucleus)
+        this.nucleus = new createjs.Shape();
+        this.nucleus.graphics.beginFill("Red").drawCircle(0, 0, 8);
+        this.nucleus.x =  originX; // x position
+        this.nucleus.y =  originY;
+        this.stage.addChild(this.nucleus);
+        
+        // draw circle and add it to the stage
+        this.electron = new createjs.Shape();
+        this.electron.graphics.beginFill("Blue").drawCircle(0, 0, 5); // electron radius
+        this.electron.x =  originX;           // initial x position
+        this.electron.y =  originY +radius;
+        this.stage.addChild(this.electron); 
+        
+          // draw 2nd electron and add it to the stage
+        this.electron2 = new createjs.Shape();
+        this.electron2.graphics.beginFill("Blue").drawCircle(0, 0, 5); // electron radius
+        this.electron2.x =  originX;           // initial x position
+        this.electron2.y =  originY + radius2;
+        this.stage.addChild(this.electron2); 
+        
+        // set up createjs ticker to update stage
         createjs.Ticker.timingMode = createjs.Ticker.RAF;
         createjs.Ticker.addEventListener("tick", this.tick.bind(this));
     };
@@ -65,10 +86,19 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
      * @param {type} event
      */
     p.tick = function(event) {
-        // if not paused, animate circle
+        // if not paused, animate electron
         if (!createjs.Ticker.getPaused()) {
-            this.circle.x += 5;
-            if (this.circle.x > this.width) { this.circle.x = 0; }
+            // Increment Position
+            this.electron.x = originX + radius*Math.sin(angle*1.1);  // speed
+            this.electron.y = originY + radius*Math.cos(angle*1.1);
+            this.electron2.x = originX + radius2*Math.sin(angle);  // speed
+            this.electron2.y = originY + radius2*Math.cos(angle);           
+            angle += 0.06;
+            
+           // if (this.electron.x > this.width+50) 
+           //     { this.electron.x = -30; 
+           //       this.electron.y = 20 + 100*Math.random(); // random vertical position
+           //     }
         }
             
         // update the stage
@@ -93,7 +123,7 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
     p.togglePause = function() {
         var paused = !createjs.Ticker.getPaused();
         createjs.Ticker.setPaused(paused);
-        this.button.value = paused ? "unpause" : "pause";
+        this.button.value = paused ? "Resume" : "Pause";
     };
 
     OER.Views.Sandbox.CreateJS = Backbone.View.extend(p, s);

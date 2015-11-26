@@ -44,7 +44,13 @@ $button-bar-size: $ui-button-width + $padding-small*3;
 
 .rlo-content-canvas {
     background: $color_content_canvas_background;
-    width: 100%;
+    width: 90%;
+    margin-top: $padding-small;
+}
+
+.rlo-content-canvas-sandbox {
+    background: $color_content_canvas_background;
+    width: 50%;
     margin-top: $padding-small;
 }
 

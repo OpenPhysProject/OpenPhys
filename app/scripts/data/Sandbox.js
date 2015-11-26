@@ -10,10 +10,10 @@
     s.contentMapData = [
     // index 0
         [
-            {title:"20.1 Circle", image: "", route:"Circle"},
-            {title:"20.2 Scale", image: "", route:"Scale"},
+            {title:"20.1 Circle",   image: "", route:"Circle"},
+            {title:"20.2 Scale",    image: "", route:"Scale"},
             {title:"20.3 Interact", image: "", route:"Interact"},           
-            {title:"20.4 CreateJS", image: "", route:"CreateJS"},           
+            {title:"20.4 CreateJS", image: "", route:"CreateJS"},             
         ],
   
       // index 1
