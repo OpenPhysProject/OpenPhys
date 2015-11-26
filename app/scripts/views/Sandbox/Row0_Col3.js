@@ -24,6 +24,9 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
     p.electron2 = null;        // easeljs shape    
     p.nucleus = null;
      
+    p.tickerBind = null;
+    p.buttonBind = null;
+    
     /**
      * backbone initialize function, called on creation 
      * @param {type} model
@@ -46,7 +49,8 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
         
         // setup reference to button and click listener
         this.button = $(".rlo-content-button", this.$el)[0];
-        this.button.addEventListener("click", this.togglePause.bind(this));
+        this.buttonBind = this.togglePause.bind(this);
+        this.button.addEventListener("click", this.buttonBind);
 
         // setup createjs stage and touch support
         var c = $(".rlo-content-canvas-sandbox", this.$el)[0];
@@ -78,7 +82,8 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
         
         // set up createjs ticker to update stage
         createjs.Ticker.timingMode = createjs.Ticker.RAF;
-        createjs.Ticker.addEventListener("tick", this.tick.bind(this));
+        this.tickerBind = this.tick.bind(this);
+        createjs.Ticker.addEventListener("tick", this.tickerBind);
     };
 
     /**
@@ -112,7 +117,7 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
     p.remove = function(options) {
         this.button.removeEventListener("click");
         if (createjs.Touch.isSupported()) {createjs.Touch.disable(this.stage);}
-        createjs.Ticker.removeEventListener("tick");
+        createjs.Ticker.removeEventListener("tick", this.tickerBind);
 
         Backbone.View.prototype.remove.call(this, options);
     };
