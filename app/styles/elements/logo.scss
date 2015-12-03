@@ -47,8 +47,10 @@ $logo-ratio-huge: 0.36;
     transition-property: width;
     transition-duration: 0.3s;
     transition-timing-function: linear;
+    height:auto;
     @include logo-ratio($logo-ratio-small,0);
-
+ 
+    
     &.mini {
         position: fixed;
         left:$padding-small;
