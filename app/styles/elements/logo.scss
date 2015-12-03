@@ -39,7 +39,7 @@ $logo-ratio-huge: 0.36;
 
 /* Small view (default) */
 .logo {
-    position: relative;
+    position: absolute;
     z-index: $z-fg;
     top: 1rem;
     padding: 1rem;
@@ -47,17 +47,7 @@ $logo-ratio-huge: 0.36;
     transition-property: width;
     transition-duration: 0.3s;
     transition-timing-function: linear;
-
     @include logo-ratio($logo-ratio-small,0);
-    &.logo-icon{
-        width: 100%;
-        height: auto;
-        display: block;
-        svg {
-            width: 100%;
-            height: 100%;
-        }
-    }
 
     &.mini {
         position: fixed;
