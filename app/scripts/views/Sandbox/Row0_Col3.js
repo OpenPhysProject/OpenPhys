@@ -1,28 +1,34 @@
-OER.Views = OER.Views || {};
+/* OER is our project namespace, used to avoid collisions with other project and browser supported code
+ * OER.Views is the scope we use for views to keep things organized
+ * OER.Views.Sandbox is the scope for views for this content
+ * the || {} is creating an empty object for this if it does not exist already
+ */
+OER.Views = OER.Views || {};    
 OER.Views.Sandbox = OER.Views.Sandbox || {};
 
 (function () {
     'use strict';
     
-    var p = {};
-    var s = {};
+    var p = {};     // prototype for this class
+    var s = {};     // static for this class
     
-    p.template= JST['app/scripts/templates/Sandbox/Row0_Col3.ejs'];
-    p.events = {};
+    p.template= JST['app/scripts/templates/Sandbox/Row0_Col3.ejs'];     // template used to create html for this view
+    p.events = {};  // events, used by backbone to set up event handlers on html elements
 
-    p.button = null;        
-    p.stage = null;        // easeljs stage
-    p.width = null;
-    p.height = null;
-    p.electrons = null;    // array of easeljs shapes
-    p.nucleus = null;
+    p.button = null;        // html button element    
+    p.stage = null;         // easeljs stage
+    p.width = null;         // stage width
+    p.height = null;        // stage height
+    p.electrons = null;     // array of easeljs shapes
+    p.nucleus = null;       // easeljs shape
      
-    p.tickerBind = null;
-    p.buttonBind = null;
+    p.tickerBind = null;    // reference to bound function, binding lets us call back in this scope
+    p.buttonBind = null;    // reference to bound function
     
     /**
-     * backbone initialize function, called on creation 
-     * @param {type} model
+     * backbone initialize function
+     * called on creation by OER.RLOBaseView.updateContent
+     * @param {Backbone.Model} model A NavCardModel with related data 
      */
     p.initialize = function (model) {
         if (model) { this.model = model; }
@@ -32,18 +38,19 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
 
     /**
      * backbone render function, which builds html from template
+     * called by initialize
      */
     p.render = function () {
         if(this.model) {
-            this.setElement(this.template(this.model.toJSON()));
+            this.setElement(this.template(this.model.toJSON()));    // create the html for this view
         } else {
             this.setElement(this.template());
         }
         
         // setup reference to button and click listener
-        this.button = $(".rlo-content-button", this.$el)[0];
-        this.buttonBind = this.handleButton.bind(this);
-        this.button.addEventListener("click", this.buttonBind);
+        this.button = $(".rlo-content-button", this.$el)[0];    // $ is jquery, this.$el is this views html as a jquery object
+        this.buttonBind = this.handleButton.bind(this);     // create reference to bound function, binding makes a function be called in this scope
+        this.button.addEventListener("click", this.buttonBind); //
 
         // setup createjs stage and touch support
         var c = $(".rlo-content-canvas-sandbox", this.$el)[0];
@@ -57,30 +64,31 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
         this.nucleus.graphics.beginFill("Red").drawCircle(0, 0, 8);
         this.nucleus.x =  this.electronProps.originX; // x position
         this.nucleus.y =  this.electronProps.originY;
-        this.stage.addChild(this.nucleus);
+        this.stage.addChild(this.nucleus);  // add this shape to the stage
         
         // draw circle (electron)
-        this.electrons = [];
+        this.electrons = [];    // create empty array
         this.handleButton();
 
         // set up createjs ticker to update stage
-        createjs.Ticker.timingMode = createjs.Ticker.RAF;
+        createjs.Ticker.timingMode = createjs.Ticker.RAF;   // sets ticks to happen on browser request animation frame
         this.tickerBind = this.tick.bind(this);
         createjs.Ticker.addEventListener("tick", this.tickerBind);
     };
     
     /**
      * createjs tick event, that is run multiple frames per second
+     * called by createjs tick event
      * @param {type} event
      */
     p.tick = function(event) {
-        
         // update the stage
-        this.stage.update(event);
+        this.stage.update(event);   // redraw shapes on the stage
     };
 
     /*
      * clean up stage events and call super remove
+     * called by OER.RLOBaseView
      * @param {type} options
      */
     p.remove = function(options) {
@@ -96,8 +104,8 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
      */
     p.handleButton = function() {
         var e = this.drawElectron();
-        this.stage.addChild(e);
-        this.electrons.push(e);
+        this.stage.addChild(e); // add electron to stage
+        this.electrons.push(e); // add electron to array
     };
 
 // ELECTRON CODE *********************************************************************************
@@ -123,7 +131,7 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
         electron.graphics.beginFill("Blue").drawCircle(0, 0, 5); // electron radius
         electron.x =  this.electronProps.originX;           // initial x position
         electron.y =  this.electronProps.originY +radius;
-        electron.on("tick",this.electronTick);
+        electron.on("tick",this.electronTick);  // add tick listener to electron, which is called by createjs tick event
         
         var v = electron.tickProps = {};
         v.originX = this.electronProps.originX;
@@ -142,6 +150,7 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
         this.tickProps.angle += this.tickProps.angleChange;
     };
 
-    OER.Views.Sandbox.CreateJS = Backbone.View.extend(p, s);
+    // add the above code as a backbone view class in our namespace
+    OER.Views.Sandbox.CreateJS = Backbone.View.extend(p, s);    
 
 })();
