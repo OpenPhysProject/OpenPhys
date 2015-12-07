@@ -26,6 +26,11 @@ template: JST['app/scripts/templates/RLO3/Row0_Col3.ejs'],
 what that means check out http://backbonejs.org/#View
 
 
+change this line so that the last bit on the LHS is unique
+  
+  // add the above code as a backbone view class in our namespace
+    OER.Views.Sandbox.CreateJS2 = Backbone.View.extend(p, s); 
+
 #### Add to Index
 1. open app/index.html
 2. scroll to the very bottom
