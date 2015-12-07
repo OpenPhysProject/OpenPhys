@@ -1,23 +1,17 @@
 ### Setup
-Run everything in "" below from the command prompt.  Do not use powershell, yeoman is not compatible.
+Run everything in "" below from the command prompt.  Do not use powershell.
 
 Check if you have node (at-least 0.10.x)
 "node -v"
 If you don't have node, go install it form http://nodejs.org/
 ** NOTE node v 0.12.0 will not work, and there is an outstanding bug with them for it.
 
-Check if you have yeoman, bower, grunt, and gulp installed.
-"npm yo -v"
-"npm generator -v"
+Check if you have bower and grunt installed.
 "npm bower -v"
 "npm grunt -v"
-"npm gulp -v"
 
 If not, run the following.
-"npm install -g yo bower grunt-cli gulp"
-"npm install -g generator-webapp"
-
-http://yeoman.io/learning/ for more info
+"npm install -g bower grunt-cli"
 
 Install NPM and Bower Dependencies from the root folder of the project
 "npm install"
@@ -47,19 +41,6 @@ If you have trouble with node version.
 
 ### Usage
 The content in the repo was generated using https://github.com/yeoman/generator-backbone
-Since this has already been generated, you should be able to do things like
-"yo backbone:view name"
-
-Available Generators:
-
-yo backbone:model blog
-
-yo backbone:collection blog
-
-yo backbone:router blog
-
-yo backbone:view blog
-
 
 We Use Grunt to run tasks for testing and building the project
 "grunt serve"
