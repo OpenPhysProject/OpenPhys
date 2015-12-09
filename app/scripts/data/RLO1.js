@@ -47,7 +47,7 @@
            {title:"400.0 Atomic Models",        image:"", route:"400_0"},
            {title:"400.1 Dalton's Atoms (1805)",  image:"", route:"400_1"},
            {title:"400.2 Plum Pudding Atom (1904)", image:"", route:"400_2"},  
-           {title:"400.3 Solar System Atom (1910's)", image:"", route:"400_3"}, 
+           {title:"400.3 Solar System Atom (1910's)", image:"", route:"SolarSystem"}, 
            {title:"400.4 Bohr Quantized Atom (1913)", image:"", route:"400_4"}, 
            {title:"400.5 QM Atom 1: Matter Waves", image:"", route:"400_5"},
            {title:"400.6 QM Atom 2: Nuclear Potential", image:"", route:"NuclearPotential"}, 
