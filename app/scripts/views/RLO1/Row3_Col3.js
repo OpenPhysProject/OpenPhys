@@ -144,7 +144,11 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         if (this.tickProps.radius > 6) { 
             this.tickProps.radius = this.tickProps.radius-1; // radius decreases
             this.tickProps.angleInc *= 1.005;                // make the angle change faster
-        };
+        }
+        else{
+            
+        }
+        ;
         var angle= this.tickProps.angle;
         this.x = this.tickProps.originX + this.tickProps.radius*Math.sin(angle);  // speed
         this.y = this.tickProps.originY + this.tickProps.radius*Math.cos(angle);
