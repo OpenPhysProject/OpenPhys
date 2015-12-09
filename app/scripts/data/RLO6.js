@@ -12,7 +12,7 @@
     // index 0,
         [
             {title:"10.0 LEVEL: Introduction",      image:"", route:"10_0"},
-            {title:"10.1 X-Rays as Particles", image:"", route:"10_1"},
+            {title:"10.1 X-Rays as Particles", image:"", route:"Particles"},
             {title:"",      image:"", route:"10_2"},
             {title:"", image:"", route:""},
             {title:"", image:"", route:""},            
