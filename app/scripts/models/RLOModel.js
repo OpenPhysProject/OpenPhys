@@ -41,7 +41,7 @@ OER.Models = OER.Models || {};
                     var subRoute = c.at(i).get("route");
                     if (!OER.Views[response.route][subRoute]) {
                         // OJR if we ever need something different, add a .template property to data and use it if it's populated
-                         OER.Views.RLOTemplate.template = JST["app/scripts/templates/"+options.viewPath+"/Row"+l.toString()+ "_Col" +i.toString()+".ejs"];
+                         OER.Views.RLOTemplate.template = JST["app/content/"+options.viewPath+"/templates/Row"+l.toString()+ "_Col" +i.toString()+".ejs"];
                          OER.Views[response.route][subRoute] = Backbone.View.extend(OER.Views.RLOTemplate);
                     }
                 }
