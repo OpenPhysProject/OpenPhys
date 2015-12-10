@@ -24,5 +24,7 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstr
 @import "views/NavCardView.scss";
 @import "views/ContentView.scss";
 
-@import "views/RLO1/Row1_Col5.scss";
-@import "views/Sandbox/Row0_Col0.scss";
+// ****************************************************************************
+// Imports from content
+@import "../content/RLO1/styles/Row1_Col5.scss";
+@import "../content/Sandbox/styles/Row0_Col0.scss";
