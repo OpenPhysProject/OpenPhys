@@ -98,8 +98,8 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
 
         Backbone.View.prototype.remove.call(this, options);
     };
-
-       /**
+    
+    /**
      * click listener for button
      */
     p.handleButton = function() {
@@ -111,43 +111,48 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
 // ELECTRON CODE *********************************************************************************
     // Math for orbiting 
     p.electronProps = {
-        angle: 0.0,
-        angleDelta: 3,
-        angleRandom: 1,
-        angleRandomDelta: 0.1,
-        angleChange: 0.05,
-        angleChangeDelta: 0.02,
-        originX: 100,
-        originY: 100,
-        radius: 40, 
-        radiusDelta: 20,
+        angle:    0.0,   angleDelta: 6,         // initial angle, with randomization
+        angleInc: 0.04,  angleIncDelta: 0.02,
+        originX: 200,    originY: 100,
+        radius:  160,    dr:       40,   // starting Orbital Radius and random element
     };
     
     // draw electron and add it to stage
     p.drawElectron = function() {
-        var radius = Math.round(Math.random()*this.electronProps.radiusDelta + this.electronProps.radius);
+        // Actual Orbital radius
+        var radius = Math.round(this.electronProps.radius + Math.random()*this.electronProps.dr);
         
         var electron = new createjs.Shape();
-        electron.graphics.beginFill("Blue").drawCircle(0, 0, 5); // electron radius
+        electron.graphics.beginFill("Blue").drawCircle(0, 0, 8); // electron radius
         electron.x =  this.electronProps.originX;           // initial x position
-        electron.y =  this.electronProps.originY +radius;
+        electron.y =  this.electronProps.originY + radius;
         electron.on("tick",this.electronTick);  // add tick listener to electron, which is called by createjs tick event
         
+        // Define parameters to be used for each tick
         var v = electron.tickProps = {};
-        v.originX = this.electronProps.originX;
-        v.originY = this.electronProps.originY;
-        v.angle = Math.random()*this.electronProps.angleDelta + this.electronProps.angle;
-        v.angleRandom = Math.random()*this.electronProps.angleRandomDelta + this.electronProps.angleRandom;
-        v.angleChange = Math.random()*this.electronProps.angleChangeDelta + this.electronProps.angleChange;
-        v.radius = radius;
-        
+        v.originX     = this.electronProps.originX;
+        v.originY     = this.electronProps.originY;
+        v.angle       = Math.random()*this.electronProps.angleDelta + this.electronProps.angle;
+        v.angleInc   = Math.random()*this.electronProps.angleIncDelta + this.electronProps.angleInc;
+        v.radius      = radius;
         return electron;
     };
-    
+   
+   // ============== EVOLUTION ================ //
     p.electronTick = function () {
-        this.x = this.tickProps.originX + this.tickProps.radius*Math.sin(this.tickProps.angle*this.tickProps.angleRandom);  // speed
-        this.y = this.tickProps.originY + this.tickProps.radius*Math.cos(this.tickProps.angle*this.tickProps.angleRandom);
-        this.tickProps.angle += this.tickProps.angleChange;
+        // Electron spirals in to nucleus
+        if (this.tickProps.radius > 6) { 
+            this.tickProps.radius = this.tickProps.radius-1; // radius decreases
+            this.tickProps.angleInc *= 1.005;                // make the angle change faster
+        }
+        else{
+            
+        }
+        ;
+        var angle= this.tickProps.angle;
+        this.x = this.tickProps.originX + this.tickProps.radius*Math.sin(angle);  // speed
+        this.y = this.tickProps.originY + this.tickProps.radius*Math.cos(angle);
+        this.tickProps.angle += this.tickProps.angleInc;
     };
 
     // add the above code as a backbone view class in our namespace

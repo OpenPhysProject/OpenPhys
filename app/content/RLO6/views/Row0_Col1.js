@@ -11,7 +11,7 @@ OER.Views.Compton = OER.Views.Compton || {};
     
     var p = {};     // prototype for this class
     var s = {};     // static for this class
-    p.template= JST['app/scripts/templates/RLO6/Row0_Col1.ejs'];     // template used to create html for this view
+    p.template= JST['app/content/RLO6/templates/Row0_Col1.ejs'];     // template used to create html for this view
     p.events = {};  // events, used by backbone to set up event handlers on html elements
     p.button = null;        // html button element    
     p.stage = null;         // easeljs stage
@@ -74,7 +74,7 @@ OER.Views.Compton = OER.Views.Compton || {};
         this.stage.addChild(this.photonsource);  // add this shape to the stage       
                
         // external file for background image
-        this.background = new createjs.Bitmap("/images/RLO6/ComptonIncident.svg");
+        this.background = new createjs.Bitmap("/content/RLO6/assets/ComptonIncident.svg");
         this.background.regX = this.background.image.width *0.5;
         this.background.regY = this.background.image.height *0.5;        
         //this.stage.addChild(this.background);
