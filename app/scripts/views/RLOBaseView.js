@@ -270,6 +270,7 @@ OER.Views = OER.Views || {};
     };
 
     p.handleSwipe = function (event) {
+        if (this.navView.$el.hasClass("in")) { return; } 
         var change = {data: {row: 0, col: 0}};
         switch (event.type) {
             case 'swiperight':
