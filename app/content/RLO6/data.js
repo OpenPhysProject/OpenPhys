@@ -23,7 +23,7 @@
     // index 1,
         [
             {title:"100 - PHOTON SCATTERING", image:"", route:"100_0"},
-            {title:"100.1 Incident X-Ray",          image:"", route:"100_1"},
+            {title:"100.1 Incident X-Ray",    image:"", route:"Incident"},
             {title:"100.2 Interaction with Scatterer (& Rayleigh)",       image:"", route:"100_2"},  
             {title:"100.3 Scattered X-Ray", image:"", route:"100_3"}, 
             {title:"100.4 Recoil Electron", image:"", route:"100_4"},
