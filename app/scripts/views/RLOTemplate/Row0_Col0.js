@@ -6,7 +6,7 @@ OER.Views.RLORoute = OER.Views.RLORoute || {};
 
     OER.Views.RLORoute.NavCardRoute = Backbone.View.extend({
 
-        template: JST['app/scripts/templates/RLO1/Row0_Col0.ejs'],
+        template: JST['app/content/RLOX/templates/Row0_Col0.ejs'],
 
         events: {},
         
