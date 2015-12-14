@@ -26,6 +26,16 @@ OER.Views.Compton = OER.Views.Compton || {};
     
     p.tickerBind = null;    // reference to bound function, binding lets us call back in this scope
     p.buttonBind = null;    // reference to bound function
+ 
+    p.photonProps = {
+        sourceX: 40,   // near left
+        sourceY: 100,  // middle
+        source_divergence: 0.5,
+        scatter_divergence: 1.5,      
+        source_colour: "darkblue",
+        colour: "blue",
+        size: 2
+    };    
     
     /**
      * backbone initialize function
@@ -36,6 +46,17 @@ OER.Views.Compton = OER.Views.Compton || {};
         if (model) { this.model = model; }
         //this.listenTo(this.model, 'change', this.render);
         this.render();
+        this.renderSlider();
+    };
+
+    p.renderSlider = function() {
+        // set up the slider for the scatterer position
+       this.slideX = $(".rlo6-scatterY", this.$el)[0];   // slider
+       this.dispX  = $(".rlo6-disp-scatterY", this.$el)[0];      // display of vaue
+       this.dispX.innerHTML= this.slideX.value + ' ';   
+       //
+       this.slideXBind = this.handleSlideX.bind(this);
+       this.slideX.addEventListener("change", this.slideXBind);   // NOT REMOVED ANYWHERE YET.
     };
 
     /**
@@ -55,29 +76,49 @@ OER.Views.Compton = OER.Views.Compton || {};
         this.button.addEventListener("click", this.buttonBind); //
 
         // set up createjs stage and touch support
-        var c = $(".rlo-content-canvas-sandbox", this.$el)[0];
+        var c = $(".rlo-content-canvas-photon", this.$el)[0];
         this.stage = new createjs.Stage(c);
         if (createjs.Touch.isSupported()) {createjs.Touch.enable(this.stage);}
         this.width  = c.width;
         this.height = c.height;
         
        //=============== STATIC CONTENT ====================//
-        // Draw Photon source
+       // Photon source (clickable)
         this.photonsource = new createjs.Shape();
-        this.photonsource.graphics.beginFill("Red").drawCircle(0, 0, 10);
-        this.photonsource.x =  this.electronProps.sourceX; // x position
-        this.photonsource.y =  this.electronProps.sourceY;
-        this.sourceBind = this.photonsourceClick.bind(this);     // create reference to bound function, binding makes a function be called in this scope
-        this.photonsource.addEventListener("click", this.sourceBind);       
+        this.photonsource.graphics.beginFill(this.photonProps.source_colour).drawRoundRect(-20, -40, 20, 80, 5);        
         
- //       this.photonsource.addEventListener("click", this.photonsourceClick(??));  // fail
-        this.stage.addChild(this.photonsource);  // add this shape to the stage       
+        this.photonsource.x =  this.photonProps.sourceX; // x position
+        this.photonsource.y =  this.photonProps.sourceY;
+        // create reference to bound function, binding makes a function be called in this scope
+        this.sourceBind = this.photonsourceClick.bind(this);     
+        this.photonsource.addEventListener("click", this.sourceBind);
+        this.stage.addChild(this.photonsource);  // add this shape to the stage      
+
+       // Text 
+        this.txt = new createjs.Text("X-Ray \nSource", "16px Arial", "#FFF");
+        this.txt.x = 10;  this.txt.y = 20;
+        //this.txt.rotation = 20;  //txt.outline = true;
+        this.stage.addChild(this.txt);
+        
+        // Text 
+        this.txt2 = new createjs.Text("Scatterer", "16px Arial", "#FFF");
+        this.txt2.x = 100;  this.txt2.y = 20;
+        //this.txt.rotation = 20;  //txt.outline = true;
+        this.stage.addChild(this.txt2);       
+        
+        // Horizontal and angled dashed line
+        this.line1 = new createjs.Shape();
+        this.line1.graphics.setStrokeDash([10, 5], 0).setStrokeStyle(1);
+        this.line1.graphics.beginStroke("grey").moveTo(50,100).lineTo(600,100).endStroke(); // horizontal
+        this.line1.graphics.beginStroke("grey").moveTo(50,100).lineTo(600, 30).endStroke(); // angled  
+        this.line1.graphics.beginStroke("grey").moveTo(50,100).lineTo(600,170).endStroke(); // angled        
+        this.stage.addChild(this.line1);
 
         // Draw target to 'scatter' the photons
         this.target = new createjs.Shape();
         this.target.graphics.beginFill("Pink").drawEllipse(0, -30, 10,60);
-        this.target.x =  this.electronProps.sourceX+90; // x position
-        this.target.y =  this.electronProps.sourceY;
+        this.target.x =  this.photonProps.sourceX+90; // x position
+        this.target.y =  this.photonProps.sourceY;
         //this.target.rotation = 45;
         this.stage.addChild(this.target);  // add this shape to the stage       
         
@@ -108,8 +149,7 @@ OER.Views.Compton = OER.Views.Compton || {};
         this.stage.update(event);   // redraw shapes on the stage
     };
 
-    /*
-     * clean up stage events and call super remove
+     /* clean up stage events and call super remove
      * called by OER.RLOBaseView
      * @param {type} options
      */
@@ -120,19 +160,26 @@ OER.Views.Compton = OER.Views.Compton || {};
         Backbone.View.prototype.remove.call(this, options);
     };
     
-    /**
-     * click listener for button
-     */
+    /** click listener for button  */
     p.handleButton = function() {
         var e = this.drawElectron();
         this.stage.addChild(e); // add electron to stage
         this.electrons.push(e); // add electron to array
     };
 
-   p.photonsourceClick = function() {
-        var e = this.drawElectron();
-        this.stage.addChild(e); // add electron to stage
-        this.electrons.push(e); // add electron to array
+    p.photonsourceClick = function() {
+        var i;
+        for (i = 0; i < 20; i++)  {
+            var e = this.drawElectron();
+            this.stage.addChild(e); // add electron to stage
+            this.electrons.push(e); // add electron to array
+        }
+    };    
+    
+    /* slider to control scatterer */
+    p.handleSlideX = function () {
+        this.dispX.innerHTML= this.slideX.value + ' pixels';
+        this.target.x       = this.slideX.value;  // move the displayed object
     };
 
 // PHOTON CODE *********************************************************************************
@@ -142,41 +189,46 @@ OER.Views.Compton = OER.Views.Compton || {};
  //fillCommand.style = "blue";
  // or change it to a bitmap fill:
  //fillCommand.bitmap(myImage);
-  
-    p.electronProps = {
-        sourceX: 20, // near left
-        sourceY: 100,  // middle
-    };
+ 
     
     // draw particle and add it to stage
     p.drawElectron = function() {
         var electron = new createjs.Shape();
-        electron.graphics.beginFill("Red").drawCircle(0, 0, 6); // electron radius
-        electron.x =  this.electronProps.sourceX;           // initial x position
-        electron.y =  this.electronProps.sourceY;
+        electron.graphics.beginFill(this.photonProps.colour).drawCircle(0, 0, this.photonProps.size); // electron radius
+        electron.x =  this.photonProps.sourceX;           // initial x position
+        electron.y =  this.photonProps.sourceY;
         electron.on("tick",this.electronTick);  // add tick listener to electron, which is called by createjs tick event
         
         // Define parameters to be used for each tick
         var v = electron.tickProps = {};
-        v.x      = this.electronProps.sourceX;
-        v.y      = this.electronProps.sourceY;
+        v.x      = this.photonProps.sourceX;
+        v.y      = this.photonProps.sourceY
+        v.targetX = this.target.x;
         //v.scaleX = 2.0;
-        v.yinc   = (Math.random()-0.5)* 3.0; //1.5;   // +ve or -ve amount of scattering
+        v.yinc1   = (Math.random()-0.5)* this.photonProps.source_divergence;    // +ve or -ve amount of scattering
+        v.yinc2   = (Math.random()-0.5)* this.photonProps.scatter_divergence;    // +ve or -ve amount of scattering       
         return electron;
     };
    
    // ============== EVOLUTION ================ //
     p.electronTick = function () {
         // Electron moves
-        if (this.tickProps.x < 100+10) { 
-            this.tickProps.x += 2; // move right 
-            this.tickProps.y += 0.0 * this.tickProps.yinc; // move up or down
+        if (this.tickProps.x < this.tickProps.targetX) { 
+            var velocity2 = 4.0;  //   v^2 = vx^2 + vy^2  velocity is a vector
+            var vx = Math.sqrt(velocity2 - this.tickProps.yinc1*this.tickProps.yinc1)
+            this.tickProps.x += vx; // move right reduce to keep velocity constant 
+            this.tickProps.y += this.tickProps.yinc1; // move up or down
             this.scaleX = 1.0;
             this.scaleY = 1.0;           
         }
-        else if (this.tickProps.x < 380+40) {
-            this.tickProps.x += 2*0.7; // move right should reduce to keep velocity constant
-            this.tickProps.y += this.tickProps.yinc; // move up or down
+        else if (this.tickProps.x < 600+40) {
+            var velocity2 = 4.0;  //   v^2 = vx^2 + vy^2  velocity is a vector
+            var vx = Math.sqrt(velocity2 - this.tickProps.yinc2*this.tickProps.yinc2)
+            this.tickProps.x += vx; // move right reduce to keep velocity constant 
+            this.tickProps.y += this.tickProps.yinc2; // move up or down        
+            
+            //this.tickProps.x += 2*0.7; // move right should reduce to keep velocity constant
+            //this.tickProps.y += this.tickProps.yinc2; // move up or down
             //this.scaleX *= 1.0 - 0.01;
             //this.scaleY *= 1.0 - 0.01;           
         };
@@ -185,6 +237,8 @@ OER.Views.Compton = OER.Views.Compton || {};
         this.y = this.tickProps.y; //+ this.tickProps.radius*Math.cos(angle);
     };
 
+        
+//=========================================================================//
     // add the above code as a backbone view class in our namespace
     OER.Views.Compton.Incident = Backbone.View.extend(p, s);    
 

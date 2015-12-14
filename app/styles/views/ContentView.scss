@@ -50,8 +50,16 @@ $button-bar-size: $ui-button-width + $padding-small*3;
 
 .rlo-content-canvas-sandbox {
     background: $color_content_canvas_background;
-    width: 50%;
+    width: 90%;
     margin-top: $padding-small;
+}
+
+/* For firing a photon gun */
+.rlo-content-canvas-photon {
+    background: #c0c0c0;
+    width: 90%;
+    margin-top: $padding-small;
+    border-radius: 50px;
 }
 
 .rlo-content-bottom {

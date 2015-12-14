@@ -27,6 +27,15 @@ OER.Views.Compton = OER.Views.Compton || {};
     p.tickerBind = null;    // reference to bound function, binding lets us call back in this scope
     p.buttonBind = null;    // reference to bound function
     
+    p.photonProps = {
+        sourceX: 40,   // near left
+        sourceY: 100,  // middle
+        source_divergence: 0.5,
+        source_colour: "darkblue",
+        colour: "blue",
+        size: 2
+    };       
+    
     /**
      * backbone initialize function
      * called on creation by OER.RLOBaseView.updateContent
@@ -55,30 +64,44 @@ OER.Views.Compton = OER.Views.Compton || {};
         this.button.addEventListener("click", this.buttonBind); //
 
         // set up createjs stage and touch support
-        var c = $(".rlo-content-canvas-sandbox", this.$el)[0];
+        var c = $(".rlo-content-canvas-photon", this.$el)[0];
         this.stage = new createjs.Stage(c);
         if (createjs.Touch.isSupported()) {createjs.Touch.enable(this.stage);}
         this.width  = c.width;
         this.height = c.height;
         
        //=============== STATIC CONTENT ====================//
-        // Draw Photon source
+       var y0 = this.photonProps.sourceY;
+        // Draw Photon source (clickable)
         this.photonsource = new createjs.Shape();
-        this.photonsource.graphics.beginFill("Red").drawCircle(0, 0, 10);
-        this.photonsource.x =  this.electronProps.sourceX; // x position
-        this.photonsource.y =  this.electronProps.sourceY;
-        // try
-        this.sourceBind = this.photonsourceClick.bind(this);     // create reference to bound function, binding makes a function be called in this scope
+        this.photonsource.graphics.beginFill(this.photonProps.source_colour).drawRoundRect(-20, -40, 20, 80, 5);
+        this.photonsource.x =  this.photonProps.sourceX;  // x position
+        this.photonsource.y =  this.photonProps.sourceY;
+        // create reference to bound function, binding makes a function be called in this scope
+        this.sourceBind = this.photonsourceClick.bind(this);     
         this.photonsource.addEventListener("click", this.sourceBind);
-        
         this.stage.addChild(this.photonsource);  // add this shape to the stage       
                
         // external file for background image
         this.background = new createjs.Bitmap("/content/RLO6/assets/ComptonIncident.svg");
-        this.background.regX = this.background.image.width *0.5;
+        this.background.regX = this.background.image.width  *0.5;
         this.background.regY = this.background.image.height *0.5;        
         //this.stage.addChild(this.background);
-        //===================================================//
+        
+       // Text 
+        this.txt = new createjs.Text("X-Ray \nSource", "16px Arial", "#FFF");
+        this.txt.x = 10;  this.txt.y = 20;
+        //this.txt.rotation = 20;  //txt.outline = true;
+        this.stage.addChild(this.txt);
+        
+        // Horizontal and angled dashed line
+        this.line1 = new createjs.Shape();
+        this.line1.graphics.setStrokeDash([10,5], 0).setStrokeStyle(1);
+        this.line1.graphics.beginStroke("grey").moveTo(50,y0).lineTo(600, y0   ).endStroke(); // horizontal
+        this.line1.graphics.beginStroke("grey").moveTo(50,y0).lineTo(600, y0-70).endStroke(); // angled  
+        this.line1.graphics.beginStroke("grey").moveTo(50,y0).lineTo(600, y0+70).endStroke(); // angled        
+        this.stage.addChild(this.line1);                     
+//===================================================//
         
         // draw circle (electron)
         this.electrons = [];    // create empty array
@@ -86,12 +109,11 @@ OER.Views.Compton = OER.Views.Compton || {};
 
         // set up createjs ticker to update stage
         createjs.Ticker.timingMode = createjs.Ticker.RAF;   // sets ticks to happen on browser request animation frame
-        this.tickerBind = this.tick.bind(this);
+        this.tickerBind            = this.tick.bind(this);
         createjs.Ticker.addEventListener("tick", this.tickerBind);
     };
     
-    /**
-     * createjs tick event, that is run multiple frames per second
+     /* createjs tick event, that is run multiple frames per second
      * called by createjs tick event
      * @param {type} event
      */
@@ -122,9 +144,12 @@ OER.Views.Compton = OER.Views.Compton || {};
     };
 
     p.photonsourceClick = function() {
-        var e = this.drawElectron();
-        this.stage.addChild(e); // add electron to stage
-        this.electrons.push(e); // add electron to array
+        var i;
+        for (i = 0; i < 10; i++)  {
+            var e = this.drawElectron();
+            this.stage.addChild(e); // add electron to stage
+            this.electrons.push(e); // add electron to array
+        }
     };
 
 
@@ -136,36 +161,34 @@ OER.Views.Compton = OER.Views.Compton || {};
  // or change it to a bitmap fill:
  //fillCommand.bitmap(myImage);
   
-    p.electronProps = {
-        sourceX: 20, // near left
-        sourceY: 100,  // middle
-    };
-    
     // draw particle and add it to stage
     p.drawElectron = function() {
         var electron = new createjs.Shape();
-        electron.graphics.beginFill("Red").drawCircle(0, 0, 6); // electron radius
-        electron.x =  this.electronProps.sourceX;           // initial x position
-        electron.y =  this.electronProps.sourceY;
+        
+        electron.graphics.beginFill(this.photonProps.colour).drawCircle(0, 0, this.photonProps.size); // electron radius
+        electron.x =  this.photonProps.sourceX;           // initial x position
+        electron.y =  this.photonProps.sourceY;
         electron.on("tick",this.electronTick);  // add tick listener to electron, which is called by createjs tick event
         
         // Define parameters to be used for each tick
         var v = electron.tickProps = {};
-        v.x   = this.electronProps.sourceX;
-        v.y   = this.electronProps.sourceY;
+        v.x   = this.photonProps.sourceX;
+        v.y   = this.photonProps.sourceY;
         //v.scaleX = 2.0;
-        v.yinc = (Math.random()-0.5)* 0.5; //1.5;   // +ve or -ve amount of divergence
+        v.yinc = (Math.random()-0.5)* this.photonProps.source_divergence;  // +ve or -ve amount of divergence
         return electron;
     };
    
    // ============== EVOLUTION ================ //
     p.electronTick = function () {
         // photon moves
-        if (this.tickProps.x < 380+40) {
-            this.tickProps.x += 2; // move right should reduce to keep velocity constant
+        if (this.tickProps.x < 600+40) {
+            var velocity2 = 4.0;  //   v^2 = vx^2 + vy^2  velocity is a vector
+            var vx = Math.sqrt(velocity2 - this.tickProps.yinc*this.tickProps.yinc)
+            this.tickProps.x += vx; // move right should reduce to keep velocity constant
             this.tickProps.y += this.tickProps.yinc; // move up or down
-            this.scaleX *= 1.0;
-            this.scaleY *= 1.0;           
+            this.scaleX *= 1.0;   // size of the particles
+            this.scaleY *= 1.0;   //        
         };
         //var angle= this.tickProps.angle;
         this.x = this.tickProps.x;
