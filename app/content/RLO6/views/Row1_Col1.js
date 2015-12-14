@@ -30,8 +30,8 @@ OER.Views.Compton = OER.Views.Compton || {};
     p.photonProps = {
         sourceX: 40,   // near left
         sourceY: 100,  // middle
-        source_divergence: 0.5,
-        scatter_divergence: 1.5,      
+        source_divergence: 0.25,
+        scatter_divergence: 1.00,      
         source_colour: "darkblue",
         colour: "blue",
         size: 2
@@ -205,8 +205,8 @@ OER.Views.Compton = OER.Views.Compton || {};
         v.y      = this.photonProps.sourceY
         v.targetX = this.target.x;
         //v.scaleX = 2.0;
-        v.yinc1   = (Math.random()-0.5)* this.photonProps.source_divergence;    // +ve or -ve amount of scattering
-        v.yinc2   = (Math.random()-0.5)* this.photonProps.scatter_divergence;    // +ve or -ve amount of scattering       
+        v.yinc1   = 2*(Math.random()-0.5)* this.photonProps.source_divergence;    // +ve or -ve amount of scattering
+        v.yinc2   = 2*(Math.random()-0.5)* this.photonProps.scatter_divergence;    // +ve or -ve amount of scattering       
         return electron;
     };
    
