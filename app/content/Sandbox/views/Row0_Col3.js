@@ -15,7 +15,8 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
     p.template= JST['app/content/Sandbox/templates/Row0_Col3.ejs'];     // template used to create html for this view
     p.events = {};  // events, used by backbone to set up event handlers on html elements
 
-    p.button = null;        // html button element    
+    p.addButton = null;     // html add button element    
+    p.removeButton = null;  // html remove button element    
     p.stage = null;         // easeljs stage
     p.width = null;         // stage width
     p.height = null;        // stage height
@@ -23,7 +24,8 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
     p.nucleus = null;       // easeljs shape
      
     p.tickerBind = null;    // reference to bound function, binding lets us call back in this scope
-    p.buttonBind = null;    // reference to bound function
+    p.addButtonBind = null;    // reference to bound function
+    p.removeButtonBind = null;    // reference to bound function
     
     /**
      * backbone initialize function
@@ -47,10 +49,14 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
             this.setElement(this.template());
         }
         
-        // setup reference to button and click listener
-        this.button = $(".rlo-content-button", this.$el)[0];    // $ is jquery, this.$el is this views html as a jquery object
-        this.buttonBind = this.handleButton.bind(this);     // create reference to bound function, binding makes a function be called in this scope
-        this.button.addEventListener("click", this.buttonBind); //
+        // setup reference to buttons and click listener
+        var buttons = $(".rlo-content-button", this.$el);    // $ is jquery, this.$el is this views html as a jquery object
+        this.addButton = buttons[0];
+        this.removeButton = buttons[1];
+        this.addButtonBind = this.handleAddButton.bind(this);     // create reference to bound function, binding makes a function be called in this scope
+        this.addButton.addEventListener("click", this.addButtonBind); //
+        this.removeButtonBind = this.handleAddButton.bind(this);     // create reference to bound function, binding makes a function be called in this scope
+        this.removeButton.addEventListener("click", this.removeButtonBind); //
 
         // setup createjs stage and touch support
         var c = $(".rlo-content-canvas-sandbox", this.$el)[0];
@@ -68,7 +74,7 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
         
         // draw circle (electron)
         this.electrons = [];    // create empty array
-        this.handleButton();
+        this.handleAddButton();
 
         // set up createjs ticker to update stage
         createjs.Ticker.timingMode = createjs.Ticker.RAF;   // sets ticks to happen on browser request animation frame
@@ -92,7 +98,8 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
      * @param {type} options
      */
     p.remove = function(options) {
-        this.button.removeEventListener("click");
+        this.addButton.removeEventListener("click");
+        this.removeButton.removeEventListener("click");
         if (createjs.Touch.isSupported()) {createjs.Touch.disable(this.stage);}
         createjs.Ticker.removeEventListener("tick", this.tickerBind);
 
@@ -100,12 +107,22 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
     };
     
     /**
-     * click listener for button
+     * click listener for add button
      */
-    p.handleButton = function() {
+    p.handleAddButton = function() {
         var e = this.drawElectron();
         this.stage.addChild(e); // add electron to stage
         this.electrons.push(e); // add electron to array
+    };
+
+    /**
+     * click listener for add button
+     */
+    p.handleRemoveButton = function() {
+        if (this.electrons.length){
+            var e = this.electrons.pop();
+            this.stage.removeChild(e); // remove electron from stage
+        }
     };
 
 // ELECTRON CODE *********************************************************************************
