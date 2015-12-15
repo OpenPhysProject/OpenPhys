@@ -24,8 +24,9 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
     p.nucleus = null;       // easeljs shape
      
     p.tickerBind = null;    // reference to bound function, binding lets us call back in this scope
-    p.addButtonBind = null;    // reference to bound function
-    p.removeButtonBind = null;    // reference to bound function
+    p.addButtonBind = null; // reference to bound function
+    p.removeButtonBind = null;  // reference to bound function
+    p.nucleusClickBind = null;
     
     /**
      * backbone initialize function
@@ -61,16 +62,25 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
         // setup createjs stage and touch support
         var c = $(".rlo-content-canvas-sandbox", this.$el)[0];
         this.stage = new createjs.Stage(c);
-        if (createjs.Touch.isSupported()) {createjs.Touch.enable(this.stage);}
+        if (createjs.Touch.isSupported()) {
+            createjs.Touch.enable(this.stage);
+        } else {
+            // note this has a drawback on the rare devices that support touch and mouse
+            this.stage.enableMouseOver();   // enable mouse events needed for hand cursor
+        }
         this.width = c.width;
         this.height = c.height;
         
        // draw Static circle (nucleus)
         this.nucleus = new createjs.Shape();
-        this.nucleus.graphics.beginFill("Red").drawCircle(0, 0, 8);
-        this.nucleus.x =  this.electronProps.originX; // x position
+        this.nucleus.color = this.nucleus.graphics.beginFill("Red").command;    // store off reference to color drawing command to make later changes
+        this.nucleus.graphics.drawCircle(0, 0, 8);                              // draw circle
+        this.nucleus.x =  this.electronProps.originX;                           // x position
         this.nucleus.y =  this.electronProps.originY;
-        this.stage.addChild(this.nucleus);  // add this shape to the stage
+        this.nucleus.cursor = "pointer";                                        // enable hand cursor over object
+        this.nucleusClickBind = this.handleNucleusClick.bind(this);
+        this.nucleus.addEventListener("click", this.nucleusClickBind);
+        this.stage.addChild(this.nucleus);                                      // add this shape to the stage
         
         // draw circle (electron)
         this.electrons = [];    // create empty array
@@ -98,8 +108,9 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
      * @param {type} options
      */
     p.remove = function(options) {
-        this.addButton.removeEventListener("click");
-        this.removeButton.removeEventListener("click");
+        this.addButton.removeEventListener("click", this.addButtonBind);
+        this.removeButton.removeEventListener("click", this.removeButtonBind);
+        this.nucleus.removeEventListener("click", this.nucleusClickBind);
         if (createjs.Touch.isSupported()) {createjs.Touch.disable(this.stage);}
         createjs.Ticker.removeEventListener("tick", this.tickerBind);
 
@@ -123,6 +134,13 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
             var e = this.electrons.pop();
             this.stage.removeChild(e); // remove electron from stage
         }
+    };
+    
+    /**
+     * click listener for nucleus shape
+     */
+    p.handleNucleusClick = function() {
+        this.nucleus.color.style = "yellow";    // set color
     };
 
 // ELECTRON CODE *********************************************************************************
