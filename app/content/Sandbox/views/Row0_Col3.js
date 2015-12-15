@@ -55,7 +55,7 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
         this.removeButton = buttons[1];
         this.addButtonBind = this.handleAddButton.bind(this);     // create reference to bound function, binding makes a function be called in this scope
         this.addButton.addEventListener("click", this.addButtonBind); //
-        this.removeButtonBind = this.handleAddButton.bind(this);     // create reference to bound function, binding makes a function be called in this scope
+        this.removeButtonBind = this.handleRemoveButton.bind(this);     // create reference to bound function, binding makes a function be called in this scope
         this.removeButton.addEventListener("click", this.removeButtonBind); //
 
         // setup createjs stage and touch support
@@ -166,7 +166,7 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
         this.y = this.tickProps.originY + this.tickProps.radius*Math.cos(this.tickProps.angle*this.tickProps.angleRandom);
         this.tickProps.angle += this.tickProps.angleChange;
     };
-
+    
     // add the above code as a backbone view class in our namespace
     OER.Views.Sandbox.CreateJS = Backbone.View.extend(p, s);    
 
