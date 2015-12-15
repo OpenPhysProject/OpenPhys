@@ -75,6 +75,7 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
         this.nucleus = new createjs.Shape();
         this.nucleus.color = this.nucleus.graphics.beginFill("Red").command;    // store off reference to color drawing command to make later changes
         this.nucleus.graphics.drawCircle(0, 0, 8);                              // draw circle
+        this.nucleus.cache(-8, -8, 16, 16);                                     // cache image for quicker redraws
         this.nucleus.x =  this.electronProps.originX;                           // x position
         this.nucleus.y =  this.electronProps.originY;
         this.nucleus.cursor = "pointer";                                        // enable hand cursor over object
@@ -141,6 +142,7 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
      */
     p.handleNucleusClick = function() {
         this.nucleus.color.style = "yellow";    // set color
+        this.nucleus.updateCache();
     };
 
 // ELECTRON CODE *********************************************************************************
@@ -163,10 +165,11 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
         var radius = Math.round(Math.random()*this.electronProps.radiusDelta + this.electronProps.radius);
         
         var electron = new createjs.Shape();
-        electron.graphics.beginFill("Blue").drawCircle(0, 0, 5); // electron radius
-        electron.x =  this.electronProps.originX;           // initial x position
+        electron.graphics.beginFill("Blue").drawCircle(0, 0, 5);    // electron radius
+        electron.cache(-5, -5, 10, 10);                             // cache image for quicker redraws
+        electron.x =  this.electronProps.originX;                   // initial x position
         electron.y =  this.electronProps.originY +radius;
-        electron.on("tick",this.electronTick);  // add tick listener to electron, which is called by createjs tick event
+        electron.on("tick",this.electronTick);                      // add tick listener to electron, which is called by createjs tick event
         
         var v = electron.tickProps = {};
         v.originX = this.electronProps.originX;
