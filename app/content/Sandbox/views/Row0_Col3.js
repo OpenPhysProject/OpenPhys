@@ -73,7 +73,8 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
         
        // draw Static circle (nucleus)
         this.nucleus = new createjs.Shape();
-        this.nucleus.color = this.nucleus.graphics.beginFill("Red").command;    // store off reference to color drawing command to make later changes
+        this.nucleus.colorHSL = 0;
+        this.nucleus.color = this.nucleus.graphics.beginFill(createjs.Graphics.getHSL(this.nucleus.colorHSL, 80, 50)).command;    // store off reference to color drawing command to make later changes
         this.nucleus.graphics.drawCircle(0, 0, 8);                              // draw circle
         this.nucleus.cache(-8, -8, 16, 16);                                     // cache image for quicker redraws
         this.nucleus.x =  this.electronProps.originX;                           // x position
@@ -141,7 +142,8 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
      * click listener for nucleus shape
      */
     p.handleNucleusClick = function() {
-        this.nucleus.color.style = "yellow";    // set color
+        this.nucleus.colorHSL = this.nucleus.colorHSL + 20;
+        this.nucleus.color.style = createjs.Graphics.getHSL(this.nucleus.colorHSL, 80, 50);    // set color
         this.nucleus.updateCache();
     };
 
