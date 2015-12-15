@@ -36,6 +36,7 @@ $tile-margin: 0.5rem;
     overflow: hidden;
     cursor: pointer;
     background: $color_background-gradient;
+    box-shadow: 0px 0px 0.5px 1px rgba(0,0,0,.3);
 }
 
 .rlo-tile-container {
@@ -101,6 +102,7 @@ $tile-margin: 0.5rem;
 
 // Intro & Outro TILE **********************************************************
 .intro-tile, .outro-tile {
+    cursor: default;
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,.3);
     min-height: 1000px;  // arbitrary value that forces content to start with correct height, overwritten in code
 }
