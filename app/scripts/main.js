@@ -1,24 +1,30 @@
 (function (scope) {
     "use strict";
     
+    /**
+     * Application is the starting point for launching our app.  It loads all 
+     * data files into associated models and collections, sets up routing, and 
+     * creates tileView and baseView.
+     * 
+     * @class Application
+     * @constructor
+    */
     var Application = function () {
         this.init();
     };
     var p = Application.prototype;
     
-    p.Models = {};
-    p.Collections = {};
-    p.Views = {};
-    p.Routers = {};
+    p.homeView = null;      // jquery object, contains all tileViews
+    p.outroTile = null;     // jquery object, tile
+    p.RLOBaseView = null;   // backbone view, common container for all content views
+    p.loader = null;        // js object, handles loading distractor
+    p.logo = null;          // jquery object, handles logo
+    p.RLOs = null;          // backbone RLO collection, stores all content data
     
-    p.homeView = null;
-    p.outroTile = null;
-    p.RLOBaseView = null;
-    p.loader = null;
-    p.logo = null;
-    
-    p.RLOs = null;
-    
+    /**
+     * setup properties, load data, create views, kick off application
+     * @method init
+     */
     p.init = function () {
         this.loader = new scope.Loader();
         this.homeView = $(".rlo-list");
@@ -40,6 +46,11 @@
         this.loader.hide();
     };
     
+    /**
+     * Used to set minimum height for intro and outro tiles so content is always
+     * visible.
+     * @method setTileMinHeight
+     */
     p.setTileMinHeight = function () {
         var introTile =   $(".intro-tile", this.homeView);
         var h = $(".rlo-tile-content-container-intro", introTile).height() + this.logo.outerHeight() + this.logo.position().top;
@@ -49,6 +60,10 @@
         this.outroTile.css("min-height", h);
     };
       
+    /**
+     * Load all RLO data into collection
+     * @method loadData
+     */
     p.loadData = function () {
        this.RLOs = new scope.Collections.RLOCollection();
        var m = new scope.Models.RLOModel(OER.data.Intro, {parse: true, viewPath: "Intro"});
@@ -76,6 +91,11 @@
        this.RLOs.add(m);      
     };
     
+    /**
+     * create router, start listening for route changes, parse the first passed
+     * in route for deeplinking, and start the browser history
+     * method setUpRouter
+     */
     p.setUpRouter = function () {
         scope.router = new scope.AppRouter();
 
@@ -85,7 +105,6 @@
 
         this.parseFirstRoute();
         Backbone.history.start({ pushState: true });
-        //Backbone.history.start({pushState:!!window.history});
     };
     
     /**
@@ -105,7 +124,10 @@
         }
     };
 
-    
+    /**
+     * parse RLO collection and create related tile views shown in homeView
+     * @method createTileView
+     */
     p.createTileView = function() {
         var v;
         for (var i = 0, l = this.RLOs.length; i < l; i++ ) {
@@ -114,18 +136,31 @@
         }
     };
     
+    /**
+     * transition out the RLOBaseView and set timeout to transition in the homeView
+     * @method showHomeView
+     */
     p.showHomeView = function() {
         this.RLOBaseView.out();
         
         setTimeout(this.showHomeViewHide.bind(this), OER.settings.MAIN_TO_CONTENT);
     };
     
+    /**
+     * hide RLOBaseView and remove hidden from homeView.  Set timeout to 
+     * transition in homeView
+     * @method showHomeViewHide
+     */
     p.showHomeViewHide = function() {
         this.RLOBaseView.hide();
         this.homeView.removeClass("hidden");
         setTimeout(this.showHomeViewIn.bind(this), 33);
     };
     
+    /**
+     * transition in homeView
+     * @method showHomeViewIn
+     */
     p.showHomeViewIn = function() {
         this.homeView.removeClass("out");
         this.homeView.addClass("in");
@@ -136,6 +171,12 @@
         window.scrollTo(0,1);   // OJR hides chrome on mobile browser
     }
     
+    /**
+     * Show an RLO content view, triggered by routing to an rlo.
+     * @param {string} rloRoute  First path in url
+     * @param {string} contentRoute  Second path in url
+     * @method showRLOView
+     */
     p.showRLOView = function(rloRoute, contentRoute) {
         var m = this.RLOs.findWhere({route: rloRoute});
         if(!m) {
@@ -143,6 +184,7 @@
             return;
         }
         
+        // tranisition out homeView
         this.homeView.removeClass("in");
         this.homeView.addClass("out");
         this.logo.addClass("mini");
@@ -160,13 +202,10 @@
             scope.router.noEventReplaceHistoryGo(rloRoute+"/"+contentRoute);
             this.RLOBaseView.updateSubViews(contentRoute);
             showIntro = false;
-            //this.RLOBaseView.show();
-        } else {
-            //this.RLOBaseView.showIntro();
         }
         
-        var homeView = this.homeView;   // for function hoisting
-        var RLOBaseView = this.RLOBaseView;
+        var homeView = this.homeView;       // for function hoisting
+        var RLOBaseView = this.RLOBaseView; // for function hoisting
         setTimeout(function () {
             homeView.addClass("hidden");
             if (showIntro) {
@@ -177,6 +216,10 @@
         }, OER.settings.MAIN_TO_CONTENT);
     };
     
+    /**
+     * when logo is clicked, route to homeView
+     * @method handleLogoClick
+     */
     p.handleLogoClick = function (){
       scope.router.go();  
     };
@@ -185,6 +228,10 @@
 
 })(window.OER = window.OER || {});
 
+/**
+ * Short script that fires when all scripts and styles are loaded in index.
+ * This adds FastClick and starts our application.
+ */
 $(document).ready(function () {
     'use strict';
     
