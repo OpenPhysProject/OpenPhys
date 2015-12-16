@@ -3,6 +3,12 @@ OER.Models = OER.Models || {};
 (function () {
     'use strict';
 
+    /**
+     * RLOModel is the data model for the learning objects
+     * 
+     * @class RLOModel
+     * @constructor
+    */    
     OER.Models.RLOModel = Backbone.Model.extend({
 
         defaults: {
@@ -11,8 +17,8 @@ OER.Models = OER.Models || {};
             route:"",
             selected: false,
             info: '',
-            primaryPathIndex: null,
-            contentMap: null,  // 2D array of NavCardCollection
+            primaryPathIndex: null,     // index of main NavCardCollection in contentMap
+            contentMap: null,           // 2D array of NavCardCollection
             lastCurrentCollection: null,
             jumpNav: false,
         },

@@ -1,10 +1,14 @@
-/*global OER, Backbone*/
-
 OER.Models = OER.Models || {};
 
 (function () {
     'use strict';
 
+    /**
+     * NavCardModel is the data model for the cards shown in navigation map view
+     * 
+     * @class NavCardModel
+     * @constructor
+    */    
     OER.Models.NavCardModel = Backbone.Model.extend({
         
         defaults: {
