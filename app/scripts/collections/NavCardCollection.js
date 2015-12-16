@@ -3,17 +3,34 @@ OER.Collections = OER.Collections || {};
 (function () {
     'use strict';
 
+    /**
+     * NavCardCollection is a backbone collection of NavCardModels which is 
+     * used for the cards in the navigation map view.
+     * 
+     * @class NavCardCollection
+     * @constructor
+    */
     OER.Collections.NavCardCollection = Backbone.Collection.extend({
         
-        model: OER.Models.NavCardModel,
+        model: OER.Models.NavCardModel, // backbone model
         
-        lastCurrent: null,  // NavCardModel
+        lastCurrent: null,              // NavCardModel, used for tracking the last current page
         
+        /**
+         * Setup collection to start using it
+         * @method initialize
+         */
         initialize: function() {
             this.lastCurrent = null;
             this.on( "change:current", this.setLastCurrent, this);
         },
         
+        /**
+         * Change the NavCardModel that is marked as current.
+         * @param {backbone Model} model
+         * @param {boolean} value
+         * @method setLastCurrent
+         */
         setLastCurrent: function(model, value) {
             if(value){
                 if (this.lastCurrent) {
@@ -25,7 +42,7 @@ OER.Collections = OER.Collections || {};
         
         /**
          * Turn off the current property in NavCardModel and unset
-         * @returns {undefined}
+         * @method removeCurrent
          */
         removeCurrent: function() {
             if (this.lastCurrent) {
@@ -34,20 +51,10 @@ OER.Collections = OER.Collections || {};
             this.lastCurrent = null;
         },
         
-        // Filter down the list of all the visited card are finished.
-        visited: function () {
-            return this.where({visited: true});
-        },
-        
-        remaining: function () {
-            return this.where({visited: false});
-        },
-        
-        current: function() {
-            return this.where({current: true});
-        },
-        
-        // Keep navigation card in grid order.
+        /**
+         *  Keep navigation card in grid order.
+         *  @method nextOrder
+         */
         nextOrder: function () {
             return this.length ? this.last().get("order") + 1 : 1;
         },
