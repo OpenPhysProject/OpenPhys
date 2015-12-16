@@ -1,39 +1,62 @@
 (function (scope) {
-	"use strict";
+    "use strict";
 
-	var p = {};
-	var s = {};
+    var p = {};
+    var s = {};
 
-	p.routes = {
-		"":"default",
-		":title":"rlo",
-                ":title/:subview": "rlo"   // rlo1/intro
-	};
+    /**
+     * AppRouter handles internal routing and deeplinking.
+     * 
+     * @class AppRouter
+     * @constructor
+    */
+    p.initialize = function() {
 
-	p.initialize = function() {
+    };
 
-	};
+    /**
+     * setup url routes and associated events to dispatch
+     */
+    p.routes = {
+            "":"default",
+            ":title":"rlo",
+            ":title/:subview": "rlo"   // rlo1/intro
+    };
 
-	/**
-	 * Shorthand method for router.navigate(route, {trigger: true});
-	 * @param route
-	 */
-	p.go = function(route) {
-		this.navigate(route, {trigger:true});
-	};
+    /**
+     * navigate to a url and dispatch an event
+     * @param {string} route
+     */
+    p.go = function(route) {
+            this.navigate(route, {trigger:true});
+    };
 
-	p.noEventGo = function(route) {
-		this.navigate(route, {trigger:false});
-	};
+    /**
+     * navigate to a url and do not dispatch an event
+     * @param {string} route
+     */    
+    p.noEventGo = function(route) {
+            this.navigate(route, {trigger:false});
+    };
 
-	p.noEventReplaceHistoryGo = function(route) {
-		this.navigate(route, {trigger:false, replace: true});
-	};
-        
-        p.replaceHistoryGo = function(route) {
-            this.navigate(route, {trigger:true, replace: true});
-        };
+    /**
+     * navigate to a url with no event and replacing the last browser history 
+     * event (used by back and forward buttons)
+     * @param {string} route
+     */   
+    p.noEventReplaceHistoryGo = function(route) {
+            this.navigate(route, {trigger:false, replace: true});
+    };
 
-	scope.AppRouter = Backbone.Router.extend(p, s);
+    /**
+     * navigate to a url and dispatch event and replace the last browser history 
+     * event (used by back and forward buttons)
+     * @param {string} route
+     */   
+    p.replaceHistoryGo = function(route) {
+        this.navigate(route, {trigger:true, replace: true});
+    };
+
+    scope.AppRouter = Backbone.Router.extend(p, s);
 
 }(window.OER = window.OER || {}));
