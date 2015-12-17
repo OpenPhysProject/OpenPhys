@@ -3,26 +3,51 @@ OER.Views = OER.Views || {};
 (function () {
     'use strict';
 
+    /**
+     * NavView handles nav map view rendering and behavior
+     * 
+     * @class NavView
+     * @constructor
+    */    
     OER.Views.NavView = Backbone.View.extend({
         template: JST['app/scripts/templates/NavView.ejs'],
         events: {},
         primaryPathIndex: null, // int  indicate which nav collection is the primary path
-        contentMap: null, // array     contains nav card collections
-        closeTimeout: null, // timeoutID used for setTimeout to allow animation time before close
-        navcardViews: null, // array of NavCardView, used to properly cleanup
+        contentMap: null,       // array     contains nav card collections
+        closeTimeout: null,     // timeoutID    used for setTimeout to allow animation time before close
+        navcardViews: null,     // array of NavCardView, used to properly cleanup
 
+        /**
+         * setup view
+         * @method initialize
+         */        
         initialize: function () {
             this.loadContentMap();
             this.render();
             this.setNavCardViews();
         },
+        
+        /**
+         * create the related html using the template and model
+         * @method render
+         */
         render: function () {
             this.setElement(this.template(this.model.toJSON()));
         },
+        
+        /**
+         * set internal contentMap properties based on model
+         * @method loadContentMap
+         */
         loadContentMap: function () {
             this.contentMap = this.model.get("contentMap");
             this.primaryPathIndex = this.model.get("primaryPathIndex");
         },
+        
+        /**
+         * parse contentMap data to create navCards that make up map view
+         * @method setNavCardViews
+         */
         setNavCardViews: function () {
             this.navCardViews = [];
             var navCardView = null;
@@ -45,10 +70,21 @@ OER.Views = OER.Views || {};
                 this.$el.append(newdiv);
             }
         },
+        
+        /**
+         * close this view after a card is clicked (after timeout)
+         * @method handleCardClick
+         */
         handleCardClick: function () {
             window.clearTimeout(this.closeTimeout);
             this.closeTimeout = window.setTimeout(this.toggleNav.bind(this), OER.settings.CLOSE_NAV);
         },
+        
+        /**
+         * Toggle visibility of this view.  Also centers view on currently
+         * selected card
+         * @method toggleNav
+         */
         toggleNav: function () {
             this.$el.toggleClass("out");
             this.$el.toggleClass("in");
@@ -67,6 +103,11 @@ OER.Views = OER.Views || {};
                             */
             }
         },
+        
+        /**
+         * cleanup all subviews and this view
+         * @method destroy
+         */
         destroy: function () {
             for (var l = this.navCardViews.length; l--; ) {
                 this.navCardViews[l].remove();

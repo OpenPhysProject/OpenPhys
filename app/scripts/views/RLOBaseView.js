@@ -3,20 +3,27 @@ OER.Views = OER.Views || {};
 (function () {
     'use strict';
 
+    /**
+     * RLOBaseView is the wrapper for all content and handles all related 
+     * behavior including navigation, opening the nav map view, etc.
+     * 
+     * @class RLOBaseView
+    */    
+   
     var p = {};
     var s = {};
 
     p.template = JST['app/scripts/templates/RLOBaseView.ejs'];
 
-    p.title = null;     // dom title div
-    p.navView = null;   // NavView
-    p.content = null;   // Content specific views, ie OER.Views.RLO1.L200_2
-    p.oldContent = null;// content specific views that are being transitioned out
+    p.title = null;             // dom title div
+    p.navView = null;           // NavView
+    p.content = null;           // Content specific views, ie OER.Views.RLO1.L200_2
+    p.oldContent = null;        // content specific views that are being transitioned out
     p.contentContainer = null;  // dom  div that holds content views
-    p.currentView = "";     // string   the name/route of the the current view
+    p.currentView = "";         // string   the name/route of the the current view
 
     // nav
-    p.hammerObject = null;  // Hammer JS object used for swipe
+    p.hammerObject = null;      // Hammer JS object used for swipe
     p.rowInContentMap = 0;
     p.colInContentMap = 0;
     p.navLeft = null;
@@ -48,11 +55,20 @@ OER.Views = OER.Views || {};
         });
     };
 
+    /**
+     * create the related html using the template and model
+     * @method render
+     */
     p.render = function () {
         this.setElement(this.template(this.model.toJSON()));
     };
 
 // Model and Content changing ********************************************************************
+    /**
+     * Update content to targetView
+     * @param {string} targetView
+     * @method updateContent
+     */
     p.updateContent = function (targetView) {
         if (this.content && !this.changeDirection) {
             this.content.remove();
@@ -78,6 +94,11 @@ OER.Views = OER.Views || {};
         this.changeDirection = "";
     };
 
+    /**
+     * Update the model of this view and update related subviews
+     * @param {backbone Model} newModel
+     * @method updateModel
+     */
     p.updateModel = function (newModel) {
         if (this.model) {
             this.model.off();
@@ -96,6 +117,11 @@ OER.Views = OER.Views || {};
         this.$el.append(this.navView.el);
     };
 
+    /**
+     * update subviews when model is changed
+     * @param {string} targetView
+     * @method updateSubViews
+     */
     p.updateSubViews = function (targetView) {
         var contentMap = this.model.get("contentMap");
         var navCardModel;
@@ -113,11 +139,19 @@ OER.Views = OER.Views || {};
     };
 
 // In Outs  ********************************************************************
+    /**
+     * toggle visibility of nav map view
+     * @method toggleNav
+     */
     p.toggleNav = function () {
         this.navView.toggleNav();
         window.scrollTo(0, 1);   // hide chrome on mobile browser
     };
 
+    /**
+     * transition this view out and remove key and swipe listeners
+     * @method out
+     */
     p.out = function () {
         this.$el.removeClass("in");
         this.$el.addClass("out");
@@ -125,15 +159,27 @@ OER.Views = OER.Views || {};
         this.hammerObject.off("swipeleft swiperight swipeup swipedown");
     };
 
+    /**
+     * make this view no longer visible
+     * @method hide
+     */
     p.hide = function () {
         this.$el.addClass("hidden");
     };
 
+    /**
+     * make this view visible and set timeout to add in class
+     * @method _show
+     */
     p._show = function () {
         this.$el.removeClass("hidden");
         setTimeout(this._showIn.bind(this), 33);
     };
 
+    /**
+     * transition view in and add key and swipe listeners
+     * @method _showIn
+     */
     p._showIn = function () {
         this.$el.removeClass("out");
         this.$el.addClass("in");
@@ -143,11 +189,19 @@ OER.Views = OER.Views || {};
         this.hammerObject.on("swipeleft swiperight swipeup swipedown", this.handleSwipe.bind(this));
     };
 
+    /**
+     * show this view
+     * @method show
+     */
     p.show = function () {
         this._show();
         window.scrollTo(0, 1);
     };
 
+    /**
+     * like show, but triggers a first view experience
+     * @method showIntro
+     */
     p.showIntro = function () {
         this._show();
         this.navView.toggleNav();
@@ -163,6 +217,12 @@ OER.Views = OER.Views || {};
     };
 
 // Navigation ********************************************************************
+    /**
+     * When the current content changes, trigger updating the content and the
+     * nav icons
+     * @param {backbone Model} model
+     * @method handleCurrentChange
+     */
     p.handleCurrentChange = function (model) {
         var contentMap = this.model.get("contentMap");
         var currentNavCollection = this.model.get("lastCurrentCollection");
@@ -184,6 +244,15 @@ OER.Views = OER.Views || {};
         this.updateContent(targetView);
     };
 
+    /**
+     * setup visibility of left and right nav icons based on surrounding content
+     * and allowing you to jump over empty space
+     * @param {backbone Collection} navCollection
+     * @param {int} colChange
+     * @param {int} rowChange
+     * @param {jquery object} navEl
+     * @method navigateColumnJump
+     */
     p.navigateColumnJump = function (navCollection, colChange, rowChange, navEl) {
         var next = false;
         for (var i = this.colInContentMap + colChange; i < navCollection.length && i >= 0; i += colChange) {
@@ -203,6 +272,14 @@ OER.Views = OER.Views || {};
         }
     };
 
+    /**
+     * setup visibility of left and right nav icons based on surrounding content
+     * @param {backbone Collection} navCollection
+     * @param {int} colChange
+     * @param {int} rowChange
+     * @param {jquery object} navEl
+     * @method navigateColumn
+     */
     p.navigateColumn = function (navCollection, colChange, rowChange, navEl) {
         if (navCollection.at(this.colInContentMap + colChange) && navCollection.at(this.colInContentMap + colChange).get("title")) {
             if (navEl.hasClass("out")) {
@@ -215,6 +292,13 @@ OER.Views = OER.Views || {};
         }
     };
 
+    /**
+     * setup visibility of up and down nav icons based on surrounding content
+     * @param {array} contentMap
+     * @param {int} rowChange
+     * @param {jqeury object} navEl
+     * @method navigateRow
+     */
     p.navigateRow = function (contentMap, rowChange, navEl) {
         if (contentMap[this.rowInContentMap + rowChange]) {
             var navCollection = contentMap[this.rowInContentMap + rowChange];
@@ -224,12 +308,22 @@ OER.Views = OER.Views || {};
         }
     };
 
+    /**
+     * set a nav elements visibilty and click off
+     * @param {jquery object} navEl
+     * @method navOut
+     */
     p.navOut = function (navEl) {
         navEl.off("click");
         navEl.removeClass("in");
         navEl.addClass("out");
     };
 
+    /**
+     * handle key presses and perform associated actions
+     * @param {event} event
+     * @method handleKeyDown
+     */
     p.handleKeydown = function (event) {
         var change = {data: {row: 0, col: 0}};
         switch (event.keyCode) {
@@ -269,6 +363,11 @@ OER.Views = OER.Views || {};
         }
     };
 
+    /**
+     * handle swipe events and perform associated key presses
+     * @param {event} event
+     * @method handleSwipe
+     */
     p.handleSwipe = function (event) {
         if (this.navView.$el.hasClass("in")) { return; } 
         var change = {data: {row: 0, col: 0}};
@@ -302,6 +401,11 @@ OER.Views = OER.Views || {};
         }
     };
 
+    /**
+     * navigate to another page of content
+     * @param {event} event
+     * @method navigate
+     */
     p.navigate = function (event) {
         var rowChange = event.data.row;
         var colChange = event.data.col;
@@ -323,6 +427,12 @@ OER.Views = OER.Views || {};
         targetModel.set("current", true);
     };
 
+    /**
+     * determines which direction to transition content
+     * @param {int} rowChange
+     * @param {int} colChange
+     * @method determinChangeDirection
+     */
     p.determinChangeDirection = function (rowChange, colChange) {
         // string   the direction of current view changing. 
         if (rowChange === 1) {
@@ -335,9 +445,13 @@ OER.Views = OER.Views || {};
             this.changeDirection = "prev";
         }
     };
+    
+    /**
+     * transition content when changing content
+     * @method handleContentTransaction
+     */
     p.handleContentTransaction = function () {
-        this.contentContainer
-                .addClass(this.changeDirection);
+        this.contentContainer.addClass(this.changeDirection);
         var contentContainer = this.contentContainer;
         var oldContent = this.oldContent;
         setTimeout(function () {

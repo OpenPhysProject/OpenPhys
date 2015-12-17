@@ -3,6 +3,12 @@ OER.Views = OER.Views || {};
 (function () {
     'use strict';
 
+    /**
+     * DefaultContentView is used if a template cannot be found for data.
+     * 
+     * @class DefaultContentView
+     * @constructor
+    */    
     OER.Views.DefaultContentView = Backbone.View.extend({
 
         template: JST['app/scripts/templates/DefaultContentView.ejs'],
