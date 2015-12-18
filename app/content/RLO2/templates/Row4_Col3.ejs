@@ -38,37 +38,58 @@
 <div class="rlo-content-body">
 <strong>QUIZ</strong>
 
-    <div>Q1) In what year did Einstein invent Special Relativity
-    <button type="button" onclick="document.getElementById('Q1a').innerHTML = 'Yes___'"> 1905? </button>
-    <span id="Q1a">______</span>
-     <button type="button" onclick="document.getElementById('Q1b').innerHTML= 'No____'"> 1915? </button>
-    <span id="Q1b">______</span>   
-    <button type="button" onclick="document.getElementById('Q1c').innerHTML = 'No____'"> 1923? </button>
-    <span id="Q1c">______</span>
-     <button type="button" onclick="document.getElementById('Q1d').innerHTML= 'No____'"> 1927? </button>
-    <span id="Q1d">______</span>     
+    <div>Q1) In what year did Einstein invent Special Relativity?
+     <ol type="A">
+        <li>1905</li>
+        <li>1913</li>
+        <li>1923</li>
+        <li>1927</li>
+    </ol>
+     <button type="button" onclick="document.getElementById('Q1').innerHTML= 'Yes'"> A </button>
+     <button type="button" onclick="document.getElementById('Q1').innerHTML= 'No'"> B </button>
+     <button type="button" onclick="document.getElementById('Q1').innerHTML= 'No'"> C </button>
+     <button type="button" onclick="document.getElementById('Q1').innerHTML= 'No'"> D </button>
+     <span> &nbsp;&nbsp;</span> <span id="Q1">______</span> <br/><br/>
     </div>
 
-    <div>Q2) What is the speed of light
-    <button type="button" onclick="document.getElementById('Q2').innerHTML = '3x 10<sup>8</sup> m/s'"> ? ... </button>
-    <span id="Q2"></span>
+    <div>Q2) What is the speed of light? <br/>
+    <button type="button" onclick="document.getElementById('Q2').innerHTML = '3x 10<sup>8</sup> m/s'"> Answer </button>
+     <span> &nbsp;&nbsp;</span> <span id="Q2">______</span> <br/><br/>
     </div>
 
-    <div>Q3) Is a nucleus lighter or heavier than its constituent parts
-    <button type="button" onclick="document.getElementById('Q3').innerHTML = 'Lighter'"> ? ... </button>
-    <span id="Q3"></span>
+    <div>Q3) Is a nucleus lighter or heavier than its constituent parts? <br/>
+    <button type="button" onclick="document.getElementById('Q3').innerHTML = 'Lighter'"> Answer </button>
+     <span> &nbsp;&nbsp;</span> <span id="Q3">______</span> <br/><br/>
     </div>
 
-    <div>Q4) In what year did Einstein invent General Relativity:
-    <button type="button" onclick="document.getElementById('Q4a').innerHTML = ' No____'"> 1905? </button>
-    <span id="Q4a">______</span>
-    <button type="button" onclick="document.getElementById('Q4b').innerHTML = ' Yes___'"> 1915? </button>
-    <span id="Q4b">______</span>  
-    <button type="button" onclick="document.getElementById('Q4c').innerHTML = ' No____'"> 1923? </button>
-    <span id="Q4c">______</span>
-    <button type="button" onclick="document.getElementById('Q4d').innerHTML = ' No____'"> 1927? </button>
-    <span id="Q4d">______</span>    
-    </div>
+<div>Q4) In what year did Einstein invent General Relativity?
+    <ol type="A">
+        <li>1905</li>
+        <li>1915</li>
+        <li>1923</li>
+        <li>1927</li>
+    </ol>
+     <button type="button" onclick="document.getElementById('Q4').innerHTML= 'No'"> A </button>
+     <button type="button" onclick="document.getElementById('Q4').innerHTML= 'Yes'"> B </button>
+     <button type="button" onclick="document.getElementById('Q4').innerHTML= 'No'"> C </button>
+     <button type="button" onclick="document.getElementById('Q4').innerHTML= 'No'"> D </button>
+     <span> &nbsp;&nbsp;</span> <span id="Q4">______</span> <br/><br/>
+</div>
+
+<div>Q5) In what year did Einstein die?
+    <ol type="A">
+        <li>1920</li>
+        <li>1940</li>
+        <li>1945</li>
+        <li>1955</li>
+    </ol>
+     <button type="button" onclick="document.getElementById('Q5').innerHTML= 'No'"> A </button>
+     <button type="button" onclick="document.getElementById('Q5').innerHTML= 'No'"> B </button>
+     <button type="button" onclick="document.getElementById('Q5').innerHTML= 'No'"> C </button>
+     <button type="button" onclick="document.getElementById('Q5').innerHTML= 'Yes'"> D </button>
+     <span> &nbsp;&nbsp;</span>
+     <span id="Q5">______</span>   <br/><br/>
+</div>
 
     <button type="button" onclick="resetQuiz4_3()"> RESET QUIZ </button>
 </div>
@@ -76,18 +97,11 @@
 <script>
 function resetQuiz4_3() {
     // clear all answers
-    document.getElementById('Q1a').innerHTML = '______';
-    document.getElementById('Q1b').innerHTML = '______';
-    document.getElementById('Q1c').innerHTML = '______';
-    document.getElementById('Q1d').innerHTML = '______';
-    
-    document.getElementById('Q2').innerHTML = '';  
-    document.getElementById('Q3').innerHTML = ''; 
-    
-    document.getElementById('Q4a').innerHTML = '______';   
-    document.getElementById('Q4b').innerHTML = '______';
-    document.getElementById('Q4c').innerHTML = '______';   
-    document.getElementById('Q4d').innerHTML = '______';  
+    document.getElementById('Q1').innerHTML = '______';
+    document.getElementById('Q2').innerHTML = '______';
+    document.getElementById('Q3').innerHTML = '______';
+    document.getElementById('Q4').innerHTML = '______';
+    document.getElementById('Q5').innerHTML = '______';    
 }
 </script>
 
