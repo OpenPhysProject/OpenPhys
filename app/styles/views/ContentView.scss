@@ -66,7 +66,28 @@ $button-bar-size: $ui-button-width + $padding-small*3;
     margin-bottom: $button-bar-size;
 }
 
-
 figure {
     margin: 1rem;
+}
+
+// Quiz styles *****************************************************************
+.rlo-content-question {
+    
+}
+
+.rlo-content-answer {
+    // min 44 x 44 required for touch devices
+    min-width: 44px;
+    min-height: 44px;
+    
+}
+
+.rlo-content-reveal {
+    min-width: 44px;
+    min-height: 44px;
+
+}
+
+.rlo-content-question-answer {
+    
 }
