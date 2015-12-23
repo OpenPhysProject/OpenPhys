@@ -1,4 +1,4 @@
-### How To Add an RLO to this project
+### How To Add RLO Style to this project
 1. Add new file
 
 2. Edit file
