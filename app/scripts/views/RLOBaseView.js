@@ -18,6 +18,7 @@ OER.Views = OER.Views || {};
     p.title = null;             // dom title div
     p.navView = null;           // NavView
     p.content = null;           // Content specific views, ie OER.Views.RLO1.L200_2
+    p.contentUpdateBind = null; // bound function for handling events
     p.oldContent = null;        // content specific views that are being transitioned out
     p.contentContainer = null;  // dom  div that holds content views
     p.currentView = "";         // string   the name/route of the the current view
@@ -45,6 +46,7 @@ OER.Views = OER.Views || {};
         this.navUp = $(".ui-nav-up", this.$el);
         this.navDown = $(".ui-nav-down", this.$el);
         this.navRight = $(".ui-nav-right", this.$el);
+        this.contentUpdateBind = this.handleContentUpdate.bind(this);
 
         this.hammerObject = new Hammer(this.el, {
             touchAction: 'auto',
@@ -87,11 +89,20 @@ OER.Views = OER.Views || {};
         OER.router.noEventGo(RLOScope + "/" + targetView);   // change if we change default view handling
 
         this.contentContainer.append(this.content.el);
+        this.content.on("update", this.contentUpdateBind);
+        
         MathJax.Hub.Queue(["Typeset", MathJax.Hub, this.content.el]);
         window.scrollTo(0, 1);   // hide chrome on mobile browser
 
         this.handleContentTransaction();
         this.changeDirection = "";
+    };
+    
+    /**
+     * Handle when content is updated internally
+     */
+    p.handleContentUpdate = function() {
+        this.contentContainer.append(this.content.el);
     };
 
     /**

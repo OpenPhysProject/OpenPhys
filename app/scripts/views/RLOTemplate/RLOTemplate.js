@@ -45,6 +45,9 @@ OER.Views = OER.Views || {};
             
             var reveals = $(".rlo-content-question-reveal", this.$el);
             reveals.on("click", this.handleReveal.bind(this));
+            
+            var reset = $(".rlo-content-quiz-reset", this.$el);
+            reset.on("click", this.handleQuizReset.bind(this));
         },
         
         /**
@@ -53,7 +56,6 @@ OER.Views = OER.Views || {};
          * @param {jquery event} event
          */
         handleAnswer: function(event){
-            console.log("answer clicked", event);
             var answer = event.currentTarget.dataset.answer == "true";
             if (answer) {
                 answer = "  Yes";
@@ -76,7 +78,6 @@ OER.Views = OER.Views || {};
          * @param {jquery event} event
          */
         handleReveal: function(event) {
-            console.log("answer clicked", event);
             var answer = event.currentTarget.dataset.answer;
             var question = this.findQuestionDiv(event.currentTarget);
             var target = $(".rlo-content-question-answer", question)[0];
@@ -88,7 +89,8 @@ OER.Views = OER.Views || {};
         },
         
         /**
-         * 
+         * search up node tree until we find containing qeustion
+         * @method findQuestionDiv
          * @param {jquery event} event
          */
         findQuestionDiv: function(element) {
@@ -97,6 +99,17 @@ OER.Views = OER.Views || {};
                 question = question.parentNode;
             }
             return question;
+        },
+        
+        /**
+         * render view and reset
+         * @method handleQuizReset
+         * @param {jquery event} event
+         */
+        handleQuizReset: function(event) {
+            this.remove();
+            this.render();
+            this.trigger("update");
         },
 
     };
