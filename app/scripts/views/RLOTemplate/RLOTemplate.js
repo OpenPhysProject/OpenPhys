@@ -40,37 +40,63 @@ OER.Views = OER.Views || {};
             }
             
             // check for quiz questions
-            var answers = $(".rlo-content-answer", this.$el);
+            var answers = $(".rlo-content-question-option", this.$el);
             answers.on("click", this.handleAnswer.bind(this));
             
-            var reveals = $(".rlo-content-reveal", this.$el);
+            var reveals = $(".rlo-content-question-reveal", this.$el);
             reveals.on("click", this.handleReveal.bind(this));
         },
         
         /**
          * handle an answer being clicked
          * @method handleAnswer
-         * @param {event} event
+         * @param {jquery event} event
          */
         handleAnswer: function(event){
             console.log("answer clicked", event);
             var answer = event.currentTarget.dataset.answer == "true";
             if (answer) {
-                event.currentTarget.insertAdjacentHTML("afterend", "  Yes");
+                answer = "  Yes";
             } else {
-                event.currentTarget.insertAdjacentHTML("afterend", "  No");
+                answer = "  No";
+            }
+            
+            var question = this.findQuestionDiv(event.currentTarget);
+            var target = $(".rlo-content-question-answer", question)[0];
+            if (target) {
+                target.innerHTML = answer;
+            } else {
+                event.currentTarget.insertAdjacentHTML("afterend", answer);
             }
         },
         
         /**
          * handle a reveal being clicked
          * @method handleReveal
-         * @param {event} event
+         * @param {jquery event} event
          */
         handleReveal: function(event) {
             console.log("answer clicked", event);
             var answer = event.currentTarget.dataset.answer;
-            event.currentTarget.insertAdjacentHTML("afterend", "  " + answer);
+            var question = this.findQuestionDiv(event.currentTarget);
+            var target = $(".rlo-content-question-answer", question)[0];
+            if (target) {
+                target.innerHTML = "  " + answer;
+            } else {
+                event.currentTarget.insertAdjacentHTML("afterend", "  " + answer);
+            }
+        },
+        
+        /**
+         * 
+         * @param {jquery event} event
+         */
+        findQuestionDiv: function(element) {
+            var question = element.parentNode;
+            while(!$(question).hasClass("rlo-content-question")) {
+                question = question.parentNode;
+            }
+            return question;
         },
 
     };
