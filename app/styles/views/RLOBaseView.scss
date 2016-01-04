@@ -21,6 +21,9 @@
         opacity: 0;
         transform: scale(0.1);
     }
+    &.no-scroll {
+        overflow: hidden;
+    }
 }
 
 .rlo-base-content-container{

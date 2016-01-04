@@ -22,6 +22,7 @@ OER.Views = OER.Views || {};
     p.oldContent = null;        // content specific views that are being transitioned out
     p.contentContainer = null;  // dom  div that holds content views
     p.currentView = "";         // string   the name/route of the the current view
+    p.baseView = null;          // dom  the base container, so we can hide scrollbars when map is showing
 
     // nav
     p.hammerObject = null;      // Hammer JS object used for swipe
@@ -111,6 +112,8 @@ OER.Views = OER.Views || {};
      * @method updateModel
      */
     p.updateModel = function (newModel) {
+        this.$el.removeClass("no-scroll");
+        
         if (this.model) {
             this.model.off();
         }
@@ -155,6 +158,7 @@ OER.Views = OER.Views || {};
      * @method toggleNav
      */
     p.toggleNav = function () {
+        this.$el.toggleClass("no-scroll");
         this.navView.toggleNav();
         window.scrollTo(0, 1);   // hide chrome on mobile browser
     };
