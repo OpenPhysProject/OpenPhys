@@ -59,6 +59,36 @@ OER.Collections = OER.Collections || {};
             return this.length ? this.last().get("order") + 1 : 1;
         },
         
+        /**
+         * add ignore case option
+         * @method where
+         */
+        where: function(attrs, first, options){
+          options = options || {};
+
+          if (_.isEmpty(attrs)) return first ? void 0 : [];
+
+          return this[first ? 'find' : 'filter'](function(model) {
+            for (var key in attrs) {
+              if (options.ignoreCase) {
+                if (attrs[key].toLowerCase() !== model.get(key).toLowerCase()) return false;
+              } else {
+                if (attrs[key] !== model.get(key)) return false;
+              }
+            }
+
+            return true;
+          });
+        },
+
+        /**
+         * add ignore case option
+         * @method findWhere
+         */
+        findWhere: function(attrs, options) {
+          return this.where(attrs, true, options);
+        },
+
         // Card models are sorted by their original insertion order.
         comparator: 'order'
 

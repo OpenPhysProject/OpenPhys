@@ -147,7 +147,7 @@ OER.Views = OER.Views || {};
         var contentMap = this.model.get("contentMap");
         var navCardModel;
         for (var l = contentMap.length; l--; ) {
-            navCardModel = contentMap[l].findWhere({"route": targetView});
+            navCardModel = contentMap[l].findWhere({"route": targetView}, {ignoreCase: true});
             if (navCardModel) {
                 if (navCardModel.get("current")) {
                     this.handleCurrentChange(navCardModel);

@@ -178,11 +178,12 @@
      * @method showRLOView
      */
     p.showRLOView = function(rloRoute, contentRoute) {
-        var m = this.RLOs.findWhere({route: rloRoute});
+        var m = this.RLOs.findWhere({route: rloRoute}, {ignoreCase: true});
         if(!m) {
             scope.router.go("");
             return;
         }
+        rloRoute = m.get("route");  // sanitize case
         
         // tranisition out homeView
         this.homeView.removeClass("in");
