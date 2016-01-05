@@ -33,6 +33,8 @@ OER.Views = OER.Views || {};
     p.navDown = null;
     p.navRight = null;
     p.changeDirection = "";
+    p.firstView = false;        // boolean  is this the first viewing
+    
     p.events = {
         "click .rlo-base-menu-button": "toggleNav",
     };
@@ -87,7 +89,12 @@ OER.Views = OER.Views || {};
         } else {
             this.content = new OER.Views.DefaultContentView();  // OJR possibly better to redirect to intro
         }
-        OER.router.noEventGo(RLOScope + "/" + targetView);   // change if we change default view handling
+        if (this.firstView) {
+            OER.router.noEventReplaceHistoryGo(RLOScope + "/" + targetView);
+            this.firstView = false;
+        } else {
+            OER.router.noEventGo(RLOScope + "/" + targetView);   // change if we change default view handling
+        }
 
         this.contentContainer.append(this.content.el);
         this.content.on("update", this.contentUpdateBind);
@@ -218,12 +225,13 @@ OER.Views = OER.Views || {};
      * @method showIntro
      */
     p.showIntro = function () {
+        this.firstView = true;
         this._show();
         this.navView.toggleNav();
         var navView = this.navView; // for hoisting in timeout
         var introModel = this.model.get("contentMap")[this.model.get("primaryPathIndex")].at(0);
         setTimeout(function () {
-            OER.router.noEventReplaceHistoryGo("");
+            //OER.router.noEventReplaceHistoryGo("");
             introModel.set("current", true);
         }, OER.settings.FIRST_SHOW);
         setTimeout(function () {
