@@ -54,8 +54,10 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
         var buttons = $(".rlo-content-button", this.$el);    // $ is jquery, this.$el is this views html as a jquery object
         this.addButton = buttons[0];
         this.removeButton = buttons[1];
+        
         this.addButtonBind = this.handleAddButton.bind(this);     // create reference to bound function, binding makes a function be called in this scope
         this.addButton.addEventListener("click", this.addButtonBind); //
+        
         this.removeButtonBind = this.handleRemoveButton.bind(this);     // create reference to bound function, binding makes a function be called in this scope
         this.removeButton.addEventListener("click", this.removeButtonBind); //
 
