@@ -16,6 +16,7 @@ OER.Views = OER.Views || {};
         contentMap: null,       // array     contains nav card collections
         closeTimeout: null,     // timeoutID    used for setTimeout to allow animation time before close
         navcardViews: null,     // array of NavCardView, used to properly cleanup
+        
 
         /**
          * setup view
@@ -88,6 +89,7 @@ OER.Views = OER.Views || {};
         toggleNav: function () {
             this.$el.toggleClass("out");
             this.$el.toggleClass("in");
+            this.trigger("toggleShow");
             var currentNavCard = $(".current", this.$el);
             if (this.$el.hasClass("in") && currentNavCard.length !== 0) {
                 // container - card - scroll bars

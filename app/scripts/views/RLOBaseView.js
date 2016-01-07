@@ -127,6 +127,7 @@ OER.Views = OER.Views || {};
         if (this.content) {
             this.content.remove();
             this.content = null;
+            this.navView.off();
             this.navView.destroy();
         }
         this.model = newModel;
@@ -136,6 +137,10 @@ OER.Views = OER.Views || {};
 
         this.navView = new OER.Views.NavView({model: this.model});
         this.$el.append(this.navView.el);
+        var that = this;
+        this.navView.on("toggleShow", function() {
+            that.$el.toggleClass("no-scroll");
+        });
     };
 
     /**
@@ -165,7 +170,6 @@ OER.Views = OER.Views || {};
      * @method toggleNav
      */
     p.toggleNav = function () {
-        this.$el.toggleClass("no-scroll");
         this.navView.toggleNav();
         window.scrollTo(0, 1);   // hide chrome on mobile browser
     };
