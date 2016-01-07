@@ -22,7 +22,7 @@
 ```
 
 #### Add Answer Options
-1. For true and false or multilpe choice questions, add an html element with the
+1. For true and false or multiple choice questions, add an html element with the
  class rlo-content-question-option and a data-answer property of true or false.
 ```
 <button type="button" class="rlo-content-question-option" data-answer="true">1905</button>
