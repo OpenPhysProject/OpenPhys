@@ -1,0 +1,13 @@
+$intro-inline-ui-width: 1.5rem;
+
+.intro-inline-ui {
+    display: inline-block;
+    width: $intro-inline-ui-width;
+    height: $intro-inline-ui-width;
+}
+
+.intro-inline-ui-map {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+}
