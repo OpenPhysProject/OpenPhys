@@ -1,5 +1,5 @@
 OER.Views = OER.Views || {};
-OER.Views.RLORoute = OER.Views.RLORoute || {};
+OER.Views.Instructions = OER.Views.Instructions || {};
 
 (function () {
     'use strict';
@@ -12,14 +12,14 @@ OER.Views.RLORoute = OER.Views.RLORoute || {};
      * @constructor
     */
     // change RLORoute and NavCardRoute to match your data
-    OER.Views.RLORoute.NavCardRoute = Backbone.View.extend({
+    OER.Views.Instructions.Logo = Backbone.View.extend({
 
         /**
          *  template that provides html for this view.  This should be changed to
          *  match the template from your data
          *  @property template
          */
-        template: JST['app/content/RLOX/templates/Row0_Col0.ejs'],
+        template: JST['app/content/Intro/templates/Row0_Col3.ejs'],
 
         // can be used to set up event handling on html from template
         // see http://backbonejs.org/ to learn more
@@ -47,6 +47,9 @@ OER.Views.RLORoute = OER.Views.RLORoute || {};
                 this.setElement(this.template());
             }
             
+            var inlineLogo = $(".logo", this.$el);
+            inlineLogo.on("click", this.handleLogoClick.bind(this));
+            
             // check for quiz questions
             var answers = $(".rlo-content-question-option", this.$el);
             answers.on("click", this.handleAnswer.bind(this));
@@ -56,6 +59,14 @@ OER.Views.RLORoute = OER.Views.RLORoute || {};
             
             var reset = $(".rlo-content-quiz-reset", this.$el);
             reset.on("click", this.handleQuizReset.bind(this));
+        },
+        
+        /**
+        * when logo is clicked, route to homeView
+        * @method handleLogoClick
+        */
+        handleLogoClick: function (){
+          OER.router.go();  
         },
         
         /**
