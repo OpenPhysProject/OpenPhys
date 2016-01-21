@@ -6,7 +6,7 @@ OER.Views.Instructions = OER.Views.Instructions || {};
 
     /**
      * Row0_Col0 is the default view used to create new views by content creators.
-     * See content/HowToAddLessonView.md for more details
+     * See content/HowToAddLessonCode.md for more details
      * 
      * @class Row0_Col0
      * @constructor

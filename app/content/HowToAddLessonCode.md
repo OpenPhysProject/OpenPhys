@@ -1,9 +1,9 @@
-### How To Add a lesson view to this project
+### How To Add lesson code to this project
 1. Add new file
 
 2. Edit file
 
-3. Add to Index
+3. Add file to Index.html
 
 #### Add new file
 1. GoTo app/content/[yourLesson]/views
@@ -26,7 +26,7 @@ template: JST['app/content/lesson3/templates/Row0_Col3.ejs'],
 8. You can now add new behaviors.  This is a backbone.js view, to learn more about
 what that means check out http://backbonejs.org/#View
 
-#### Add to Index
+#### Add file to Index.html
 1. open app/index.html
 2. scroll to the very bottom
 3. following the existing pattern, add a reference for the view file you just created
