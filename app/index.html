@@ -17,27 +17,27 @@
     <body>
         <div class="logo">
             <div class="logo-icon">
-                <img class="rlo-content-image" src="/content/Logo/logo-icon.svg"/>
+                <img class="lesson-content-image" src="/content/Logo/logo-icon.svg"/>
             </div>
             <!-- open phys -->
             <div class="logo-wordmark">
-                 <img class="rlo-content-image" src="/content/Logo/logo-wordmark.svg"/>
+                 <img class="lesson-content-image" src="/content/Logo/logo-wordmark.svg"/>
             </div>
             <!-- online learning -->
             <div class="logo-tagline">
-                 <img class="rlo-content-image" src="/content/Logo/logo-tagline.svg"/>
+                 <img class="lesson-content-image" src="/content/Logo/logo-tagline.svg"/>
             </div>
         </div>
 
         <div class="button-grid"></div>
 
-        <div class="rlo-view-container">
-            <div class="rlo-list">
-                <div class="rlo-tile intro-tile">
-                    <div class="rlo-tile-container">
-                        <div class="rlo-tile-content-container-intro">
-                            <div class="rlo-tile-intro-title">Interactive Physics </div>
-                            <div class="rlo-tile-intro-content">
+        <div class="lesson-view-container">
+            <div class="lesson-list">
+                <div class="lesson-tile intro-tile">
+                    <div class="lesson-tile-container">
+                        <div class="lesson-tile-content-container-intro">
+                            <div class="lesson-tile-intro-title">Interactive Physics </div>
+                            <div class="lesson-tile-intro-content">
                                 This guided self-study site contains a set of modern physics modules     
                                 at a 100 to 200 university level. 
                                 Each module is based on an innovative game-like <strong>navigable 2D map</strong> 
@@ -49,31 +49,31 @@
                     </div>
                 </div>
                 <!-- content inserted here-->
-                <div class="rlo-tile outro-tile">
-                    <div class="rlo-tile-container">
-                        <div class="rlo-tile-inner">
-                            <div class="rlo-tile-content-container">
-                                <div class="rlo-tile-outro-title">OpenSource</div>
-                                <div class="rlo-tile-outro-content">
+                <div class="lesson-tile outro-tile">
+                    <div class="lesson-tile-container">
+                        <div class="lesson-tile-inner">
+                            <div class="lesson-tile-content-container">
+                                <div class="lesson-tile-outro-title">OpenSource</div>
+                                <div class="lesson-tile-outro-content">
                                 This project is open source and freely available here:
                                 <a href="https://github.com/OpenPhysProject/OpenPhys" target="_blank">https://github.com/OpenPhysProject/OpenPhys</a>
                                 . The map framework is easily reusable for any type of content.
                                 </div>
                                 
-                                <div class="rlo-tile-outro-title">Comments</div>
-                                <div class="rlo-tile-outro-content">
+                                <div class="lesson-tile-outro-title">Comments</div>
+                                <div class="lesson-tile-outro-content">
                                     We are currently actively seeking feedback!  So please email comments on content and 
                                     design concepts to <a href="mailto:openphys@ualberta.ca">openphys@ualberta.ca</a>
                                 </div>
 
-                                <div class="rlo-tile-outro-title">Acknowledgements</div>
-                                <div class="rlo-tile-outro-content">
+                                <div class="lesson-tile-outro-title">Acknowledgements</div>
+                                <div class="lesson-tile-outro-content">
                                 This work was funded in part by Campus Alberta Open Educational Resources Initiative.
                                 <a href="http://www.albertaoer.com" target="_blank">http://www.albertaoer.com/</a>
                                 </div>
 
-                                <div class="rlo-tile-outro-title">License</div>
-                                <div class="rlo-tile-outro-content">
+                                <div class="lesson-tile-outro-title">License</div>
+                                <div class="lesson-tile-outro-content">
                                 <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank">
                                     <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
                                 <br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank">
@@ -141,45 +141,45 @@
         <script src="scripts/core/AppRouter.js"></script>
         <script src="scripts/core/Settings.js"></script>
         <script src="scripts/templates.js"></script>
-        <script src="scripts/models/RLOModel.js"></script>
-        <script src="scripts/collections/RLOCollection.js"></script>
-        <script src="scripts/views/RLOTileView.js"></script>
+        <script src="scripts/models/LessonModel.js"></script>
+        <script src="scripts/collections/LessonCollection.js"></script>
+        <script src="scripts/views/LessonTileView.js"></script>
         <script src="scripts/controls/Loader.js"></script>
-        <script src="scripts/views/RLOBaseView.js"></script>
+        <script src="scripts/views/LessonBaseView.js"></script>
         <script src="scripts/views/NavView.js"></script>
         <script src="scripts/models/NavCardModel.js"></script>
         <script src="scripts/collections/NavCardCollection.js"></script>
         <script src="scripts/views/NavCardView.js"></script>
         <script src="scripts/views/DefaultContentView.js"></script>
-        <script src="scripts/views/RLOTemplate/RLOTemplate.js"></script>
+        <script src="scripts/views/lessonTemplate/LessonTemplate.js"></script>
         
         <!-- Content -->
         <!-- intro -->
         <script src="content/Intro/views/Row0_Col3.js"></script>
         <script src="content/Intro/data.js"></script>
         
-        <!-- RLO 1 -->
-        <script src="content/RLO1/views/Row3_Col3.js"></script>
-        <script src="content/RLO1/data.js"></script>
+        <!-- Lesson 1 -->
+        <script src="content/lesson1/views/Row3_Col3.js"></script>
+        <script src="content/lesson1/data.js"></script>
   
-        <!-- RLO 2 Radioactivity-->
-        <script src="content/RLO2/data.js"></script>
+        <!-- Lesson 2 Radioactivity-->
+        <script src="content/lesson2/data.js"></script>
  
-         <!-- RLO 3 E=mc2 -->
-        <script src="content/RLO3/data.js"></script>        
+         <!-- Lesson 3 E=mc2 -->
+        <script src="content/lesson3/data.js"></script>        
  
-         <!-- RLO 5 PE -->
-        <script src="content/RLO5/data.js"></script>        
+         <!-- Lesson 5 PE -->
+        <script src="content/lesson5/data.js"></script>        
         
-        <!-- RLO 6 Compton -->
-        <script src="content/RLO6/views/Row0_Col1.js"></script>
-        <script src="content/RLO6/views/Row1_Col1.js"></script>       
-        <script src="content/RLO6/data.js"></script>
+        <!-- Lesson 6 Compton -->
+        <script src="content/lesson6/views/Row0_Col1.js"></script>
+        <script src="content/lesson6/views/Row1_Col1.js"></script>       
+        <script src="content/lesson6/data.js"></script>
         
-        <!-- RLO 7 Pair Prod-->
-        <script src="content/RLO7/assets/animation/pair production main.js"></script>
-        <script src="content/RLO7/views/Row1_Col1.js"></script>
-        <script src="content/RLO7/data.js"></script> 
+        <!-- Lesson 7 Pair Prod-->
+        <script src="content/lesson7/assets/animation/pair production main.js"></script>
+        <script src="content/lesson7/views/Row1_Col1.js"></script>
+        <script src="content/lesson7/data.js"></script> 
         
         <!-- Sandbox -->        
         <script src="content/Sandbox/views/Row0_Col4.js"></script> 
