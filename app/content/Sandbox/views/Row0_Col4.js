@@ -29,7 +29,7 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
      
     /**
      * backbone initialize function
-     * called on creation by OER.RLOBaseView.updateContent
+     * called on creation by OER.LessonBaseView.updateContent
      * @param {Backbone.Model} model A NavCardModel with related data 
      */
     p.initialize = function (model) {
@@ -50,18 +50,18 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
         }
         
         // Set up reference to button1 and click listener
-        this.button1     = $(".rlo-content-button-add", this.$el)[0];    // $ is jquery, this.$el is this views html as a jquery object
+        this.button1     = $(".lesson-content-button-add", this.$el)[0];    // $ is jquery, this.$el is this views html as a jquery object
         this.button1Bind = this.handleButton1.bind(this);     // create reference to bound function, binding makes a function be called in this scope
         this.button1.addEventListener("click", this.button1Bind); //
 
         // Set up reference to button2 and click listener
-        this.button2     = $(".rlo-content-button-sub", this.$el)[0];    // $ is jquery, this.$el is this views html as a jquery object
+        this.button2     = $(".lesson-content-button-sub", this.$el)[0];    // $ is jquery, this.$el is this views html as a jquery object
         this.button2Bind = this.handleButton2.bind(this);     // create reference to bound function, binding makes a function be called in this scope
         this.button2.addEventListener("click", this.button2Bind); //     
         
         
         // Set up createjs stage and touch support
-        var c = $(".rlo-content-canvas-sandbox", this.$el)[0];
+        var c = $(".lesson-content-canvas-sandbox", this.$el)[0];
         this.stage = new createjs.Stage(c);
         if (createjs.Touch.isSupported()) {createjs.Touch.enable(this.stage);}
         this.width  = c.width;
@@ -97,7 +97,7 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
 
     /*
      * clean up stage events and call super remove
-     * called by OER.RLOBaseView
+     * called by OER.LessonBaseView
      * @param {type} options
      */
     p.remove = function(options) {

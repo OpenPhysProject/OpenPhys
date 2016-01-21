@@ -11,7 +11,7 @@ OER.Views.Compton = OER.Views.Compton || {};
     
     var p = {};     // prototype for this class
     var s = {};     // static for this class
-    p.template= JST['app/content/RLO6/templates/Row1_Col1.ejs'];     // template used to create html for this view
+    p.template= JST['app/content/lesson6/templates/Row1_Col1.ejs'];     // template used to create html for this view
     p.events = {};  // events, used by backbone to set up event handlers on html elements
     p.button = null;        // html button element    
     p.stage = null;         // easeljs stage
@@ -39,7 +39,7 @@ OER.Views.Compton = OER.Views.Compton || {};
     
     /**
      * backbone initialize function
-     * called on creation by OER.RLOBaseView.updateContent
+     * called on creation by OER.LessonBaseView.updateContent
      * @param {Backbone.Model} model A NavCardModel with related data 
      */
     p.initialize = function (model) {
@@ -51,8 +51,8 @@ OER.Views.Compton = OER.Views.Compton || {};
 
     p.renderSlider = function() {
         // set up the slider for the scatterer position
-       this.slideX = $(".rlo6-scatterY", this.$el)[0];   // slider
-       this.dispX  = $(".rlo6-disp-scatterY", this.$el)[0];      // display of vaue
+       this.slideX = $(".lesson6-scatterY", this.$el)[0];   // slider
+       this.dispX  = $(".lesson6-disp-scatterY", this.$el)[0];      // display of vaue
        this.dispX.innerHTML= this.slideX.value + ' ';   
        //
        this.slideXBind = this.handleSlideX.bind(this);
@@ -71,12 +71,12 @@ OER.Views.Compton = OER.Views.Compton || {};
         }
         
         // set up reference to button and click listener
-        this.button = $(".rlo-content-button", this.$el)[0];    // $ is jquery, this.$el is this views html as a jquery object
+        this.button = $(".lesson-content-button", this.$el)[0];    // $ is jquery, this.$el is this views html as a jquery object
         this.buttonBind = this.handleButton.bind(this);     // create reference to bound function, binding makes a function be called in this scope
         this.button.addEventListener("click", this.buttonBind); //
 
         // set up createjs stage and touch support
-        var c = $(".rlo-content-canvas-photon", this.$el)[0];
+        var c = $(".lesson-content-canvas-photon", this.$el)[0];
         this.stage = new createjs.Stage(c);
         if (createjs.Touch.isSupported()) {createjs.Touch.enable(this.stage);}
         this.width  = c.width;
@@ -123,7 +123,7 @@ OER.Views.Compton = OER.Views.Compton || {};
         this.stage.addChild(this.target);  // add this shape to the stage       
         
         // external file for background image
-        this.background = new createjs.Bitmap("/content/RLO6/assets/ComptonIncident.svg");
+        this.background = new createjs.Bitmap("/content/lesson6/assets/ComptonIncident.svg");
         this.background.regX = this.background.image.width *0.5;
         this.background.regY = this.background.image.height *0.5;        
         //this.stage.addChild(this.background);
@@ -150,7 +150,7 @@ OER.Views.Compton = OER.Views.Compton || {};
     };
 
      /* clean up stage events and call super remove
-     * called by OER.RLOBaseView
+     * called by OER.LessonBaseView
      * @param {type} options
      */
     p.remove = function(options) {

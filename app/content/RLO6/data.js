@@ -2,7 +2,7 @@
     var s = {};
     
     s.title = "Compton X-Ray Scattering";
-    s.preview = "/content/RLO6/assets/Compton.svg"; //svg image
+    s.preview = "/content/lesson6/assets/Compton.svg"; //svg image
     s.route = "Compton";
     s.info = "";
     s.jumpNav = true;    
@@ -55,6 +55,6 @@
                
     ];
 
-    scope.RLO6 = s;
+    scope.lesson6 = s;
 
 }(window.OER.data = window.OER.data || {}));

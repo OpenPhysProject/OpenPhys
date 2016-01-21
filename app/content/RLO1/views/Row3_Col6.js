@@ -7,7 +7,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     var p = {};
     var s = {};
     
-    p.template= JST['app/content/RLO1/templates/Row3_Col6.ejs'];
+    p.template= JST['app/content/lesson1/templates/Row3_Col6.ejs'];
 
     p.events = {};
 
@@ -29,7 +29,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
             this.setElement(this.template());
         }
 
-        var c = $(".rlo-content-canvas", this.$el)[0];
+        var c = $(".lesson-content-canvas", this.$el)[0];
         this.stage = new createjs.Stage(c);
         if (createjs.Touch.isSupported()) {createjs.Touch.enable(this.stage);}
         this.width = c.width;

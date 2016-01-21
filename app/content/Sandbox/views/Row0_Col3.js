@@ -30,7 +30,7 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
     
     /**
      * backbone initialize function
-     * called on creation by OER.RLOBaseView.updateContent
+     * called on creation by OER.LessonBaseView.updateContent
      * @param {Backbone.Model} model A NavCardModel with related data 
      */
     p.initialize = function (model) {
@@ -51,7 +51,7 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
         }
         
         // setup reference to buttons and click listener
-        var buttons = $(".rlo-content-button", this.$el);    // $ is jquery, this.$el is this views html as a jquery object
+        var buttons = $(".lesson-content-button", this.$el);    // $ is jquery, this.$el is this views html as a jquery object
         this.addButton = buttons[0];
         this.removeButton = buttons[1];
         
@@ -62,7 +62,7 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
         this.removeButton.addEventListener("click", this.removeButtonBind); //
 
         // setup createjs stage and touch support
-        var c = $(".rlo-content-canvas-sandbox", this.$el)[0];
+        var c = $(".lesson-content-canvas-sandbox", this.$el)[0];
         this.stage = new createjs.Stage(c);
         if (createjs.Touch.isSupported()) {
             createjs.Touch.enable(this.stage);
@@ -108,7 +108,7 @@ OER.Views.Sandbox = OER.Views.Sandbox || {};
 
     /*
      * clean up stage events and call super remove
-     * called by OER.RLOBaseView
+     * called by OER.LessonBaseView
      * @param {type} options
      */
     p.remove = function(options) {

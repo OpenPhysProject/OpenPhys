@@ -12,7 +12,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     var p = {};     // prototype for this class
     var s = {};     // static for this class
     
-    p.template= JST['app/content/RLO1/templates/Row3_Col3.ejs'];     // template used to create html for this view
+    p.template= JST['app/content/lesson1/templates/Row3_Col3.ejs'];     // template used to create html for this view
     p.events = {};  // events, used by backbone to set up event handlers on html elements
 
     p.button = null;        // html button element    
@@ -27,7 +27,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     
     /**
      * backbone initialize function
-     * called on creation by OER.RLOBaseView.updateContent
+     * called on creation by OER.LessonBaseView.updateContent
      * @param {Backbone.Model} model A NavCardModel with related data 
      */
     p.initialize = function (model) {
@@ -48,12 +48,12 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         }
         
         // setup reference to button and click listener
-        this.button = $(".rlo-content-button", this.$el)[0];    // $ is jquery, this.$el is this views html as a jquery object
+        this.button = $(".lesson-content-button", this.$el)[0];    // $ is jquery, this.$el is this views html as a jquery object
         this.buttonBind = this.handleButton.bind(this);     // create reference to bound function, binding makes a function be called in this scope
         this.button.addEventListener("click", this.buttonBind); //
 
         // setup createjs stage and touch support
-        var c = $(".rlo-content-canvas-sandbox", this.$el)[0];
+        var c = $(".lesson-content-canvas-sandbox", this.$el)[0];
         this.stage = new createjs.Stage(c);
         if (createjs.Touch.isSupported()) {createjs.Touch.enable(this.stage);}
         this.width = c.width;
@@ -88,7 +88,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
 
     /*
      * clean up stage events and call super remove
-     * called by OER.RLOBaseView
+     * called by OER.lessonBaseView
      * @param {type} options
      */
     p.remove = function(options) {

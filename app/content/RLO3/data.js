@@ -2,7 +2,7 @@
     var s = {};
     
     s.title = "E = mc2";
-    s.preview = "/content/RLO3/assets/Emc2.svg"; //svg image
+    s.preview = "/content/lesson3/assets/Emc2.svg"; //svg image
     s.route = "Emc2";
     s.info = "";
     s.jumpNav = false;    
@@ -45,6 +45,6 @@
         
     ];
 
-    scope.RLO3 = s;
+    scope.lesson3 = s;
 
 }(window.OER.data = window.OER.data || {}));

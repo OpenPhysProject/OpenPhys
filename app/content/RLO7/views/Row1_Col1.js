@@ -6,7 +6,7 @@ OER.Views.Pair = OER.Views.Pair || {};
 
     OER.Views.Pair.Anim = Backbone.View.extend({
 
-        template: JST['app/content/RLO7/templates/Row1_Col1.ejs'],
+        template: JST['app/content/lesson7/templates/Row1_Col1.ejs'],
 
         events: {},
         
@@ -22,7 +22,7 @@ OER.Views.Pair = OER.Views.Pair || {};
             
             ss = ss || {};  // OJR this has to change
             
-            this.loader = new createjs.LoadQueue(false, "/content/RLO7/assets/animation/");
+            this.loader = new createjs.LoadQueue(false, "/content/lesson7/assets/animation/");
             this.loader.addEventListener("fileload", this.handleFileLoad.bind(this));
             this.loader.addEventListener("complete", this.handleComplete.bind(this));
             this.loader.loadFile({src:"images/pair production main_atlas_.json", type:"spritesheet", id:"pair production main_atlas_"}, true);
@@ -46,7 +46,7 @@ OER.Views.Pair = OER.Views.Pair || {};
             ss["pair production main_atlas_"] = queue.getResult("pair production main_atlas_");
             var exportRoot = new lib.pairproductionmain();
 
-            var canvas = $(".rlo-content-canvas", this.$el)[0];
+            var canvas = $(".lesson-content-canvas", this.$el)[0];
             this.stage = new createjs.Stage(canvas);
             this.stage.addChild(exportRoot);
             this.stage.update();

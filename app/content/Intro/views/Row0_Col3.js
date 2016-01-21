@@ -6,12 +6,12 @@ OER.Views.Instructions = OER.Views.Instructions || {};
 
     /**
      * Row0_Col0 is the default view used to create new views by content creators.
-     * See content/HowToAddRLOView.md for more details
+     * See content/HowToAddLessonView.md for more details
      * 
      * @class Row0_Col0
      * @constructor
     */
-    // change RLORoute and NavCardRoute to match your data
+    // change lessonRoute and NavCardRoute to match your data
     OER.Views.Instructions.Logo = Backbone.View.extend({
 
         /**
@@ -51,13 +51,13 @@ OER.Views.Instructions = OER.Views.Instructions || {};
             inlineLogo.on("click", this.handleLogoClick.bind(this));
             
             // check for quiz questions
-            var answers = $(".rlo-content-question-option", this.$el);
+            var answers = $(".lesson-content-question-option", this.$el);
             answers.on("click", this.handleAnswer.bind(this));
             
-            var reveals = $(".rlo-content-question-reveal", this.$el);
+            var reveals = $(".lesson-content-question-reveal", this.$el);
             reveals.on("click", this.handleReveal.bind(this));
             
-            var reset = $(".rlo-content-quiz-reset", this.$el);
+            var reset = $(".lesson-content-quiz-reset", this.$el);
             reset.on("click", this.handleQuizReset.bind(this));
         },
         
@@ -83,7 +83,7 @@ OER.Views.Instructions = OER.Views.Instructions || {};
             }
             
             var question = this.findQuestionDiv(event.currentTarget);
-            var target = $(".rlo-content-question-answer", question)[0];
+            var target = $(".lesson-content-question-answer", question)[0];
             if (target) {
                 target.innerHTML = answer;
             } else {
@@ -99,7 +99,7 @@ OER.Views.Instructions = OER.Views.Instructions || {};
         handleReveal: function(event) {
             var answer = event.currentTarget.dataset.answer;
             var question = this.findQuestionDiv(event.currentTarget);
-            var target = $(".rlo-content-question-answer", question)[0];
+            var target = $(".lesson-content-question-answer", question)[0];
             if (target) {
                 target.innerHTML = "  " + answer;
             } else {
@@ -114,7 +114,7 @@ OER.Views.Instructions = OER.Views.Instructions || {};
          */
         findQuestionDiv: function(element) {
             var question = element.parentNode;
-            while(!$(question).hasClass("rlo-content-question")) {
+            while(!$(question).hasClass("lesson-content-question")) {
                 question = question.parentNode;
             }
             return question;

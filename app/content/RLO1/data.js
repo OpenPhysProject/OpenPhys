@@ -2,7 +2,7 @@
     var s = {};
     
     s.title = "The Electronic Structure of the Atom";
-    s.preview = "/content/RLO1/assets/AtomPlay.svg"; //svg image
+    s.preview = "/content/lesson1/assets/AtomPlay.svg"; //svg image
     s.route = "ElectronicStructureOfTheAtom";
     s.info = "";
     s.primaryPathIndex = 3;
@@ -88,6 +88,6 @@
         
     ];
 
-    scope.RLO1 = s;
+    scope.lesson1 = s;
 
 }(window.OER.data = window.OER.data || {}));

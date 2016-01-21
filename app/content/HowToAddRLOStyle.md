@@ -1,4 +1,4 @@
-### How To Add RLO Style to this project
+### How To Add Lesson Style to this project
 1. Add new file
 
 2. Edit file
@@ -6,7 +6,7 @@
 3. Add to app.scss
 
 #### Add new file
-1. Create folder app/content/[yourRLO]/styles
+1. Create folder app/content/[yourLesson]/styles
 2. create a scss file with a meaningful name, for example Row0_Col3.scss
 3. Open the file in an editor and add the custom sass (css) you want.
 
@@ -15,5 +15,5 @@
 2. scroll to the very bottom
 3. following the existing pattern, import the style file you just created
 ```
-@import "../content/RLO1/styles/Row1_Col5.scss";
+@import "../content/lesson1/styles/Row1_Col5.scss";
 ```

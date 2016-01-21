@@ -2,7 +2,7 @@
     var s = {};
     
     s.title = "Radioactivity";
-    s.preview = "/content/RLO2/assets/Nucleus.svg"; //svg image
+    s.preview = "/content/lesson2/assets/Nucleus.svg"; //svg image
     s.route = "Radioactivity";
     s.info = "";
     s.jumpNav = true;
@@ -96,6 +96,6 @@
         ],
     ];
     
-    scope.RLO2 = s;
+    scope.lesson2 = s;
 
 }(window.OER.data = window.OER.data || {}));

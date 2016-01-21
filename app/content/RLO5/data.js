@@ -2,7 +2,7 @@
     var s = {};
     
     s.title = "Photoelectric Effect";
-    s.preview = "/content/RLO5/assets/PE.svg"; //svg image
+    s.preview = "/content/lesson5/assets/PE.svg"; //svg image
     s.route = "PE";
     s.info = "";
     s.jumpNav = false;    
@@ -32,6 +32,6 @@
         
     ];
 
-    scope.RLO5 = s;
+    scope.lesson5 = s;
 
 }(window.OER.data = window.OER.data || {}));

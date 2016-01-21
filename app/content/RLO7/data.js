@@ -2,7 +2,7 @@
     var s = {};
     
     s.title = "Pair Production";
-    s.preview = "/content/RLO7/assets/PairProd.svg"; //svg image
+    s.preview = "/content/lesson7/assets/PairProd.svg"; //svg image
     s.route = "Pair";
     s.info = "";
     s.jumpNav = true;
@@ -74,6 +74,6 @@
 
     ];
     
-    scope.RLO7 = s;
+    scope.lesson7 = s;
 
 }(window.OER.data = window.OER.data || {}));
