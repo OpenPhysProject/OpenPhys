@@ -5,7 +5,7 @@ $tile-margin: 0.5rem;
     transition-timing-function: ease-in-out;
     transition-duration: $duration-long;
 }
-.rlo-view-container{
+.lesson-view-container{
     position: absolute;
     margin: 0 auto;
     top: 0;
@@ -21,14 +21,14 @@ $tile-margin: 0.5rem;
 
 @mixin aspect-ratio($col-number) {
     $width: calc(#{percentage(1/$col-number)} - #{$tile-margin});
-    .rlo-tile {
+    .lesson-tile {
         width: $width;
     }
 }
 
 
-// RLO TILE ********************************************************************
-.rlo-tile {
+// lesson TILE ********************************************************************
+.lesson-tile {
     //height: 0;
     position: relative;
     margin-top: $tile-margin;
@@ -39,10 +39,10 @@ $tile-margin: 0.5rem;
     box-shadow: 0px 0px 0.5px 1px rgba(0,0,0,.3);
 }
 
-.rlo-tile-container {
+.lesson-tile-container {
     margin-top:100%;
 }
-.rlo-tile-inner{
+.lesson-tile-inner{
     position:absolute;
     top: 0;
     bottom: 0;
@@ -50,16 +50,16 @@ $tile-margin: 0.5rem;
     right: 0;
     &:hover {
 
-        >.rlo-tile-preview {
+        >.lesson-tile-preview {
             transition-duration:10s;
             transform:scale(1.3) translate(-50%, -50%);
         }
-        >.rlo-tile-title-container {
+        >.lesson-tile-title-container {
             opacity: 0.6;
         }
     }
 }
-.rlo-tile-preview {
+.lesson-tile-preview {
     position: absolute;
     max-width: 100%;
     max-height: 100%;
@@ -75,7 +75,7 @@ $tile-margin: 0.5rem;
     transform: translate(-50%, -50%);
 }
 
-.rlo-tile-title-container{
+.lesson-tile-title-container{
     @include transitionSetting;
     position: absolute;
     width: 100%;
@@ -85,7 +85,7 @@ $tile-margin: 0.5rem;
     opacity: 0.8;
 }
 
-.rlo-tile-title{
+.lesson-tile-title{
     font-family: $fontFamily-title;
     font-size: 1.5rem;
     line-height: 5rem;
@@ -93,7 +93,7 @@ $tile-margin: 0.5rem;
     color: $color_white-default;
 }
 
-.rlo-tile-info{
+.lesson-tile-info{
     position: absolute;
     padding-left: $padding-small;
     margin-top: 3rem;
@@ -107,40 +107,40 @@ $tile-margin: 0.5rem;
     min-height: 1000px;  // arbitrary value that forces content to start with correct height, overwritten in code
 }
 
-.rlo-tile-intro-title, .rlo-tile-outro-title {
+.lesson-tile-intro-title, .lesson-tile-outro-title {
     width: 100%;
     padding-left: $padding-small;
     padding-right: $padding-small;
     font-size: $fontSize-large;
 }
 
-.rlo-tile-intro-title {
+.lesson-tile-intro-title {
     padding-bottom: $padding-small;
 }
 
-.rlo-tile-outro-title {
+.lesson-tile-outro-title {
     padding-top: $padding-small;
 }
 
-.rlo-tile-intro-content, .rlo-tile-outro-content {
+.lesson-tile-intro-content, .lesson-tile-outro-content {
     width: 100%;
     padding-left: $padding-small;
     padding-right: $padding-small;
 }
 
-.rlo-tile-content-container, .rlo-tile-content-container-intro {
+.lesson-tile-content-container, .lesson-tile-content-container-intro {
     position: absolute;
     width: 100%;
     overflow: visible;
 }
 
-.rlo-tile-content-container-intro {
+.lesson-tile-content-container-intro {
     bottom: $padding-small;
 }
 
 
-// rlo list ********************************************************************
-.rlo-list {
+// lesson list ********************************************************************
+.lesson-list {
     @include aspect-ratio(3);
     display: flex;
     flex-flow: row wrap;
@@ -162,13 +162,13 @@ $tile-margin: 0.5rem;
 }
 /* Large View */
 @media screen and (max-width: $bp_width_col_two) {
-    .rlo-list {
+    .lesson-list {
         @include aspect-ratio(2);
     }
 }
 /* Small view */
 @media screen and (max-width: $bp_width_col_one) {
-    .rlo-list {
+    .lesson-list {
         @include aspect-ratio(1);
     }
 }
@@ -177,7 +177,7 @@ $tile-margin: 0.5rem;
 @media screen and (min-device-width: $bp_width_small)
 and (max-device-width: $bp_width_medium)
 and (orientation: landscape)  {
-    .rlo-list {
+    .lesson-list {
         @include aspect-ratio(3);
     }
 }
@@ -185,7 +185,7 @@ and (orientation: landscape)  {
 @media screen and (min-device-width: $bp_width_small)
 and (max-device-width: $bp_width_medium)
 and (orientation: portrait)  {
-    .rlo-list {
+    .lesson-list {
         @include aspect-ratio(2);
     }
 }
@@ -193,7 +193,7 @@ and (orientation: portrait)  {
 /* Mobile Phones Portrait */
 @media screen and (max-device-width: $bp_width_medium_phone)
 and (orientation: portrait){
-    .rlo-list {
+    .lesson-list {
         @include aspect-ratio(1);
     }
 }
@@ -201,21 +201,21 @@ and (orientation: portrait){
 /* Mobile Phones Landscape */
 @media screen and (max-device-width: $bp_width_medium_phone)
 and (orientation: landscape){
-    .rlo-list {
+    .lesson-list {
         @include aspect-ratio(2);
     }
 }
 /* Mobile Phones portrait */
 @media screen and (max-device-width: $bp_width_small_phone)
 and (orientation: portrait){
-    .rlo-list {
+    .lesson-list {
         @include aspect-ratio(1);
     }
 }
 /* Mobile Phones Landscape */
 @media screen and (max-device-width: $bp_width_small_phone)
 and (orientation: landscape){
-    .rlo-list {
+    .lesson-list {
         @include aspect-ratio(2);
     }
 }

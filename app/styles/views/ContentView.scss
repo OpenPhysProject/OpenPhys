@@ -1,68 +1,68 @@
 $button-bar-size: $ui-button-width + $padding-small*3;
 
-.rlo-content-title {
+.lesson-content-title {
     font: $fontFamily-title;
     font-size: $fontSize-large;
     font-weight: 900;
     margin-bottom: 1rem;
 }
 
-.rlo-content-memo {
+.lesson-content-memo {
     color: blue;
     font-style: italic;
     margin-bottom: 1.5rem;
 }
 
-.rlo-content-japan {
+.lesson-content-japan {
     /* pink bankground */
     background:#f2dede;
 }
 
-.rlo-content-100 {
+.lesson-content-100 {
     /* style for 100-level content */
     background: #eee;
 }
-.rlo-content-200 {
+.lesson-content-200 {
     /* style for 200-level content */
     background: #ccc;
 }
-.rlo-content-300 {
+.lesson-content-300 {
     /* style for 300-level content */
     background: #bbb;
 }
 
-.rlo-content-body {
+.lesson-content-body {
    font: $fontFamily-default;
    font-size: $fontSize-body;
 }
 
-.rlo-content-image {
+.lesson-content-image {
   margin: 0.5rem;
   width: 100%;
   max-width: 400px;
 }
 
-.rlo-content-canvas {
+.lesson-content-canvas {
     background: $color_content_canvas_background;
     width: 60%;
     margin-top: $padding-small;
 }
 
-.rlo-content-canvas-sandbox {
+.lesson-content-canvas-sandbox {
     background: $color_content_canvas_background;
     width: 40%;
     margin-top: $padding-small;
 }
 
 /* For firing a photon gun */
-.rlo-content-canvas-photon {
+.lesson-content-canvas-photon {
     background: #c0c0c0;
     width: 90%;
     margin-top: $padding-small;
     border-radius: 50px;
 }
 
-.rlo-content-bottom {
+.lesson-content-bottom {
     margin-bottom: $button-bar-size;
 }
 
@@ -71,27 +71,27 @@ figure {
 }
 
 // Quiz styles *****************************************************************
-.rlo-content-question {
+.lesson-content-question {
     color: crimson;
 }
 
-.rlo-content-question-option {
+.lesson-content-question-option {
     // min 44 x 44 required for touch devices
     min-width: 44px;
     min-height: 44px;
     
 }
 
-.rlo-content-question-reveal {
+.lesson-content-question-reveal {
     min-width: 44px;
     min-height: 44px;
 
 }
 
-.rlo-content-question-answer {
+.lesson-content-question-answer {
     
 }
 
-.rlo-content-quiz-reset {
+.lesson-content-quiz-reset {
     
 }
