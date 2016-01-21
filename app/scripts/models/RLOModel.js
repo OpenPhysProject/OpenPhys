@@ -4,12 +4,12 @@ OER.Models = OER.Models || {};
     'use strict';
 
     /**
-     * RLOModel is the data model for the learning objects
+     * LessonModel is the data model for the learning objects
      * 
-     * @class RLOModel
+     * @class LessonModel
      * @constructor
     */    
-    OER.Models.RLOModel = Backbone.Model.extend({
+    OER.Models.LessonModel = Backbone.Model.extend({
 
         defaults: {
             title: '',
@@ -47,8 +47,8 @@ OER.Models = OER.Models || {};
                     var subRoute = c.at(i).get("route");
                     if (!OER.Views[response.route][subRoute]) {
                         // OJR if we ever need something different, add a .template property to data and use it if it's populated
-                         OER.Views.RLOTemplate.template = JST["app/content/"+options.viewPath+"/templates/Row"+l.toString()+ "_Col" +i.toString()+".ejs"];
-                         OER.Views[response.route][subRoute] = Backbone.View.extend(OER.Views.RLOTemplate);
+                         OER.Views.LessonTemplate.template = JST["app/content/"+options.viewPath+"/templates/Row"+l.toString()+ "_Col" +i.toString()+".ejs"];
+                         OER.Views[response.route][subRoute] = Backbone.View.extend(OER.Views.LessonTemplate);
                     }
                 }
             }

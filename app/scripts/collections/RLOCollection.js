@@ -4,18 +4,18 @@ OER.Collections = OER.Collections || {};
     'use strict';
 
     /**
-     * RLOCollection is a backbone collection of RLOModel which is 
+     * LessonCollection is a backbone collection of LessonModel which is 
      * used for the different sections of content.
      * 
-     * @class RLOCollection
+     * @class LessonCollection
      * @constructor
     */
-    OER.Collections.RLOCollection = Backbone.Collection.extend({
+    OER.Collections.LessonCollection = Backbone.Collection.extend({
 
-        model: OER.Models.RLOModel,     // backbone model
+        model: OER.Models.LessonModel,     // backbone model
 
         /**
-         *  We keep the RLOModels in grid order.
+         *  We keep the LessonModels in grid order.
          *  @method nextOrder
          */
         nextOrder:function() {
@@ -52,7 +52,7 @@ OER.Collections = OER.Collections || {};
           return this.where(attrs, true, options);
         },
 
-        // RLOModels are sorted by their original insertion order.
+        // LessonModels are sorted by their original insertion order.
         comparator: 'order'
     });
 

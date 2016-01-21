@@ -4,20 +4,20 @@ OER.Views = OER.Views || {};
     'use strict';
 
     /**
-     * RLOBaseView is the wrapper for all content and handles all related 
+     * LessonBaseView is the wrapper for all content and handles all related 
      * behavior including navigation, opening the nav map view, etc.
      * 
-     * @class RLOBaseView
+     * @class LessonBaseView
     */    
    
     var p = {};
     var s = {};
 
-    p.template = JST['app/scripts/templates/RLOBaseView.ejs'];
+    p.template = JST['app/scripts/templates/LessonBaseView.ejs'];
 
     p.title = null;             // dom title div
     p.navView = null;           // NavView
-    p.content = null;           // Content specific views, ie OER.Views.RLO1.L200_2
+    p.content = null;           // Content specific views, ie OER.Views.lesson1.L200_2
     p.contentUpdateBind = null; // bound function for handling events
     p.oldContent = null;        // content specific views that are being transitioned out
     p.contentContainer = null;  // dom  div that holds content views
@@ -36,15 +36,15 @@ OER.Views = OER.Views || {};
     p.firstView = false;        // boolean  is this the first viewing
     
     p.events = {
-        "click .rlo-base-menu-button": "toggleNav",
+        "click .lesson-base-menu-button": "toggleNav",
     };
 
 // Setup ********************************************************************
     p.initialize = function (model) {
         this.model = model;
         this.render();
-        this.title = $(".rlo-base-title", this.$el);
-        this.contentContainer = $(".rlo-base-content-container", this.$el);
+        this.title = $(".lesson-base-title", this.$el);
+        this.contentContainer = $(".lesson-base-content-container", this.$el);
         this.navLeft = $(".ui-nav-left", this.$el);
         this.navUp = $(".ui-nav-up", this.$el);
         this.navDown = $(".ui-nav-down", this.$el);
@@ -82,18 +82,18 @@ OER.Views = OER.Views || {};
             this.oldContent = this.content;
         }
         this.currentView = targetView;
-        var RLOScope = this.model.get("route");
+        var lessonScope = this.model.get("route");
         // check if view exists, which should always be the case in final release
-        if (OER.Views[RLOScope] && OER.Views[RLOScope][this.currentView]) {
-            this.content = new OER.Views[RLOScope][this.currentView]();
+        if (OER.Views[lessonScope] && OER.Views[lessonScope][this.currentView]) {
+            this.content = new OER.Views[lessonScope][this.currentView]();
         } else {
             this.content = new OER.Views.DefaultContentView();  // OJR possibly better to redirect to intro
         }
         if (this.firstView) {
-            OER.router.noEventReplaceHistoryGo(RLOScope + "/" + targetView);
+            OER.router.noEventReplaceHistoryGo(lessonScope + "/" + targetView);
             this.firstView = false;
         } else {
-            OER.router.noEventGo(RLOScope + "/" + targetView);   // change if we change default view handling
+            OER.router.noEventGo(lessonScope + "/" + targetView);   // change if we change default view handling
         }
 
         this.contentContainer.append(this.content.el);
@@ -488,5 +488,5 @@ OER.Views = OER.Views || {};
     };
 
 
-    OER.Views.RLOBaseView = Backbone.View.extend(p, s);
+    OER.Views.LessonBaseView = Backbone.View.extend(p, s);
 })();

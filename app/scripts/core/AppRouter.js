@@ -19,8 +19,8 @@
      */
     p.routes = {
             "":"default",
-            ":title":"rlo",
-            ":title/:subview": "rlo"   // rlo1/intro
+            ":title":"lesson",
+            ":title/:subview": "lesson"   // lesson1/intro
     };
 
     /**

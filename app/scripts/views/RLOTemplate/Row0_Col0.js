@@ -1,25 +1,25 @@
 OER.Views = OER.Views || {};
-OER.Views.RLORoute = OER.Views.RLORoute || {};
+OER.Views.LessonRoute = OER.Views.LessonRoute || {};
 
 (function () {
     'use strict';
 
     /**
      * Row0_Col0 is the default view used to create new views by content creators.
-     * See content/HowToAddRLOView.md for more details
+     * See content/HowToAddLessonView.md for more details
      * 
      * @class Row0_Col0
      * @constructor
     */
-    // change RLORoute and NavCardRoute to match your data
-    OER.Views.RLORoute.NavCardRoute = Backbone.View.extend({
+    // change LessonRoute and NavCardRoute to match your data
+    OER.Views.LessonRoute.NavCardRoute = Backbone.View.extend({
 
         /**
          *  template that provides html for this view.  This should be changed to
          *  match the template from your data
          *  @property template
          */
-        template: JST['app/content/RLOX/templates/Row0_Col0.ejs'],
+        template: JST['app/content/lessonX/templates/Row0_Col0.ejs'],
 
         // can be used to set up event handling on html from template
         // see http://backbonejs.org/ to learn more
@@ -48,13 +48,13 @@ OER.Views.RLORoute = OER.Views.RLORoute || {};
             }
             
             // check for quiz questions
-            var answers = $(".rlo-content-question-option", this.$el);
+            var answers = $(".lesson-content-question-option", this.$el);
             answers.on("click", this.handleAnswer.bind(this));
             
-            var reveals = $(".rlo-content-question-reveal", this.$el);
+            var reveals = $(".lesson-content-question-reveal", this.$el);
             reveals.on("click", this.handleReveal.bind(this));
             
-            var reset = $(".rlo-content-quiz-reset", this.$el);
+            var reset = $(".lesson-content-quiz-reset", this.$el);
             reset.on("click", this.handleQuizReset.bind(this));
         },
         
@@ -72,7 +72,7 @@ OER.Views.RLORoute = OER.Views.RLORoute || {};
             }
             
             var question = this.findQuestionDiv(event.currentTarget);
-            var target = $(".rlo-content-question-answer", question)[0];
+            var target = $(".lesson-content-question-answer", question)[0];
             if (target) {
                 target.innerHTML = answer;
             } else {
@@ -88,7 +88,7 @@ OER.Views.RLORoute = OER.Views.RLORoute || {};
         handleReveal: function(event) {
             var answer = event.currentTarget.dataset.answer;
             var question = this.findQuestionDiv(event.currentTarget);
-            var target = $(".rlo-content-question-answer", question)[0];
+            var target = $(".lesson-content-question-answer", question)[0];
             if (target) {
                 target.innerHTML = "  " + answer;
             } else {
@@ -103,7 +103,7 @@ OER.Views.RLORoute = OER.Views.RLORoute || {};
          */
         findQuestionDiv: function(element) {
             var question = element.parentNode;
-            while(!$(question).hasClass("rlo-content-question")) {
+            while(!$(question).hasClass("lesson-content-question")) {
                 question = question.parentNode;
             }
             return question;

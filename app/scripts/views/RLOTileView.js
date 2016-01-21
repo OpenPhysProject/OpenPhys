@@ -4,14 +4,14 @@ OER.Views = OER.Views || {};
     'use strict';
 
     /**
-     * RLOTileView is all the tile images on the homeView.
+     * LessonTileView is all the tile images on the homeView.
      * 
-     * @class RLOTileView
+     * @class LessonTileView
      * @constructor
     */    
-    OER.Views.RLOTileView = Backbone.View.extend({
+    OER.Views.LessonTileView = Backbone.View.extend({
 
-        template: JST['app/scripts/templates/RLOTileView.ejs'],
+        template: JST['app/scripts/templates/LessonTileView.ejs'],
 
         events: {
             "click":"handleClick"

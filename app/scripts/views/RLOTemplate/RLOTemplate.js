@@ -4,16 +4,16 @@ OER.Views = OER.Views || {};
     'use strict';
 
     /**
-     * RLOTemplate is the default view used by all content that does not require
+     * LessonTemplate is the default view used by all content that does not require
      * extra behavior.  These are automatically created.
      * 
-     * @class RLOTemplate
+     * @class LessonTemplate
      * @constructor
     */    
-    OER.Views.RLOTemplate = {
+    OER.Views.LessonTemplate = {
 
         // template that provides html for this view.  This is reset when the default views are generated.
-        template: JST['app/scripts/templates/RLOTemplate/Row0_Col0.ejs'],
+        template: JST['app/scripts/templates/LessonTemplate/Row0_Col0.ejs'],
 
         events: {},
 
@@ -40,13 +40,13 @@ OER.Views = OER.Views || {};
             }
             
             // check for quiz questions
-            var answers = $(".rlo-content-question-option", this.$el);
+            var answers = $(".lesson-content-question-option", this.$el);
             answers.on("click", this.handleAnswer.bind(this));
             
-            var reveals = $(".rlo-content-question-reveal", this.$el);
+            var reveals = $(".lesson-content-question-reveal", this.$el);
             reveals.on("click", this.handleReveal.bind(this));
             
-            var reset = $(".rlo-content-quiz-reset", this.$el);
+            var reset = $(".lesson-content-quiz-reset", this.$el);
             reset.on("click", this.handleQuizReset.bind(this));
         },
         
@@ -64,7 +64,7 @@ OER.Views = OER.Views || {};
             }
             
             var question = this.findQuestionDiv(event.currentTarget);
-            var target = $(".rlo-content-question-answer", question)[0];
+            var target = $(".lesson-content-question-answer", question)[0];
             if (target) {
                 target.innerHTML = answer;
             } else {
@@ -80,7 +80,7 @@ OER.Views = OER.Views || {};
         handleReveal: function(event) {
             var answer = event.currentTarget.dataset.answer;
             var question = this.findQuestionDiv(event.currentTarget);
-            var target = $(".rlo-content-question-answer", question)[0];
+            var target = $(".lesson-content-question-answer", question)[0];
             if (target) {
                 target.innerHTML = "  " + answer;
             } else {
@@ -95,7 +95,7 @@ OER.Views = OER.Views || {};
          */
         findQuestionDiv: function(element) {
             var question = element.parentNode;
-            while(!$(question).hasClass("rlo-content-question")) {
+            while(!$(question).hasClass("lesson-content-question")) {
                 question = question.parentNode;
             }
             return question;

@@ -16,10 +16,10 @@
     
     p.homeView = null;      // jquery object, contains all tileViews
     p.outroTile = null;     // jquery object, tile
-    p.RLOBaseView = null;   // backbone view, common container for all content views
+    p.LessonBaseView = null;   // backbone view, common container for all content views
     p.loader = null;        // js object, handles loading distractor
     p.logo = null;          // jquery object, handles logo
-    p.RLOs = null;          // backbone RLO collection, stores all content data
+    p.lessons = null;          // backbone lesson collection, stores all content data
     
     /**
      * setup properties, load data, create views, kick off application
@@ -27,7 +27,7 @@
      */
     p.init = function () {
         this.loader = new scope.Loader();
-        this.homeView = $(".rlo-list");
+        this.homeView = $(".lesson-list");
         this.outroTile = $(".outro-tile", this.homeView);
         this.logo = $(".logo");
         
@@ -37,8 +37,8 @@
         this.loadData();
         this.createTileView();
         
-        this.RLOBaseView = new OER.Views.RLOBaseView(this.RLOs.at(0));
-        $(".rlo-view-container").append(this.RLOBaseView.el);
+        this.LessonBaseView = new OER.Views.LessonBaseView(this.lessons.at(0));
+        $(".lesson-view-container").append(this.LessonBaseView.el);
         
         // todo start preloading assets with PreloadJS
         this.setUpRouter();
@@ -53,42 +53,42 @@
      */
     p.setTileMinHeight = function () {
         var introTile =   $(".intro-tile", this.homeView);
-        var h = $(".rlo-tile-content-container-intro", introTile).height() + this.logo.outerHeight() + this.logo.position().top;
+        var h = $(".lesson-tile-content-container-intro", introTile).height() + this.logo.outerHeight() + this.logo.position().top;
         introTile.css("min-height", h);
         
-        h = $(".rlo-tile-content-container", this.outroTile).height();
+        h = $(".lesson-tile-content-container", this.outroTile).height();
         this.outroTile.css("min-height", h);
     };
       
     /**
-     * Load all RLO data into collection
+     * Load all lesson data into collection
      * @method loadData
      */
     p.loadData = function () {
-       this.RLOs = new scope.Collections.RLOCollection();
-       var m = new scope.Models.RLOModel(OER.data.Intro, {parse: true, viewPath: "Intro"});
-       this.RLOs.add(m);
+       this.lessons = new scope.Collections.LessonCollection();
+       var m = new scope.Models.LessonModel(OER.data.Intro, {parse: true, viewPath: "Intro"});
+       this.lessons.add(m);
        
-       var m = new scope.Models.RLOModel(OER.data.RLO1, {parse: true, viewPath: "RLO1"});
-       this.RLOs.add(m);
+       var m = new scope.Models.LessonModel(OER.data.lesson1, {parse: true, viewPath: "lesson1"});
+       this.lessons.add(m);
        
-       m  =  new scope.Models.RLOModel(OER.data.RLO2, {parse: true, viewPath: "RLO2"});
-       this.RLOs.add(m);
+       m  =  new scope.Models.LessonModel(OER.data.lesson2, {parse: true, viewPath: "lesson2"});
+       this.lessons.add(m);
   
-       m  =  new scope.Models.RLOModel(OER.data.RLO3, {parse: true, viewPath: "RLO3"});
-       this.RLOs.add(m);
+       m  =  new scope.Models.LessonModel(OER.data.lesson3, {parse: true, viewPath: "lesson3"});
+       this.lessons.add(m);
  
-       m  =  new scope.Models.RLOModel(OER.data.RLO5, {parse: true, viewPath: "RLO5"});
-       this.RLOs.add(m);       
+       m  =  new scope.Models.LessonModel(OER.data.lesson5, {parse: true, viewPath: "lesson5"});
+       this.lessons.add(m);       
         
-       m  =  new scope.Models.RLOModel(OER.data.RLO6, {parse: true, viewPath: "RLO6"});
-       this.RLOs.add(m);    
+       m  =  new scope.Models.LessonModel(OER.data.lesson6, {parse: true, viewPath: "lesson6"});
+       this.lessons.add(m);    
        
-       m  =  new scope.Models.RLOModel(OER.data.RLO7, {parse: true, viewPath: "RLO7"});
-       this.RLOs.add(m); 
+       m  =  new scope.Models.LessonModel(OER.data.lesson7, {parse: true, viewPath: "lesson7"});
+       this.lessons.add(m); 
        
-       m  =  new scope.Models.RLOModel(OER.data.Sandbox, {parse: true, viewPath: "Sandbox"});
-       this.RLOs.add(m);      
+       m  =  new scope.Models.LessonModel(OER.data.Sandbox, {parse: true, viewPath: "Sandbox"});
+       this.lessons.add(m);      
     };
     
     /**
@@ -101,7 +101,7 @@
 
         // Listen for specific changes
         scope.router.on("route:default", this.showHomeView, this);
-        scope.router.on("route:rlo", this.showRLOView, this);
+        scope.router.on("route:lesson", this.showLessonView, this);
 
         this.parseFirstRoute();
         Backbone.history.start({ pushState: true });
@@ -125,34 +125,34 @@
     };
 
     /**
-     * parse RLO collection and create related tile views shown in homeView
+     * parse lesson collection and create related tile views shown in homeView
      * @method createTileView
      */
     p.createTileView = function() {
         var v;
-        for (var i = 0, l = this.RLOs.length; i < l; i++ ) {
-            v = new scope.Views.RLOTileView({model:this.RLOs.at(i)});
+        for (var i = 0, l = this.lessons.length; i < l; i++ ) {
+            v = new scope.Views.LessonTileView({model:this.lessons.at(i)});
             this.outroTile.before(v.el);
         }
     };
     
     /**
-     * transition out the RLOBaseView and set timeout to transition in the homeView
+     * transition out the LessonBaseView and set timeout to transition in the homeView
      * @method showHomeView
      */
     p.showHomeView = function() {
-        this.RLOBaseView.out();
+        this.LessonBaseView.out();
         
         setTimeout(this.showHomeViewHide.bind(this), OER.settings.MAIN_TO_CONTENT);
     };
     
     /**
-     * hide RLOBaseView and remove hidden from homeView.  Set timeout to 
+     * hide LessonBaseView and remove hidden from homeView.  Set timeout to 
      * transition in homeView
      * @method showHomeViewHide
      */
     p.showHomeViewHide = function() {
-        this.RLOBaseView.hide();
+        this.LessonBaseView.hide();
         this.homeView.removeClass("hidden");
         setTimeout(this.showHomeViewIn.bind(this), 33);
     };
@@ -172,25 +172,25 @@
     }
     
     /**
-     * Show an RLO content view, triggered by routing to an rlo.
-     * @param {string} rloRoute  First path in url
+     * Show an lesson content view, triggered by routing to an lesson.
+     * @param {string} LessonRoute  First path in url
      * @param {string} contentRoute  Second path in url
-     * @method showRLOView
+     * @method showLessonView
      */
-    p.showRLOView = function(rloRoute, contentRoute) {
-        var m = this.RLOs.findWhere({route: rloRoute}, {ignoreCase: true});
+    p.showLessonView = function(LessonRoute, contentRoute) {
+        var m = this.lessons.findWhere({route: LessonRoute}, {ignoreCase: true});
         if(!m) {
             scope.router.go("");
             return;
         }
-        rloRoute = m.get("route");  // sanitize case
+        LessonRoute = m.get("route");  // sanitize case
         
         // tranisition out homeView
         this.homeView.removeClass("in");
         this.homeView.addClass("out");
         this.logo.addClass("mini");
         
-        this.RLOBaseView.updateModel(m);
+        this.LessonBaseView.updateModel(m);
         
         // determine if we have already visited this learning object.  If so, return to same place
         var lcc = m.get("lastCurrentCollection");
@@ -200,19 +200,19 @@
         
         var showIntro = true;
         if(contentRoute) {
-            scope.router.noEventReplaceHistoryGo(rloRoute+"/"+contentRoute);
-            this.RLOBaseView.updateSubViews(contentRoute);
+            scope.router.noEventReplaceHistoryGo(LessonRoute+"/"+contentRoute);
+            this.LessonBaseView.updateSubViews(contentRoute);
             showIntro = false;
         }
         
         var homeView = this.homeView;       // for function hoisting
-        var RLOBaseView = this.RLOBaseView; // for function hoisting
+        var LessonBaseView = this.LessonBaseView; // for function hoisting
         setTimeout(function () {
             homeView.addClass("hidden");
             if (showIntro) {
-                RLOBaseView.showIntro();
+                LessonBaseView.showIntro();
             } else {
-                RLOBaseView.show();
+                LessonBaseView.show();
             }
         }, OER.settings.MAIN_TO_CONTENT);
     };
