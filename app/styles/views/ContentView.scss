@@ -36,6 +36,12 @@ $button-bar-size: $ui-button-width + $padding-small*3;
    font-size: $fontSize-body;
 }
 
+.lesson-content-left {
+   font: $fontFamily-default;
+   font-size: $fontSize-body;
+   float: left;
+}
+
 .lesson-content-image {
   margin: 0.5rem;
   width: 100%;
