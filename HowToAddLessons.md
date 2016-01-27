@@ -22,9 +22,9 @@ templates
 views
 
 #### Add data.js file to new folder
-1. In app/content/Lesson1 you can find working data.js example.
+1. In the app/content/samples folder you will find a well documented data.js example.
 2. In the folder you created for your lesson, create a new file named data.js, 
-or copy one of the existing files.
+or copy an existing one.
 3. Edit the properties, which are mostly self explanatory.  
   1. route is used for the subpath url and name spacing related views.
   2. primaryPathIndex is used to indicate a primary path through the content, and the
@@ -35,7 +35,7 @@ scope.myLesson = s;
 
 #### Add Template files to new folder
 1. go to app/content/[yourLessonFolder]/templates folder
-2. copy app/scripts/templates/lessonTemplate/Row0_Col0.ejs into your new folder as a starting point
+2. copy app/content/samples/templates/Row0_Col0.ejs into your new folder as a starting point
 3. create templates for all of your content, which should match contentMapData.    
 Note contentMapData index is row and the 2nd arrow is column.  Both start at 0 
 and must be used for your file name.
@@ -75,7 +75,7 @@ you will need to create a new view.
 For instructions on how to add a new view, see app/content/HowToAddLessonCode.md
 
 #### Add any needed custom styles
-Content will generally use the standard provided style (from styles/views/ContentView.scss)
+Content will generally use the standard provided style (from app/styles/views/ContentView.scss)
 You can add custom styles when needed if you need your content to do something 
 visually different.
 For instructions on how to add a new view, see app/content/HowToAddLessonStyle.md

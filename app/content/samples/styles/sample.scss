@@ -1,0 +1,10 @@
+// this is a sass file that can define custom styles for this lesson, if they are needed
+// style files like this one need to be added to app/styles/app.scss
+$sample-variable: 1.5rem;   // this is a sass variable, useful when using a value repeatedly
+
+// a class definition, which would be added to an html element to apply this style
+.sample-style {
+    display: inline-block;
+    width: $sample-variable;
+    height: $sample-variable;
+}
