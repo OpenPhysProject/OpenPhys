@@ -6,7 +6,7 @@
 3. Add file to Index.html
 
 #### Add new file
-1. You will find a well documented example in the app/content/samples/views/Row0_Col0.js
+1. You will find a well documented example in the app/content/sample/views/Row0_Col0.js
 2. GoTo app/content/[yourLesson]/views
 3. copy app/scripts/views/lessonTemplate/Row0_Col0.js into the new folder as a starting point.
 4. renamed the copied file to match the template file it is associated with, for example Row0_Col3

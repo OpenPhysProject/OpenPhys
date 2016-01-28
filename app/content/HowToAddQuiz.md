@@ -12,7 +12,7 @@
 6. Add Reset Button
 
 #### Add new file
-1. You will find an example quiz in the app/content/samples/views/Row0_Col1.js, which can be copied as a starting point.
+1. You will find an example quiz in the app/content/sample/views/Row0_Col1.js, which can be copied as a starting point.
 1. Create or edit a content template file.
 2. You do not need to create a view, as quiz code is handled by the default view.
 
