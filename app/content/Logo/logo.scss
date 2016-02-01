@@ -121,7 +121,7 @@ $logo-ratio-huge: 0.36;
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: $bp_width_small_phone) {
     .logo {
         @include logo-ratio($logo-ratio-huge,1);
     }
