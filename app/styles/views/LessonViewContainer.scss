@@ -1,0 +1,12 @@
+// class for containing div that holds both tile view and lesson view
+.lesson-view-container {
+    position: absolute;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    right: 1px;
+    height: 100%;
+    font-family: $fontFamily-default;
+    font-size: $fontSize-small;
+    @include user-select(none);
+}

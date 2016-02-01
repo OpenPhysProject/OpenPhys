@@ -1,3 +1,6 @@
+// NOTE this file uses sass variables defined in app/styles/settings files
+
+// Sass mixin that sets visibility of parts of the logo
 @mixin logo-ratio($ratio,$logo-show-state) {
     $logo-width: percentage($ratio);
 
@@ -32,6 +35,7 @@
     width:$logo-width;
 }
 
+// Sass variables used to alter logo size
 $logo-ratio-small: 0.10;
 $logo-ratio-medium: 0.16;
 $logo-ratio-large: 0.18;
@@ -83,6 +87,7 @@ $logo-ratio-huge: 0.36;
     }
 }
 
+// breakpoints used to set logo width and visibility
 @media screen and (max-width: 1200px) {
     .logo {
         @include logo-ratio($logo-ratio-small,1);

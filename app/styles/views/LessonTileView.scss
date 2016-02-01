@@ -1,21 +1,13 @@
+// Sass variables used only in this file ******************************************
 $outro-margin-base: 1.5rem;
 $tile-margin: 0.5rem;
 
-@mixin transitionSetting{
+
+// Sass mixin included in some classes ******************************************
+@mixin transitionSetting {
     transition-property: opacity;
     transition-timing-function: ease-in-out;
     transition-duration: $duration-long;
-}
-.lesson-view-container{
-    position: absolute;
-    margin: 0 auto;
-    top: 0;
-    left: 0;
-    right: 1px;
-    height: 100%;
-    font-family: $fontFamily-default;
-    font-size: $fontSize-small;
-    @include user-select(none);
 }
 
 @mixin aspect-ratio($col-number) {
@@ -27,8 +19,8 @@ $tile-margin: 0.5rem;
 
 
 // lesson TILE ********************************************************************
+// This sets the appearance of the tiles
 .lesson-tile {
-    // This sets the appearance of the tiles
     //height: 0;
     @include transitionSetting;
     position: relative;
@@ -45,8 +37,8 @@ $tile-margin: 0.5rem;
 
 .lesson-tile-container {
     margin-top:100%;
-  
 }
+
 .lesson-tile-inner{
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,.3);
     position:absolute;
@@ -54,8 +46,8 @@ $tile-margin: 0.5rem;
     bottom: 0;
     left: 0;
     right: 0;
-    &:hover {
 
+    &:hover {
         >.lesson-tile-preview {
             transition-duration:10s;
             transform:scale(1.3) translate(-50%, -50%);
@@ -69,6 +61,7 @@ $tile-margin: 0.5rem;
         }
     }
 }
+
 .lesson-tile-preview {
     position: absolute;
     max-width: 100%;
@@ -94,7 +87,6 @@ $tile-margin: 0.5rem;
     background: $color_gray-darkest;
     opacity: 0.5;
 }
-// opacity: 0.8;
 
 .lesson-tile-title{
     font-family: $fontFamily-title;
