@@ -1,3 +1,10 @@
+/*******************************************************************************
+The home page contains multiple lesson tiles
+
+Defines styles for home page tile view, the individual tiles, and the intro and
+outro tiles
+*******************************************************************************/
+
 // Sass variables used only in this file ******************************************
 $outro-margin-base: 1.5rem;
 $tile-margin: 0.5rem;
@@ -10,6 +17,7 @@ $tile-margin: 0.5rem;
     transition-duration: $duration-long;
 }
 
+// sets the width of the lesson-tiles
 @mixin aspect-ratio($col-number) {
     $width: calc(#{percentage(1/$col-number)} - #{$tile-margin});
     .lesson-tile {
@@ -20,6 +28,7 @@ $tile-margin: 0.5rem;
 
 // lesson TILE ********************************************************************
 // This sets the appearance of the tiles
+// lesson-tile is the top level container
 .lesson-tile {
     //height: 0;
     @include transitionSetting;
@@ -30,17 +39,17 @@ $tile-margin: 0.5rem;
     cursor: pointer;
     background: $color_background-gradient;
    //box-shadow: 0px 0px 0.5px 1px rgba(0,0,0,.3);
-   border: 5px outset #c0c0c0;
-   border-width: 2px 4px 4px 2px;
    // top right bottom left      
 }
-
+// tile container is inside the lesson tile
 .lesson-tile-container {
     margin-top:100%;
 }
-
+// inner is inside the tile container
 .lesson-tile-inner{
-    box-shadow: 1px 1px 1px 1px rgba(0,0,0,.3);
+   border: 5px outset #c0c0c0;
+   border-width: 2px 4px 4px 2px;
+//    box-shadow: 1px 1px 1px 1px rgba(0,0,0,.3);
     position:absolute;
     top: 0;
     bottom: 0;
@@ -48,6 +57,8 @@ $tile-margin: 0.5rem;
     right: 0;
 
     &:hover {
+        border: 10px outset black;
+        
         >.lesson-tile-preview {
             transition-duration:10s;
             transform:scale(1.3) translate(-50%, -50%);
@@ -55,13 +66,9 @@ $tile-margin: 0.5rem;
         >.lesson-tile-title-container {
             opacity: 1.0;
         }
-        >.lesson-tile {
-            //JCS hmm does not work
-            border: 10px outset black;
-        }
     }
 }
-
+// the image shown on the tile
 .lesson-tile-preview {
     position: absolute;
     max-width: 100%;
@@ -78,6 +85,7 @@ $tile-margin: 0.5rem;
     transform: translate(-50%, -50%);
 }
 
+// this is inside inner
 .lesson-tile-title-container{
     @include transitionSetting;
     position: absolute;
@@ -96,6 +104,7 @@ $tile-margin: 0.5rem;
     color: $color_white-default;
 }
 
+// not used
 .lesson-tile-info{
     position: absolute;
     padding-left: $padding-small;

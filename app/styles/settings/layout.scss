@@ -11,6 +11,7 @@ LAYOUT
 
 /*******************************************
 PADDING
+can be used anywhere' so dont change these'
 *******************************************/
 $padding-largest: 8rem;
 $padding-large:   6rem;
@@ -28,5 +29,5 @@ ELEMENT SIZE
 ******************************************/
 $nav-card-size: 8rem;
 $nav-card-margin: 0.5rem;
-$ui-button-width: 5rem;
-$ui-button-min-width: 44px;
+$ui-button-width: 5rem;     // eg arrows
+$ui-button-min-width: 44px; // minimum size needed for UI elements on touch devices
