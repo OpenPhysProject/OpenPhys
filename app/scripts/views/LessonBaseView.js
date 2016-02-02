@@ -16,7 +16,7 @@ OER.Views = OER.Views || {};
     p.template = JST['app/scripts/templates/LessonBaseView.ejs'];
 
     p.title = null;             // dom title div
-    p.navView = null;           // NavView
+    p.mapView = null;           // MapView
     p.content = null;           // Content specific views, ie OER.Views.lesson1.L200_2
     p.contentUpdateBind = null; // bound function for handling events
     p.oldContent = null;        // content specific views that are being transitioned out
@@ -127,18 +127,18 @@ OER.Views = OER.Views || {};
         if (this.content) {
             this.content.remove();
             this.content = null;
-            this.navView.off();
-            this.navView.destroy();
+            this.mapView.off();
+            this.mapView.destroy();
         }
         this.model = newModel;
         this.model.on("change:current", this.handleCurrentChange, this);
 
         this.title.html(this.model.get("title"));
 
-        this.navView = new OER.Views.NavView({model: this.model});
-        this.$el.append(this.navView.el);
+        this.mapView = new OER.Views.MapView({model: this.model});
+        this.$el.append(this.mapView.el);
         var that = this;
-        this.navView.on("toggleShow", function() {
+        this.mapView.on("toggleShow", function() {
             that.$el.toggleClass("no-scroll");
         });
     };
@@ -150,14 +150,14 @@ OER.Views = OER.Views || {};
      */
     p.updateSubViews = function (targetView) {
         var contentMap = this.model.get("contentMap");
-        var navCardModel;
+        var MapCardModel;
         for (var l = contentMap.length; l--; ) {
-            navCardModel = contentMap[l].findWhere({"route": targetView}, {ignoreCase: true});
-            if (navCardModel) {
-                if (navCardModel.get("current")) {
-                    this.handleCurrentChange(navCardModel);
+            MapCardModel = contentMap[l].findWhere({"route": targetView}, {ignoreCase: true});
+            if (MapCardModel) {
+                if (MapCardModel.get("current")) {
+                    this.handleCurrentChange(MapCardModel);
                 } else {
-                    navCardModel.set("current", true);
+                    MapCardModel.set("current", true);
                 }
                 break;
             }
@@ -170,7 +170,7 @@ OER.Views = OER.Views || {};
      * @method toggleNav
      */
     p.toggleNav = function () {
-        this.navView.toggleNav();
+        this.mapView.toggleNav();
         window.scrollTo(0, 1);   // hide chrome on mobile browser
     };
 
@@ -231,16 +231,16 @@ OER.Views = OER.Views || {};
     p.showIntro = function () {
         this.firstView = true;
         this._show();
-        this.navView.toggleNav();
-        var navView = this.navView; // for hoisting in timeout
+        this.mapView.toggleNav();
+        var MapView = this.mapView; // for hoisting in timeout
         var introModel = this.model.get("contentMap")[this.model.get("primaryPathIndex")].at(0);
         setTimeout(function () {
             //OER.router.noEventReplaceHistoryGo("");
             introModel.set("current", true);
         }, OER.settings.FIRST_SHOW);
         setTimeout(function () {
-            navView.toggleNav();
-        }, OER.settings.FIRST_SHOW + OER.settings.CLOSE_NAV);
+            MapView.toggleNav();
+        }, OER.settings.FIRST_SHOW + OER.settings.CLOSE_MAP);
     };
 
 // Navigation ********************************************************************
@@ -396,7 +396,7 @@ OER.Views = OER.Views || {};
      * @method handleSwipe
      */
     p.handleSwipe = function (event) {
-        if (this.navView.$el.hasClass("in")) { return; } 
+        if (this.mapView.$el.hasClass("in")) { return; } 
         var change = {data: {row: 0, col: 0}};
         switch (event.type) {
             case 'swiperight':

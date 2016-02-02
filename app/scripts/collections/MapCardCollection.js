@@ -4,17 +4,17 @@ OER.Collections = OER.Collections || {};
     'use strict';
 
     /**
-     * NavCardCollection is a backbone collection of NavCardModels which is 
+     * MapCardCollection is a backbone collection of MapCardModels which is 
      * used for the cards in the navigation map view.
      * 
-     * @class NavCardCollection
+     * @class MapCardCollection
      * @constructor
     */
-    OER.Collections.NavCardCollection = Backbone.Collection.extend({
+    OER.Collections.MapCardCollection = Backbone.Collection.extend({
         
-        model: OER.Models.NavCardModel, // backbone model
+        model: OER.Models.MapCardModel, // backbone model
         
-        lastCurrent: null,              // NavCardModel, used for tracking the last current page
+        lastCurrent: null,              // MapCardModel, used for tracking the last current page
         
         /**
          * Setup collection to start using it
@@ -26,7 +26,7 @@ OER.Collections = OER.Collections || {};
         },
         
         /**
-         * Change the NavCardModel that is marked as current.
+         * Change the MapCardModel that is marked as current.
          * @param {backbone Model} model
          * @param {boolean} value
          * @method setLastCurrent
@@ -41,7 +41,7 @@ OER.Collections = OER.Collections || {};
         },
         
         /**
-         * Turn off the current property in NavCardModel and unset
+         * Turn off the current property in MapCardModel and unset
          * @method removeCurrent
          */
         removeCurrent: function() {

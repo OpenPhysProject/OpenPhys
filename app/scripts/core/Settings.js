@@ -21,7 +21,7 @@
     var s = {};
 
     s.MAIN_TO_CONTENT = t.duration_default; // delay when switching between home/tile view and base/content view
-    s.CLOSE_NAV = t.duration_default;       // delay before closing NavView after card selected
+    s.CLOSE_MAP = t.duration_default;       // delay before closing MapView after card selected
     s.FIRST_SHOW = t.duration_default;      // delay before a nav card is selected
     s.TRANS_CONTENT = t.duration_long;
     

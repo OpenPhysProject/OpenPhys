@@ -4,18 +4,18 @@ OER.Views = OER.Views || {};
     'use strict';
 
     /**
-     * NavView handles nav map view rendering and behavior
+     * MapView handles navigation map view rendering and behavior
      * 
-     * @class NavView
+     * @class MapView
      * @constructor
     */    
-    OER.Views.NavView = Backbone.View.extend({
-        template: JST['app/scripts/templates/NavView.ejs'],
+    OER.Views.MapView = Backbone.View.extend({
+        template: JST['app/scripts/templates/MapView.ejs'],
         events: {},
-        primaryPathIndex: null, // int  indicate which nav collection is the primary path
-        contentMap: null,       // array     contains nav card collections
+        primaryPathIndex: null, // int  indicate which map collection is the primary path
+        contentMap: null,       // array     contains map card collections
         closeTimeout: null,     // timeoutID    used for setTimeout to allow animation time before close
-        navcardViews: null,     // array of NavCardView, used to properly cleanup
+        mapCardViews: null,     // array of MapCardView, used to properly cleanup
         
 
         /**
@@ -25,7 +25,7 @@ OER.Views = OER.Views || {};
         initialize: function () {
             this.loadContentMap();
             this.render();
-            this.setNavCardViews();
+            this.setMapCardViews();
         },
         
         /**
@@ -46,27 +46,27 @@ OER.Views = OER.Views || {};
         },
         
         /**
-         * parse contentMap data to create navCards that make up map view
-         * @method setNavCardViews
+         * parse contentMap data to create MapCards that make up map view
+         * @method setMapCardViews
          */
-        setNavCardViews: function () {
-            this.navCardViews = [];
-            var navCardView = null;
+        setMapCardViews: function () {
+            this.mapCardViews = [];
+            var mapCardView = null;
             var newdiv = null;
             for (var i = 0, l = this.contentMap.length; i < l; i++) {
                 newdiv = document.createElement('div');
-                newdiv.className = 'nav-collection';
+                newdiv.className = 'map-collection';
                 if (i === this.primaryPathIndex) {
                     newdiv.className += ' primary';
                 }
                 for (var j = 0, n = this.contentMap[i].length; j < n; j++) {
                     var m = this.contentMap[i].at(j);
-                    navCardView = new OER.Views.NavCardView({model: m});
+                    mapCardView = new OER.Views.MapCardView({model: m});
                     if (m.get("title") != "") {
-                        navCardView.$el.on("click", this.handleCardClick.bind(this));
+                        mapCardView.$el.on("click", this.handleCardClick.bind(this));
                     }
-                    $(newdiv).append(navCardView.el);
-                    this.navCardViews.push(navCardView);
+                    $(newdiv).append(mapCardView.el);
+                    this.mapCardViews.push(mapCardView);
                 }
                 this.$el.append(newdiv);
             }
@@ -78,7 +78,7 @@ OER.Views = OER.Views || {};
          */
         handleCardClick: function () {
             window.clearTimeout(this.closeTimeout);
-            this.closeTimeout = window.setTimeout(this.toggleNav.bind(this), OER.settings.CLOSE_NAV);
+            this.closeTimeout = window.setTimeout(this.toggleNav.bind(this), OER.settings.CLOSE_MAP);
         },
         
         /**
@@ -90,14 +90,14 @@ OER.Views = OER.Views || {};
             this.$el.toggleClass("out");
             this.$el.toggleClass("in");
             this.trigger("toggleShow");
-            var currentNavCard = $(".current", this.$el);
-            if (this.$el.hasClass("in") && currentNavCard.length !== 0) {
+            var currentMapCard = $(".current", this.$el);
+            if (this.$el.hasClass("in") && currentMapCard.length !== 0) {
                 // container - card - scroll bars
-                var w = this.$el.width() - currentNavCard.outerWidth(true) - 50;    
-                var h = this.$el.height() - currentNavCard.outerHeight(true) - 25;
+                var w = this.$el.width() - currentMapCard.outerWidth(true) - 50;    
+                var h = this.$el.height() - currentMapCard.outerHeight(true) - 25;
                 var scale = 0.2; // css transform value
-                this.$el.scrollTop(currentNavCard.position().top/scale  - h / 2 + this.$el.scrollTop());
-                this.$el.scrollLeft(currentNavCard.position().left/scale - w / 2 + this.$el.scrollLeft() );
+                this.$el.scrollTop(currentMapCard.position().top/scale  - h / 2 + this.$el.scrollTop());
+                this.$el.scrollLeft(currentMapCard.position().left/scale - w / 2 + this.$el.scrollLeft() );
                 /* OJR we could animate these, but it doesn't feel right to me
                 this.$el.animate({ scrollTop: currentNavCard.position().top/scale  - h / 2 + this.$el.scrollTop(),
                                 scrollLeft: currentNavCard.position().left/scale - w / 2 + this.$el.scrollLeft()
@@ -111,8 +111,8 @@ OER.Views = OER.Views || {};
          * @method destroy
          */
         destroy: function () {
-            for (var l = this.navCardViews.length; l--; ) {
-                this.navCardViews[l].remove();
+            for (var l = this.mapCardViews.length; l--; ) {
+                this.mapCardViews[l].remove();
             }
             this.remove();
         }

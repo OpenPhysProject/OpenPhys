@@ -4,15 +4,15 @@ OER.Views = OER.Views || {};
     'use strict';
 
     /**
-     * NavCardView is to add behavior to cards on nav map view.
+     * MapCardView is to add behavior to cards on navigation map view.
      * 
-     * @class NavCardView
+     * @class MapCardView
      * @constructor
     */    
-    OER.Views.NavCardView = Backbone.View.extend({
+    OER.Views.MapCardView = Backbone.View.extend({
         
-        templateWithContent: JST['app/scripts/templates/NavCardView.ejs'],
-        templateEmpty: JST['app/scripts/templates/NavCardViewEmpty.ejs'],
+        templateWithContent: JST['app/scripts/templates/MapCardView.ejs'],
+        templateEmpty: JST['app/scripts/templates/MapCardViewEmpty.ejs'],
         
         events: {
             'click': 'setCurrent'

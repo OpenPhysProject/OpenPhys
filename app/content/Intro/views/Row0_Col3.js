@@ -11,7 +11,7 @@ OER.Views.Instructions = OER.Views.Instructions || {};
      * @class Row0_Col0
      * @constructor
     */
-    // change lessonRoute and NavCardRoute to match your data
+    // change lessonRoute and MapCardRoute to match your data
     OER.Views.Instructions.Logo = Backbone.View.extend({
 
         /**

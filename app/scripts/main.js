@@ -16,7 +16,7 @@
     
     p.homeView = null;      // jquery object, contains all tileViews
     p.outroTile = null;     // jquery object, tile
-    p.LessonBaseView = null;   // backbone view, common container for all content views
+    p.lessonBaseView = null;   // backbone view, common container for all content views
     p.loader = null;        // js object, handles loading distractor
     p.logo = null;          // jquery object, handles logo
     p.lessons = null;          // backbone lesson collection, stores all content data
@@ -37,8 +37,8 @@
         this.loadData();
         this.createTileView();
         
-        this.LessonBaseView = new OER.Views.LessonBaseView(this.lessons.at(0));
-        $(".lesson-view-container").append(this.LessonBaseView.el);
+        this.lessonBaseView = new OER.Views.LessonBaseView(this.lessons.at(0));
+        $(".lesson-view-container").append(this.lessonBaseView.el);
         
         // todo start preloading assets with PreloadJS
         this.setUpRouter();
@@ -141,7 +141,7 @@
      * @method showHomeView
      */
     p.showHomeView = function() {
-        this.LessonBaseView.out();
+        this.lessonBaseView.out();
         
         setTimeout(this.showHomeViewHide.bind(this), OER.settings.MAIN_TO_CONTENT);
     };
@@ -152,7 +152,7 @@
      * @method showHomeViewHide
      */
     p.showHomeViewHide = function() {
-        this.LessonBaseView.hide();
+        this.lessonBaseView.hide();
         this.homeView.removeClass("hidden");
         setTimeout(this.showHomeViewIn.bind(this), 33);
     };
@@ -190,7 +190,7 @@
         this.homeView.addClass("out");
         this.logo.addClass("mini");
         
-        this.LessonBaseView.updateModel(m);
+        this.lessonBaseView.updateModel(m);
         
         // determine if we have already visited this learning object.  If so, return to same place
         var lcc = m.get("lastCurrentCollection");
@@ -201,12 +201,12 @@
         var showIntro = true;
         if(contentRoute) {
             scope.router.noEventReplaceHistoryGo(LessonRoute+"/"+contentRoute);
-            this.LessonBaseView.updateSubViews(contentRoute);
+            this.lessonBaseView.updateSubViews(contentRoute);
             showIntro = false;
         }
         
         var homeView = this.homeView;       // for function hoisting
-        var LessonBaseView = this.LessonBaseView; // for function hoisting
+        var LessonBaseView = this.lessonBaseView; // for function hoisting
         setTimeout(function () {
             homeView.addClass("hidden");
             if (showIntro) {

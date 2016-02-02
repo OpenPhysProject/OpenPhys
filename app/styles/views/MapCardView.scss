@@ -1,10 +1,10 @@
-.nav-card-view {
-    width: $nav-card-size*1.5;
-    height: $nav-card-size;
+.map-card-view {
+    width: $map-card-size*1.5;
+    height: $map-card-size;
     display: inline-block;
     vertical-align: top;
-    margin-left: $nav-card-margin;
-    margin-top: $nav-card-margin;
+    margin-left: $map-card-margin;
+    margin-top: $map-card-margin;
     white-space: normal;
     background: $color_gray-darker;
     cursor: pointer;
@@ -15,20 +15,20 @@
     }
     &.visited{
         background: $color_gray-light;
-        .nav-card-title {
+        .map-card-title {
            color:  $color_gray-dark;
         }
     }
     &.current{
         background: $color_gray-lighter;
-         .nav-card-title {
+         .map-card-title {
            color:  $color_gray-darkest;
         }
-        box-shadow: 0px 0px 3px 3px $color_nav_card_highlight;
+        box-shadow: 0px 0px 3px 3px $color_map_card_highlight;
     }
 }
  
-.nav-card-title{
+.map-card-title{
     padding-left:0.2rem;
     font: $fontFamily-title;
     font-size: $fontSize-small;

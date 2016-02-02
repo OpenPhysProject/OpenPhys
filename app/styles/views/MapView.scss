@@ -1,4 +1,4 @@
-.nav-view {
+.map-view {
     position: fixed;
     top: 0;
     left: 0;
@@ -7,7 +7,7 @@
     z-index: $z-mg;
     padding: $padding-small;
     padding-bottom: $ui-button-width+$padding-small*3;
-    background: $color_nav_view_background;
+    background: $color_map_view_background;
     overflow: auto;
 
     &.in {
@@ -25,13 +25,13 @@
     }
 }
 
-.nav-collection{
+.map-collection{
     width: fit-content;
-    padding-right: $padding-small+$nav-card-margin;
+    padding-right: $padding-small+$map-card-margin;
     white-space: nowrap;
 }
 
-.nav-view-title {
+.map-view-title {
     font: $fontFamily-title;
     font-size: $fontSize-large;
     font-weight: 900;

@@ -39,7 +39,7 @@ OER.Views.Compton = OER.Views.Compton || {};
     /**
      * backbone initialize function
      * called on creation by OER.LessonBaseView.updateContent
-     * @param {Backbone.Model} model A NavCardModel with related data 
+     * @param {Backbone.Model} model A MapCardModel with related data 
      */
     p.initialize = function (model) {
         if (model) { this.model = model; }

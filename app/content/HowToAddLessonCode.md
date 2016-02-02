@@ -16,7 +16,7 @@
 OER.Views.MoreParticles = OER.Views.MoreParticles || {};
 
 7. change line 7, replace lessonRoute with the route property of the related data file, as above,
-and changing the NavCardRoute with the route property of related entry in contentMapData.  
+and changing the MapCardRoute with the route property of related entry in contentMapData.  
 ```
 OER.Views.MoreParticles.MakeAParty = Backbone.View.extend({
 ```

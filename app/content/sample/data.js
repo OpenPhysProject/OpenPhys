@@ -19,7 +19,7 @@
             },
             {   title:"sample quiz", route:"sampleQuiz" },
             // more pages can be added to this path by adding more entries with {title, route},
-            // {title:"", image:"", route:""} creates an empty gap in the 2D navView
+            // {title:"", image:"", route:""} creates an empty gap in the 2D mapView
         ],
         // more paths can be added to this lesson by adding an array with pages [{title, route}, {title, route}]
     ];

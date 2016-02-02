@@ -17,16 +17,16 @@ OER.Models = OER.Models || {};
             route:"",
             selected: false,
             info: '',
-            primaryPathIndex: null,     // index of main NavCardCollection in contentMap
-            contentMap: null,           // 2D array of NavCardCollection
+            primaryPathIndex: null,     // index of main MapCardCollection in contentMap
+            contentMap: null,           // 2D array of MapCardCollection
             lastCurrentCollection: null,
             jumpNav: false,
         },
         
         /**
          * backbone parse function, doing the following for us
-         * - change data from an array to a NavCardCollection
-         * - add change listeners to each NavCardCollection so we only ever have 1 current
+         * - change data from an array to a MapCardCollection
+         * - add change listeners to each MapCardCollection so we only ever have 1 current
          * - create views when they don't already exist
          * @param {type} response
          * @param {type} options
@@ -38,8 +38,8 @@ OER.Models = OER.Models || {};
             // if view namespace does not exist, create it
             OER.Views[response.route] = OER.Views[response.route] || {};
             for (var l = currentMap.length; l--; ) {
-                // convert to NavCardCollection
-                var c = newMap[l] = new OER.Collections.NavCardCollection(currentMap[l]);
+                // convert to MapCardCollection
+                var c = newMap[l] = new OER.Collections.MapCardCollection(currentMap[l]);
                 // add change listener
                 c.on("change:current", this.handleCurrentChange, this);
                 // create views
@@ -67,18 +67,18 @@ OER.Models = OER.Models || {};
         },
         
         /**
-         * update NavCardCollections to keep only one current NavCard accross all
+         * update MapCardCollections to keep only one current NavCard accross all
          * @returns {undefined}
          */
         handleCurrentChange: function(model, value) {
             if(!value) { return; }
-            var navCardCollection = model.collection;
-            if(navCardCollection.lastCurrent != null){
+            var MapCardCollection = model.collection;
+            if(MapCardCollection.lastCurrent != null){
                 var c = this.get("lastCurrentCollection");
-                if (c && c != navCardCollection) {
+                if (c && c != MapCardCollection) {
                     c.removeCurrent();
                 }
-                this.set("lastCurrentCollection", navCardCollection);
+                this.set("lastCurrentCollection", MapCardCollection);
             }
             this.trigger("change:current",model);
         },

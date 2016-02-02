@@ -11,8 +11,8 @@ OER.Views.LessonRoute = OER.Views.LessonRoute || {};
      * @class Row0_Col0
      * @constructor
     */
-    // change LessonRoute and NavCardRoute to match your data
-    OER.Views.LessonRoute.NavCardRoute = Backbone.View.extend({
+    // change LessonRoute and MapCardRoute to match your data
+    OER.Views.LessonRoute.MapCardRoute = Backbone.View.extend({
 
         /**
          *  template that provides html for this view.  This should be changed to
