@@ -2,7 +2,7 @@
     var s = {};
     
     s.title = "User Guide (Start Here)";
-    s.preview = "/content/Intro/assets/info-icon-01.svg"; //svg image
+    s.preview = "/content/userGuide/assets/info-icon-01.svg"; //svg image
     s.route = "Instructions";
     s.info = "";
     s.primaryPathIndex = 0;
@@ -18,6 +18,6 @@
         ],
     ];
 
-    scope.Intro = s;
+    scope.userGuide = s;
 
 }(window.OER.data = window.OER.data || {}));

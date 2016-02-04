@@ -66,7 +66,7 @@
      */
     p.loadData = function () {
        this.lessons = new scope.Collections.LessonCollection();
-       var m = new scope.Models.LessonModel(OER.data.Intro, {parse: true, viewPath: "Intro"});
+       var m = new scope.Models.LessonModel(OER.data.userGuide, {parse: true, viewPath: "userGuide"});
        this.lessons.add(m);
        
        var m = new scope.Models.LessonModel(OER.data.lesson1, {parse: true, viewPath: "lesson1"});

@@ -19,7 +19,7 @@ OER.Views.Instructions = OER.Views.Instructions || {};
          *  match the template from your data
          *  @property template
          */
-        template: JST['app/content/Intro/templates/Row0_Col3.ejs'],
+        template: JST['app/content/userGuide/templates/Row0_Col3.ejs'],
 
         // can be used to set up event handling on html from template
         // see http://backbonejs.org/ to learn more

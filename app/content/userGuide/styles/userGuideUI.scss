@@ -1,0 +1,13 @@
+$userGuide-inline-ui-width: 1.5rem;
+
+.userGuide-inline-ui {
+    display: inline-block;
+    width: $userGuide-inline-ui-width;
+    height: $userGuide-inline-ui-width;
+}
+
+.userGuide-inline-ui-map {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+}
