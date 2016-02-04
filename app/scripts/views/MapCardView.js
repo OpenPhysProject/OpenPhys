@@ -38,11 +38,14 @@ OER.Views = OER.Views || {};
          * @method render
          */
         render: function () {
-            if(this.model.get("title")){
-                 this.setElement(this.templateWithContent(this.model.toJSON()));
+            var t = this.model.get("title");
+            if(t){
+                this.setElement(this.templateWithContent(this.model.toJSON()));
+                t = t.replace(/\n/gi, "<br />");
+                $(".map-card-title", this.$el).html(t);
             }
             else{
-                 this.setElement(this.templateEmpty(this.model.toJSON()));
+                this.setElement(this.templateEmpty(this.model.toJSON()));
             }
         },
         

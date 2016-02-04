@@ -22,7 +22,7 @@
             {title:"", image:"", route:"200_0"},
             {title:"", image:"", route:"200_1"},
             {title:"", image:"", route:""},           
-            {title:"Classical Physics (1800s)     .................................. 200.3", image:"", route:"200_3"},
+            {title:"Classical Physics (1800s)\n\n200.3", image:"", route:"200_3"},
             {title:"", image:"", route:""},
             {title:"Classical Waves and Standing Waves .............. 200.5", image:"", route:"200_5"},
             {title:"", image:"", route:""},
@@ -44,7 +44,7 @@
         
     // index 3 
         [
-           {title:"Atomic Models Introduction   .................................. 400.0",  image:"", route:"400_0"},
+           {title:"Atomic Models Introduction \n\n400.0",  image:"", route:"400_0"},
            {title:"Dalton's Atoms (1805)        .................................. 400.1",  image:"", route:"400_1"},
            {title:"Plum Pudding Atom (1904)     .................................. 400.2 ", image:"", route:"400_2"},  
            {title:"Solar System Atom (1910's)   .................................. 400.3 ", image:"", route:"SolarSystem"}, 
