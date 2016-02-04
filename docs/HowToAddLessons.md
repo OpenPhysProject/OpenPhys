@@ -39,6 +39,10 @@ scope.myLesson = s;
 3. create templates for all of your content, which should match contentMapData.    
 Note contentMapData index is row and the 2nd arrow is column.  Both start at 0 
 and must be used for your file name.
+4. Note that [Bootstrap](http://getbootstrap.com/css/) is included in this project. 
+You can use Bootstrap css as a powerful tool when styling your template files. 
+In particular, we use [Bootstrap grids](https://getbootstrap.com/examples/grid/) 
+for responsive layouts of content with images.
 
 Files to Change:
 ---------------
