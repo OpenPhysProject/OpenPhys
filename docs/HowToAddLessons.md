@@ -72,13 +72,13 @@ and viewPath is the folder name for your lesson (Add Folder to content step 1)
 Views are programmatically generated for the templates you create at runtime, 
 but if you need a view to do something more interesting (such as an interaction) 
 you will need to create a new view.
-For instructions on how to add a new view, see app/content/HowToAddLessonCode.md
+For instructions on how to add a new view, see docs/HowToAddLessonCode.md
 
 #### Add any needed custom styles
 Content will generally use the standard provided style (from app/styles/views/ContentView.scss)
 You can add custom styles when needed if you need your content to do something 
 visually different.
-For instructions on how to add a new view, see app/content/HowToAddLessonStyle.md
+For instructions on how to add a new view, see docs/HowToAddLessonStyle.md
 
 
 
