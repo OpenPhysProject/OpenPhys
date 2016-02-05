@@ -6,7 +6,7 @@
 3. Add to app.scss
 
 #### Add new file
-1.Note that [Bootstrap](http://getbootstrap.com/css/) is included in this project. 
+1. Note that [Bootstrap](http://getbootstrap.com/css/) is included in this project. 
 Bootstrap css provides a powerful tool when styling your template files and may 
 already do what you are looking for.
 In particular, we use [Bootstrap grids](https://getbootstrap.com/examples/grid/) 
