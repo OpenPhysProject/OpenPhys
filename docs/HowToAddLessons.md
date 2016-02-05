@@ -1,12 +1,14 @@
 ### How to add an New Lesson
 
 All the files for each lesson are found in the *app/content* folder. 
+You can browse an existing lesson to get an idea of the files used.
+The three main steps to create a new lesson are:
 
 1. Create a new lesson folder to hold all your new content, including any custom JavaScript code and CSS styles.
 2. Tell *index.html* about your new lesson
 3. Tell *main.js* about your new lesson
 
-#### Create a new Lesson Folder
+### 1. Create a new Lesson Folder
 1. In *app/content/* add a folder to store the new lesson you will be adding.  
 *app/content/myLesson*
 2. Create the following sub folders: assets, templates, views.
@@ -40,13 +42,7 @@ You can use Bootstrap css as a powerful tool when styling your template files.
 In particular, we use [Bootstrap grids](https://getbootstrap.com/examples/grid/) 
 for responsive layouts of content with images.
 
-Files to Change:
----------------
-app/index.html
-app/scripts/main.js
-
-
-#### Tell *index.html* about the new lesson
+### 2. Tell *index.html* about the new lesson
 1. open app/index.html
 2. scroll to the very bottom
 3. following the existing pattern, add a reference for the data file you just created
@@ -55,7 +51,7 @@ app/scripts/main.js
 <script src="content/lesson##/data.js"></script>
 ```
 
-#### Tell *main.js* about the new lesson
+### 3. Tell *main.js* about the new lesson
 1. open *app/scripts/main.js*
 2. Find the loadData function (line 52)
 3. Follow the pattern to add the new lesson.  
@@ -67,6 +63,9 @@ this.lessons.add(m);
 OER.data.lesson3 is the namespace you set in your data (Add data step 4), 
 and viewPath is the folder name for your lesson (Add Folder to content step 1)
 4. Note that lessons tiles in the webpage are shown in the same order they are added here.
+
+
+### 4. Add Customizations to your Lessson (Optional)
 
 #### Add any needed custom JavaScript view code
 Views are programmatically generated for the templates you create at runtime, 
