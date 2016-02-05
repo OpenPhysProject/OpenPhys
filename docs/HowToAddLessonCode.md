@@ -6,7 +6,7 @@ You will find a well documented example here: *app/content/sample/views/LessonTe
 
 #### 1. Add a new .js file
 
-1. Go to _*app/content/Lesson20/views*_
+1. Go to _**app/content/Lesson20/views**_
 2. Copy *app/scripts/views/LessonTemplate/Row0_Col0.js* into the new folder as a starting point.
 3. Rename the copied file to match the template file it is associated with, for example *Row0_Col3.js*
 4. Open the file in an editor
