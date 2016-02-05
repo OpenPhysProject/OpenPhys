@@ -1,23 +1,28 @@
-### How To Add Lesson Style to this project
+### How To Add New Styles to a Lesson Style
+
+This page explains how to add new CSS styles to a lesson.
+
+Note that [Bootstrap](http://getbootstrap.com/css/) is included in this project. 
+Bootstrap CSS provides a powerful tool to style your template files and is worth
+investigating as it may already include the style you are interested in.
+In particular, we use [Bootstrap grids](https://getbootstrap.com/examples/grid/) 
+for responsive layouts of content with images.
+
 1. Add new file
 
 2. Edit file
 
 3. Add to app.scss
 
-#### Add new file
-1. Note that [Bootstrap](http://getbootstrap.com/css/) is included in this project. 
-Bootstrap css provides a powerful tool when styling your template files and may 
-already do what you are looking for.
-In particular, we use [Bootstrap grids](https://getbootstrap.com/examples/grid/) 
-for responsive layouts of content with images.
-2. You will find a well documented example in the app/content/sample/styles/sample.scss
-3. Create folder app/content/[yourLesson]/styles
-4. create a scss file with a meaningful name, for example Row0_Col3.scss
-5. Open the file in an editor and add the custom sass (css) you want.
+#### Add a new style file
+You will find a well documented example in the * app/content/sample/styles/sample.scss *
 
-#### Add to app.scss
-1. open app/styles/app.scss
+1. Create folder * app/content/[yourLesson]/styles *
+2. Create a scss file with a meaningful name, for example *Row0_Col3.scss *
+3. Open the file in an editor and add the custom sass (css) you want.
+
+#### Add a reference to yout new file in  *app.scss*
+1. open *app/styles/app.scss*
 2. scroll to the very bottom
 3. following the existing pattern, import the style file you just created
 ```
