@@ -5,11 +5,16 @@ the same regardless of the content that is being shown.
 
 *******************************************************************************/
 
+
+// sass mixin
 @mixin transitionSetting{
     transition-property: transform;
     transition-timing-function:  $ease-animation;
     transition-duration: $duration-long;
 }
+
+
+// Lesson base view and containers
 .lesson-base-view {
     margin: 0 auto;
     width: 100%;
@@ -39,6 +44,7 @@ the same regardless of the content that is being shown.
     position: relative;
     margin-bottom: $ui-button-width + $padding-small*3;;
 }
+
 .lesson-content{
     @extend .container;
     position: relative;
@@ -50,6 +56,8 @@ the same regardless of the content that is being shown.
     color: $color_content_text;
 }
 
+
+// lesson content container transition classes
 .lesson-base-content-container.prev{
     margin-bottom: 0;
     .lesson-content{
@@ -89,6 +97,7 @@ the same regardless of the content that is being shown.
     }
 
 }
+
 .lesson-base-content-container.up{
     margin-bottom: 0;
     .lesson-content{
@@ -103,14 +112,8 @@ the same regardless of the content that is being shown.
     }
 }
 
-.display-container {
-    display: inline-block;
-    height: auto;
-    width: auto;
-    background: $color_nav_button_background;
-    padding: $padding-small;
-}
 
+// navigation UI container, buttons, and breakpoints
 .nav-button-container {
     position:fixed;
     right: 0;
