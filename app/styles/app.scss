@@ -21,11 +21,13 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstr
 @import "views/LessonBaseView.scss";
 @import "views/MapView.scss";
 @import "views/MapCardView.scss";
-@import "views/ContentView.scss";
+@import "views/ContentBasics.scss";
+@import "views/ContentQuiz.scss";
 
 // ****************************************************************************
 // Imports from content
 @import "../content/Logo/logo.scss";
 @import "../content/userGuide/styles/userGuideUI.scss";
 @import "../content/lesson1/styles/Row1_Col5.scss";
+@import "../content/lesson6/styles/CanvasPhoton.scss";
 @import "../content/Sandbox/styles/Row0_Col0.scss";
