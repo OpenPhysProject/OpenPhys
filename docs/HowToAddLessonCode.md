@@ -1,12 +1,14 @@
-### How to add Javascript Code to a Lesson
+### How to add JavaScript Code to a Lesson
 
-This document explains how to add new Javascript code to a lesson. 
+This document explains how to add new JavaScript code to a lesson. 
+For instance, one reason for this might be to add an interactive animation. 
+
 Let's assume that you are working with *Lesson20*.
 You will find a well documented example here: *app/content/sample/views/LessonTemplate/Row0_Col0.js*
 
 #### 1. Add a new .js file
 
-1. We will create a new 'js file in your lesson 'views' folder: *app/content/Lesson20/views*
+1. We will create a new .js file in your lesson 'views' folder: *app/content/Lesson20/views*
 2. Copy *app/scripts/views/LessonTemplate/Row0_Col0.js* into the lesson views folder as a starting point.
 3. Rename the copied file to match the template file it is associated with, for example *Row0_Col3.js*
 4. Open this file in an editor
@@ -24,7 +26,7 @@ Change line 22 to reference the page template file:
 ```
 JST['app/content/lesson20/templates/Row0_Col3.ejs'],
 ```
-8. You can now add new behaviors.  This is a backbone.js view, to learn more about
+8. You can now add new behaviors to your JavaScript code.  This is a backbone.js view, to learn more about
 what that means check out http://backbonejs.org/#View
 
 #### 2. Tell *index.html* about your new .js file
