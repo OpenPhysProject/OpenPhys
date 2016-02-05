@@ -1,3 +1,11 @@
+/*******************************************************************************
+
+Index styles the body element, that wraps all other html.  This provides our 
+base styles as well as our rem size.
+Also includes classes that are used everywhere else.
+
+*******************************************************************************/
+
 body {
     font-family: $fontFamily-default;
     font-size: $fontSize-root;

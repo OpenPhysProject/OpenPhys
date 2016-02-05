@@ -1,7 +1,10 @@
 /*******************************************************************************
+
 Lesson Base View is the page that all content is contained in.  The base stays
 the same regardless of the content that is being shown.
+
 *******************************************************************************/
+
 @mixin transitionSetting{
     transition-property: transform;
     transition-timing-function:  $ease-animation;
