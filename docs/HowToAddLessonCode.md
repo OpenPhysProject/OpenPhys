@@ -1,26 +1,28 @@
 ### How to add Javascript Code to a Lesson
 
-This document explains how to add new Javascript code to a lesson.
-You will find a well documented example here: *app/content/sample/views/Row0_Col0.js*
+This document explains how to add new Javascript code to a lesson. 
+Let's assume that you are working with *Lesson20*.
+You will find a well documented example here: *app/content/sample/views/LessonTemplate/Row0_Col0.js*
 
 #### 1. Add a new .js file
 
-1. Go to *app/content/[yourLesson]/views*
-2. Copy *app/scripts/views/lessonTemplate/Row0_Col0.js* into the new folder as a starting point.
+1. Go to _*app/content/Lesson20/views*_
+2. Copy *app/scripts/views/LessonTemplate/Row0_Col0.js* into the new folder as a starting point.
 3. Rename the copied file to match the template file it is associated with, for example *Row0_Col3.js*
 4. Open the file in an editor
-5. Change line 2, replacing *lessonRoute* with the route property of the related data file  
+5. Change line 2, replacing *lessonRoute* with the route property of the related data file:  
 ```
 OER.Views.MyLessonRoute = OER.Views.MyLessonRoute || {};
 ```
-6. change line 7, replace *lessonRoute* with the route property of the related data file, as above,
-and changing the *MapCardRoute* with the route property of related entry in *contentMapData*.  
+Change line 7, replace *LessonRoute* with the route property of the related data file, as above,
+and changing the *MapCardRoute* with the route property of related entry in *contentMapData*, 
+(defined in *data.js* file for your lesson).
 ```
-OER.Views.MyLessonRoute.MyPageRoute = Backbone.View.extend({
+OER.Views.MyLessonRoute.MyMapCardRoute = Backbone.View.extend({
 ```
-7. change line 115 to reference the related page template file  
+Change line 22 to reference the related page template file:  
 ```
-JST['app/content/lesson3/templates/Row0_Col3.ejs'],
+JST['app/content/lesson20/templates/Row0_Col3.ejs'],
 ```
 8. You can now add new behaviors.  This is a backbone.js view, to learn more about
 what that means check out http://backbonejs.org/#View
