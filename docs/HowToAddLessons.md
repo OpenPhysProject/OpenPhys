@@ -4,32 +4,33 @@ All the files for each lesson are found in the *app/content* folder.
 You can browse an existing lesson to get an idea of the files used.
 The three main steps to create a new lesson are:
 
-1. Create a new lesson folder to hold all your new content, including any custom JavaScript code and CSS styles.
-2. Tell *index.html* about your new lesson
-3. Tell *main.js* about your new lesson
+1. Create a new lesson folder to hold all your new content. 
+2. Tell *index.html* about your new lesson.
+3. Tell *main.js* about your new lesson.
+4. (Optional) add any custom JavaScript code and CSS styles.
 
 ### 1. Create a new Lesson Folder
 1. In *app/content/* add a folder to store the new lesson you will be adding.  
 *app/content/myLesson*
 2. Create the following sub folders: assets, templates, views.
 
-#### Add data.js file to the new Lesson Folder
+#### Add a data.js file
 
 Each lesson has a *data.js* file which contains a lot of key information, 
 including how pages are arranged into the 2D map.
+In the *app/content/sample* folder you will find a well documented *data.js* example.
 
-1. In the *app/content/sample* folder you will find a well documented *data.js* example.
-2. In the folder you created for your lesson, create a new file named data.js, 
-or copy an existing one.
-3. Edit the properties, which are mostly self explanatory.  
-  1. route is used for the subpath url and name spacing related views.
-  2. *primaryPathIndex* is used to indicate a primary path through the content, and the
+1. In your lesson folder, create a new file named data.js, or copy an existing one.
+2. Edit the properties, which are mostly self explanatory.  
+  1. *route* is used for the subpath url and name-spacing related views.
+  2. *primaryPathIndex* is used to indicates the primary row on the map, and the
 first page from this data is where people will be sent by default.
-  3. In contentMapData, {title:"", image:"", route:""} creates an empty gap in the 2D navView
-4. Make sure to change "scope.lesson1 = s;" to whatever you are naming the new lesson  
-scope.myLesson = s;
 
-#### Add Template files to new folder
+3. At the end of *data.js* change *scope.lesson1 = s;* to *scope.myLesson = s;*
+
+Note: In *contentMapData*, *{title:"", image:"", route:""}* creates an empty gap in the 2D map.
+
+#### Add a Template File for each page
 A template file is needed for each content page on your website.
 
 1. Go to *app/content/[yourLessonFolder]/templates* folder
