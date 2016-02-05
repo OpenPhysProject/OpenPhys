@@ -6,21 +6,21 @@ You will find a well documented example here: *app/content/sample/views/LessonTe
 
 #### 1. Add a new .js file
 
-1. Go to _**app/content/Lesson20/views**_
-2. Copy *app/scripts/views/LessonTemplate/Row0_Col0.js* into the new folder as a starting point.
+1. We will create a new 'js file in your lesson 'views' folder: *app/content/Lesson20/views*
+2. Copy *app/scripts/views/LessonTemplate/Row0_Col0.js* into the lesson views folder as a starting point.
 3. Rename the copied file to match the template file it is associated with, for example *Row0_Col3.js*
-4. Open the file in an editor
-5. Change line 2, replacing *lessonRoute* with the route property of the related data file:  
+4. Open this file in an editor
+5. Change line 2, replacing *lessonRoute* with the route property for your lesson:  
 ```
 OER.Views.MyLessonRoute = OER.Views.MyLessonRoute || {};
 ```
-Change line 7, replace *LessonRoute* with the route property of the related data file, as above,
+Change line 7, replace *LessonRoute* with your lesson route, as above,
 and changing the *MapCardRoute* with the route property of related entry in *contentMapData*, 
 (defined in *data.js* file for your lesson).
 ```
 OER.Views.MyLessonRoute.MyMapCardRoute = Backbone.View.extend({
 ```
-Change line 22 to reference the related page template file:  
+Change line 22 to reference the page template file:  
 ```
 JST['app/content/lesson20/templates/Row0_Col3.ejs'],
 ```
@@ -33,6 +33,6 @@ what that means check out http://backbonejs.org/#View
 3. following the existing pattern, add a reference for the view file you just created
 above the related data file
 ```
-<!-- lesson 3 -->  
-<script src="content/lesson3/views/Row0_Col3.js"></script>
+<!-- lesson 20 -->  
+<script src="content/lesson20/views/Row0_Col3.js"></script>
 ```
