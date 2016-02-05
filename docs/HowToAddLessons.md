@@ -1,27 +1,22 @@
-### How To Add an lesson to this project
-1. Add File Folder To Content
+### How to add an New Lesson
 
-2. Add data.js file to new folder
+All the files for each lesson are found in the *app/content* folder. 
 
-3. Add Template files to new folder
+1. Create new lesson folder with all your new content
+2. Tell *index.html* about your new lesson
+3. Tell *main.js* about your new lesson
+4. Add any needed custom view code
+5. Add any needed custom styles
 
-4. Add new files to Index.html
+#### Create new Lesson Folder
+1. In *app/content/* add a folder to store the new lesson you will be adding.  
+*app/content/myLesson*
+2. Create the following sub folders:
+* assets
+* templates
+* views
 
-5. Load new files in main.js
-
-6. Add any needed custom view code
-
-7. Add any needed custom styles
-
-#### Add File Folder to content
-1. In app/content/ add a folder to store the new lesson you will be adding.  
-app/content/myLesson
-2. Create the following sub folders
-assets
-templates
-views
-
-#### Add data.js file to new folder
+#### Add data.js file to new Lesson Folder
 1. In the app/content/sample folder you will find a well documented data.js example.
 2. In the folder you created for your lesson, create a new file named data.js, 
 or copy an existing one.
@@ -50,7 +45,7 @@ app/index.html
 app/scripts/main.js
 
 
-#### Add new files to Index.html
+#### Tell *index.html* about the new lesson
 1. open app/index.html
 2. scroll to the very bottom
 3. following the existing pattern, add a reference for the data file you just created
@@ -59,8 +54,8 @@ app/scripts/main.js
 <script src="content/lesson##/data.js"></script>
 ```
 
-#### Load new files in main.js
-1. open app/scripts/main.js
+#### Tell *main.js* about the new lesson
+1. open *app/scripts/main.js*
 2. Find the loadData function (line 52)
 3. Follow the pattern to add the new lesson.  
 For example if you added lesson3:
