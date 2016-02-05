@@ -1,6 +1,6 @@
-### How to add Javascript code to a Lesson
+### How to add Javascript Code to a Lesson
 
-This document explains how to add new Javascript code.
+This document explains how to add new Javascript code to a lesson.
 
 
 1. Add new file
