@@ -1,4 +1,4 @@
-### How to add an New Lesson
+### How to add a new Lesson
 
 All the files for each lesson are found in the *app/content* folder. 
 You can browse an existing lesson to get an idea of the files used.
@@ -61,12 +61,12 @@ For example if you added lesson3:
 m  =  new scope.Models.lessonModel(OER.data.lesson3, {parse: true, viewPath: "lesson3"});  
 this.lessons.add(m);  
 ```
-OER.data.lesson3 is the namespace you set in your data (Add data step 4), 
-and viewPath is the folder name for your lesson (Add Folder to content step 1)
+*OER.data.lesson3* is the namespace you set in your data (Add data step 4), 
+and viewPath is the folder name for your lesson (Add Folder to content step 1).
 4. Note that lessons tiles in the webpage are shown in the same order they are added here.
 
 
-### 4. Add Customizations to your Lessson (Optional)
+### 4. Add Customizations to your Lesson (Optional)
 
 #### Add any needed custom JavaScript view code
 Views are programmatically generated for the templates you create at runtime, 
