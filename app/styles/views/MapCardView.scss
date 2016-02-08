@@ -41,7 +41,7 @@ MapCardView styles the cards on the navigation map view
  
 .map-card-title{
     margin: 1.5rem;
-    font: $fontFamily-mapCard;
+    font-family: $fontFamily-mapCard;
     font-size: $fontSize-mapCard;
     font-weight: bold;
 }
