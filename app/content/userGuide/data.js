@@ -10,11 +10,11 @@
     s.contentMapData = [
     // index 0
         [
-            {title:"Lesson Tiles", image: "", route:"Tile"},
-            {title:"Arrow Keys", image: "", route:"Nav"},
-            {title:"Map Icon", image:"", route:"ContentMap"},
-             {title:"Larger Maps", image:"", route:"LargerMaps"}, 
-             {title:"OpenPhys Logo", image:"", route:"Logo"},         
+            {title:"Lesson Tiles",  image:"", route:"Tile"},
+            {title:"Arrow Keys",    image:"", route:"Nav"},
+            {title:"Map Icon",      image:"", route:"ContentMap"},
+            {title:"Larger Maps",   image:"", route:"LargerMaps"}, 
+            {title:"OpenPhys Logo", image:"", route:"MapLogo"},         
         ],
     ];
 
