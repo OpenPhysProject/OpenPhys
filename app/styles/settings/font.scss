@@ -16,6 +16,7 @@ FAMILIES
 *******************************************/
 $fontFamily-default:    'Lato', sans-serif;
 $fontFamily-title:      'Lato', sans-serif;
+$fontFamily-mapCard:    'Source Sans Pro', sans-serif;
 
 
 /*******************************************
@@ -25,3 +26,8 @@ $fontSize-large: 	2.2rem;
 $fontSize-larger:       1.9rem;
 $fontSize-body: 	1.6rem;
 $fontSize-small: 	1.4rem;
+
+/*****************************************
+Specific
+*****************************************/
+$fontSize-mapCard:      1.6rem;
