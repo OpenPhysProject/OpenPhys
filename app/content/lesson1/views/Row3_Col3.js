@@ -53,7 +53,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         this.button.addEventListener("click", this.buttonBind); //
 
         // setup createjs stage and touch support
-        var c = $(".lesson-content-canvas-sandbox", this.$el)[0];
+        var c = $(".lesson-content-canvas", this.$el)[0];
         this.stage = new createjs.Stage(c);
         if (createjs.Touch.isSupported()) {createjs.Touch.enable(this.stage);}
         this.width = c.width;

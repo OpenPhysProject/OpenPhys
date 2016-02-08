@@ -20,6 +20,13 @@ $button-bar-size: $ui-button-width + $padding-small*3;
 }
 
 .lesson-content-info {
+    color: grey;
+    font-style: italic;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.lesson-content-info {
     /* for info at bottom of page */
     color: grey;
     font-style: italic;
@@ -64,7 +71,7 @@ $button-bar-size: $ui-button-width + $padding-small*3;
 
 .lesson-content-canvas {
     background: $color_content_canvas_background;
-    width: 60%;
+    width: 90%;
     margin-top: $padding-small;
 }
 
