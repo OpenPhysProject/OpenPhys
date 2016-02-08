@@ -18,12 +18,14 @@ $button-bar-size: $ui-button-width + $padding-small*3;
 }
 
 .lesson-content-memo {
+    // used for short summary phrase at top of content pages
     color: blue;
     font-style: italic;
     margin-bottom: 1.5rem;
 }
 
 .lesson-content-info {
+    // used for note at bottom of content page
     color: grey;
     font-style: italic;
     margin-top: 2rem;
@@ -33,6 +35,12 @@ $button-bar-size: $ui-button-width + $padding-small*3;
 .lesson-content-body {
    font: $fontFamily-default;
    font-size: $fontSize-body;
+}
+
+.lesson-content-body-large {
+    // body with larger font
+   font: $fontFamily-default;
+   font-size: $fontSize-larger;
 }
 
 .lesson-content-left {
@@ -51,15 +59,8 @@ figure {
     margin: 1rem;
 }
 
-
 // canvas (interaction) related styles
 .lesson-content-canvas {
-    background: $color_content_canvas_background;
-    width: 90%;
-    margin-top: $padding-small;
-}
-
-.lesson-content-canvas-sandbox {
     background: $color_content_canvas_background;
     width: 90%;
     margin-top: $padding-small;
