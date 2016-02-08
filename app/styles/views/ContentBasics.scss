@@ -55,6 +55,13 @@ $button-bar-size: $ui-button-width + $padding-small*3;
   max-width: 400px;
 }
 
+.lesson-content-image-icon {
+  margin: 1.0rem;
+  //width: 100%;
+  max-width: 100px;
+  max-height: 50px;
+}
+
 figure {
     margin: 1rem;
 }
