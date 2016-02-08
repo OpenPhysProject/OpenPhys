@@ -1,0 +1,53 @@
+/*******************************************************************************
+
+These are the styles that are applied to all the content templates
+
+*******************************************************************************/
+
+
+// sass var 
+$button-bar-size: $ui-button-width + $padding-small*3;
+
+
+// common lesson content styles
+.lesson-content-title {
+    font: $fontFamily-title;
+    font-size: $fontSize-large;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.lesson-content-memo {
+    color: blue;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.lesson-content-body {
+   font: $fontFamily-default;
+   font-size: $fontSize-body;
+}
+
+.lesson-content-left {
+   font: $fontFamily-default;
+   font-size: $fontSize-body;
+   float: left;
+}
+
+.lesson-content-image {
+  margin: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+figure {
+    margin: 1rem;
+}
+
+
+// canvas (interaction) related styles
+.lesson-content-canvas {
+    background: $color_content_canvas_background;
+    width: 60%;
+    margin-top: $padding-small;
+}

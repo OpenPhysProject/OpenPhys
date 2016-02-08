@@ -4,6 +4,19 @@
         # means id
 */
 
+
+.lesson-content-japan {
+    /* pink bankground */
+    background:#f2dede;
+}
+
+.lesson-content-canvas-sandbox {
+    background: $color_content_canvas_background;
+    width: 40%;
+    margin-top: $padding-small;
+}
+
+
 .sandbox-content { 
     font-size: 1em;
     background-color: lightgrey;

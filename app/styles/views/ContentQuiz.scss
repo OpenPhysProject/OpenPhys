@@ -1,0 +1,30 @@
+/******************************************************************************
+
+Content Quiz styles for questions, options, answers, and reset buttons
+
+*******************************************************************************/
+
+.lesson-content-question {
+    color: crimson;
+}
+
+.lesson-content-question-option {
+    // min 44 x 44 required for touch devices
+    min-width: 44px;
+    min-height: 44px;
+    
+}
+
+.lesson-content-question-reveal {
+    min-width: 44px;
+    min-height: 44px;
+
+}
+
+.lesson-content-question-answer {
+    
+}
+
+.lesson-content-quiz-reset {
+    
+}
