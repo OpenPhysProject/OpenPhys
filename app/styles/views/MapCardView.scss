@@ -25,23 +25,24 @@ MapCardView styles the cards on the navigation map view
         border-color : $color_map_card_default;
         border-width : .5rem;
         .map-card-title {
-            margin: 1rem;
+            margin: .5rem;
         }
     }
     &.current{
         background: $color_map_card_current;
         border-style : Solid;
-        border-width : 1rem;
+        border-width : 0.7rem;
         border-color : $color_map_card_highlight;
         .map-card-title {
-            margin: .5rem;
+            margin: .3rem;
         }
     }
 }
  
 .map-card-title{
-    margin: 1.5rem;
+    margin: 1rem;
     font-family: $fontFamily-mapCard;
     font-size: $fontSize-mapCard;
     font-weight: bold;
+    line-height: 1.2rem;
 }
