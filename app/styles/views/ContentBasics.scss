@@ -4,10 +4,8 @@ These are the styles that are applied to all the content templates
 
 *******************************************************************************/
 
-
 // sass var 
 $button-bar-size: $ui-button-width + $padding-small*3;
-
 
 // common lesson content styles
 .lesson-content-title {
@@ -32,17 +30,29 @@ $button-bar-size: $ui-button-width + $padding-small*3;
     margin-bottom: 1.5rem;
 }
 
+//--- LESSON CONTENT FONT SIZE CHANGES DEPENDENT ON SCREEN WIDTH:
 .lesson-content-body {
-   font: $fontFamily-default;
-   font-size: $fontSize-body;
-}
-
-.lesson-content-body-large {
-    // body with larger font
+    // for larger screen sizes
    font: $fontFamily-default;
    font-size: $fontSize-larger;
 }
 
+@media (max-width: 800px) {
+    // for screens smaller than 800
+  .lesson-content-body {
+   font: $fontFamily-default;
+   font-size: $fontSize-med;
+    }  
+}
+
+@media (max-width: 700px) {
+    // for screens smaller than 700
+  .lesson-content-body {
+   font: $fontFamily-default;
+   font-size: $fontSize-body;
+    }  
+}
+    
 .lesson-content-left {
    font: $fontFamily-default;
    font-size: $fontSize-body;
@@ -54,6 +64,19 @@ $button-bar-size: $ui-button-width + $padding-small*3;
   width: 100%;
   max-width: 400px;
 }
+
+.lesson-content-table {
+    width: 90%;
+ //   border: 1px solid lightgray;
+    border-spacing: 50px;
+}
+
+// this affects ALL tables
+th, td {
+    padding: 2px;
+//    border: 1px solid lightgray;
+}
+ 
 
 .lesson-content-image-icon {
   margin: 1.0rem;
