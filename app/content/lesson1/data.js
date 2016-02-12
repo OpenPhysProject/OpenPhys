@@ -35,7 +35,7 @@
             {title:"", image:"", route:""},
             {title:"", image:"", route:""},
             {title:"", image:"", route:""},          
-            {title:"Classical Electromagnetism      \n \n \n 300.3", image:"", route:"300_3"},
+            {title:"Classical Electro - magnetism      \n \n \n 300.3", image:"", route:"300_3"},
             {title:"Angular Momentum                \n \n \n 300.4", image:"", route:"300_4"},
             {title:"Math of Classical Standing Waves \n \n 300.5", image:"", route:"StandingWavesMath"},
             {title:"", image:"", route:""}, 
