@@ -40,7 +40,10 @@ OER.Models = OER.Models || {};
             OER.Views[response.route] = OER.Views[response.route] || {};
             for (var l = currentMap.length; l--; ) {
                 // convert to MapCardCollection
-                var c = newMap[l] = new OER.Collections.MapCardCollection(currentMap[l]);
+                var c = newMap[l] = new OER.Collections.MapCardCollection(currentMap[l].mapCards);
+                c.horizontalLinks = currentMap[l].horizontalLinks;
+                c.startNode = currentMap[l].startNode;
+                c.endNode = currentMap[l].endNode;
                 // add change listener
                 c.on("change:current", this.handleCurrentChange, this);
                 // create views

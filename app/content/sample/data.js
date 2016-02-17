@@ -13,15 +13,17 @@
     // paths below another path are meant to show more difficult related information, but can also indicate progress horizontally
     s.contentMapData = [
     // index 0
-        [
-            {   title:"sample page",    // title  shown on navigation cards in map view
-                route:"samplePage"      // url shown when visiting this page, which can be used as a link.  For example this would be http://openphys.med.ualberta.ca/sampleLesson/samplePage
-            },
-            {   title:"sample quiz", route:"sampleQuiz" },
-            // more pages can be added to this path by adding more entries with {title, route},
-            // {title:"", image:"", route:""} creates an empty gap in the 2D mapView
-        ],
-        // more paths can be added to this lesson by adding an array with pages [{title, route}, {title, route}]
+        {
+            mapCards: [
+                {   title:"sample page",    // title  shown on navigation cards in map view
+                    route:"samplePage"      // url shown when visiting this page, which can be used as a link.  For example this would be http://openphys.med.ualberta.ca/sampleLesson/samplePage
+                },
+                {   title:"sample quiz", route:"sampleQuiz" },
+                // more pages can be added to this path by adding more entries with {title, route},
+                // {title:"", route:""} creates an empty gap in the 2D mapView
+            ],
+        },
+        // more paths can be added to this lesson by adding an object with a mapCards array of pages [{title, route}, {title, route}]
     ];
 
     scope.sample = s;  // this is the name we give the data in our project so we can reference it in app/scripts/main.js loadData function

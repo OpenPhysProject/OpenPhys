@@ -9,13 +9,18 @@
     
     s.contentMapData = [
     // index 0
-        [
+    {
+        horizontalLinks: OER.linkType.strong,
+        startNode: true,
+        startNode: false,
+        mapCards: [
             {title:"Lesson Tiles",  image:"", route:"Tile"},
             {title:"Arrow Keys",    image:"", route:"Nav"},
             {title:"Map Icon",      image:"", route:"ContentMap"},
             {title:"Larger Maps",   image:"", route:"LargerMaps"}, 
             {title:"OpenPhys Logo", image:"", route:"MapLogo"},         
-        ],
+        ]
+    },
     ];
 
     scope.userGuide = s;
