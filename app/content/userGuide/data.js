@@ -4,8 +4,8 @@
     s.title = "User Guide (Start Here)";
     s.preview = "/content/userGuide/assets/info-icon-01.svg"; //svg image
     s.route = "Instructions";
-    s.info = "";
     s.primaryPathIndex = 0;
+    s.horizontalLinks = OER.linkType.strong;
     
     s.contentMapData = [
     // index 0

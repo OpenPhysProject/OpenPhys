@@ -12,9 +12,13 @@ OER.Models = OER.Models || {};
     OER.Models.MapCardModel = Backbone.Model.extend({
         
         defaults: {
-            title: '',
-            image: '',
-            route: "",  // is both the url for route handling and the related viewname ie 200.1
+            title:  "",     // supports \n for new lines
+            footer: "",     // calculated by row and column
+            group:  "",     // can be null
+            route:  "",     // is the url for route handling
+            icons:  [],     // an array of icon names, defaults include ["quiz", "interaction", "video"], currenly supports a visual max of 2
+            linkLeft: OER.linkType.none,    // [weak, strong, null] show this type of link to the left of this card in navigation map view
+            linkTop:  OER.linkType.none,    // [weak, strong, null] show this type of link on the top of this card in navigation map view
             visited: false,
             current: false
         },

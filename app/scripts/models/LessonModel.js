@@ -16,11 +16,12 @@ OER.Models = OER.Models || {};
             preview: '',
             route:"",
             selected: false,
-            info: '',
             primaryPathIndex: null,     // index of main MapCardCollection in contentMap
             contentMap: null,           // 2D array of MapCardCollection
             lastCurrentCollection: null,
             jumpNav: false,
+            horizontalLinks: OER.linkType.none,  // navigation map horizontal links, can be overwritten by MapCardCollection.horizontalLinks and MapCardModel.linkLeft
+            verticalLinks: OER.linkType.weak,   // navigation map vertical links, can be overwritten by MapCardModel.linkTop
         },
         
         /**
