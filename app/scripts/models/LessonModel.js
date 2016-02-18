@@ -39,6 +39,32 @@ OER.Models = OER.Models || {};
             // if view namespace does not exist, create it
             OER.Views[response.route] = OER.Views[response.route] || {};
             for (var l = currentMap.length; l--; ) {
+                for (var i = currentMap[l].mapCards.length; i--; ) {
+                    // create views
+                    var mapCard = currentMap[l].mapCards[i];
+                    var subRoute = mapCard.route;
+                    if (!OER.Views[response.route][subRoute]) {
+                        // OJR if we ever need something different, add a .template property to data and use it if it's populated
+                         OER.Views.LessonTemplate.template = JST["app/content/"+options.viewPath+"/templates/Row"+l.toString()+ "_Col" +i.toString()+".ejs"];
+                         OER.Views[response.route][subRoute] = Backbone.View.extend(OER.Views.LessonTemplate);
+                    }
+                    
+                    if (!mapCard.linkLeft && i != 0 && currentMap[l].mapCards[i-1].title != "") {
+                        if (currentMap[l].horizontalLinks) {
+                            mapCard.linkLeft = currentMap[l].horizontalLinks;
+                        } else if (response.horizontalLinks) {
+                            mapCard.linkLeft = response.horizontalLinks;
+                        }
+                    }
+                    if (!mapCard.linktop && l != 0 && currentMap[l-1].mapCards[i] && currentMap[l-1].mapCards[i].title != "") {
+                        if (response.verticalLinks) {
+                            mapCard.linkTop = response.horizontalLinks;
+                        } else {
+                            mapCard.linkTop = OER.linkType.weak;    // default value
+                        }
+                    }
+                }
+                
                 // convert to MapCardCollection
                 var c = newMap[l] = new OER.Collections.MapCardCollection(currentMap[l].mapCards);
                 c.horizontalLinks = currentMap[l].horizontalLinks;
@@ -46,15 +72,6 @@ OER.Models = OER.Models || {};
                 c.endNode = currentMap[l].endNode;
                 // add change listener
                 c.on("change:current", this.handleCurrentChange, this);
-                // create views
-                for (var i = c.length; i--; ) {
-                    var subRoute = c.at(i).get("route");
-                    if (!OER.Views[response.route][subRoute]) {
-                        // OJR if we ever need something different, add a .template property to data and use it if it's populated
-                         OER.Views.LessonTemplate.template = JST["app/content/"+options.viewPath+"/templates/Row"+l.toString()+ "_Col" +i.toString()+".ejs"];
-                         OER.Views[response.route][subRoute] = Backbone.View.extend(OER.Views.LessonTemplate);
-                    }
-                }
             }
             response.contentMap = newMap;
             delete response.contentMapData; // no longer needed

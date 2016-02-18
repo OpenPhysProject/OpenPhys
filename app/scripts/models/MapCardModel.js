@@ -13,7 +13,7 @@ OER.Models = OER.Models || {};
         
         defaults: {
             title:  "",     // supports \n for new lines
-            footer: "",     // calculated by row and column
+            number: "",     // calculated by row and column
             group:  "",     // can be null
             route:  "",     // is the url for route handling
             icons:  [],     // an array of icon names, defaults include ["quiz", "interaction", "video"], currenly supports a visual max of 2

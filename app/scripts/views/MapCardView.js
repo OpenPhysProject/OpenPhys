@@ -41,8 +41,10 @@ OER.Views = OER.Views || {};
             var t = this.model.get("title");
             if(t){
                 this.setElement(this.templateWithContent(this.model.toJSON()));
+                // add \n support to title
                 t = t.replace(/\n/gi, "<br />");
                 $(".map-card-title", this.$el).html(t);
+                // set icons
             }
             else{
                 this.setElement(this.templateEmpty(this.model.toJSON()));
