@@ -113,7 +113,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     p.electronProps = {
         angle:    0.0,   angleDelta: 6,         // initial angle, with randomization
         angleInc: 0.04,  angleIncDelta: 0.02,
-        originX: 200,    originY: 100,
+        originX: 400/2,    originY: 200/2,
         radius:  160,    dr:       40,   // starting Orbital Radius and random element
     };
     
