@@ -7,6 +7,13 @@ These are the styles that are applied to all the content templates
 // sass var 
 $button-bar-size: $ui-button-width + $padding-small*3;
 
+
+h3 {
+    font-size: $fontSize-subtitle;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
 // common lesson content styles
 .lesson-content-title {
     font: $fontFamily-title;
