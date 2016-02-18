@@ -31,7 +31,7 @@ $strongLinkMargin:  $map-card-margin + $map-card-size/2 - $strongLinkSize/2;
             border-style : Solid;
             border-color : $color_map_card_default;
             border-width : .5rem;
-            .map-card-title, .map-card-footer, .map-card-icons {
+            .map-card-title, .map-card-footer, .map-card-icon-container {
                 margin: .5rem;
             }
         }
@@ -42,7 +42,7 @@ $strongLinkMargin:  $map-card-margin + $map-card-size/2 - $strongLinkSize/2;
             border-style : Solid;
             border-width : 0.7rem;
             border-color : $color_map_card_highlight;
-            .map-card-title, .map-card-footer, .map-card-icons {
+            .map-card-title, .map-card-footer, .map-card-icon-container {
                 margin: .3rem;
             }
         }
@@ -119,11 +119,36 @@ $strongLinkMargin:  $map-card-margin + $map-card-size/2 - $strongLinkSize/2;
     
 }
 
-.map-card-icons {
+// icons ***********************************************************************
+.map-card-icon-container {
     position: absolute;
     bottom: 0;
     right: 0;
     margin: 1rem;
-    width: 60px;
-    height: 60px;
+    width: 5rem;
+    // OJR this pattern seems redundant, perhaps there is a better way to do this?
+    &.quiz {
+        .quiz {
+            display: inherit;
+        }
+    }
+    &.interaction {
+        .interaction {
+            display: inherit;
+        }
+    }
+    &.video {
+        .video {
+            display: inherit;
+        }
+    }
+}
+
+.map-card-icon {
+    display: none;
+    float: right;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 0.5rem;
+    fill:#58595B;
 }

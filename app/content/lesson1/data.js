@@ -51,10 +51,10 @@
             endNode: true,
             horizontalLinks: OER.linkType.strong,
             mapCards: [
-               {title:"Atomic Models",  number:"400.0", image:"", route:"400_0"},
+               {title:"Atomic Models",  number:"400.0", image:"", route:"400_0", icons:["video", "quiz"]},
                {title:"Dalton's Atoms (1805)", number:"400.1", image:"", route:"400_1"},
                {title:"Plum Pudding Atom (1904)", number:"400.2", image:"", route:"400_2"},  
-               {title:"Solar System Atom (1910's)", number:"400.3", image:"", route:"SolarSystem"}, 
+               {title:"Solar System Atom (1910's)", number:"400.3", icons:["interaction"], image:"", route:"SolarSystem"}, 
                {title:"Bohr Quantized Atom (1913)", number:"400.4", image:"", route:"400_4"}, 
                {title:"QM Atom 1: Matter Waves", number:"400.5", image:"", route:"400_5"},
                {title:"QM Atom 2: Nuclear Potential", number:"400.6", image:"", route:"NuclearPotential"}, 
