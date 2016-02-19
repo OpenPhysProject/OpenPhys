@@ -28,16 +28,8 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     p.tickerBind = null;    // reference to bound function, binding lets us call back in this scope
     p.buttonBind = null;    // reference to bound function
     
-    p.photonProps = {
-        sourceX: 200,   // near left
-        sourceY: 100,  // middle
-        source2X: 100,   
-        source2Y: 100,  // middle
-        //source_divergence: 0.25,
-        source_colour: "darkgreen", colour: "green",
-        source_colour2: "darkred", colour2: "red",
-        size: 9
-    };       
+    p.photonProps1 = {sourceX: 200, sourceY: 100, source_colour: "darkgreen", colour: "green", size: 9 };    
+    p.photonProps2 = {sourceX: 100, sourceY: 100, source_colour: "darkred",   colour: "red",   size: 9 }; 
     
     /**
      * backbone initialize function
@@ -69,28 +61,18 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         this.height = c.height;
         
        //=============== STATIC CONTENT ====================//
-        // Draw Source 1 (clickable)
-        this.photonsource1 = new createjs.Shape();
-        // drawRoundRect(x, y, width, height, radius)
-        this.photonsource1.graphics.beginFill(this.photonProps.source_colour).drawRoundRect(-20, -20, 40, 40, 5);
-        this.photonsource1.x =  this.photonProps.sourceX;  // x position
-        this.photonsource1.y =  this.photonProps.sourceY;
-        // create reference to bound function, binding makes a function be called in this scope
+        // Draw Source 1 (clickable)       
+        this.photonsource1 = this.drawSource(this.photonProps1);
         this.sourceBind = this.photonsource1Click.bind(this);     
         this.photonsource1.addEventListener("click", this.sourceBind);
-        this.stage.addChild(this.photonsource1);  // add this shape to the stage       
+        this.stage.addChild(this.photonsource1);  // add this shape to the stage
   
       // Draw Source 2 (clickable)
-         this.photonsource2 = new createjs.Shape();
-        // drawRoundRect(x, y, width, height, radius)
-        this.photonsource2.graphics.beginFill(this.photonProps.source_colour2).drawRoundRect(-20, -20, 40, 40, 5);
-        this.photonsource2.x = this.photonProps.source2X;  // x position
-        this.photonsource2.y = this.photonProps.source2Y;
-        // create reference to bound function, binding makes a function callable in this scope
+        this.photonsource2 = this.drawSource(this.photonProps2);
         this.sourceBind = this.photonsource2Click.bind(this);     
         this.photonsource2.addEventListener("click", this.sourceBind);
-        this.stage.addChild(this.photonsource2);  // add this shape to the stage 
-         
+        this.stage.addChild(this.photonsource2);  // add this shape to the stage     
+          
         // 
     // external file for background image
        // this.background = new createjs.Bitmap("/content/lesson6/assets/ComptonIncident.svg");
@@ -115,8 +97,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         
         // Draw Particles
         this.electrons = [];    // create empty array
-        
-        // start with firing a Click Event
+        // start with firing Click Events
         this.photonsource1Click();
         this.photonsource2Click();
 
@@ -147,61 +128,64 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         Backbone.View.prototype.remove.call(this, options);
     };
     
+    p.drawSource = function (Props) {
+        // Draw Particle Source (clickable)
+        var source = new createjs.Shape();
+        // drawRoundRect(x, y, width, height, radius)
+        source.graphics.beginFill(Props.source_colour).drawRoundRect(-20, -20, 40, 40, 5);
+        source.x =  Props.sourceX;  // x position
+        source.y =  Props.sourceY;
+        return source;        
+    };
+    
     /**
      * click listener 
      */
     p.photonsource1Click = function() {
         var i;
         for (i = 0; i < 10; i++)  {
-            var e = this.drawElectron();
-            this.stage.addChild(e); // add electron to stage
-            this.electrons.push(e); // add electron to array
+            var e = this.drawElectron1();
+            this.addParticle(e);
         }   
     };
+    
     p.photonsource2Click = function() {
         var i;
         for (i = 0; i < 10; i++)  {
             var e = this.drawElectron2();
-            this.stage.addChild(e); // add electron to stage
-            this.electrons.push(e); // add electron to array
-        }   
+            this.addParticle(e);
+        }    
     };
-    // PHOTON CODE *********************************************************************************
-    // 
-    //  var fillCommand = myGraphics.beginFill("red").command;
-     // ... later, update the fill style/color:
-     //fillCommand.style = "blue";
-     // or change it to a bitmap fill:
-     //fillCommand.bitmap(myImage);
-  
+    
+    p.addParticle = function(e) {
+        this.stage.addChild(e);     // add particle to stage
+        this.electrons.push(e);     // add electron to array
+    };
+
     // Draw particle and add it to stage
-    p.drawElectron = function() {
-        var electron = new createjs.Shape();
-        electron.graphics.beginFill(this.photonProps.colour).drawCircle(0, 0, this.photonProps.size); // electron radius
-        electron.on("tick",this.electronTick);  // add tick listener to electron, which is called by createjs tick event
-        // Define parameters to be used for each tick
-        var v = electron.tickProps = {};
-        v.x   = this.photonProps.sourceX;  //v.x = 400*Math.random();
-        v.y   = this.photonProps.sourceY;  //v.y = 200*Math.random();
-        //v.scaleX = 2.0;
-        v.xinc = 2*(Math.random()-0.5);
-        v.yinc = 2*(Math.random()-0.5); //* this.photonProps.source_divergence;  // +ve or -ve amount of divergence
-        return electron;
-    };
+    p.drawElectron1 = function () {
+       var electron = this.drawElectronHelper(this.photonProps1);
+       return electron;
+   };   
    
-   p.drawElectron2 = function() {
+     p.drawElectron2 = function () {
+       var electron = this.drawElectronHelper(this.photonProps2);
+       return electron;
+   };
+   
+   p.drawElectronHelper = function(Props) {
         var electron = new createjs.Shape();
-        electron.graphics.beginFill(this.photonProps.colour2).drawCircle(0, 0, this.photonProps.size); // electron radius
+        electron.graphics.beginFill(Props.colour).drawCircle(0, 0, Props.size); // electron radius
         electron.on("tick",this.electronTick);  // add tick listener to electron, which is called by createjs tick event
         // Define parameters to be used for each tick
         var v = electron.tickProps = {};
-        v.x   = this.photonProps.source2X;  //v.x = 400*Math.random();
-        v.y   = this.photonProps.source2Y;  //v.y = 200*Math.random();
+        v.x   = Props.sourceX;  //v.x = 400*Math.random();
+        v.y   = Props.sourceY;  //v.y = 200*Math.random();
         //v.scaleX = 2.0;
         v.xinc = 2*(Math.random()-0.5);
-        v.yinc = 2*(Math.random()-0.5); //* this.photonProps.source_divergence;  // +ve or -ve amount of divergence
+        v.yinc = 2*(Math.random()-0.5); //* this.photon2Props.source_divergence;  // +ve or -ve amount of divergence
         return electron;
-    };
+    };   
    
    // ============== EVOLUTION ================ //
     p.electronTick = function () {
@@ -219,7 +203,17 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         };
         this.x = this.tickProps.x;
         this.y = this.tickProps.y;
+
     };
+    
+ 
+
+    function Hello2() {
+        var tmp;
+        tmp= 10;
+        return tmp;
+    };
+
 
     // add the above code as a backbone view class in our namespace
     OER.Views.ElectronicStructureOfTheAtom.Dalton = Backbone.View.extend(p, s);    
