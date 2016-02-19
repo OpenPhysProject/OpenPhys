@@ -24,6 +24,16 @@ h3 {
     margin-bottom: 0.3rem;
 }
 
+.lesson-content-equation {
+    // for text equations
+    font-size: $fontSize-large;
+    font-weight: bold;
+    margin: auto;
+    width: 70%;
+    margin-top:    0.5rem;
+    margin-bottom: 1.0rem;
+}
+
 .lesson-content-memo {
     // used for short summary phrase at top of content pages
     color: blue;
