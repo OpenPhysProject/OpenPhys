@@ -12,7 +12,7 @@
     {
         horizontalLinks: OER.linkType.strong,
         startNode: true,
-        startNode: false,
+        endNode: true,
         mapCards: [
             {title:"Lesson Tiles",  image:"", route:"Tile"},
             {title:"Arrow Keys",    image:"", route:"Nav"},

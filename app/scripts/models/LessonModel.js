@@ -49,7 +49,7 @@ OER.Models = OER.Models || {};
                          OER.Views[response.route][subRoute] = Backbone.View.extend(OER.Views.LessonTemplate);
                     }
                     
-                    if (!mapCard.linkLeft && i != 0 && currentMap[l].mapCards[i-1].title != "") {
+                    if (!mapCard.linkLeft && ((i!=0  && currentMap[l].mapCards[i-1].title != "") || (i == 0 && currentMap[l].startNode))) {
                         if (currentMap[l].horizontalLinks) {
                             mapCard.linkLeft = currentMap[l].horizontalLinks;
                         } else if (response.horizontalLinks) {
@@ -67,9 +67,9 @@ OER.Models = OER.Models || {};
                 
                 // convert to MapCardCollection
                 var c = newMap[l] = new OER.Collections.MapCardCollection(currentMap[l].mapCards);
-                c.horizontalLinks = currentMap[l].horizontalLinks;
-                c.startNode = currentMap[l].startNode;
-                c.endNode = currentMap[l].endNode;
+                c.horizontalLinks = currentMap[l].horizontalLinks || c.horizontalLinks;
+                c.startNode = currentMap[l].startNode || c.startNode;
+                c.endNode = currentMap[l].endNode || c.endNode;
                 // add change listener
                 c.on("change:current", this.handleCurrentChange, this);
             }

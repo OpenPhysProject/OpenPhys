@@ -83,6 +83,42 @@ $strongLinkMargin:  $map-card-margin + $map-card-size/2 - $strongLinkSize/2;
 }
 
 
+// start and end nodes *********************************************************
+.map-start-node {
+    vertical-align: top;
+    display: inline-block;
+    white-space: normal;
+    width: 5rem;
+    height: 5rem;
+    border-style : Solid;
+    border-color : $color_map_card_default;
+    border-width : 1rem;
+    border-radius : 3.5rem;
+    background-color: $color_map_card_visited;
+    margin-top: $map-card-margin + $map-card-size/2 - 5rem/2;
+    position: relative;
+    left: 0.5rem;   // this makes it touch the leftLink from the neighboring tile
+  
+    &.out {
+        visibility: hidden;
+    }
+    &.in {
+        visibility: visible;
+    }
+}
+
+$endNodeHeight: 10rem;
+.map-end-node {
+    margin-top: $map-card-margin + $map-card-size/2 - $endNodeHeight/2;
+    vertical-align: top;
+    display: inline-block;
+    white-space: normal;
+    width: 2rem;
+    height: $endNodeHeight;
+    background: $color_map_card_default;
+}
+
+
 // map card container  ********************************************************************
 .map-card-container {
     float: left;

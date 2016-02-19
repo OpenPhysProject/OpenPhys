@@ -54,21 +54,37 @@ OER.Views = OER.Views || {};
             var mapCardView = null;
             var newdiv = null;
             for (var i = 0, l = this.contentMap.length; i < l; i++) {
-                newdiv = document.createElement('div');
-                newdiv.className = 'map-collection';
+                newdiv = JST['app/scripts/templates/MapCollection.ejs']({});
+                var $newdiv = $(newdiv);
                 if (i === this.primaryPathIndex) {
-                    newdiv.className += ' primary';
+                    $newdiv.addClass("primary");
                 }
+                
+                // show start node
+                if (this.contentMap[i].startNode) {
+                    var startNode = $(".map-start-node", $newdiv);
+                    startNode.removeClass("out").addClass("in");
+                }
+                
+                // add map cards
                 for (var j = 0, n = this.contentMap[i].length; j < n; j++) {
                     var m = this.contentMap[i].at(j);
                     mapCardView = new OER.Views.MapCardView({model: m});
                     if (m.get("title") != "") {
                         mapCardView.$el.on("click", this.handleCardClick.bind(this));
                     }
-                    $(newdiv).append(mapCardView.el);
+                    $newdiv.append(mapCardView.el);
                     this.mapCardViews.push(mapCardView);
                 }
-                this.$el.append(newdiv);
+                
+                // add end node
+                if (this.contentMap[i].endNode) {
+                    var linkType = this.contentMap[i].at(this.contentMap.length-1).get("linkLeft");
+                    var endNode = JST['app/scripts/templates/MapEndNode.ejs']({linkLeft: linkType});
+                    $newdiv.append(endNode);
+                }
+                
+                this.$el.append($newdiv);
             }
         },
         
