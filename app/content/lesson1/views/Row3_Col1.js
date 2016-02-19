@@ -88,8 +88,8 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         //this.stage.addChild(this.background);
         
        // Text 
-        this.txt = new createjs.Text("Click to add Atoms", "16px Arial", "#FFF");
-        this.txt.x = 10;  this.txt.y = 20;
+        this.txt = new createjs.Text("Click for Simple Dalton Atoms (Various Types)", "15px Arial", "#FFF");
+        this.txt.x = 10;  this.txt.y = 10;
         //this.txt.rotation = 20;  //txt.outline = true;
         this.stage.addChild(this.txt);
         
@@ -204,7 +204,8 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         v.y   = Props.sourceY;  //v.y = 200*Math.random();
         //v.scaleX = 2.0;
         v.xinc = 2*(Math.random()-0.5);
-        v.yinc = 2*(Math.random()-0.5); //* this.photon2Props.source_divergence;  // +ve or -ve amount of divergence
+        //v.yinc = 2*(Math.random()-0.5); //* this.photon2Props.source_divergence;  // +ve or -ve amount of divergence
+        v.yinc = -2*(Math.random());   // -ve is up       
         v.scale = Props.scale;
         return electron;
     };   
@@ -214,18 +215,20 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         // particle moves
         if (this.tickProps.x > -10 && this.tickProps.x < 410 &&
             this.tickProps.y > -10 && this.tickProps.y < 210) {
+            // update Props:
             this.tickProps.x += this.tickProps.xinc; // move right left
             this.tickProps.y += this.tickProps.yinc; // move up or down
-            this.scaleX      *= this.tickProps.scale;   // change size of the particles
-            this.scaleY      *= this.tickProps.scale;   //        
+            this.tickProps.yinc += 0.02 ;  // gravity 
+            // update particle:
+            this.scaleX  *= this.tickProps.scale;   // change size of the particles
+            this.scaleY  *= this.tickProps.scale;   // 
+            this.x        = this.tickProps.x;       // update electron position
+            this.y        = this.tickProps.y;           
         }
         else {
-            // remove this particle from stage
+            // remove this particle from stage if off screen
             this.stage.removeChild(this);
         };
-        this.x = this.tickProps.x;
-        this.y = this.tickProps.y;
-
     };
     
 
