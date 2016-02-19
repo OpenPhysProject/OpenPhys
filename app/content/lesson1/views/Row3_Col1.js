@@ -20,17 +20,18 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     // Easeljs shapes:
     p.electrons = null;     // array of easeljs shapes
     p.photonsource1 = null;  // easeljs shape
-    p.photonsource2 = null;  // easeljs shape   
+    p.photonsource2 = null;  // easeljs shape 
+    p.photonsource3 = null;  // easeljs shape   
     p.target = null;        // target for x-rays
     // EaselJS bitmaps:
     p.background = null;    // background image
-    
     p.tickerBind = null;    // reference to bound function, binding lets us call back in this scope
     p.buttonBind = null;    // reference to bound function
     
-    p.photonProps1 = {sourceX: 200, sourceY: 100, source_colour: "darkgreen", colour: "green", size: 9 };    
-    p.photonProps2 = {sourceX: 100, sourceY: 100, source_colour: "darkred",   colour: "red",   size: 9 }; 
-    
+    p.photonProps1 = {sourceX: 100, sourceY: 100, source_colour: "darkgreen", colour: "green", size: 7,  scale: 0.991 };    
+    p.photonProps2 = {sourceX: 200, sourceY: 100, source_colour: "darkred",   colour: "red",   size: 9,  scale: 0.991 }; 
+    p.photonProps3 = {sourceX: 300, sourceY: 100, source_colour: "yellow", colour: "yellow",   size: 11, scale: 0.991 };
+     
     /**
      * backbone initialize function
      * called on creation by OER.LessonBaseView.updateContent
@@ -72,7 +73,13 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         this.sourceBind = this.photonsource2Click.bind(this);     
         this.photonsource2.addEventListener("click", this.sourceBind);
         this.stage.addChild(this.photonsource2);  // add this shape to the stage     
-          
+ 
+      // Draw Source 3 (clickable)
+        this.photonsource3 = this.drawSource(this.photonProps3);
+        this.sourceBind = this.photonsource3Click.bind(this);     
+        this.photonsource3.addEventListener("click", this.sourceBind);
+        this.stage.addChild(this.photonsource3);  // add this shape to the stage         
+        
         // 
     // external file for background image
        // this.background = new createjs.Bitmap("/content/lesson6/assets/ComptonIncident.svg");
@@ -97,9 +104,9 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         
         // Draw Particles
         this.electrons = [];    // create empty array
-        // start with firing Click Events
-        this.photonsource1Click();
+        this.photonsource1Click();   // start with firing Click Events
         this.photonsource2Click();
+        this.photonsource3Click();
 
         // set up createjs ticker to update stage
         createjs.Ticker.timingMode = createjs.Ticker.RAF;   // sets ticks to happen on browser request animation frame
@@ -157,6 +164,15 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         }    
     };
     
+    p.photonsource3Click = function() {
+        var i;
+        for (i = 0; i < 10; i++)  {
+            var e = this.drawElectron3();
+            this.addParticle(e);
+        }    
+    };    
+    
+    
     p.addParticle = function(e) {
         this.stage.addChild(e);     // add particle to stage
         this.electrons.push(e);     // add electron to array
@@ -166,12 +182,17 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     p.drawElectron1 = function () {
        var electron = this.drawElectronHelper(this.photonProps1);
        return electron;
-   };   
+    };   
    
-     p.drawElectron2 = function () {
+    p.drawElectron2 = function () {
        var electron = this.drawElectronHelper(this.photonProps2);
        return electron;
-   };
+    };
+   
+    p.drawElectron3 = function () {
+       var electron = this.drawElectronHelper(this.photonProps3);
+       return electron;
+    };  
    
    p.drawElectronHelper = function(Props) {
         var electron = new createjs.Shape();
@@ -184,6 +205,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         //v.scaleX = 2.0;
         v.xinc = 2*(Math.random()-0.5);
         v.yinc = 2*(Math.random()-0.5); //* this.photon2Props.source_divergence;  // +ve or -ve amount of divergence
+        v.scale = Props.scale;
         return electron;
     };   
    
@@ -194,8 +216,8 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
             this.tickProps.y > -10 && this.tickProps.y < 210) {
             this.tickProps.x += this.tickProps.xinc; // move right left
             this.tickProps.y += this.tickProps.yinc; // move up or down
-            this.scaleX *= 0.991;   // size of the particles
-            this.scaleY *= 0.991;   //        
+            this.scaleX      *= this.tickProps.scale;   // change size of the particles
+            this.scaleY      *= this.tickProps.scale;   //        
         }
         else {
             // remove this particle from stage
@@ -206,7 +228,6 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
 
     };
     
- 
 
     function Hello2() {
         var tmp;
