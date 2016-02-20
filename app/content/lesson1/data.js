@@ -51,15 +51,15 @@
             endNode: true,
             horizontalLinks: OER.linkType.strong,
             mapCards: [
-               {title:"Atomic Models",                              number:"400.0", image:"", route:"400_0",    icons:["video", "quiz"]},
+               {title:"Atomic Models",                              number:"400.0", image:"", route:"Models", icons:["video"]},
                {title:"Dalton's Atoms (1805)",                      number:"400.1", image:"", route:"Dalton", icons:["interaction"]},
                {title:"Plum Pudding Atom (1904)",                   number:"400.2", image:"", route:"400_2"},  
                {title:"Classical Rutherford Nuclear Atom (1910's)", number:"400.3", image:"", route:"SolarSystem",icons:["interaction"]}, 
                {title:"Quantized Bohr Atom \n(1913)",               number:"400.4", image:"", route:"400_4"}, 
-               {title:"Quantum Atom 1: Matter Waves",               number:"400.5", image:"", route:"400_5"},
+               {title:"Quantum Atom 1: Matter Waves",               number:"400.5", image:"", route:"QAtomOne", icons:["video"]},
                {title:"Quantum Atom 2: Nuclear Potential",          number:"400.6", image:"", route:"NuclearPotential"}, 
                {title:"Quantum Atom 3: Trapped Waves",              number:"400.7", image:"", route:"400_7"},
-               {title:"Beyond the Quantum Atom",                    number:"400.8", image:"", route:"400_8"},          
+               {title:"Beyond the Quantum Atom",                    number:"400.8", image:"", route:"400_8", icons:["quiz"]},          
             ],
         },
         // index 4 
