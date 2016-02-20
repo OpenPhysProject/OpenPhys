@@ -52,7 +52,7 @@
             horizontalLinks: OER.linkType.strong,
             mapCards: [
                {title:"Atomic Models",                              number:"400.0", image:"", route:"400_0",    icons:["video", "quiz"]},
-               {title:"Dalton's Atoms (1805)",                      number:"400.1", image:"", route:"Dalton"},
+               {title:"Dalton's Atoms (1805)",                      number:"400.1", image:"", route:"Dalton", icons:["interaction"]},
                {title:"Plum Pudding Atom (1904)",                   number:"400.2", image:"", route:"400_2"},  
                {title:"Classical Rutherford Nuclear Atom (1910's)", number:"400.3", image:"", route:"SolarSystem",icons:["interaction"]}, 
                {title:"Quantized Bohr Atom \n(1913)",               number:"400.4", image:"", route:"400_4"}, 

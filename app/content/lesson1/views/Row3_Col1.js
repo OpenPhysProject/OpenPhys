@@ -28,9 +28,9 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     p.tickerBind = null;    // reference to bound function, binding lets us call back in this scope
     p.buttonBind = null;    // reference to bound function
     
-    p.photonProps1 = {sourceX: 100, sourceY: 100, source_colour: "darkgreen", colour: "green", size: 7,  scale: 0.991 };    
+    p.photonProps1 = {sourceX: 100, sourceY: 100, source_colour: "darkgreen", colour: "green", size: 13,  scale: 0.991 };    
     p.photonProps2 = {sourceX: 200, sourceY: 100, source_colour: "darkred",   colour: "red",   size: 9,  scale: 0.991 }; 
-    p.photonProps3 = {sourceX: 300, sourceY: 100, source_colour: "yellow", colour: "yellow",   size: 11, scale: 0.991 };
+    p.photonProps3 = {sourceX: 300, sourceY: 100, source_colour: "yellow", colour: "yellow",   size: 5, scale: 0.991 };
      
     /**
      * backbone initialize function
@@ -150,7 +150,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
      */
     p.photonsource1Click = function() {
         var i;
-        for (i = 0; i < 10; i++)  {
+        for (i = 0; i < 1; i++)  {
             var e = this.drawElectron1();
             this.addParticle(e);
         }   
@@ -166,7 +166,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     
     p.photonsource3Click = function() {
         var i;
-        for (i = 0; i < 10; i++)  {
+        for (i = 0; i < 50; i++)  {
             var e = this.drawElectron3();
             this.addParticle(e);
         }    
