@@ -27,7 +27,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     p.buttonBind = null;    // reference to bound function
     p.Wave = null;
     p.Wave_yamplitude = 0;
-    p.Wave_yinc = 0.5;
+    p.Wave_yinc = 0.8;      // oscillation speed
     
     p.photonProps1 = {sourceX: 400, sourceY: 200, source_colour: "darkgreen", colour: "red", size: 5,  scale: 1.000 };    
      
@@ -114,12 +114,12 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         this.stage.addChild(this.txt);
         
         // redraw wave, with oscillating amplitude
-        this.drawWave(1,   0,  80, this.Wave_yamplitude);
-        this.drawWave(1, 0.5,  80, this.Wave_yamplitude);
-        this.drawWave(2,   0, 200, this.Wave_yamplitude);
-        this.drawWave(2, 0.5, 200, this.Wave_yamplitude);
-        this.drawWave(4,   0, 320, this.Wave_yamplitude);
-        this.drawWave(4, 0.5, 320, this.Wave_yamplitude);       
+        this.drawWave(1,   0,  80, this.Wave_yamplitude, "yellow");
+        this.drawWave(1, 0.5,  80, this.Wave_yamplitude,    "red");
+        this.drawWave(2,   0, 200, this.Wave_yamplitude, "yellow");
+        this.drawWave(2, 0.5, 200, this.Wave_yamplitude, "red");
+        this.drawWave(4,   0, 320, this.Wave_yamplitude, "yellow");
+        this.drawWave(4, 0.5, 320, this.Wave_yamplitude, "red");       
         this.Wave_yamplitude += this.Wave_yinc;
         if (Math.abs(this.Wave_yamplitude) > 50) {this.Wave_yinc *= -1;};
         
@@ -138,7 +138,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         Backbone.View.prototype.remove.call(this, options);
     };
     
-    p.drawWave = function(cycles, cycleshift, y0, yamplitude) {
+    p.drawWave = function(cycles, cycleshift, y0, yamplitude, colour) {
      // sine wave
      // y0 is vertial offset of plot
      // cycleshift = 0.0  --> sin
@@ -151,8 +151,9 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         
         this.Wave = new createjs.Shape();
         //this.Wave.on("tick",this.WaveTick);  // not very useful, so far.
-        this.Wave.graphics.setStrokeDash([10,5], 0).setStrokeStyle(3);
-        this.Wave.graphics.beginStroke("yellow").moveTo(xmin,y0);
+        //this.Wave.graphics.setStrokeDash([10,5], 0).setStrokeStyle(3);
+        this.Wave.graphics.setStrokeStyle(3);
+        this.Wave.graphics.beginStroke(colour).moveTo(xmin,y0);
         
         for (x=0; x<xmax; x++){
             radians = 2*Math.PI*((x/xrange)*cycles - cycleshift);
