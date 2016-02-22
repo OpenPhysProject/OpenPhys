@@ -26,8 +26,9 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     p.tickerBind = null;    // reference to bound function, binding lets us call back in this scope
     p.buttonBind = null;    // reference to bound function
     p.Wave = null;
-    p.Wave_yamplitude = 0;
+    p.Wave_ymax = 50;
     p.Wave_yinc = 0.8;      // oscillation speed
+    p.t = 0; // time
     
     p.photonProps1 = {sourceX: 400, sourceY: 200, source_colour: "darkgreen", colour: "red", size: 5,  scale: 1.000 };    
      
@@ -69,29 +70,16 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
 //        this.photonsource1.addEventListener("click", this.sourceBind);
 //        this.stage.addChild(this.photonsource1);  // add this shape to the stage        
         
-        // 
     // external file for background image
        // this.background = new createjs.Bitmap("/content/lesson6/assets/ComptonIncident.svg");
         //this.background.regX = this.background.image.width  *0.5;
         //this.background.regY = this.background.image.height *0.5;        
         //this.stage.addChild(this.background);
-        
-
-        
-        // Horizontal and angled dashed line
-        //this.line1 = new createjs.Shape();
-        //this.line1.graphics.setStrokeDash([10,5], 0).setStrokeStyle(1);
-        //this.line1.graphics.beginStroke("grey").moveTo(50,y0).lineTo(600, y0   ).endStroke(); // horizontal
-        //this.line1.graphics.beginStroke("grey").moveTo(50,y0).lineTo(600, y0-70).endStroke(); // angled  
-        //this.line1.graphics.beginStroke("grey").moveTo(50,y0).lineTo(600, y0+70).endStroke(); // angled        
-        //this.stage.addChild(this.line1);                     
+                           
 //===================================================//
         
         // Draw Particles
         this.electrons = [];    // create empty array
-       // this.drawLattice();      
-        //this.photonsource1Click();   // start with firing Click Event
-
         // set up createjs ticker to update stage
         createjs.Ticker.timingMode = createjs.Ticker.RAF;   // sets ticks to happen on browser request animation frame
         this.tickerBind            = this.tick.bind(this);
@@ -106,23 +94,27 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         // update the stage 
         this.stage.removeAllChildren();  // a bit drastic
         //
-        //
+        // this.drawLattice();      
+        //this.photonsource1Click();   // start with firing Click Event
         // Text 
         this.txt = new createjs.Text("Standing Waves", "24px Arial", "#FFF");
         this.txt.x = 320;  this.txt.y = 10;
         //this.txt.rotation = 20;  //txt.outline = true;
         this.stage.addChild(this.txt);
         
-        // redraw wave, with oscillating amplitude
-        this.drawWave(1,   0,  80, this.Wave_yamplitude, "yellow");
-        this.drawWave(1, 0.5,  80, this.Wave_yamplitude,    "red");
-        this.drawWave(2,   0, 200, this.Wave_yamplitude, "yellow");
-        this.drawWave(2, 0.5, 200, this.Wave_yamplitude, "red");
-        this.drawWave(4,   0, 320, this.Wave_yamplitude, "yellow");
-        this.drawWave(4, 0.5, 320, this.Wave_yamplitude, "red");       
-        this.Wave_yamplitude += this.Wave_yinc;
-        if (Math.abs(this.Wave_yamplitude) > 50) {this.Wave_yinc *= -1;};
+        // Redraw wave, with oscillating amplitude
+        //   
+        var wavespeed = 3.0;
+        this.drawWave(0.5,   0,  80, wavespeed, "yellow");
+        this.drawWave(0.5, 0.5,  80, wavespeed,    "red");
+        this.drawWave(1,     0, 200, wavespeed, "yellow");
+        this.drawWave(1,   0.5, 200, wavespeed, "red");
+        this.drawWave(1.5,   0, 320, wavespeed, "yellow");
+        this.drawWave(1.5, 0.5, 320, wavespeed, "red");       
+        //this.Wave_ymax += this.Wave_yinc;
+        //if (Math.abs(this.Wave_ymax) > 50) {this.Wave_yinc *= -1;};
         
+        this.t += 1;                // clock for simulations
         this.stage.update(event);   // redraw shapes on the stage
     };
 
@@ -138,27 +130,31 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         Backbone.View.prototype.remove.call(this, options);
     };
     
-    p.drawWave = function(cycles, cycleshift, y0, yamplitude, colour) {
+    p.drawWave = function(cycles, cycleshift, y0, wavespeed, colour) {
      // sine wave
-     // y0 is vertial offset of plot
+     // y0: vertical offset of plot
      // cycleshift = 0.0  --> sin
      // cycleshift = 0.5  --> -sin
      // cycleshift = 0.25 --> cos
         var xmin,xmax,xrange,x,y, radians;
         xmin = -1;
         xmax = 800;
-        xrange = xmax-xmin;
-        
+        xrange = xmax-xmin; 
         this.Wave = new createjs.Shape();
         //this.Wave.on("tick",this.WaveTick);  // not very useful, so far.
-        //this.Wave.graphics.setStrokeDash([10,5], 0).setStrokeStyle(3);
         this.Wave.graphics.setStrokeStyle(3);
         this.Wave.graphics.beginStroke(colour).moveTo(xmin,y0);
         
+        // Physics
+        var wavelength = xmax/cycles;
+        var freq = wavespeed/wavelength;        // relative to tick rate
+        var yamp = this.Wave_ymax * Math.cos(2*Math.PI* freq * this.t);      
+      
         for (x=0; x<xmax; x++){
             radians = 2*Math.PI*((x/xrange)*cycles - cycleshift);
-            this.Wave.graphics.lineTo(xmin+x, y0+yamplitude*Math.sin(radians));
+            this.Wave.graphics.lineTo(xmin+x, y0+yamp*Math.sin(radians));
         };
+        
         this.Wave.graphics.endStroke(); // horizontal
         this.stage.addChild(this.Wave);
     };

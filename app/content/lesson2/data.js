@@ -38,7 +38,10 @@
             ],
         },
         //index 2
-        {
+        { 
+            startNode: true,
+            endNode: true,
+            horizontalLinks: OER.linkType.strong,
             mapCards: [
                 {title: "100.0 Nuclear Radiation", image: "", route: "NuclearRadiation"},
                 {title: "(NUCLEUS) 100.1 Nuclei Can Radiate", image: "", route: "NucleiRadiate"},
@@ -54,6 +57,9 @@
         },
         //index 3, primary path
         {
+            startNode: true,
+            endNode: true,
+            horizontalLinks: OER.linkType.strong,
             mapCards: [
                 {title: "200.0 Structure & Decay", image: "", route: "StructureDecay"},
                 {title: "(NUCLEUS) 200.1 The Sleeper at the Heart", image: "", route: "SleeperAtHeart"},
