@@ -59,6 +59,12 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         this.width  = c.width;
         this.height = c.height;
         
+        // Attach listener to stage
+        //hmm only works if an object is clicked, not the empty stage
+        this.stage.on("click",this.stageClick, null, false, null, true);
+        //this.stage.mouseChildren = true; // ???
+        
+        
        //=============== STATIC CONTENT ====================//
         // Draw Source 1 (clickable)   
 //        this.photonProps1.sourceX = this.width *7/8;
@@ -94,7 +100,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         this.electrons = [];    // create empty array
         this.drawLattice();
         //this.photonsource1Click();   // start with firing Click Event
-
+      //this.stageClick(); // test this fn
         // set up createjs ticker to update stage
         createjs.Ticker.timingMode = createjs.Ticker.RAF;   // sets ticks to happen on browser request animation frame
         this.tickerBind            = this.tick.bind(this);
@@ -190,6 +196,14 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     };   
    
    // ============== EVOLUTION ================ //
+   p.stageClick = function () {
+       // does this work?
+       var particle = new createjs.Shape();
+        particle.graphics.beginFill("red").drawCircle(0, 0, 200);
+        this.stage.addChild(particle);
+   };
+   
+   
     p.electronTick = function () {
         // particle moves
         if (this.tickProps.x > -10 && this.tickProps.x < 810 &&
