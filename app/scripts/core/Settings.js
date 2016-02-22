@@ -3,7 +3,7 @@
     /**
      * Used to store timing settings that are used for animation / transitions
      * 
-     * mirrored in styles/settings/transition.scss, must be kept in sync
+     * mirrored in styles/settings/animation.scss, must be kept in sync
      * 
      * @class settings
      * @constructor
@@ -22,7 +22,6 @@
 
     s.MAIN_TO_CONTENT = t.duration_default; // delay when switching between home/tile view and base/content view
     s.CLOSE_MAP = t.duration_default;       // delay before closing MapView after card selected
-    s.FIRST_SHOW = t.duration_default;      // delay before a nav card is selected
     s.TRANS_CONTENT = t.duration_long;
     
     scope.settings = s;

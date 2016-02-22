@@ -124,11 +124,13 @@ OER.Views = OER.Views || {};
         if (this.model) {
             this.model.off();
         }
+        if(this.mapView) {
+            this.mapView.off();
+            this.mapView.destroy();
+        }
         if (this.content) {
             this.content.remove();
             this.content = null;
-            this.mapView.off();
-            this.mapView.destroy();
         }
         this.model = newModel;
         this.model.on("change:current", this.handleCurrentChange, this);
@@ -194,12 +196,14 @@ OER.Views = OER.Views || {};
     };
 
     /**
-     * make this view visible and set timeout to add in class
-     * @method _show
+     * show this view
+     * @method show
      */
-    p._show = function () {
+    p.show = function () {
         this.$el.removeClass("hidden");
         setTimeout(this._showIn.bind(this), 33);
+        this.mapView.toggleNav();
+        window.scrollTo(0, 1);
     };
 
     /**
@@ -215,33 +219,6 @@ OER.Views = OER.Views || {};
         this.hammerObject.on("swipeleft swiperight swipeup swipedown", this.handleSwipe.bind(this));
     };
 
-    /**
-     * show this view
-     * @method show
-     */
-    p.show = function () {
-        this._show();
-        window.scrollTo(0, 1);
-    };
-
-    /**
-     * like show, but triggers a first view experience
-     * @method showIntro
-     */
-    p.showIntro = function () {
-        this.firstView = true;
-        this._show();
-        this.mapView.toggleNav();
-        var MapView = this.mapView; // for hoisting in timeout
-        var introModel = this.model.get("contentMap")[this.model.get("primaryPathIndex")].at(0);
-        setTimeout(function () {
-            //OER.router.noEventReplaceHistoryGo("");
-            introModel.set("current", true);
-        }, OER.settings.FIRST_SHOW);
-        setTimeout(function () {
-            MapView.toggleNav();
-        }, OER.settings.FIRST_SHOW + OER.settings.CLOSE_MAP);
-    };
 
 // Navigation ********************************************************************
     /**

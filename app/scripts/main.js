@@ -209,11 +209,7 @@
         var LessonBaseView = this.lessonBaseView; // for function hoisting
         setTimeout(function () {
             homeView.addClass("hidden");
-            if (showIntro) {
-                LessonBaseView.showIntro();
-            } else {
-                LessonBaseView.show();
-            }
+            LessonBaseView.show();
         }, OER.settings.MAIN_TO_CONTENT);
     };
     
