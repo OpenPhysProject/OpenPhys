@@ -33,7 +33,6 @@ OER.Views = OER.Views || {};
     p.navDown = null;
     p.navRight = null;
     p.changeDirection = "";
-    p.firstView = false;        // boolean  is this the first viewing
     
     p.events = {
         "click .lesson-base-menu-button": "toggleNav",
@@ -89,12 +88,7 @@ OER.Views = OER.Views || {};
         } else {
             this.content = new OER.Views.DefaultContentView();  // OJR possibly better to redirect to intro
         }
-        if (this.firstView) {
-            OER.router.noEventReplaceHistoryGo(lessonScope + "/" + targetView);
-            this.firstView = false;
-        } else {
-            OER.router.noEventGo(lessonScope + "/" + targetView);   // change if we change default view handling
-        }
+        OER.router.noEventGo(lessonScope + "/" + targetView);   // change if we change default view handling
 
         this.contentContainer.append(this.content.el);
         this.content.on("update", this.contentUpdateBind);
@@ -199,10 +193,10 @@ OER.Views = OER.Views || {};
      * show this view
      * @method show
      */
-    p.show = function () {
+    p.show = function (showMap) {
         this.$el.removeClass("hidden");
         setTimeout(this._showIn.bind(this), 33);
-        this.mapView.toggleNav();
+        if(showMap) {this.mapView.toggleNav();}
         window.scrollTo(0, 1);
     };
 

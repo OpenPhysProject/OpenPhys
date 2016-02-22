@@ -193,23 +193,22 @@
         this.lessonBaseView.updateModel(m);
         
         // determine if we have already visited this learning object.  If so, return to same place
+        var showMap = !contentRoute;
         var lcc = m.get("lastCurrentCollection");
         if(!contentRoute && lcc) {
             contentRoute = lcc.lastCurrent.get("route");
         }
         
-        var showIntro = true;
         if(contentRoute) {
             scope.router.noEventReplaceHistoryGo(LessonRoute+"/"+contentRoute);
             this.lessonBaseView.updateSubViews(contentRoute);
-            showIntro = false;
         }
         
         var homeView = this.homeView;       // for function hoisting
         var LessonBaseView = this.lessonBaseView; // for function hoisting
         setTimeout(function () {
             homeView.addClass("hidden");
-            LessonBaseView.show();
+            LessonBaseView.show(showMap);
         }, OER.settings.MAIN_TO_CONTENT);
     };
     
