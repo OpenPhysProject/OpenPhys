@@ -39,9 +39,9 @@
         },
         //index 2
         { 
-            startNode: true,
-            endNode: true,
-            horizontalLinks: OER.linkType.strong,
+            //startNode: true,
+            //endNode: true,
+            //horizontalLinks: OER.linkType.strong,
             mapCards: [
                 {title: "100.0 Nuclear Radiation", image: "", route: "NuclearRadiation"},
                 {title: "(NUCLEUS) 100.1 Nuclei Can Radiate", image: "", route: "NucleiRadiate"},
@@ -61,15 +61,15 @@
             endNode: true,
             horizontalLinks: OER.linkType.strong,
             mapCards: [
-                {title: "200.0 Structure & Decay", image: "", route: "StructureDecay"},
-                {title: "(NUCLEUS) 200.1 The Sleeper at the Heart", image: "", route: "SleeperAtHeart"},
-                {title: "(NUCLEUS) 200.2 Shell Model of Nuclear Structure", image: "", route: "NuclearStructure"},
-                {title: "(STABILITY) 200.3 Binding Energy and Mass Defect", image: "", route: "BindingEnergy"},
-                {title: "(NUCLIDE) 200.4 Activity and Exponential Decay", image: "", route: "Exponential"},
-                {title: "(ALPHA) 200.5 Alpha Decay Process", image: "", route: "AlphaDecay"},
-                {title: "(BETA) 200.6 Weak-force Mediated Nuclear Change", image: "", route: "NuclearChange"},
-                {title: "(EXCITED) 200.7 Decay of Excited States", image: "", route: "ExcitedStateDecay"},
-                {title: "(WORLD) 200.8 Nuclear Structure in the Real World", image: "", route: "NuclearStructureIRL"},
+                {number:"200.0", group:"_ ",      title: "RADIOACTIVITY \nStructure & Decay",  route: "StructureDecay"},
+                {number:"200.1", group:"Nucleus", title: "The Sleeper at the Heart",         image: "", route: "SleeperAtHeart"},
+                {number:"200.2", group:"Nucleus", title: "Shell Model of Nuclear Structure", image: "", route: "NuclearStructure"},
+                {number:"200.3", group:"Stability",title: "Binding Energy and Mass Defect", image: "", route: "BindingEnergy"},
+                {number:"200.4", group:"Nuclide",  title: "Activity and Exponential Decay", image: "", route: "Exponential"},
+                {number:"200.5", group:"Alpha",    title: "Alpha Decay Process", image: "", route: "AlphaDecay"},
+                {number:"200.6", group:"Beta",     title: "Weak-force Mediated Nuclear Change", image: "", route: "NuclearChange"},
+                {number:"200.7", group:"Excited", title: "Decay of Excited States", image: "", route: "ExcitedStateDecay"},
+                {number:"200.8", group:"World",    title: "Nuclear Structure in the Real World", image: "", route: "NuclearStructureIRL"},
             ],
         },
         //index 4

@@ -26,7 +26,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         //sourceY: 200, 
         colour: "rgba(255,0,0,0.5)",
         cloudColourClicked: "rgba(0,255,0,0.5)",    // colour after clicked
-        cloudSize: 12,  
+        cloudSize: 15, //12,  
         scale: 1.000, 
         nucleusSize: 2,
         nucleusColour: "rgba(255,255,255,1.0)",
