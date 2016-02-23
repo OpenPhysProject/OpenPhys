@@ -61,7 +61,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         
        // draw Static circle (nucleus)
         this.nucleus = new createjs.Shape();
-        this.nucleus.graphics.beginFill("Red").drawCircle(0, 0, 16);
+        this.nucleus.graphics.beginFill("rgba(255,0,0,1.0)").drawCircle(0, 0, 16);
         this.nucleus.x =  this.electronProps.originX; // x position
         this.nucleus.y =  this.electronProps.originY;
         this.stage.addChild(this.nucleus);  // add this shape to the stage
@@ -123,7 +123,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         var radius = Math.round(this.electronProps.radius + Math.random()*this.electronProps.dr);
         
         var electron = new createjs.Shape();
-        electron.graphics.beginFill("Blue").drawCircle(0, 0, 8); // electron radius
+        electron.graphics.beginFill("rgba(50,50,255,0.7").drawCircle(0, 0, 8); // electron radius
         electron.x =  this.electronProps.originX;           // initial x position
         electron.y =  this.electronProps.originY + radius;
         electron.on("tick",this.electronTick);  // add tick listener to electron, which is called by createjs tick event

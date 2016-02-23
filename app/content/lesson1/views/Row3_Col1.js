@@ -28,9 +28,9 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     p.tickerBind = null;    // reference to bound function, binding lets us call back in this scope
     p.buttonBind = null;    // reference to bound function
     
-    p.photonProps1 = {sourceX: 100, sourceY: 100, source_colour: "darkgreen", colour: "green", size: 13,  scale: 0.991 };    
-    p.photonProps2 = {sourceX: 200, sourceY: 100, source_colour: "darkred",   colour: "red",   size: 9,  scale: 0.991 }; 
-    p.photonProps3 = {sourceX: 300, sourceY: 100, source_colour: "yellow", colour: "yellow",   size: 5, scale: 0.991 };
+    p.photonProps1 = {sourceX: 100, sourceY: 100, source_colour: "darkgreen", colour: "rgba(0, 255,0,0.7)", size: 13,  scale: 0.991 };    
+    p.photonProps2 = {sourceX: 200, sourceY: 100, source_colour: "darkred",   colour: "rgba(255, 0,0,0.5)",   size: 9,  scale: 0.991 }; 
+    p.photonProps3 = {sourceX: 300, sourceY: 100, source_colour: "yellow", colour:     "rgba(255,255,0,0.7)",   size: 5, scale: 0.991 };
      
     /**
      * backbone initialize function

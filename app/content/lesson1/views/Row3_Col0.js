@@ -28,7 +28,9 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     p.tickerBind = null;    // reference to bound function, binding lets us call back in this scope
     p.buttonBind = null;    // reference to bound function
     
-    p.photonProps1 = {sourceX: 400, sourceY: 200, source_colour: "darkgreen", colour: "red", size: 5,  scale: 1.000 };    
+    p.photonProps1 = {sourceX: 400, sourceY: 200, source_colour: "darkgreen", 
+        colour: "rgba(255,0,0,0.5)", // hi
+        size: 12,  scale: 1.000 };    
      
     /**
      * backbone initialize function
@@ -64,7 +66,6 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         this.stage.on("click",this.stageClick, null, false, null, true);
         //this.stage.mouseChildren = true; // ???
         
-        
        //=============== STATIC CONTENT ====================//
         // Draw Source 1 (clickable)   
 //        this.photonProps1.sourceX = this.width *7/8;
@@ -74,7 +75,6 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
 //        this.photonsource1.addEventListener("click", this.sourceBind);
 //        this.stage.addChild(this.photonsource1);  // add this shape to the stage        
         
-        // 
     // external file for background image
        // this.background = new createjs.Bitmap("/content/lesson6/assets/ComptonIncident.svg");
         //this.background.regX = this.background.image.width  *0.5;
@@ -82,10 +82,15 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         //this.stage.addChild(this.background);
         
        // Text 
-        this.txt = new createjs.Text("Atoms Diffusing", "18px Arial", "#FFF");
+        this.txt = new createjs.Text("ATOMS", "18px Arial", "#FFF");
         this.txt.x = 40;  this.txt.y = 10;
         //this.txt.rotation = 20;  //txt.outline = true;
         this.stage.addChild(this.txt);
+        
+       // outside of easeljs...DOES NOT WORK
+        var ctx = c.getContext("2d");
+        ctx.font = "30px Arial";
+        ctx.fillText("Hello World",200,200);        
         
         // Horizontal and angled dashed line
         //this.line1 = new createjs.Shape();
@@ -132,7 +137,8 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         // Draw Particle Source (clickable)
         var source = new createjs.Shape();
         // drawRoundRect(x, y, width, height, radius)
-        source.graphics.beginFill(Props.source_colour).drawRoundRect(-20, -20, 40, 40, 5);
+        var radius = 5;
+        source.graphics.beginFill(Props.source_colour).drawRoundRect(-20, -20, 40, 40, radius);
         source.x =  Props.sourceX;  // x position
         source.y =  Props.sourceY;
         return source;        
@@ -175,24 +181,34 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
 
     // Draw particle and add it to stage   
     p.drawElectron1 = function () {
-       var electron = this.drawElectronHelper(this.photonProps1);
+       var electron = this.drawAtomHelper(this.photonProps1);
        return electron;
     };   
      
-   p.drawElectronHelper = function(Props) {
+   p.drawAtomHelper = function(Props) {
+       // make atom from 2 parts
         var electron = new createjs.Shape();
+        var nucleus  = new createjs.Shape();
+        var c_atom = new createjs.Container();
+        var nucleus_size = 2;
+        
         electron.graphics.beginFill(Props.colour).drawCircle(0, 0, Props.size); // electron radius
-        electron.on("tick",this.electronTick);  // add tick listener to electron, which is called by createjs tick event
-        // Define parameters to be used for each tick
-        var v = electron.tickProps = {};
+        nucleus.graphics.beginFill("rgba(255,255,255,1.0)").drawCircle(0, 0, nucleus_size); // electron radius
+       
+        c_atom.addChild(electron, nucleus);
+        c_atom.on("tick",this.electronTick);  // add tick listener to electron, which is called by createjs tick event 
+       
+       // Define parameters to be used for each tick
+        var v = c_atom.tickProps = {};
         v.x   = Props.sourceX;  //v.x = 400*Math.random();
         v.y   = Props.sourceY;  //v.y = 200*Math.random();
         //v.scaleX = 2.0;
-        v.xinc = 2*(Math.random()-0.5);
+        var diffusion_level = 3.0;
+        v.xinc = diffusion_level*(Math.random()-0.5);
         //v.yinc = 2*(Math.random()-0.5); //* this.photon2Props.source_divergence;  // +ve or -ve amount of divergence
         //v.yinc = -2*(Math.random());   // -ve is up       
         v.scale = Props.scale;
-        return electron;
+        return c_atom;
     };   
    
    // ============== EVOLUTION ================ //
