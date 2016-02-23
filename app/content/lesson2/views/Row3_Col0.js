@@ -24,8 +24,8 @@ OER.Views.Radioactivity = OER.Views.Radioactivity || {};
     p.atomProps1 = {
         //sourceX: 400, // positioning is done by lattice
         //sourceY: 200, 
-        colour: "rgba(255,0,0,0.5)",
-        cloudColourClicked: "rgba(0,255,0,0.5)",    // colour after clicked
+        colour: "rgba(255,0,0,0.9)",
+        cloudColourClicked: "rgba(0,100,0,0.5)",    // colour after clicked
         cloudSize: 11, //12,  
         scale: 1.000, 
         nucleusSize: 2,
@@ -69,7 +69,7 @@ OER.Views.Radioactivity = OER.Views.Radioactivity || {};
        //=============== STATIC CONTENT ====================//
                         
        // Text 
-        this.txt = new createjs.Text("ATOMS (Clickable)", "18px Arial", "#FFF");
+        this.txt = new createjs.Text("DECAYING ATOMS", "18px Arial", "#FFF");
         this.txt.x = 40;  this.txt.y = 10;
         //this.txt.rotation = 20;  //txt.outline = true;
         this.stage.addChild(this.txt);
@@ -132,6 +132,7 @@ OER.Views.Radioactivity = OER.Views.Radioactivity || {};
     // Draw particle and add it to stage   
     p.drawAtom1 = function () {
        var atom = this.drawAtomHelper(this.atomProps1);
+       
        return atom;
     };   
      
@@ -149,62 +150,57 @@ OER.Views.Radioactivity = OER.Views.Radioactivity || {};
        nucleus.graphics.beginFill(Props.nucleusColour).drawCircle(0, 0, Props.nucleusSize); //
        //Atom
         c_atom.addChild(electron, nucleus);
-        c_atom.on("tick",this.atomTick);  // add tick listener to electron, which is called by createjs tick event 
-        c_atom.on("click",this.atomClick); 
+        c_atom.on("tick",this.atomTick);  // add tick listener to atom, which is called by createjs tick event 
+  //      c_atom.on("click",this.atomClick); 
        
         v.x         = Props.sourceX;  //v.x = 400*Math.random();
         v.y         = Props.sourceY;  //v.y = 200*Math.random();
+        
         v.diffusion = Props.diffusion;      
         v.scale     = Props.scale;
         v.cloudColourClicked = Props.cloudColourClicked;       
         //v.scaleX = 2.0;
+
+        c_atom.x        =v.x;       // update electron position
+        c_atom.y        = v.y;      
+        
         return c_atom;
     };   
    
    // ============== EVOLUTION ================ //
-//   p.stageClick = function () {
-//       // does this work?
-//       var particle = new createjs.Shape();
-//        particle.graphics.beginFill("red").drawCircle(0, 0, 200);
-//        this.stage.addChild(particle);
-//   };
-   
-   p.atomClick = function () {
-       // Action when an atom is clicked
-       this.scaleX = 1.5 * this.tickProps.scale;
-       this.scaleY = this.scaleX;
-       this.tickProps.diffusion = 2* p.atomProps1.diffusion;   // speed up
-       this.tickProps.electronFillCommand.style = this.tickProps.cloudColourClicked;
-       //var e = this.getChildByName('electron');
-       // this.stage.removeChild(this);
-   };   
+//   p.atomClick = function () {
+//       // Action when an atom is clicked
+//       this.scaleX = 1.5 * this.tickProps.scale;
+//       this.scaleY = this.scaleX;
+//       this.tickProps.diffusion = 2* p.atomProps1.diffusion;   // speed up
+//       this.tickProps.electronFillCommand.style = this.tickProps.cloudColourClicked;
+//       //var e = this.getChildByName('electron');
+//       // this.stage.removeChild(this);
+//   };   
    
     p.atomTick = function () {
         // Decay
         if (Math.random() > 0.999) {
              this.tickProps.electronFillCommand.style = this.tickProps.cloudColourClicked;
         }
-        
-        // Particle moves
-        if (this.tickProps.x > -10 && this.tickProps.x < 810 &&
-            this.tickProps.y > -10 && this.tickProps.y < 410) {
-            // update Props: "Diffusion"
-            var distance = this.tickProps.diffusion;
-            this.tickProps.x += distance*(Math.random()-0.5); // move right left
-            this.tickProps.y += distance*(Math.random()-0.5); // move up or down
-   
-            // update particle:
-            this.scaleX  *= this.tickProps.scale;   // change size of the particles
-            this.scaleY  *= this.tickProps.scale;   // 
-            this.x        = this.tickProps.x;       // update electron position
-            this.y        = this.tickProps.y;  
-          
-        }
-        else {
-            // remove this particle from stage if off screen
-            this.stage.removeChild(this);
-        };
-
+//        // Particle moves
+//        if (this.tickProps.x > -10 && this.tickProps.x < 810 &&
+//            this.tickProps.y > -10 && this.tickProps.y < 410) {
+//            // update Props: "Diffusion"
+//            var distance = this.tickProps.diffusion;
+//            this.tickProps.x += distance*(Math.random()-0.5); // move right left
+//            this.tickProps.y += distance*(Math.random()-0.5); // move up or down
+//   
+//            // update particle:
+//            this.scaleX  *= this.tickProps.scale;   // change size of the particles
+//            this.scaleY  *= this.tickProps.scale;   // 
+//            this.x        = this.tickProps.x;       // update electron position
+//            this.y        = this.tickProps.y;  
+//        }
+//        else {
+//            // remove this particle from stage if off screen
+//            this.stage.removeChild(this);
+//        };
     };
     
     function Hello2() {
