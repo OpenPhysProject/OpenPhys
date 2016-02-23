@@ -13,6 +13,7 @@ MapView styles the navigation map view, but not the individual cards
     z-index: $z-mg;
     padding: $padding-small;
     padding-bottom: $ui-button-width+$padding-small*3;
+    padding-top: 3rem;  // height of map-view-title
     background: $color_map_view_background;
     overflow: auto;
 
@@ -38,11 +39,13 @@ MapView styles the navigation map view, but not the individual cards
 }
 
 .map-view-title {
+    position: fixed;
+    top: 0;
+    z-index: $z-fg;
     font: $fontFamily-title;
     font-size: $fontSize-large;
     font-weight: 900;
-    padding-left: 0.5rem;
-    margin-left: 0.5rem;
+    //padding: 0.5rem;
     color: $color_gray-lighter;
     background: $color_gray-darkest;
 }
