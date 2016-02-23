@@ -171,9 +171,9 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
    
    p.atomClick = function () {
        // Action when an atom is clicked
-       this.scaleX *= 1.5;
-       this.scaleY *= 1.5;
-       this.tickProps.diffusion *= 2;   // speed up
+       this.scaleX = 1.5 * this.tickProps.scale;
+       this.scaleY = this.scaleX;
+       this.tickProps.diffusion = 2* p.atomProps1.diffusion;   // speed up
        this.tickProps.electronFillCommand.style = this.tickProps.cloudColourClicked;
        //var e = this.getChildByName('electron');
        // this.stage.removeChild(this);
