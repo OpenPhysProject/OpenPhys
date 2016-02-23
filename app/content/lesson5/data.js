@@ -11,16 +11,15 @@
     s.contentMapData = [  
         // index 0,
         {
+            startNode: true,
+            endNode: true, 
+            horizontalLinks: OER.linkType.strong,
             mapCards: [
                 {title:"100 PE Introduction",     image:"", route:"100_0"},
                 {title:"100.1 PE History",        image:"", route:"100_1"},
                 {title:"100.2 Scenarios",         image:"", route:"100_2"}, 
                 {title:"100.3 Optical PE Effect", image:"", route:"100_3"},           
-                {title:"100.4 X-ray, Low Z",      image:"", route:"100_4"}, 
-                {title:"", image:"", route:"100_5"}, 
-                {title:"", image:"", route:"100_6"},
-                {title:"", image:"", route:"100_7"},  
-                {title:"", image:"", route:"100_8"},           
+                {title:"100.4 X-ray, Low Z",      image:"", route:"100_4"},            
             ],    
         },
          // index 1,

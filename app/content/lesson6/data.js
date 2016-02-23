@@ -23,6 +23,9 @@
         },
         // index 1,
         {
+            startNode: true,
+            endNode: true,
+            horizontalLinks: OER.linkType.strong,
             mapCards: [
                 {title:"100 - COMPTON SCATTERING - BASIC CONCEPTS", image:"", route:"100_0"},
                 {title:"100.1 Photon Scattering: ANIMATION",    image:"", route:"Incident"},

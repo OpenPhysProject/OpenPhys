@@ -11,7 +11,10 @@
     s.contentMapData = [  
 
         // index 0,
-        {
+    {            
+        startNode: true,
+            endNode: true,
+            horizontalLinks: OER.linkType.strong,
             mapCards: [
                 {title:"100 Introduction",       image:"", route:"100_0"},
                 {title:"100.1 Terms Explained",  image:"", route:"100_1"},

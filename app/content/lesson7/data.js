@@ -19,6 +19,9 @@
         },
         // index 1
         {
+            startNode: true,
+            endNode: true,
+            horizontalLinks: OER.linkType.strong,
             mapCards: [
                {title: "200.0 Introduction", image: "", route: "Intro"},
                {title: "200.1 Pair Production Animation", image: "", route: "Anim"},           
