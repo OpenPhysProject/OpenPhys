@@ -104,6 +104,14 @@ th, td {
   max-height: 50px;
 }
 
+.lesson-content-image-icon2 {
+    // for wider, shorter images. Allow it to be wider.
+  margin: 1.0rem;
+  //width: 100%;
+  max-width: 250px;
+  max-height: 50px;
+}
+
 figure {
     margin: 1rem;
 }

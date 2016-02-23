@@ -24,12 +24,13 @@ OER.Views.Radioactivity = OER.Views.Radioactivity || {};
     p.atomProps1 = {
         //sourceX: 400, // positioning is done by lattice
         //sourceY: 200, 
-        colour: "rgba(255,0,0,0.9)",
-        cloudColourClicked: "rgba(0,100,0,0.5)",    // colour after clicked
+        colour:             "rgba(255,0,0,0.9)",
+        cloudColourClicked: "rgba(0,150,0,0.5)",    // colour after clicked
         cloudSize: 11, //12,  
         scale: 1.000, 
         nucleusSize: 2,
-        nucleusColour: "rgba(255,255,255,1.0)",
+        nucleusColour:        "rgba(255,255,255,1.0)",
+        nucleusColourClicked: "rgba(150,150,150,1.0)",    // colour after clicked        
         diffusion: 0.0,
     };    
      
@@ -132,7 +133,6 @@ OER.Views.Radioactivity = OER.Views.Radioactivity || {};
     // Draw particle and add it to stage   
     p.drawAtom1 = function () {
        var atom = this.drawAtomHelper(this.atomProps1);
-       
        return atom;
     };   
      
@@ -146,8 +146,11 @@ OER.Views.Radioactivity = OER.Views.Radioactivity || {};
        // Cloud 
        v.electronFillCommand = electron.graphics.beginFill(Props.colour).command;
        electron.graphics.drawCircle(0, 0, Props.cloudSize); // electron radius
+       //
        // Nucleus
-       nucleus.graphics.beginFill(Props.nucleusColour).drawCircle(0, 0, Props.nucleusSize); //
+       v.nucleusFillCommand = nucleus.graphics.beginFill(Props.nucleusColour).command;
+       nucleus.graphics.drawCircle(0, 0, Props.nucleusSize); 
+       //
        //Atom
         c_atom.addChild(electron, nucleus);
         c_atom.on("tick",this.atomTick);  // add tick listener to atom, which is called by createjs tick event 
@@ -158,12 +161,11 @@ OER.Views.Radioactivity = OER.Views.Radioactivity || {};
         
         v.diffusion = Props.diffusion;      
         v.scale     = Props.scale;
-        v.cloudColourClicked = Props.cloudColourClicked;       
+        v.cloudColourClicked   = Props.cloudColourClicked;
+        v.nucleusColourClicked = Props.nucleusColourClicked;
         //v.scaleX = 2.0;
-
         c_atom.x        =v.x;       // update electron position
         c_atom.y        = v.y;      
-        
         return c_atom;
     };   
    
@@ -182,6 +184,7 @@ OER.Views.Radioactivity = OER.Views.Radioactivity || {};
         // Decay
         if (Math.random() > 0.999) {
              this.tickProps.electronFillCommand.style = this.tickProps.cloudColourClicked;
+             this.tickProps.nucleusFillCommand.style  = this.tickProps.nucleusColourClicked;          
         }
 //        // Particle moves
 //        if (this.tickProps.x > -10 && this.tickProps.x < 810 &&
