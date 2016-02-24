@@ -8,16 +8,16 @@
     s.primaryPathIndex = 2;
     
     s.contentMapData = [
-//        // index 0
-//        {
-//            mapCards: [
-//                {title:"", image: "", route:"100_0"},
-//                {title:"", image:"", route:""},
-//                {title:"", image:"", route:""},
-//                {title:"", image:"", route:""},
-//                {title:"", image:"", route:""},
-//            ],
-//        },   
+        // index 0
+        {
+            mapCards: [
+                {title:"", image: "", route:"100_0"},
+                {title:"", image:"", route:""},
+                {title:"", image:"", route:""},
+                {title:"", image:"", route:""},
+                {title:"", image:"", route:""},
+            ],
+        },   
         // index 0
         {
             mapCards: [
@@ -26,7 +26,7 @@
                 {title:"", image:"", route:""},           
                 {title:"Classical Physics (1800s)", number:"200.3", image:"", route:"200_3"},
                 {title:"", image:"", route:""},
-                {title:"Travelling Waves", number:"200.5", image:"", route:"200_5"},
+                {title:"Travelling Waves",          number:"200.5", image:"", route:"Waves", icons:["video"]},
                 {title:"", image:"", route:""},
                 {title:"", image:"", route:""},
                 {title:"", image:"", route:""},
@@ -40,7 +40,7 @@
                 {title:"", image:"", route:""},          
                 {title:"Classical Electro - magnetism",    number:"300.3", image:"", route:"300_3"},
                 {title:"Angular Momentum",                 number:"300.4", image:"", route:"300_4"},
-                {title:"Standing Waves", number:"300.5", image:"", route:"StandingWaves"},
+                {title:"Standing Waves", number:"300.5", image:"", route:"StandingWaves", icons:["video"]},
                 {title:"", image:"", route:""}, 
                 {title:"Quantum Mechanics", number:"300.7", image:"", route:"300_7"},           
             ],
@@ -51,7 +51,7 @@
             endNode: true,
             horizontalLinks: OER.linkType.strong,
             mapCards: [
-               {title:"Atomic Models",                              number:"400.0", image:"", route:"Models", icons:["video"]},
+               {title:"Atomic Models",                              number:"400.0", image:"", route:"Models", icons:["interaction"]},
                {title:"Dalton's Atoms (1805)",                      number:"400.1", image:"", route:"Dalton", icons:["interaction"]},
                {title:"Plum Pudding Atom (1904)",                   number:"400.2", image:"", route:"400_2"},  
                {title:"Classical Rutherford Nuclear Atom (1910's)", number:"400.3", image:"", route:"SolarSystem",icons:["interaction"]}, 
