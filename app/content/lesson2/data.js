@@ -61,7 +61,7 @@
             endNode: true,
             horizontalLinks: OER.linkType.strong,
             mapCards: [
-                {number:"200.0", group:"_ ",      title: "RADIOACTIVITY \nStructure & Decay",  route: "StructureDecay"},
+                {number:"200.0", group:" ",      title: "RADIOACTIVITY \nStructure & Decay",  route: "StructureDecay"},
                 {number:"200.1", group:"Nucleus", title: "The Sleeper at the Heart",         image: "", route: "SleeperAtHeart"},
                 {number:"200.2", group:"Nucleus", title: "Shell Model of Nuclear Structure", image: "", route: "NuclearStructure"},
                 {number:"200.3", group:"Stability",title: "Binding Energy and Mass Defect", image: "", route: "BindingEnergy"},
