@@ -5,20 +5,20 @@
     s.preview = "/content/lesson1/assets/AtomPlay.svg"; //svg image
     s.route = "ElectronicStructureOfTheAtom";
     s.info = "";
-    s.primaryPathIndex = 3;
+    s.primaryPathIndex = 2;
     
     s.contentMapData = [
+//        // index 0
+//        {
+//            mapCards: [
+//                {title:"", image: "", route:"100_0"},
+//                {title:"", image:"", route:""},
+//                {title:"", image:"", route:""},
+//                {title:"", image:"", route:""},
+//                {title:"", image:"", route:""},
+//            ],
+//        },   
         // index 0
-        {
-            mapCards: [
-                {title:"", image: "", route:"100_0"},
-                {title:"", image:"", route:""},
-                {title:"", image:"", route:""},
-                {title:"", image:"", route:""},
-                {title:"", image:"", route:""},
-            ],
-        },   
-        // index 1
         {
             mapCards: [
                 {title:"", image:"", route:"200_0"},
@@ -32,7 +32,7 @@
                 {title:"", image:"", route:""},
             ],
         },  
-        //index 2
+        //index 1
         {
             mapCards: [
                 {title:"", image:"", route:""},
@@ -45,7 +45,7 @@
                 {title:"Quantum Mechanics", number:"300.7", image:"", route:"300_7"},           
             ],
         }, 
-        // index 3 
+        // index 2 
         {
             startNode: true,
             endNode: true,
@@ -62,7 +62,7 @@
                {title:"Beyond the Quantum Atom",                    number:"400.8", image:"", route:"400_8", icons:["quiz"]},          
             ],
         },
-        // index 4 
+        // index 3 
         {
             mapCards: [
                {title:"",       image:"", route:"500_0"},
@@ -75,7 +75,7 @@
                {title:"Modern Electron Shell Model", number:"500.7", image:"", route:"500_7"},          
             ], 
         },
-        // index 5  
+        // index 4  
         {
             mapCards: [
                {title:"", image:"", route:""},
@@ -89,14 +89,14 @@
             ],
         },
           // index 6 
-          {
-            mapCards: [
-               {title:"", image:"", route:""},
-               {title:"", image:"", route:""},
-               {title:"", image:"", route:""},
-               {title:"", image:"", route:"700_3"}      
-            ],
-        },
+//          {
+//            mapCards: [
+//               {title:"", image:"", route:""},
+//               {title:"", image:"", route:""},
+//               {title:"", image:"", route:""},
+//               {title:"", image:"", route:"700_3"}      
+//            ],
+//        },
     ];
 
     scope.lesson1 = s;
