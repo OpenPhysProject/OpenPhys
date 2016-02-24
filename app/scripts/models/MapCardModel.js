@@ -13,7 +13,7 @@ OER.Models = OER.Models || {};
         
         defaults: {
             title:  "",     // supports \n for new lines
-            number: "",     // calculated by row and column
+            number: "",     // ie 100.1 or "A_1", if not defined can be calculated by MapCardCollection.rowNumberLabel or LessonModel.rowLeadNumber and related values
             group:  "",     // can be null
             route:  "",     // is the url for route handling
             icons:  [],     // an array of icon names, defaults include ["quiz", "interaction", "video"], currenly supports a visual max of 2
