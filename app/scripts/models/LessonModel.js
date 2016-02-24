@@ -45,8 +45,12 @@ OER.Models = OER.Models || {};
                     var subRoute = mapCard.route;
                     if (!OER.Views[response.route][subRoute]) {
                         // OJR if we ever need something different, add a .template property to data and use it if it's populated
-                         OER.Views.LessonTemplate.template = JST["app/content/"+options.viewPath+"/templates/Row"+l.toString()+ "_Col" +i.toString()+".ejs"];
-                         OER.Views[response.route][subRoute] = Backbone.View.extend(OER.Views.LessonTemplate);
+                        if (mapCard.template) {
+                            OER.Views.LessonTemplate.template = JST["app/content/"+options.viewPath+"/templates/"+mapCard.template];
+                        } else {
+                            OER.Views.LessonTemplate.template = mapCard.template || JST["app/content/"+options.viewPath+"/templates/Row"+l.toString()+ "_Col" +i.toString()+".ejs"];
+                        }
+                        OER.Views[response.route][subRoute] = Backbone.View.extend(OER.Views.LessonTemplate);
                     }
                     
                     if (!mapCard.linkLeft && ((i!=0  && currentMap[l].mapCards[i-1].title != "") || (i == 0 && currentMap[l].startNode))) {

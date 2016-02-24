@@ -19,6 +19,8 @@ OER.Models = OER.Models || {};
             icons:  [],     // an array of icon names, defaults include ["quiz", "interaction", "video"], currenly supports a visual max of 2
             linkLeft: OER.linkType.none,    // [weak, strong, null] show this type of link to the left of this card in navigation map view
             linkTop:  OER.linkType.none,    // [weak, strong, null] show this type of link on the top of this card in navigation map view
+            template: null, // ejs template file name, if not used this value will default to row and col of 2d mapping, ie Row1_Col1.ejs
+            
             visited: false,
             current: false
         },
