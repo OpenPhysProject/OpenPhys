@@ -29,22 +29,21 @@ OER.Views.Radioactivity = OER.Views.Radioactivity || {};
         cloudSize: 11, //12,  
         scale: 1.000, 
         nucleusSize: 2,
-        nucleusColour:        "rgba(100,100,100,1.0)",
+        nucleusColour:        "rgba(255,255,255,1.0)",
         nucleusColourClicked: "rgba(150,150,150,1.0)",    // colour after clicked        
         diffusion: 0.0,
     };    
   
     p.radProps1 = {
-        sourceX: 400, // positioning is done by lattice
-        sourceY: 200, 
-        colour:             "rgba(255,255,0,0.5)",
-        cloudColourClicked: "rgba(0,150,0,0.5)",    // colour after clicked
-        cloudSize: 12, //12,  
+       // sourceX: 400, // positioning is done by lattice
+       // sourceY: 200, 
+        colour:    "rgba(255,255,0,0.5)",
+        cloudSize: 20, //12,  
         scale: 1.000, 
         nucleusSize: 3,
-        nucleusColour:        "rgba(255,255,255,1.0)",
-        nucleusColourClicked: "rgba(150,150,150,1.0)",    // colour after clicked        
-        diffusion: 0.0,
+        nucleusColour: "rgba(50,50,50,0.1)",
+        speed:       0.1, // was  6.0,
+       // diffusion: 0.0,
     };    
     
     /**
@@ -85,10 +84,7 @@ OER.Views.Radioactivity = OER.Views.Radioactivity || {};
         
         // Draw Particles
         //this.atoms = [];    // create empty array
-        this.drawLattice();
-        
-        // test radiation code
-        this.drawRadiation();     
+        this.drawLattice();    
         
         // set up createjs ticker to update stage
         createjs.Ticker.timingMode = createjs.Ticker.RAF;   // sets ticks to happen on browser request animation frame
@@ -150,14 +146,13 @@ OER.Views.Radioactivity = OER.Views.Radioactivity || {};
         this.stage.addChild(e);     // add particle to stage
       //  this.atoms.push(e);     // add electron to array. but is this ever used?
     };
-
-    // Draw particle and add it to stage   
+   
     p.drawAtom1 = function () {
        var atom = this.drawAtomHelper(this.atomProps1);
        return atom;
     };   
      
-   p.drawAtomHelper = function(Props) {
+    p.drawAtomHelper = function(Props) {
        // make atom from 2 parts
         var electron = new createjs.Shape();
         var nucleus  = new createjs.Shape();
@@ -188,36 +183,38 @@ OER.Views.Radioactivity = OER.Views.Radioactivity || {};
         return c_atom;
     };   
    
-   p.drawRadHelper = function(Props) {
+    p.drawRadHelper = function(Props) {
        // make radiation from 2 parts
         var electron = new createjs.Shape();
         var nucleus  = new createjs.Shape();
         var c_rad   = new createjs.Container();
         var v       = c_rad.tickProps = {};   // Define parameters to be used for each tick     
-       // Electron Cloud 
+       //  Cloud 
        v.electronFillCommand = electron.graphics.beginFill(Props.colour).command;
+       //beginRadialGradientFill ( colors  ratios  x0  y0  r0  x1  y1  r1 )
+       var colors=["rgba(255,255,0,255)","rgba(255,255,0,0)"];
+       var x0=0, y0=0, x1=0, y1=0;
+       var r0 = 1;
+       var r1 = Props.cloudSize;
+       var ratios = [0,1];
+       electron.graphics.beginRadialGradientFill(colors, ratios, x0,y0,r0, x1,y1,r1);
        electron.graphics.drawCircle(0, 0, Props.cloudSize); // electron radius
-       //
+      //
        // Nucleus
        v.nucleusFillCommand = nucleus.graphics.beginFill(Props.nucleusColour).command;
        nucleus.graphics.drawCircle(0, 0, Props.nucleusSize); 
        //
        //Radiation Particle
         c_rad.addChild(electron, nucleus);
-        c_rad.on("tick",this.radTick);  // add tick listener to atom, which is called by createjs tick event 
-        v.x         = Props.sourceX;  //v.x = 400*Math.random();
-        v.y         = Props.sourceY;  //v.y = 200*Math.random();
+        c_rad.on("tick",this.radTick);  // add tick listener to radiation particle 
         
-        var angle = 2*Math.PI * Math.random(); 
-        var speed = 6.0;
-        v.xinc = speed * Math.cos(angle); // 
-        v.yinc = speed * Math.sin(angle); // 
-        v.scale     = Props.scale;
-        v.cloudColourClicked   = Props.cloudColourClicked;
-        v.nucleusColourClicked = Props.nucleusColourClicked;
-        //v.scaleX = 2.0;
-        c_rad.x        =v.x;       // update position
-        c_rad.y        = v.y;      
+        c_rad.x = v.x = Props.sourceX;  //
+        c_rad.y = v.y = Props.sourceY;  //
+        var angle = 2*Math.PI * Math.random(); // radiation emerges at a random angle from the nuclide
+        v.xinc    = Props.speed * Math.cos(angle); // 
+        v.yinc    = Props.speed * Math.sin(angle); // 
+        v.scale   = Props.scale;
+        //v.scaleX = 2.0;      
         return c_rad;
     };   
    
@@ -233,51 +230,32 @@ OER.Views.Radioactivity = OER.Views.Radioactivity || {};
 //   };   
    
     p.atomTick = function () {
-        // Decay
+        // 
         if (Math.random() > 0.999 && this.tickProps.decayed == 0) {
-            // atom changes appearance
+            // Decay event: 1) atom changes appearance
             this.tickProps.decayed = 1;
-             this.tickProps.electronFillCommand.style = this.tickProps.cloudColourClicked;
-             this.tickProps.nucleusFillCommand.style  = this.tickProps.nucleusColourClicked;  
-            // radiation created 
-            p.radProps1.sourceX = this.x;   // radiation starts of location of decayed atom
+            this.tickProps.electronFillCommand.style = this.tickProps.cloudColourClicked;
+            this.tickProps.nucleusFillCommand.style  = this.tickProps.nucleusColourClicked;  
+            // 2) Radiation is created 
+            p.radProps1.sourceX = this.x;   // radiation starts at location of decayed atom
             p.radProps1.sourceY = this.y;
             var rad = p.drawRadHelper(p.radProps1);
-            this.stage.addChild(rad);
-            
-          // p.drawRadiation();
+            this.stage.addChild(rad);  
         }
-//        // Particle moves
-//        if (this.tickProps.x > -10 && this.tickProps.x < 810 &&
-//            this.tickProps.y > -10 && this.tickProps.y < 410) {
-//            // update Props: "Diffusion"
-//            var distance = this.tickProps.diffusion;
-//            this.tickProps.x += distance*(Math.random()-0.5); // move right left
-//            this.tickProps.y += distance*(Math.random()-0.5); // move up or down
-//   
-//            // update particle:
-//            this.scaleX  *= this.tickProps.scale;   // change size of the particles
-//            this.scaleY  *= this.tickProps.scale;   // 
-//            this.x        = this.tickProps.x;       // update electron position
-//            this.y        = this.tickProps.y;  
-//        }
-//        else {
-//            // remove this particle from stage if off screen
-//            this.stage.removeChild(this);
-//        };
     };
     
     p.radTick = function () {
-        // radiation moves, and eventually disappears
-    //        
+        // radiation moves, and eventually disappears       
         if (this.tickProps.x > -10 && this.tickProps.x < 810 &&
             this.tickProps.y > -10 && this.tickProps.y < 410) {
-            // update Props: "Diffusion"
+            // update Props:
             //var speed = 2; // could allow to accelerate?
+            var accel = 1.09;
+            this.tickProps.xinc *= accel;
+            this.tickProps.yinc *= accel;
             this.tickProps.x += this.tickProps.xinc; //
             this.tickProps.y += this.tickProps.yinc; //yinc = speed * Math.sin(this.tickProps.angle); // 
-   
-            // update particle:
+           // update radiation particle:
            // this.scaleX  *= this.tickProps.scale;   // change size of the particles
            // this.scaleY  *= this.tickProps.scale;   // 
             this.x        = this.tickProps.x;       // update electron position
@@ -286,8 +264,7 @@ OER.Views.Radioactivity = OER.Views.Radioactivity || {};
         else {
             // remove this particle from stage if off screen
             this.stage.removeChild(this);
-        };    
-        
+        };      
     };
     
     function Hello2() {
