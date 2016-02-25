@@ -39,7 +39,7 @@
                 {title:"", image:"", route:""},
                 {title:"", image:"", route:""},          
                 {title:"Classical Electro - magnetism",    number:"300.3", image:"", route:"300_3"},
-                {title:"Angular Momentum",                 number:"300.4", image:"", route:"300_4"},
+                {title:"Angular Momentum",                 number:"300.4", image:"", route:"Angular"},
                 {title:"Standing Waves", number:"300.5", image:"", route:"StandingWaves", icons:["video"]},
                 {title:"", image:"", route:""}, 
                 {title:"Quantum Mechanics", number:"300.7", image:"", route:"300_7"},           
