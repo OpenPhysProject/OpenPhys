@@ -70,10 +70,11 @@ OER.Views = OER.Views || {};
 // Model and Content changing ********************************************************************
     /**
      * Update content to targetView
-     * @param {string} targetView
+     * @param {MapCardModel} model
      * @method updateContent
      */
-    p.updateContent = function (targetView) {
+    p.updateContent = function (model) {
+        var targetView = model.get("route");
         if (this.content && !this.changeDirection) {
             this.content.remove();
             this.oldContent = null;
@@ -84,9 +85,9 @@ OER.Views = OER.Views || {};
         var lessonScope = this.model.get("route");
         // check if view exists, which should always be the case in final release
         if (OER.Views[lessonScope] && OER.Views[lessonScope][this.currentView]) {
-            this.content = new OER.Views[lessonScope][this.currentView]();
+            this.content = new OER.Views[lessonScope][this.currentView](model);
         } else {
-            this.content = new OER.Views.DefaultContentView();  // OJR possibly better to redirect to intro
+            this.content = new OER.Views.DefaultContentView(model);
         }
         OER.router.noEventGo(lessonScope + "/" + targetView);   // change if we change default view handling
 
@@ -238,8 +239,7 @@ OER.Views = OER.Views || {};
         this.navigateRow(contentMap, -1, this.navUp);
         this.navigateRow(contentMap, 1, this.navDown);
 
-        var targetView = model.get("route");
-        this.updateContent(targetView);
+        this.updateContent(model);
     };
 
     /**

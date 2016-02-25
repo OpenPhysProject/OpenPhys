@@ -6,6 +6,8 @@
     s.route = "Instructions";
     s.primaryPathIndex = 0;
     s.horizontalLinks = OER.linkType.strong;
+    s.rowLeadNumber = 1;
+    s.rowIncrement = 1;
     
     s.contentMapData = [
     // index 0
@@ -14,11 +16,11 @@
         startNode: true,
         endNode: true,
         mapCards: [
-            {title:"Lesson Tiles",  image:"", route:"Tile"},
-            {title:"Arrow Keys",    image:"", route:"Nav"},
-            {title:"Map Icon",      image:"", route:"ContentMap"},
-            {title:"Larger Maps",   image:"", route:"LargerMaps"}, 
-            {title:"OpenPhys Logo", image:"", route:"MapLogo"},         
+            {title:"The Lesson Concept Map",    route:"Tile"},
+            {title:"Navigate with Arrow Keys",  route:"Nav"},
+            {title:"The Map Icon",              route:"ContentMap"},
+            {title:"Exploring Larger Maps",     route:"LargerMaps"}, 
+            {title:"The OpenPhys Logo",         route:"MapLogo"},         
         ]
     },
     ];

@@ -34,19 +34,26 @@ h3 {
     margin-bottom: 1.0rem;
 }
 
+// used for short summary phrase at top of content pages
 .lesson-content-memo {
-    // used for short summary phrase at top of content pages
-    color: blue;
+    color: blue;    // OJR this color needs to change, as blue is used to indicate hyperlinks
     font-style: italic;
     margin-bottom: 1.5rem;
 }
 
+// used for note at bottom of content page
 .lesson-content-info {
-    // used for note at bottom of content page
-    color: grey;
+    color: $color_gray-dark;
     font-style: italic;
     margin-top: 2rem;
     margin-bottom: 1.5rem;
+}
+
+.lesson-content-footer {
+    color: $color_gray-dark;
+    font-style: italic;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;    
 }
 
 //--- LESSON CONTENT FONT SIZE CHANGES DEPENDENT ON SCREEN WIDTH:
