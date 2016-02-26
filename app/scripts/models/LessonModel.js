@@ -19,7 +19,7 @@ OER.Models = OER.Models || {};
             primaryPathIndex:   null,     // index of main MapCardCollection in contentMap
             contentMap:         null,           // 2D array of MapCardCollection
             lastCurrentCollection: null,
-            jumpNav:            false,
+            jumpNav:            false,      // determines if you can navigate left and right across gaps in the map
             horizontalLinks:    OER.linkType.none,  // navigation map horizontal links, can be overwritten by MapCardCollection.horizontalLinks and MapCardModel.linkLeft
             verticalLinks:      OER.linkType.weak,   // navigation map vertical links, can be overwritten by MapCardModel.linkTop
             numberConnector:    ".",    // connecting character for page numbering, ie 200.3
