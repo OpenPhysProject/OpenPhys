@@ -109,41 +109,35 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
  
      p.drawArc = function() {
      // Arc
-        
-        // var cycles, cycleshift, y0, wavespeed, colour
-       // var xmin,xmax,xrange,x,y, radians;
-       
-        var a, c, angle, segments = 60, redcol,col;
-        var angle1=0, angle2=0;
+        var a, c, segments = 32, redcol,greencol, col;
+        var angle1=0.00*2*Math.PI, angle2;
+        var radius = 150;
+        var x0 = 400, y0=200;
+        var x1, y1;
+        var angle_inc = 2*Math.PI/segments;
+        var col_inc = 7; //15
        
         this.Arc2 = new createjs.Shape();
-        this.Arc2.graphics.setStrokeStyle(20).beginFill("red");
+        this.Arc2.graphics.setStrokeStyle(3);
 
-        for (a=0; a<segments+1; a++){
-            angle2 = (a/segments) * 2*Math.PI;
-            redcol = a*255/segments;
-            col = "rgb(" + redcol + ",100,0)";
+        for (a=0; a<segments; a++){
+            var x1=x0+radius*Math.cos(angle1);
+            var y1=y0+radius*Math.sin(angle1);
+            angle2 = angle1+angle_inc;
+            redcol = col_inc*(a+1);
+            //redcol = 255;
+            greencol = 30;
+            col = "rgb(" + redcol + "," + greencol+ ",0)";
+            this.Arc2.graphics.beginFill(col);
             this.Arc2.graphics.beginStroke(col);
-        //         Graphics.Arc ( x  y  radius  startAngle  endAngle  anticlockwise )
-            this.Arc2.graphics.arc(400, 200, 120, angle1, angle2);
+            this.Arc2.graphics.moveTo(x0,y0);
+            this.Arc2.graphics.lineTo(x1,y1);
+            this.Arc2.graphics.arc(x0,y0,radius, angle1,angle2 );  
+            this.Arc2.graphics.lineTo(x0,y0);
+            this.Arc2.graphics.endStroke(); // horizontal
+            this.stage.addChild(this.Arc2);
             angle1 = angle2;
-        }
-       // this.Arc2.graphics.closePath();
-            
-       // this.Wave.graphics.beginStroke(colour).moveTo(xmin,y0);
-        
-        // Physics
-        //var wavelength = xmax/cycles;
-        //var freq = wavespeed/wavelength;        // relative to tick rate
-        //var yamp = this.Wave_ymax; // * Math.cos(2*Math.PI* freq * this.t);  
-        //cycleshift =  2*Math.PI*freq*this.t;
-        //          
-        //for (x=0; x<xmax; x++){
-        //    radians = 2*Math.PI*((x/xrange)*cycles - cycleshift);
-        //    this.Wave.graphics.lineTo(xmin+x, y0+yamp*Math.sin(radians));
-        //};
-
-        this.Arc2.graphics.endStroke(); // horizontal
+             }
         this.stage.addChild(this.Arc2);
         //this.Arc2.rotation=90;
     };   
