@@ -109,7 +109,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
  
      p.drawArc = function() {
      // Arc
-        var a, c, segments = 32, redcol,greencol, col;
+        var a, c, s, segments = 32, redcol,greencol, col;
         var angle1=0.00*2*Math.PI, angle2;
         var radius = 150;
         var x0 = 400, y0=200;
@@ -117,17 +117,20 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         var angle_inc = 2*Math.PI/segments;
         var col_inc = 7; //15
        
-        this.Arc2 = new createjs.Shape();
-        this.Arc2.graphics.setStrokeStyle(3);
+//        this.Arc2 = new createjs.Shape();
+//        this.Arc2.graphics.setStrokeStyle(1);
 
-        for (a=0; a<segments; a++){
-            var x1=x0+radius*Math.cos(angle1);
-            var y1=y0+radius*Math.sin(angle1);
+        for (a=0; a<segments; a++){  
+           s = Math.sin(angle1);
+           c = Math.cos(angle1);
+            var x1=x0+radius * c;
+            var y1=y0+radius * s;
             angle2 = angle1+angle_inc;
-            redcol = col_inc*(a+1);
-            //redcol = 255;
-            greencol = 30;
+            redcol   = (200.0*s*s).toFixed(0);//col_inc*(a+1);
+            greencol = (200.0*c*c).toFixed(0);
             col = "rgb(" + redcol + "," + greencol+ ",0)";
+            this.Arc2 = new createjs.Shape();
+            this.Arc2.graphics.setStrokeStyle(0);
             this.Arc2.graphics.beginFill(col);
             this.Arc2.graphics.beginStroke(col);
             this.Arc2.graphics.moveTo(x0,y0);
@@ -138,7 +141,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
             this.stage.addChild(this.Arc2);
             angle1 = angle2;
              }
-        this.stage.addChild(this.Arc2);
+        //this.stage.addChild(this.Arc2);
         //this.Arc2.rotation=90;
     };   
     
