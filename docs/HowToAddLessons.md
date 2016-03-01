@@ -46,35 +46,37 @@ Each separate entry represents a row in the 2D map of content.
 Note: *{title:""}* creates an empty gap in the 2D map.
 5. At the end of *data.js* change *scope.lesson1 = s;* to *scope.myLesson = s;*
 
-##### how to add links to navigation map
+#### how to add links to navigation map
 There are multiple ways to add links between mapCards in the navigation map, 
 meant to make authoring both easy and flexible.
 The expected practice is to define the general behavior for links at the lesson 
 level, then define any row exceptions at the contentMapData level, and finally 
 define any map card specific exceptions at the mapCard level.
-1. *linkLeft* of mapCard is determined with the following priority.
+
+1. *linkLeft* of mapCard is determined with the following priority.  
   1. *linkLeft* property of mapCard is given top priority, and will always be applied
   2. *horizontalLinks* property of contentMapData has 2nd priority, and is applied to all cards in this row
   3. *horizontalLinks* property of lesson has 3rd and lowest priority, and is applied to all rows
-2. *linkTop* of mapCard is determined with the following priority.
+2. *linkTop* of mapCard is determined with the following priority.  
   1. *linkTop* property of mapCard is given top priority, and will always be applied
   2. *verticalLinks* property of lesson has 2nd and lowest priority, and is applied to all columns
 
-##### how to handle page numbering
+#### how to handle page numbering
 There are multiple ways to define page numbering that are meant to make authoring 
 easier while allowing maximum flexibility.
 The expected practice is to define numbering properties at the lesson level in 
 most cases, and define any row exceptions at the contentMapData level, and finally 
 to define any page specific exceptions at the mapCard level.
+
 1. *numberConnector* - [default = "."] connecting character for page numbering, 
 ie 200.3, defined at lesson level.
-2. Row number (value before connector) is determined with the following priority.
+2. Row number (value before connector) is determined with the following priority.  
   1. *number* property of mapCard takes top priority, will always be shown, and 
      overrides all of row, numberConnector, and column values.
   2. *rowNumberLabel* of contentMapData has 2nd priority, and is applied to all cards in this row
   3. *rowLeadNumber* and *rowIncrement* of lesson data has 3rd and lowest priority, 
      and is applied to all rows.  Row value is determined by rowLeadNumber + rowIncrement*row (note row starts at 0)
-2. Column number (value after connector) is determined with the following priority.
+2. Column number (value after connector) is determined with the following priority.  
   1. *number* property of mapCard takes top priority, will always be shown, and 
      overrides all of row, numberConnector, and column values.
   2. *colLeadNumber* and *colIncrement* of lesson data has 2nd priority, 
