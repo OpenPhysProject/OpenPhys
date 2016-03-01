@@ -14,11 +14,12 @@ OER.Collections = OER.Collections || {};
         
         model: OER.Models.MapCardModel, // backbone model
         
-        horizontalLinks: OER.linkType.none,  // OER.linkType.weak|strong|none  turns on horizontal links between nodes, can be overridden by MapCards.linkLeft
-        startNode:  false,  // show start node in navigation Map before first card
-        endNode:    false,  // show end node in navigation map after last card
-        rowNumberLabel: null, // number to give this row in content map, ie 100 or "A"
-        lastCurrent: null,  // MapCardModel, used for tracking the last current page
+        horizontalLinks: null,  // [OER.linkType.weak|strong|none]  horizontal links between nodes, can be overridden by MapCards.linkLeft
+        startNode:       false, // show start node in navigation Map before first map card
+        endNode:         false, // show end node in navigation map after last map card
+        rowNumberLabel:  null,  // number to give this row in content map, ie 100 or "A"
+        
+        lastCurrent:     null,  // [MapCardModel] used for tracking the last current page
         
         /**
          * Setup collection to start using it

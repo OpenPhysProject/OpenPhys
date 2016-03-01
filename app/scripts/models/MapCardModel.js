@@ -12,17 +12,17 @@ OER.Models = OER.Models || {};
     OER.Models.MapCardModel = Backbone.Model.extend({
         
         defaults: {
-            title:  "",     // supports \n for new lines
-            number: "",     // ie 100.1 or "A_1", if not defined can be calculated by MapCardCollection.rowNumberLabel or LessonModel.rowLeadNumber and related values
-            group:  "",     // can be null
-            route:  "",     // is the url for route handling
-            icons:  [],     // an array of icon names, defaults include ["quiz", "interaction", "video"], currenly supports a visual max of 2
-            linkLeft: OER.linkType.none,    // [weak, strong, null] show this type of link to the left of this card in navigation map view
-            linkTop:  OER.linkType.none,    // [weak, strong, null] show this type of link on the top of this card in navigation map view
+            title:  "",     // title shown on navigation cards in map view, supports \n for new lines
+            number: "",     // [optional] number of content page, ie 100.1 or "A_1", if not defined can be calculated by MapCardCollection.rowNumberLabel or LessonModel.rowLeadNumber and related values
+            group:  "",     // [optional] used to show a relation between various mapCards/content pages
+            route:  "",     // is the url for route handling and the namespace for the view associated with content page
+            icons:  [],     // [options = ["quiz", "interaction", "video"]] used to show icons on mapCard that indicate specific content types, currently supports a visual max of 2
+            linkLeft: null, // [OER.linkType.weak|strong|none] show this type of link to the left of this card in navigation map view
+            linkTop:  null, // [OER.linkType.weak|strong|none] show this type of link on the top of this card in navigation map view
             template: null, // ejs template file name, if not used this value will default to row and col of 2d mapping, ie Row1_Col1.ejs
             
-            visited: false,
-            current: false
+            visited: false, // true if user has visted this contentPage
+            current: false, // true if this contentPage is currently showing
         },
         
         initialize: function () {

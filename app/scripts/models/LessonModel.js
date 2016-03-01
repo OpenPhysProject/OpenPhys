@@ -12,21 +12,22 @@ OER.Models = OER.Models || {};
     OER.Models.LessonModel = Backbone.Model.extend({
 
         defaults: {
-            title:              '',
-            preview:            '',
-            route:              "",
-            selected:           false,
-            primaryPathIndex:   null,     // index of main MapCardCollection in contentMap
-            contentMap:         null,           // 2D array of MapCardCollection
-            lastCurrentCollection: null,
-            jumpNav:            false,      // determines if you can navigate left and right across gaps in the map
-            horizontalLinks:    OER.linkType.none,  // navigation map horizontal links, can be overwritten by MapCardCollection.horizontalLinks and MapCardModel.linkLeft
-            verticalLinks:      OER.linkType.weak,   // navigation map vertical links, can be overwritten by MapCardModel.linkTop
+            title:              '',     // name of lesson, shown on tile view
+            preview:            '',     // image shown on tile view
+            route:              "",     // url to this lesson and namespace used for related views
+            primaryPathIndex:   null,   // index of main MapCardCollection in contentMap
+            jumpNav:            false,  // determines if you can navigate left and right across gaps in the map
+            horizontalLinks:    OER.linkType.none,  // [OER.linkType.weak|strong|none] navigation map horizontal links, can be overwritten by MapCardCollection.horizontalLinks and MapCardModel.linkLeft
+            verticalLinks:      OER.linkType.weak,   // [OER.linkType.weak|strong|none] navigation map vertical links, can be overwritten by MapCardModel.linkTop
             numberConnector:    ".",    // connecting character for page numbering, ie 200.3
             rowLeadNumber:      null,   // number to give to first row in content map, ie 100
             rowIncrement:       null,   // amount to increment row by for each row, ie 100
             colLeadNumber:      null,   // number to give first column in content map, ie 1
             colIncrement:       null,   // amount to increment each column by, ie 1
+            contentMap:         null,   // 2D array of MapCardCollection, used to store 2D map of content
+            
+            selected:           false,  // marked true when related tile is clicked on
+            lastCurrentCollection: null,// [MapCardCollection] specifies which row in the contentMap is currently selected
         },
         
         /**
