@@ -28,6 +28,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     p.Wave_ymax = 50;
     p.Wave_yinc = 0.8;      // oscillation speed
     p.t = 0; // time
+    p.rotation_deg = 0.0;
     
     p.photonProps1 = {sourceX: 400, sourceY: 200, source_colour: "darkgreen", colour: "red", size: 5,  scale: 1.000 };    
      
@@ -81,16 +82,8 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         //this.txt.rotation = 20;  //txt.outline = true;
         this.stage.addChild(this.txt);
         
-        this.drawArc();
-        
-        // Redraw wave. 
-        var wavespeed = 0.5;
-        //this.drawWave(1, 0.5,  80, wavespeed,    "red");
-        //this.drawWave(3,   0.5, 200, wavespeed, "red");
-        //this.drawWave(6, 0.5, 320, wavespeed, "red");       
-        //this.Wave_ymax += this.Wave_yinc;
-        //if (Math.abs(this.Wave_ymax) > 50) {this.Wave_yinc *= -1;};
-        
+        this.drawArc(this.rotation_deg);
+        this.rotation_deg += 2;
         this.t += 1;                // clock for simulations
         this.stage.update(event);   // redraw shapes on the stage
     };
@@ -107,42 +100,45 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         Backbone.View.prototype.remove.call(this, options);
     };
  
-     p.drawArc = function() {
+    p.drawArc = function(rotation_deg) {
      // Arc
-        var a, c, s, segments = 32, redcol,greencol, col;
-        var angle1=0.00*2*Math.PI, angle2;
+        var a, c,s,s1,c1, segments = 180; // 32
+        var redcol,greencol, col;
+        var angle1=0.0, angle2;
         var radius = 150;
         var x0 = 400, y0=200;
         var x1, y1;
         var angle_inc = 2*Math.PI/segments;
-        var col_inc = 7; //15
+       // var col_inc = 7; //15
        
-//        this.Arc2 = new createjs.Shape();
-//        this.Arc2.graphics.setStrokeStyle(1);
+       var rotation = -(rotation_deg/360)*2*Math.PI;
+       
+        this.Arc2 = new createjs.Shape();
+        this.Arc2.graphics.setStrokeStyle(1);
 
-        for (a=0; a<segments; a++){  
-           s = Math.sin(angle1);
-           c = Math.cos(angle1);
-            var x1=x0+radius * c;
-            var y1=y0+radius * s;
-            angle2 = angle1+angle_inc;
-            redcol   = (200.0*s*s).toFixed(0);//col_inc*(a+1);
-            greencol = (200.0*c*c).toFixed(0);
+        for (a=0; a<segments; a++){  // a< segments
+           s = Math.sin(angle1);// + rotation);
+           c = Math.cos(angle1); // + rotation);
+           s1 = Math.sin(angle1+rotation);  // just for fill volor
+           c1 = Math.cos(angle1+rotation);
+            x1     = x0 + radius*c;
+            y1     = y0 + radius*s;
+            angle2 = angle1 + angle_inc;
+            redcol   = (200.0*s1*s1).toFixed(0);//col_inc*(a+1);
+            greencol = (200.0*c1*c1).toFixed(0);
             col = "rgb(" + redcol + "," + greencol+ ",0)";
-            this.Arc2 = new createjs.Shape();
-            this.Arc2.graphics.setStrokeStyle(0);
             this.Arc2.graphics.beginFill(col);
             this.Arc2.graphics.beginStroke(col);
             this.Arc2.graphics.moveTo(x0,y0);
             this.Arc2.graphics.lineTo(x1,y1);
-            this.Arc2.graphics.arc(x0,y0,radius, angle1,angle2 );  
+            this.Arc2.graphics.arc(x0,y0,radius, angle1, angle2);  
             this.Arc2.graphics.lineTo(x0,y0);
             this.Arc2.graphics.endStroke(); // horizontal
-            this.stage.addChild(this.Arc2);
+          //  this.stage.addChild(this.Arc2);
             angle1 = angle2;
              }
-        //this.stage.addChild(this.Arc2);
         //this.Arc2.rotation=90;
+        this.stage.addChild(this.Arc2);
     };   
     
     p.drawWave = function(cycles, cycleshift, y0, wavespeed, colour) {
