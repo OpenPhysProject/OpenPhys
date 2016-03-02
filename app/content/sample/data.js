@@ -4,6 +4,7 @@
     
     s.title = "Title For Your Lesson Goes Here";            // [default = ""] the title that is shown on the main page lesson tile
     s.preview = "/content/sample/assets/logo-icon.svg";    // [default = ""] svg image that is shown on the main page lesson tile
+    s.themeColor = "rgba(255, 255, 255, 1)", // [default = "rgba(255, 255, 255, 1"] color used as background on tiles and through content, can be any css supported color
     s.route = "sampleLesson";       // [default = ""] Url shown when you click on lesson tile and can be used as a link, for example this would be http://openphys.med.ualberta.ca/sampleLesson
     s.primaryPathIndex = 0;         // [default = null] where in contentMapData the primary lesson path, which starts counting at 0.  This gives the user a clear starting point
     s.jumpNav = false;              // [default = false] determines if you can navigate left and right across gaps in the map

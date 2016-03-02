@@ -14,6 +14,7 @@ OER.Models = OER.Models || {};
         defaults: {
             title:              '',     // name of lesson, shown on tile view
             preview:            '',     // image shown on tile view
+            themeColor:         "linear-gradient(180deg, rgba(240, 240, 240, 1) 0%, rgba(245, 245, 245, 1) 47.52%, rgba(255, 255, 255, 1) 100%)", // color used as background on tiles and through content, can be any css supported color
             route:              "",     // url to this lesson and namespace used for related views
             primaryPathIndex:   null,   // index of main MapCardCollection in contentMap
             jumpNav:            false,  // determines if you can navigate left and right across gaps in the map

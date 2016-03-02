@@ -22,12 +22,13 @@ In the *app/content/sample* folder you will find a well documented *data.js* exa
 2. Edit the lesson properties. Properties with default values are optional.
   1. *title* - title that is shown on the main page lesson tile
   2. *preview* - svg image that is shown on the main page lesson tile
-  3. *route* - the subpath url and name-spacing for related views.
-  4. *primaryPathIndex* is used to indicate the primary row on the map
-  5. *jumpNav* - [default = false] determines if you can navigate left and right across gaps in the map
-  6. *horizontalLinks* and *verticalLinks* - explained below in how to add links to navigation map
-  7. *numberConnector*, *rowLeadNumber*, *rowIncrement*, *colLeadNumber*, and *colIncrement* - explained below in how to handle page numbering
-  8. *contentMapData* - 2D array of MapCardCollection, used to store 2D map of content. See below for explanation.
+  3. *themeColor - [default = "rgba(255, 255, 255, 1"] color used as background on tiles and through content, can be any css supported color
+  4. *route* - the subpath url and name-spacing for related views.
+  5. *primaryPathIndex* is used to indicate the primary row on the map
+  6. *jumpNav* - [default = false] determines if you can navigate left and right across gaps in the map
+  7. *horizontalLinks* and *verticalLinks* - explained below in how to add links to navigation map
+  8. *numberConnector*, *rowLeadNumber*, *rowIncrement*, *colLeadNumber*, and *colIncrement* - explained below in how to handle page numbering
+  9. *contentMapData* - 2D array of MapCardCollection, used to store 2D map of content. See below for explanation.
 3. Edit the lesson contentMapData properties, all of which are optional. 
 Each separate entry represents a row in the 2D map of content.
   1. *startNode* - [default = false] show start node in navigation Map before first map card
