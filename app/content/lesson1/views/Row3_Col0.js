@@ -17,9 +17,11 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     p.width = null;         // stage width
     p.height = null;        // stage height
     // Easeljs shapes:
-    p.atoms = null;     // array of easeljs shapes
+    p.atoms = null;         // array of easeljs shapes
     p.tickerBind = null;    // reference to bound function, binding lets us call back in this scope
     p.buttonBind = null;    // reference to bound function
+    p.c_info= null;         // createjs Container for info text
+  
     
     p.atomProps1 = {
         //sourceX: 400, // positioning is done by lattice
@@ -69,7 +71,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
        //=============== STATIC CONTENT ====================//
                         
        // Text 
-        this.txt = new createjs.Text("ATOMS (Clickable)", "18px Arial", "#FFF");
+        this.txt = new createjs.Text("ATOMS", "22px Courier New", "#FFF");
         this.txt.x = 40;  this.txt.y = 10;
         //this.txt.rotation = 20;  //txt.outline = true;
         this.stage.addChild(this.txt);
@@ -77,6 +79,15 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         // Draw Particles
         this.atoms = [];    // create empty array
         this.drawLattice();
+        
+        // Draw Info Button
+        this.info = this.drawInfoButton();
+        this.infoBind = this.infoClick.bind(this);     
+        this.info.addEventListener("click", this.infoBind);
+        //this.stage.addChild(this.info);  // add this shape to the stage
+        
+        this.makeInfoText(); // create text (dont display yet)
+        
         // set up createjs ticker to update stage
         createjs.Ticker.timingMode = createjs.Ticker.RAF;   // sets ticks to happen on browser request animation frame
         this.tickerBind            = this.tick.bind(this);
@@ -135,7 +146,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
        return atom;
     };   
      
-   p.drawAtomHelper = function(Props) {
+    p.drawAtomHelper = function(Props) {
        // make atom from 2 parts
         var electron = new createjs.Shape();
         var nucleus  = new createjs.Shape();
@@ -169,7 +180,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
 //        this.stage.addChild(particle);
 //   };
    
-   p.atomClick = function () {
+    p.atomClick = function () {
        // Action when an atom is clicked
        this.scaleX = 1.5 * this.tickProps.scale;
        this.scaleY = this.scaleX;
@@ -199,6 +210,63 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
             this.stage.removeChild(this);
         };
     };
+    
+    p.drawInfoButton = function () {
+        // Draw Info Button at bottom left corner of canvas
+        var source = new createjs.Shape();
+        var xpos = 25, ypos = 400 - 60;
+        var width = 60, height = 45; 
+        var txt;
+        // drawRoundRect(x, y, width, height, radius)
+        source.graphics.beginFill("rgba(100,100,100,0.8)").drawRoundRect(xpos, ypos, width, height, 5);
+       // source.x =  30; //Props.sourceX;  // x position
+       // source.y =  320; //Props.sourceY;
+        this.stage.addChild(source);
+
+        txt = new createjs.Text("Info", "18px Courier New", "rgba(200,200,200,0.8");
+        txt.x = xpos + 10;  
+        txt.y = ypos + 13;
+        //this.txt.rotation = 20;  //txt.outline = true;
+        this.stage.addChild(txt);    
+        return source;        
+        };
+    
+    p.makeInfoText = function() {
+              // display info text
+        // should active a flag for temporary display
+        //var c_info   = new createjs.Container();
+        p.c_info = new createjs.Container();
+        p.c_info.visible = false;
+        
+        var infoobj, line;
+        var infotxt = [
+            "This is a simulation of atoms", 
+            "The atoms are clickable", 
+            " ",
+            "(To clear, click info button again.)",
+        ];
+        var nlines = 4;
+        for (line=0; line<nlines; line++)
+            {        
+                infoobj = new createjs.Text(infotxt[line], "22px Courier", "rgba(200,200,200,0.9");
+                infoobj.x = 100;  
+                infoobj.y = 100+20*line;
+                //this.txt.rotation = 20;  //txt.outline = true;
+                p.c_info.addChild(infoobj);
+            }
+        this.stage.addChild(p.c_info);
+        
+        return;  
+    };
+    
+    p.infoClick = function () {
+        // display info text
+
+        p.c_info.visible = !p.c_info.visible;
+        
+        return; 
+    }
+    
     
     function Hello2() {
         var tmp;
