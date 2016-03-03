@@ -214,28 +214,33 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     p.drawInfoButton = function () {
         // Draw Info Button at bottom left corner of canvas
         var source = new createjs.Shape();
-        var xpos = 25, ypos = 400 - 60;
-        var width = 60, height = 45; 
         var txt;
+        var txtProps = {
+            colour:"rgba(200,200,200,0.8", 
+            font:"18px Courier New", 
+            bgcolour:"rgba(100,100,100,0.8)",
+            x0:    25,
+            y0:    400-60,
+            width: 60,
+            spacing: 45        
+        };
+        
         // drawRoundRect(x, y, width, height, radius)
-        source.graphics.beginFill("rgba(100,100,100,0.8)").drawRoundRect(xpos, ypos, width, height, 5);
-       // source.x =  30; //Props.sourceX;  // x position
-       // source.y =  320; //Props.sourceY;
+        var height = txtProps.spacing;
+        source.graphics.beginFill(txtProps.bgcolour).drawRoundRect(txtProps.x0, txtProps.y0, txtProps.width, height, 5);
         this.stage.addChild(source);
 
-        txt = new createjs.Text("Info", "18px Courier New", "rgba(200,200,200,0.8");
-        txt.x = xpos + 10;  
-        txt.y = ypos + 13;
+        txt = new createjs.Text("Info", txtProps.font, txtProps.colour);
+        txt.x = txtProps.x0 + 10;  
+        txt.y = txtProps.y0 + 13;
         //this.txt.rotation = 20;  //txt.outline = true;
         this.stage.addChild(txt);    
         return source;        
         };
     
     p.makeInfoText = function() {
-              // display info text
-        // should active a flag for temporary display
-        //var c_info   = new createjs.Container();
-        p.c_info = new createjs.Container();
+        // make a display object containing a background and several lines of text
+        p.c_info         = new createjs.Container();
         p.c_info.visible = false;
         
         var infoobj, line;
@@ -245,34 +250,40 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
             " ",
             "(To clear, click info button again.)",
         ];
-        var nlines = 4;
+        var nlines=infotxt.length;
+        
+        var txtProps = {
+            colour:"rgba(200,200,200,0.9", 
+            font:"22px Courier New", 
+            bgcolour:"rgba(100,100,100,0.8)",
+            x0: 100,
+            y0: 100,
+            width: 500,
+            spacing: 25
+        };
+        
+        // background rectangle for txt
+        var rect       = new createjs.Shape();
+        var rectHeight = txtProps.spacing*nlines + 20;
+        rect.graphics.beginFill(txtProps.bgcolour).drawRoundRect(txtProps.x0-10, txtProps.y0-10, txtProps.width, rectHeight, 5);
+        p.c_info.addChild(rect);        
+        
         for (line=0; line<nlines; line++)
             {        
-                infoobj = new createjs.Text(infotxt[line], "22px Courier", "rgba(200,200,200,0.9");
-                infoobj.x = 100;  
-                infoobj.y = 100+20*line;
-                //this.txt.rotation = 20;  //txt.outline = true;
+                infoobj = new createjs.Text(infotxt[line], txtProps.font, txtProps.colour);
+                infoobj.x = txtProps.x0;  
+                infoobj.y = txtProps.y0 + txtProps.spacing*line;
                 p.c_info.addChild(infoobj);
             }
         this.stage.addChild(p.c_info);
-        
         return;  
     };
     
     p.infoClick = function () {
-        // display info text
-
+        // toggle display of info text
         p.c_info.visible = !p.c_info.visible;
-        
         return; 
     }
-    
-    
-    function Hello2() {
-        var tmp;
-        tmp= 10;
-        return tmp;
-    };
 
     // add the above code as a backbone view class in our namespace
     OER.Views.ElectronicStructureOfTheAtom.Models = Backbone.View.extend(p, s);    
