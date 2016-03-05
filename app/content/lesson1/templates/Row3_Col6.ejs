@@ -1,135 +1,53 @@
-<div class="lesson-content">
-    <div class="lesson-content-title">Quantum Atom 2 - Classical Nuclear Potential</div>
-    <div class="lesson-content-body">
-        
-    <div class="col-sm-8 col-md-8 col-lg-8">
-        <div class="lesson-content-memo">Even in the quantum atom, the nucleus is still treated classically</div>
-        
-        <h3>Classical Nucleus and Field are Classical</h3>
-        The Schrodinger wave equation describes electrons as quantum waves.
-        However, the quantum electron wave is constrained
-        spatially by an attractive classical inverse-square electric potential. 
-        
-        Despite this hybrid classical-quantum approach,
-         the Schrodinger equation has proven extremely successful. 
-        The attractive nuclear potential constrains the electron wave.
-        The field is determined by the charge of the nucleus,
-         <i>Ze</i>, where <i>Z</i>&nbsp; is the number of protons, and <i>e</i>&nbsp;
-        is the elemental unit of charge, 
-        <i>e</i>= 1.6 x 10<sup>-19</sup> Coulombs.
-        <br/>
-        
-        The electric field is given by: 
-        <span class="lesson-content-formula">
-            
-            <!-- (your LaTeX) $E = \frac{Ze}{(4\pi \epsilon _{0})r^{2}}$ -->
-        <math mathsize="1.2rem" xmlns="http://www.w3.org/1998/Math/MathML">
-            <mrow>
-                <mi>E</mi> <mo>=</mo>    
-                <mfrac linethickness="1">
-                    <mrow> <mi>Z</mi><mi>e</mi> </mrow>          
-                    <mrow>
-                        <mrow>
-                            <mo form="prefix">(</mo>
-                            <mn>4</mn>
-                            <mi>&#x003C0;</mi>
-                            <msub> <mi>&#x003F5;</mi> <mn>0</mn> </msub>
-                            <mo form="postfix">)</mo>
-                        </mrow>
-                        <msup> <mi>r</mi><mn>2</mn> </msup>
-                    </mrow>
-                </mfrac>
-            </mrow>
-        </math>
-        </span>
-        
-        <br/>
-        and the electric potential by:
-        <span class="lesson-content-formula">
-            <!-- (your LaTeX) $V = -\frac{Ze}{(4\pi \epsilon _{0})r}$ -->
-            <math mathsize="1.2rem" xmlns="http://www.w3.org/1998/Math/MathML">
-            <mrow>
-                <mi>V</mi>
-                <mo>=</mo>
-                <mo>-</mo>
-                <mfrac linethickness="1">
-                        <mrow> <mi>Z</mi><mi>e</mi> </mrow>
-                        <mrow>
-                            <mrow>
-                                <mo form="prefix">(</mo>
-                                <mn>4</mn>
-                                <mi>&#x003C0;</mi>
-                                <msub>
-                                        <mi>&#x003F5;</mi>
-                                        <mn>0</mn>
-                                </msub>
-                                <mo form="postfix">)</mo>
-                            </mrow>
-                            <mi>r</mi>
-                        </mrow>
-                </mfrac>
-            </mrow>
-            </math>
-        </span>
-  
-        
-        <h3>Limitations</h3>
-        This model is a hybrid of classical and quantum parts, 
-        so ultimately is an approximation, albeit a very good one.
-        The classical potential cannot explain the <strong><mark>Lamb Shift</mark></strong>.
-  
-          <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>
-    </div>
-        
-    <!-- remove until ready
-    <canvas class="lesson-content-canvas" width="680" height="240"></canvas>
+<div class="lesson-content container">
     
-    <div class=lesson1-row1-col5-controls">
-        <div class="lesson1-row1-col5-v">
-            <div>v potential</div>
-            <div id="vOut">5.10ev</div>
+     <div class="row">    
+        <div class="lesson-content-title col-lg-12">
+            <span>
+                Quantum Atom 1 - Matter Waves (1920's)
+                <img class="lesson-content-image-icon" src="/content/lesson1/assets/WaveStanding.svg" alt='Standing Wave'/>
+            </span>
         </div>
-        <div class="lesson1-row1-col5-e">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                <mrow>
-                        <mo>=</mo>
-                        <mo>-</mo>
-                        <mfrac linethickness="1">
-                                <mrow>
-                                        <mi>1</mi>
-                                </mrow>
-                                <mrow>
-                                        <mrow>
-                                                <mo form="prefix">(</mo>
-                                                <mn>4</mn>
-                                                <mi>&#x003C0;</mi>
-                                                <msub>
-                                                        <mi>&#x003F5;</mi>
-                                                        <mn>0</mn>
-                                                </msub>
-                                                <mo form="postfix">)</mo>
-                                        </mrow>
-                                </mrow>
-                        </mfrac>
-                </mrow>
-            </math>
+     </div>    
+
+    <div class="lesson-content-body">
+    
+    <div class="row">
+         <!-- LHS -->
+         <div class="col-md-6 col-lg-6"> 
+         <div class="lesson-content-memo"> Wave-like matter</div>        
+             <h3>Matter Waves</h3> 
+             In the 1920s <strong><mark>Louis de Broglie</mark></strong> 
+             conceived of unifying light and matter by also ascribing wave properties to matter.
+
+             He related wavelength <strong><i>λ</i></strong> 
+             to particle momentum <strong><i>p</i></strong> 
+             using Planck’s constant, <strong><i>h</i></strong>. 
+             <div class='lesson-content-equation'>
+             <i>p = h/λ</i>
+             </div>
+            Subsequently, <strong><mark>Erwin Schrodinger</mark></strong> formalized this by finding a wave 
+            equation to mathematically describe de Broglie’s waves. 
+
+            These were key steps in 
+            the development of <strong><mark>Quantum Mechanics</mark></strong>.
+
+            <h3>Atomic Electrons as Standing Waves</h3>     
+            The key development of the quantum mechanical atom is that the electrons are described as
+            waves, rather than particles.
+            Quantum mechanics describes  electrons bound in 
+            atoms as <strong><mark>standing wave</mark></strong> (↑) patterns.
+
+            However atomic electrons still retain some particle-like properties, most
+            importantly they remain countable.    
         </div>
-        <div class="lesson1-row1-col5-z">
-            <div>
-                <label for=z>z  atomic number</label>
-                <input type=range min=1 max=5 value=1 id=z step=1>
-                <output for=z id=zOut>3</output>
-            </div>
-        </div>
-          <div class="lesson1-row1-col5-r">
-            <div>
-                <label for=r>r  radial distance</label>
-                <input type=range min=1 max=5 value=1 id=r step=1>
-                <output for=r id=rOut>5.29</output>
-                <div>x10<sup>-11</sup>m</div>
-            </div>
+
+         <!-- RHS -->
+        <div class="col-md-6 col-lg-6">   
+            <canvas class="lesson-content-canvas" width="800" height="400"></canvas>  
         </div>
     </div>
-    -->
-  </div>
+     
+     <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>
+    </div>
+    
 </div>
