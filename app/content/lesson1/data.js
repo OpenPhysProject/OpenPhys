@@ -4,7 +4,7 @@
     s.title = "The Electronic Structure of the Atom";
     s.preview = "/content/lesson1/assets/AtomPlay.svg"; //svg image
     s.route = "ElectronicStructureOfTheAtom";
-    s.themeColor = "rgba(255, 100, 100, 1)";
+   // s.themeColor = "rgba(255, 100, 100, 1)";
     s.info = "";
     s.primaryPathIndex = 2;  // 3
     s.rowLeadNumber = 10;      // index for top row
@@ -47,7 +47,7 @@
                 {route:"",              title:""},
                 {route:"StandingWaves", title:"Standing Waves",          icons:["video"]},
                 {route:"",              title:""}, 
-                {route:"QM",            title:"Quantum Mechanics"},           
+                {route:"",              title:""},           
             ]
         }, 
         // index 3 
@@ -59,9 +59,9 @@
                {route:"Models",      title:"Atomic Models",     icons:["interaction"]},
                {route:"Dalton",      title:"Dalton's Atoms (1805)",                      icons:["interaction"]},
                {route:"Plum",        title:"Plum Pudding Atom (1904)"},  
-               {route:"SolarSystem", title:"Classical Rutherford Nuclear Atom (1910's)",  icons:["interaction"]}, 
+               {route:"Rutherford",  title:"Classical Rutherford Nuclear Atom (1910's)",  icons:["interaction"]}, 
                {route:"Bohr",        title:"Quantized Bohr Atom \n(1913)" }, 
-               {route:"",            title:""},
+               {route:"QM",          title:"Quantum Mechanics"},
                {route:"QAtomOne",    title:"Quantum Atom 1: Matter Waves",               icons:["video"]},
                {route:"Potential",   title:"Quantum Atom 2: Nuclear Potential" }, 
                {route:"Trap",        title:"Quantum Atom 3: Trapped Waves" },

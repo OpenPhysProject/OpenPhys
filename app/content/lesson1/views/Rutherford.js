@@ -156,6 +156,6 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     };
 
     // add the above code as a backbone view class in our namespace
-    OER.Views.ElectronicStructureOfTheAtom.SolarSystem = Backbone.View.extend(p, s);    
+    OER.Views.ElectronicStructureOfTheAtom.Rutherford = Backbone.View.extend(p, s);    
 
 })();
