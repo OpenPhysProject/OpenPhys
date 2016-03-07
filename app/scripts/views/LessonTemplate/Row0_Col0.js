@@ -71,12 +71,15 @@ OER.Views.LessonRoute = OER.Views.LessonRoute || {};
                 answer = "  No";
             }
             
-            var question = this.findQuestionDiv(event.currentTarget);
-            var target = $(".lesson-content-question-answer", question)[0];
+            var target = $(".lesson-content-question-answer.insert", event.currentTarget.parentNode)[0];
+            if (!target) {
+                var question = this.findQuestionDiv(event.currentTarget);
+                var target = $(".lesson-content-question-answer:not(.insert)", question)[0];
+            }
             if (target) {
                 target.innerHTML = answer;
             } else {
-                event.currentTarget.insertAdjacentHTML("afterend", answer);
+                event.currentTarget.insertAdjacentHTML("afterend", '<span class="lesson-content-question-answer insert">'+ answer + '</span>');
             }
         },
         
@@ -87,12 +90,15 @@ OER.Views.LessonRoute = OER.Views.LessonRoute || {};
          */
         handleReveal: function(event) {
             var answer = event.currentTarget.dataset.answer;
-            var question = this.findQuestionDiv(event.currentTarget);
-            var target = $(".lesson-content-question-answer", question)[0];
+            var target = $(".lesson-content-question-answer.insert", event.currentTarget.parentNode)[0];
+            if (!target) {
+                var question = this.findQuestionDiv(event.currentTarget);
+                var target = $(".lesson-content-question-answer:not(.insert)", question)[0];
+            }
             if (target) {
                 target.innerHTML = "  " + answer;
             } else {
-                event.currentTarget.insertAdjacentHTML("afterend", "  " + answer);
+                event.currentTarget.insertAdjacentHTML("afterend", '<span class="lesson-content-question-answer insert">  ' + answer + '</span>');
             }
         },
         
