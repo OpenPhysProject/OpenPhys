@@ -28,9 +28,9 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     p.tickerBind = null;    // reference to bound function, binding lets us call back in this scope
     p.buttonBind = null;    // reference to bound function
     
-    p.photonProps1 = {sourceX: 100, sourceY: 100, source_colour: "darkgreen", colour: "rgba(0, 255,0,0.7)", size: 13,  scale: 0.991 };    
-    p.photonProps2 = {sourceX: 200, sourceY: 100, source_colour: "darkred",   colour: "rgba(255, 0,0,0.5)",   size: 9,  scale: 0.991 }; 
-    p.photonProps3 = {sourceX: 300, sourceY: 100, source_colour: "yellow", colour:     "rgba(255,255,0,0.7)",   size: 5, scale: 0.991 };
+    p.photonProps1 = {sourceX: 100, sourceY: 170, source_colour: "rgba(0,  255,0,0.7)", colour: "rgba(0, 255,0,0.7)",  size: 13,scale: 0.991 };    
+    p.photonProps2 = {sourceX: 200, sourceY: 170, source_colour: "rgba(255,  0,0,0.7)", colour: "rgba(255, 0,0,0.5)",  size: 9, scale: 0.991 }; 
+    p.photonProps3 = {sourceX: 300, sourceY: 170, source_colour: "rgba(255,255,0,0.7)", colour: "rgba(255,255,0,0.7)", size: 5, scale: 0.991 };
      
     /**
      * backbone initialize function
@@ -88,7 +88,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         //this.stage.addChild(this.background);
         
        // Text 
-        this.txt = new createjs.Text("Click for Simple Dalton Atoms (Various Types)", "15px Arial", "#FFF");
+        this.txt = new createjs.Text("Click for Simple Dalton Atoms (Various Types)", "12px Courier", "#FFF");
         this.txt.x = 10;  this.txt.y = 10;
         //this.txt.rotation = 20;  //txt.outline = true;
         this.stage.addChild(this.txt);
@@ -139,7 +139,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         // Draw Particle Source (clickable)
         var source = new createjs.Shape();
         // drawRoundRect(x, y, width, height, radius)
-        source.graphics.beginFill(Props.source_colour).drawRoundRect(-20, -20, 40, 40, 5);
+        source.graphics.beginFill(Props.source_colour).drawRoundRect(-20, -20, 40, 30, 5);
         source.x =  Props.sourceX;  // x position
         source.y =  Props.sourceY;
         return source;        
@@ -205,7 +205,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         //v.scaleX = 2.0;
         v.xinc = 2*(Math.random()-0.5);
         //v.yinc = 2*(Math.random()-0.5); //* this.photon2Props.source_divergence;  // +ve or -ve amount of divergence
-        v.yinc = -2*(Math.random());   // -ve is up       
+        v.yinc = -2.6*(Math.random());   // -ve is up       
         v.scale = Props.scale;
         return electron;
     };   

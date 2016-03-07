@@ -22,6 +22,21 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     p.buttonBind = null;    // reference to bound function
     p.c_info= null;         // createjs Container for info text
   
+    p.infotxt = [
+            "Simulation of diffusing atoms:", 
+            "  - Click an atom to highlight and double diffusion rate.", 
+            "  - Click info button to clear",
+        ]; 
+        
+    p.txtProps = {
+            colour:"rgba(250,200,200,0.9", 
+            font:"15pt Courier", 
+            bgcolour:"rgba(100,100,100,0.8)",
+            x0: 50,
+            y0: 75,
+            width: 720,
+            spacing: 25
+        };        
     
     p.atomProps1 = {
         //sourceX: 400, // positioning is done by lattice
@@ -64,14 +79,9 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         this.width  = c.width;
         this.height = c.height;
         
-        // Attach listener to stage
-        //hmm only works if an object is clicked, not the empty stage
-        //this.stage.on("click",this.stageClick, null, false, null, true);
-
-       //=============== STATIC CONTENT ====================//
-                        
+       //=============== STATIC CONTENT ====================//                
        // Text 
-        this.txt = new createjs.Text("ATOMS", "22px Courier New", "#FFF");
+        this.txt = new createjs.Text("DIFFUSING ATOMS", "22px Courier New", "#FFF");
         this.txt.x = 40;  this.txt.y = 10;
         //this.txt.rotation = 20;  //txt.outline = true;
         this.stage.addChild(this.txt);
@@ -84,7 +94,6 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         this.info = this.drawInfoButton();
         this.infoBind = this.infoClick.bind(this);     
         this.info.addEventListener("click", this.infoBind);
-        //this.stage.addChild(this.info);  // add this shape to the stage
         
         this.makeInfoText(); // create text (dont display yet)
         
@@ -241,38 +250,20 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     p.makeInfoText = function() {
         // make a display object containing a background and several lines of text
         p.c_info         = new createjs.Container();
-        p.c_info.visible = false;
-        
+        p.c_info.visible = false;       // initially not visible
         var infoobj, line;
-        var infotxt = [
-            "This is a simulation of atoms", 
-            "The atoms are clickable", 
-            " ",
-            "(To clear, click info button again.)",
-        ];
-        var nlines=infotxt.length;
-        
-        var txtProps = {
-            colour:"rgba(200,200,200,0.9", 
-            font:"22px Courier New", 
-            bgcolour:"rgba(100,100,100,0.8)",
-            x0: 100,
-            y0: 100,
-            width: 500,
-            spacing: 25
-        };
-        
-        // background rectangle for txt
-        var rect       = new createjs.Shape();
-        var rectHeight = txtProps.spacing*nlines + 20;
-        rect.graphics.beginFill(txtProps.bgcolour).drawRoundRect(txtProps.x0-10, txtProps.y0-10, txtProps.width, rectHeight, 5);
+        var nlines = p.infotxt.length;
+        var tx     = p.txtProps;        // text properties
+        var rect       = new createjs.Shape();   // background rectangle for txt
+        var rectHeight = tx.spacing*nlines + 20;
+        rect.graphics.beginFill(tx.bgcolour).drawRoundRect(tx.x0-10, tx.y0-10, tx.width, rectHeight, 5);
         p.c_info.addChild(rect);        
-        
+        // Add each line of text as a child:
         for (line=0; line<nlines; line++)
             {        
-                infoobj = new createjs.Text(infotxt[line], txtProps.font, txtProps.colour);
-                infoobj.x = txtProps.x0;  
-                infoobj.y = txtProps.y0 + txtProps.spacing*line;
+                infoobj = new createjs.Text(p.infotxt[line], tx.font, tx.colour);
+                infoobj.x = tx.x0;  
+                infoobj.y = tx.y0 + tx.spacing*line;
                 p.c_info.addChild(infoobj);
             }
         this.stage.addChild(p.c_info);
