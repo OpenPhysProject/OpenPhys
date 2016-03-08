@@ -24,6 +24,17 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
      
     p.tickerBind = null;    // reference to bound function, binding lets us call back in this scope
     p.buttonBind = null;    // reference to bound function
+ 
+    p.electronProps = {
+        angle:    0.0,   angleDelta: 6,         // initial angle, with randomization
+        angleInc: 0.04,  angleIncDelta: 0.02,
+        originX: 400/2,    originY: 200/2,
+        radius:  160,    dr:       40,   // starting Orbital Radius and random element
+        radial_decay: 1,
+        radius_min: 6,
+        colour: "rgba(100,100,255,0.7",
+        size: 8
+    }; 
     
     /**
      * backbone initialize function
@@ -109,31 +120,24 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     };
 
 // ELECTRON CODE *********************************************************************************
-    // Math for orbiting 
-    p.electronProps = {
-        angle:    0.0,   angleDelta: 6,         // initial angle, with randomization
-        angleInc: 0.04,  angleIncDelta: 0.02,
-        originX: 400/2,    originY: 200/2,
-        radius:  160,    dr:       40,   // starting Orbital Radius and random element
-    };
-    
     // draw electron and add it to stage
     p.drawElectron = function() {
         // Actual Orbital radius
-        var radius = Math.round(this.electronProps.radius + Math.random()*this.electronProps.dr);
+        var e = this.electronProps; // convenience
+        var radius = Math.round(e.radius + Math.random()*e.dr);  // orbital radius
         
         var electron = new createjs.Shape();
-        electron.graphics.beginFill("rgba(50,50,255,0.7").drawCircle(0, 0, 8); // electron radius
-        electron.x =  this.electronProps.originX;           // initial x position
-        electron.y =  this.electronProps.originY + radius;
+        electron.graphics.beginFill(e.colour).drawCircle(0, 0, e.size); // electron radius
+        electron.x =  e.originX;           // initial x position
+        electron.y =  e.originY + radius;
         electron.on("tick",this.electronTick);  // add tick listener to electron, which is called by createjs tick event
         
         // Define parameters to be used for each tick
         var v = electron.tickProps = {};
-        v.originX     = this.electronProps.originX;
-        v.originY     = this.electronProps.originY;
-        v.angle       = Math.random()*this.electronProps.angleDelta + this.electronProps.angle;
-        v.angleInc   = Math.random()*this.electronProps.angleIncDelta + this.electronProps.angleInc;
+        v.originX     = e.originX;
+        v.originY     = e.originY;
+        v.angle       = Math.random()*e.angleDelta    + e.angle;
+        v.angleInc    = Math.random()*e.angleIncDelta + e.angleInc;
         v.radius      = radius;
         return electron;
     };
@@ -141,18 +145,18 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
    // ============== EVOLUTION ================ //
     p.electronTick = function () {
         // Electron spirals in to nucleus
-        if (this.tickProps.radius > 6) { 
-            this.tickProps.radius = this.tickProps.radius-1; // radius decreases
-            this.tickProps.angleInc *= 1.005;                // make the angle change faster
+        var t = this.tickProps;
+        
+        if (t.radius > p.electronProps.radius_min) { 
+            t.radius = t.radius - p.electronProps.radial_decay; // radius decreases
+            t.angleInc *= 1.005;                // make the angle change faster
         }
         else{
             
-        }
-        ;
-        var angle= this.tickProps.angle;
-        this.x = this.tickProps.originX + this.tickProps.radius*Math.sin(angle);  // speed
-        this.y = this.tickProps.originY + this.tickProps.radius*Math.cos(angle);
-        this.tickProps.angle += this.tickProps.angleInc;
+        };
+        this.x = t.originX + t.radius*Math.sin(t.angle);  // 
+        this.y = t.originY + t.radius*Math.cos(t.angle);
+        t.angle += t.angleInc;
     };
 
     // add the above code as a backbone view class in our namespace

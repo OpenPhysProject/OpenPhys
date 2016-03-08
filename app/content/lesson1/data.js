@@ -57,7 +57,7 @@
         horizontalLinks: OER.linkType.strong,
         mapCards: [
            {route:"Models",    template:"R3_Models.ejs",    title:"Atomic Models",           icons:["interaction"]},
-           {route:"Dalton",                                 title:"Dalton's Atoms (1805)",   icons:["interaction"]},
+           {route:"Dalton",    template:"R3_Dalton.ejs",    title:"Dalton's Atoms (1805)",   icons:["interaction"]},
            {route:"Plum",                                   title:"Plum Pudding Atom (1904)"},  
            {route:"Rutherford",                             title:"Classical Rutherford Nuclear Atom (1910's)",  icons:["interaction"]}, 
            {route:"Bohr",                                   title:"Quantized Bohr Atom \n(1913)" }, 
