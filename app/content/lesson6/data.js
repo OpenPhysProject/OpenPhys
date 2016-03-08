@@ -2,7 +2,7 @@
     var s = {};
     
     s.title = "Compton X-Ray Scattering";
-    s.preview = "/content/lesson6/assets/Compton.svg"; //svg image
+    s.preview = "/content/lesson6/assets/icon_comptonxrayscattering.svg"; //svg image
     s.route = "Compton";
     s.info = "";
     s.jumpNav = true;    

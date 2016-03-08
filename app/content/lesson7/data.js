@@ -2,7 +2,7 @@
     var s = {};
     
     s.title = "Pair Production";
-    s.preview = "/content/lesson7/assets/PairProd.svg"; //svg image
+    s.preview = "/content/lesson7/assets/icon_pairproduction.svg"; //svg image
     s.route = "Pair";
     s.info = "";
     s.jumpNav = true;

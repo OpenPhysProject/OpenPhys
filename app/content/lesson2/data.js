@@ -2,7 +2,7 @@
     var s = {};
     
     s.title = "Radioactivity";
-    s.preview = "/content/lesson2/assets/Nucleus.svg"; //svg image
+    s.preview = "/content/lesson2/assets/icon_radioactivity.svg"; //svg image
     s.route = "Radioactivity";
     s.info = "";
     s.jumpNav = true;

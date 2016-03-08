@@ -2,7 +2,7 @@
   var s = {};
 
   s.title   = "The Electronic Structure of the Atom";
-  s.preview = "/content/lesson1/assets/AtomPlay.svg"; //svg image for tile
+  s.preview = "/content/lesson1/assets/icon_atomicstructure.svg"; //svg image for tile
   s.route   = "ElectronicStructureOfTheAtom";
   // s.themeColor = "rgba(255, 100, 100, 1)";
   s.info = "";

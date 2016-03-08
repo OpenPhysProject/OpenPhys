@@ -2,7 +2,7 @@
     var s = {};
     
     s.title = "User Guide (Start Here)";
-    s.preview = "/content/userGuide/assets/info-icon-01.svg"; //svg image
+    s.preview = "/content/userGuide/assets/icon_userguide.svg"; //svg image
     s.route = "Instructions";
     s.primaryPathIndex = 0;
     s.horizontalLinks = OER.linkType.strong;

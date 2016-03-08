@@ -2,7 +2,7 @@
     var s = {};
     
     s.title = "Photoelectric Effect";
-    s.preview = "/content/lesson5/assets/PE.svg"; //svg image
+    s.preview = "/content/lesson5/assets/icon_photoelectriceffect.svg"; //svg image
     s.route = "PE";
     s.info = "";
     s.jumpNav = false;    

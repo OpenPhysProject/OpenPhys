@@ -2,7 +2,7 @@
     var s = {};
     
     s.title = "E = mc2";
-    s.preview = "/content/lesson3/assets/Emc2.svg"; //svg image
+    s.preview = "/content/lesson3/assets/icon_Emc2.svg"; //svg image
     s.route = "Emc2";
     s.info = "";
     s.jumpNav = false;    

@@ -2,7 +2,7 @@
     var s = {};
     
     s.title = "Sandbox";
-    s.preview = "/content/Sandbox/assets/DemoSign.svg"; //svg image
+    s.preview = "/content/Sandbox/assets/icon_sandbox.svg"; //svg image
     s.route = "Sandbox";
     s.info = "";
     s.primaryPathIndex = 2;
