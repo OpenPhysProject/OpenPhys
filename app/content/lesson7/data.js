@@ -3,6 +3,7 @@
     
     s.title = "Pair Production";
     s.preview = "/content/lesson7/assets/icon_pairproduction.svg"; //svg image
+    s.themeColor = "#F44336";
     s.route = "Pair";
     s.info = "";
     s.jumpNav = true;

@@ -3,6 +3,7 @@
     
     s.title = "Compton X-Ray Scattering";
     s.preview = "/content/lesson6/assets/icon_comptonxrayscattering.svg"; //svg image
+    s.themeColor = "#E91E63";
     s.route = "Compton";
     s.info = "";
     s.jumpNav = true;    

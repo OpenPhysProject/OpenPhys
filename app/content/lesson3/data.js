@@ -3,6 +3,7 @@
     
     s.title = "E = mc2";
     s.preview = "/content/lesson3/assets/icon_Emc2.svg"; //svg image
+    s.themeColor = "#4CAF50";
     s.route = "Emc2";
     s.info = "";
     s.jumpNav = false;    

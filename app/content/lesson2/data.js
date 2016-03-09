@@ -3,6 +3,7 @@
     
     s.title = "Radioactivity";
     s.preview = "/content/lesson2/assets/icon_radioactivity.svg"; //svg image
+    s.themeColor = "#00BCD4";
     s.route = "Radioactivity";
     s.info = "";
     s.jumpNav = true;

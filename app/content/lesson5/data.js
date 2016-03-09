@@ -3,6 +3,7 @@
     
     s.title = "Photoelectric Effect";
     s.preview = "/content/lesson5/assets/icon_photoelectriceffect.svg"; //svg image
+    s.themeColor = "#FFC107";
     s.route = "PE";
     s.info = "";
     s.jumpNav = false;    
