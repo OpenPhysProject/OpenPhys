@@ -53,7 +53,9 @@
      */
     p.setTileMinHeight = function () {
         var introTile =   $(".intro-tile", this.homeView);
-        var h = $(".lesson-tile-content-container-intro", introTile).height() + this.logo.outerHeight() + this.logo.position().top;
+        var introContentContainer = $(".lesson-tile-content-container-intro", introTile);
+        var h = introContentContainer.height() + introContentContainer.position().top;
+        
         introTile.css("min-height", h);
         
         h = $(".lesson-tile-content-container", this.outroTile).height();

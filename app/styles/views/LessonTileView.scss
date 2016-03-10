@@ -18,20 +18,29 @@ $tile-margin: 0.5rem;
 }
 
 // lesson TILE ********************************************************************
+
 // This sets the appearance of the tiles
 // lesson-tile is the top level container
 .lesson-tile {
+    /*
+    @extend .col-xs-4;
+    @extend .col-sm-3;
+    @extend .col-md-3;
+    @extend .col-lg-2;
+    */
     //height: 0;
     @include transitionSetting;
     position: relative;
-    margin-top: $tile-margin;
-    margin-left: $tile-margin;
+    width: 100%;
+    //margin-top: $tile-margin;
+    //margin-left: $tile-margin;
     overflow: hidden;
     cursor: pointer;
     //background: $color_background-gradient;
    //box-shadow: 0px 0px 0.5px 1px rgba(0,0,0,.3);
-   // top right bottom left      
+   // top right bottom left    
 }
+
 // tile container is inside the lesson tile
 .lesson-tile-container {
     margin-top:100%;
@@ -81,32 +90,41 @@ $tile-margin: 0.5rem;
     @include transitionSetting;
     position: absolute;
     width: 100%;
-    bottom: 0;
-    height: 5rem;
-    background: $color_gray-darkest;
-    opacity: 0.5;
+    bottom: 0rem;
+    height: $fontSize-tile*3*0.75;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
 }
 
 .lesson-tile-title{
-    font-family: $fontFamily-title;
-    font-size: 1.5rem;
-    line-height: 5rem;
-    padding-left: $padding-medium;
+    font-family: $fontFamily-mapCard;
+    font-weight: 300;
+    text-align: center;
+    vertical-align: middle;
+    font-size: $fontSize-tile*0.75;
+    line-height: $fontSize-tile*0.75;
+    padding: 0 $fontSize-tile*0.75;
     color: $color_white-default;
 }
 
 // Intro & Outro TILE **********************************************************
 .intro-tile, .outro-tile {
+    width: 100%;
     cursor: default;
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,.3);
     min-height: 1000px;  // arbitrary value that forces content to start with correct height, overwritten in code
+}
+
+.lesson-tile-container-intro, .lesson-tile-container-outro {
+    margin-top: 100%;
 }
 
 .lesson-tile-intro-title, .lesson-tile-outro-title {
     width: 100%;
     padding-left: $padding-small;
     padding-right: $padding-small;
-    font-size: $fontSize-large;
+    font-size: $fontSize-subtitle;
 }
 
 .lesson-tile-intro-title {
@@ -114,12 +132,11 @@ $tile-margin: 0.5rem;
 }
 
 .lesson-tile-outro-title {
-    padding-top: $padding-small;
+    padding-top: $padding-small/2;
 }
 
 .lesson-tile-intro-content {
-    width: 100%;
-    font-size: 130%;
+    font-size: $fontSize-med;
     padding-left: $padding-small;
     padding-right: $padding-small;
 }
@@ -128,14 +145,215 @@ $tile-margin: 0.5rem;
     width: 100%;
     padding-left: $padding-small;
     padding-right: $padding-small;
+    padding-bottom: $padding-small/2;
 }
 
 .lesson-tile-content-container, .lesson-tile-content-container-intro {
     position: absolute;
-    width: 100%;
+    //width: 100%;
     overflow: visible;
 }
 
 .lesson-tile-content-container-intro {
-    bottom: $padding-small;
+    top: 7rem+$padding-small*2;
+    left: $padding-small;
+}
+
+.lesson-tile-inner-outro {
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+// Breakpoints *******************************************************************
+@media (min-width: $bp_width_small_phone) {
+    .lesson-tile {
+        width: 50%;
+    }
+    .lesson-tile-title-container{
+        height: $fontSize-tile*3*0.60;
+    }
+    .lesson-tile-title{
+        font-size: $fontSize-tile*0.60;
+        line-height: $fontSize-tile*0.60;
+        padding: 0 $fontSize-tile*0.60;
+    }
+    
+    .intro-tile {
+        width: 50%;
+    }
+    .lesson-tile-container-intro {
+        margin-top: 100%;
+    }
+    .lesson-tile-content-container-intro {
+        
+    }
+    .lesson-tile-intro-title {
+        font-size: $fontSize-large;
+    }
+    .lesson-tile-intro-content {
+        font-size: $fontSize-body;
+    }
+    
+    .outro-tile {
+        width: 100%;
+    }
+    .lesson-tile-container-outro {
+        margin-top: 50%;
+    }
+}
+
+@media (min-width: $bp_width_medium_phone) {
+    .lesson-tile {
+        width: 33.3%;
+    }
+    .lesson-tile-title-container{
+        height: $fontSize-tile*3*0.70;
+    }
+    .lesson-tile-title{
+        font-size: $fontSize-tile*0.70;
+        line-height: $fontSize-tile*0.70;
+        padding: 0 $fontSize-tile*0.70;
+    }
+    
+    .intro-tile {
+        width: 66.6%;
+    }
+    .lesson-tile-container-intro {
+        margin-top: 50%;
+    }
+    .lesson-tile-content-container-intro {
+        top: $padding-small*2;
+        left: $logo-ratio-medium + $padding-small;
+    }
+    .lesson-tile-intro-title {
+        font-size: $fontSize-subtitle;
+    }
+    .lesson-tile-intro-content {
+        font-size: $fontSize-med;
+    }
+    
+    .outro-tile {
+        width: 100%;
+    }
+    .lesson-tile-container-outro {
+        margin-top: 33.3%;
+    }
+}
+
+@media (min-width: $bp_width_small) {
+    .lesson-tile {
+        width: 33.3%;
+    }
+    .lesson-tile-title-container{
+        height: $fontSize-tile*3*0.80;
+    }
+    .lesson-tile-title{
+        font-size: $fontSize-tile*0.80;
+        line-height: $fontSize-tile*0.80;
+        padding: 0 $fontSize-tile*0.80;
+    }
+    .lesson-tile-intro-title {
+        font-size: $fontSize-subtitle;
+    }
+    .lesson-tile-intro-content {
+        font-size: $fontSize-med;
+    }
+    
+    .intro-tile {
+        width: 66.6%;
+    }
+    .lesson-tile-container-intro {
+        margin-top: 50%;
+    }
+    .lesson-tile-content-container-intro {
+        top: $padding-small*2.5;
+        left: $logo-ratio-medium + $padding-small;
+    }
+    
+    .outro-tile {
+        width: 66.6%;
+    }
+    .lesson-tile-container-outro {
+        margin-top: 50%;
+    }
+}
+
+@media (min-width: $bp_width_medium) {
+    .lesson-tile {
+        width: 25%;
+    }
+    .lesson-tile-title-container{
+        height: $fontSize-tile*3;
+    }
+    .lesson-tile-title{
+        font-size: $fontSize-tile;
+        line-height: $fontSize-tile;
+        padding: 0 $fontSize-tile;
+    }
+    
+    .intro-tile {
+        width: 50%;
+    }
+    .lesson-tile-container-intro {
+        margin-top: 50%;
+    }
+    .lesson-tile-content-container-intro {
+        top: $padding-small*3;
+        left: $logo-ratio-large + $padding-small;
+    }
+    .lesson-tile-intro-title {
+        font-size: $fontSize-largest;
+    }
+    .lesson-tile-intro-content {
+        font-size: $fontSize-large;
+    }
+
+    
+    .outro-tile {
+        width: 50%;
+    }
+    .lesson-tile-container-outro {
+        margin-top: 50%;
+    }
+}
+
+@media (min-width: $bp_width_large) {
+    .lesson-tile {
+        width: 25%;
+    }
+    .lesson-tile-title-container{
+        height: $fontSize-tile*3*1.20;
+    }
+    .lesson-tile-title{
+        font-size: $fontSize-tile*1.20;
+        line-height: $fontSize-tile*1.20;
+        padding: 0 $fontSize-tile*1.20;
+    }
+    
+    .intro-tile {
+        width: 50%;
+    }
+    .lesson-tile-container-intro {
+        margin-top: 50%;
+    }
+    .lesson-tile-content-container-intro {
+        top: $padding-small*3;
+        left: $logo-ratio-huge + $padding-small;
+    }
+    .lesson-tile-intro-title {
+        font-size: $fontSize-largest;
+    }
+    .lesson-tile-intro-content {
+        font-size: $fontSize-large;
+    }
+  
+    .outro-tile {
+        width: 50%;
+    }
+    .lesson-tile-container-outro {
+        margin-top: 50%;
+    }
 }

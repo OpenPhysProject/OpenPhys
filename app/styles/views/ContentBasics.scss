@@ -12,7 +12,7 @@ $button-bar-size: $ui-button-width + $padding-small*3;
 
 .lesson-content-title {
     font: $fontFamily-title;
-    font-size: $fontSize-large;
+    font-size: $fontSize-largest;
     font-weight: 900;
     margin-bottom: 1rem;
 }
@@ -26,7 +26,7 @@ h3 {
 
 .lesson-content-equation {
     // for text equations
-    font-size: $fontSize-large;
+    font-size: $fontSize-largest;
     font-weight: bold;
     margin: auto;
     width: 70%;
@@ -60,7 +60,7 @@ h3 {
 .lesson-content-body {
     // for larger screen sizes
    font: $fontFamily-default;
-   font-size: $fontSize-larger;
+   font-size: $fontSize-large;
 }
 
 @media (max-width: 800px) {

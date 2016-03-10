@@ -1,9 +1,7 @@
 // NOTE this file uses sass variables defined in app/styles/settings files
 
 // Sass mixin that sets visibility of parts of the logo
-@mixin logo-ratio($ratio,$logo-show-state) {
-    $logo-width: percentage($ratio);
-
+@mixin logo-ratio($logo-show-state) {
     @if $logo-show-state == 0 {
         //Show wordmark and tagline 
         &>.logo-wordmark{
@@ -32,14 +30,7 @@
         }
 
     }
-    width:$logo-width;
 }
-
-// Sass variables used to alter logo size
-$logo-ratio-small: 0.10;
-$logo-ratio-medium: 0.16;
-$logo-ratio-large: 0.18;
-$logo-ratio-huge: 0.36;
 
 /* Small view (default) */
 .logo {
@@ -52,7 +43,8 @@ $logo-ratio-huge: 0.36;
     transition-duration: 0.3s;
     transition-timing-function: linear;
     height:auto;
-    @include logo-ratio($logo-ratio-small,0);
+    width: $logo-ratio-small;   // logo width values are found in styles/settings/layout
+    @include logo-ratio(2);
  
     
     &.mini {
@@ -87,61 +79,12 @@ $logo-ratio-huge: 0.36;
     }
 }
 
+// Breakpoints *****************************************************************
 // breakpoints used to set logo width and visibility
-@media screen and (max-width: 1200px) {
+@media (min-width: $bp_width_small_phone) {
     .logo {
-        @include logo-ratio($logo-ratio-small,1);
-    }
-}
-
-@media screen and (max-width: 1080px) {
-    .logo {
-        @include logo-ratio($logo-ratio-small,2);
-    }
-}
-
-/* Large View */
-@media screen and (max-width: $bp_width_col_two) {
-    .logo {
-        @include logo-ratio($logo-ratio-medium,0);
-    }
-}
-
-@media screen and (max-width: 850px) {
-    .logo {
-        @include logo-ratio($logo-ratio-medium,1);
-    }
-}
-
-@media screen and (max-width: 790px) {
-    .logo {
-        @include logo-ratio($logo-ratio-large,2);
-    }
-}
-
-/* Small view */
-@media screen and (max-width: $bp_width_col_one) {
-    .logo {
-        @include logo-ratio($logo-ratio-huge,0);
-    }
-}
-
-@media screen and (max-width: $bp_width_small_phone) {
-    .logo {
-        @include logo-ratio($logo-ratio-huge,1);
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .logo {
-        @include logo-ratio($logo-ratio-huge,2);
-    }
-}
-
-@media screen and (max-device-width:$bp_width_small) 
-{
-    .logo {
-        @include logo-ratio($logo-ratio-medium,2);
+        width: $logo-ratio-small;
+        @include logo-ratio(2);
         &.mini {
             left:0.3rem;
             bottom:0.3rem;
@@ -151,53 +94,30 @@ $logo-ratio-huge: 0.36;
     }
 }
 
-/*Tablets Landscape */
-@media screen and (min-device-width: $bp_width_small) 
-and (max-device-width: $bp_width_medium) 
-and (orientation: landscape)  {
+@media (min-width: $bp_width_medium_phone) {
     .logo {
-        @include logo-ratio($logo-ratio-small,2);
+        width: $logo-ratio-medium;
+        @include logo-ratio(0);
     }
 }
 
-/* Tablets Portrait */
-@media screen and (min-device-width: $bp_width_small) 
-and (max-device-width: $bp_width_medium) 
-and (orientation: portrait)  {
-    .logo {
-        @include logo-ratio($logo-ratio-large,2);
+@media (min-width: $bp_width_small) {
+     .logo {
+        width: $logo-ratio-medium;
+        @include logo-ratio(0);
     }
 }
 
-/* Mobile Phones Portrait */
-@media screen and (max-device-width: $bp_width_medium_phone) 
-and (orientation: portrait){
+@media (min-width: $bp_width_medium) {
     .logo {
-        @include logo-ratio($logo-ratio-huge,2);
+        width: $logo-ratio-large;
+        @include logo-ratio(0);
     }
 }
 
-/* Mobile Phones Landscape */
-@media screen and (max-device-width: $bp_width_medium_phone) 
-and (orientation: landscape){
+@media (min-width: $bp_width_large) {
     .logo {
-        @include logo-ratio($logo-ratio-medium,2);
-    }
-}
-
-/* Mobile Phones portrait */
-@media screen and (max-device-width: $bp_width_small_phone) 
-and (orientation: portrait){
-    .logo {
-        @include logo-ratio($logo-ratio-huge,2);
-    }
-}
-
-/* Mobile Phones Landscape */
-@media screen and (max-device-width: $bp_width_small_phone) 
-and (orientation: landscape){
-    .logo {
-        @include logo-ratio($logo-ratio-medium,2);
-
+        width: $logo-ratio-huge;
+        @include logo-ratio(0);
     }
 }
