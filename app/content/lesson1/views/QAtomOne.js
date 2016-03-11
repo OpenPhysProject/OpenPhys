@@ -10,7 +10,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     'use strict';
     var p = {};     // prototype for this class
     var s = {};     // static for this class
-    p.template= JST['app/content/lesson1/templates/Row3_Col6.ejs'];     // template used to create html for this view
+    p.template= JST['app/content/lesson1/templates/R3_QAtomOne.ejs'];     // template used to create html for this view
     p.events = {};  // events, used by backbone to set up event handlers on html elements
     //p.button = null;        // html button element    
     p.stage = null;         // easeljs stage

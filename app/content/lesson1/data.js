@@ -12,15 +12,15 @@
 
   s.contentMapData = [
     // index 0
-    {
-        mapCards: [
-            {title:"", route:""},
-            {title:"", route:""},
-            {title:"", route:""},
-            {title:"", route:""},
-            {title:"", route:""},
-        ],
-    },   
+//    {
+//        mapCards: [
+//            {title:"", route:""},
+//            {title:"", route:""},
+//            {title:"", route:""},
+//            {title:"", route:""},
+//            {title:"", route:""},
+//        ],
+//    },   
     // index 1
     {
         mapCards: [
@@ -58,15 +58,15 @@
         mapCards: [
            {route:"Models",    template:"R3_Models.ejs",    title:"Atomic Models",           icons:["interaction"]},
            {route:"Dalton",    template:"R3_Dalton.ejs",    title:"Dalton's Atoms (1805)",   icons:["interaction"]},
-           {route:"Plum",                                   title:"Plum Pudding Atom (1904)"},  
-           {route:"Rutherford",                             title:"Classical Rutherford Nuclear Atom (1910's)",  icons:["interaction"]}, 
-           {route:"Bohr",                                   title:"Quantized Bohr Atom \n(1913)" }, 
-           {route:"QM",                                     title:"Quantum Mechanics:\n De Broglie Matter Waves"},
-           {route:"QAtomOne",                               title:"Electrons in the Quantum Atom",               icons:["video"]},
-           {route:"Potential",                              title:"The Nuclear Potential in the Quantum Atom" }, 
-           {route:"Orbitals",                               title:"More on Electron Orbitals" },
-           {route:"Beyond",                                 title:"Beyond the Quantum Atom"}, 
-           {route:"Quiz",                                   title:"Quiz",                    icons:["quiz"]},              
+           {route:"Plum",      template:"R3_Plum.ejs",      title:"Plum Pudding Atom (1904)"},  
+           {route:"Rutherford",template:"R3_Ruth.ejs",      title:"Classical Rutherford Nuclear Atom (1910's)",  icons:["interaction"]}, 
+           {route:"Bohr",      template:"R3_Bohr.ejs",      title:"Quantized Bohr Atom \n(1913)" }, 
+           {route:"QM",        template:"R3_QM.ejs",        title:"Quantum Mechanics:\n De Broglie Matter Waves"},
+           {route:"QAtomOne",  template:"R3_QAtomOne.ejs",  title:"Electrons in the Quantum Atom",               icons:["video"]},
+           {route:"Potential", template:"R3_Potential.ejs", title:"The Nuclear Potential in the Quantum Atom" }, 
+           {route:"Orbitals",  template:"R3_Orbitals.ejs",  title:"More on Electron Orbitals" },
+           {route:"Beyond",    template:"R3_Beyond.ejs",    title:"Beyond the Quantum Atom"}, 
+           {route:"Quiz",      template:"R3_Quiz.ejs",      title:"Quiz",   icons:["quiz"]},              
         ],
     },
     // index 4 
@@ -75,12 +75,12 @@
            {route:"500_0",  title:""},
            {route:"500_1",  title:""},
            {route:"500_2",  title:""},
-           {route:"Fail",   title:"Classical Atom - Failures" },
+           {route:"Fail",   template:"R4_Cracks.ejs",   title:"Classical Atom - Failures" },
+           {route:"",                                   title:""},
+           {route:"SE",     template:"R4_SE.ejs",       title:"The Schrodinger Equation"},
+           {route:"EMore",  template:"R4_EMore.ejs",       title:"More on Electrons in the Quantum Atom"},
            {route:"",       title:""},
-           {route:"SE",     title:"The Schrodinger Equation"},
-           {route:"EMore",  title:"More on Electrons in the Quantum Atom"},
-           {route:"",       title:""},
-           {route:"Shell",  title:"Modern Electron Shell Model"},          
+           {route:"Shell",  template:"R4_Shell.ejs",    title:"Modern Electron Shell Model"},          
         ], 
     },
     // index 5  
@@ -89,23 +89,15 @@
            {route:"",       title:""},
            {route:"",       title:""},
            {route:"",       title:""},
-           {route:"Spectra", title:"Atomic Spectra & Rydberg Formula", }, 
+           {route:"Spectra", template:"R5_Spectra.ejs", title:"Atomic Spectra & Rydberg Formula", }, 
            {route:"",       title:""},
-           {route:"WF",     title:"The Wave Function", },
+           {route:"WF",    template:"R5_WF.ejs", title:"The Wave Function", },
            {route:"",       title:""},
            {route:"",       title:""}, 
-           {route:"Success", title:"Successes of Quantum Atom"},          
+           {route:"Success", template:"R5_Success.ejs", title:"Successes of Quantum Atom"},          
         ],
     },
-      // index 6 
-//      {
-//        mapCards: [
-//           {title:"", image:"", route:""},
-//           {title:"", image:"", route:""},
-//           {title:"", image:"", route:""},
-//           {title:"", image:"", route:"700_3"}      
-//        ],
-//    },
+
     ];
 
     scope.lesson1 = s;

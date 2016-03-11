@@ -7,7 +7,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     var p = {};
     var s = {};
     
-    p.template= JST['app/content/lesson1/templates/Row3_Col7.ejs'];
+    p.template= JST['app/content/lesson1/templates/R3_Potential.ejs'];
 
     p.events = {};
 
