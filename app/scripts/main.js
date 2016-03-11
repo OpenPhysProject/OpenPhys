@@ -80,6 +80,9 @@
        m  =  new scope.Models.LessonModel(OER.data.lesson3, {parse: true, viewPath: "lesson3"});
        this.lessons.add(m);
  
+      // m  =  new scope.Models.LessonModel(OER.data.lesson4, {parse: true, viewPath: "lesson4"});
+      // this.lessons.add(m);
+ 
        m  =  new scope.Models.LessonModel(OER.data.lesson5, {parse: true, viewPath: "lesson5"});
        this.lessons.add(m);       
         
