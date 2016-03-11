@@ -49,11 +49,12 @@
     
     &.mini {
         position: fixed;
-        left:$padding-small;
         top: auto !important;
-        bottom:$padding-small;
+        left:0.3rem;
+        bottom:0.3rem;
+        width: 5rem;
+        height: auto;
         padding: 0rem;
-        width: 10rem;
         cursor: pointer;
         &>.logo-wordmark{
             display: none;
@@ -85,12 +86,6 @@
     .logo {
         width: $logo-ratio-small;
         @include logo-ratio(2);
-        &.mini {
-            left:0.3rem;
-            bottom:0.3rem;
-            width: 5rem;
-            height: auto;
-        }
     }
 }
 
@@ -98,6 +93,11 @@
     .logo {
         width: $logo-ratio-medium;
         @include logo-ratio(0);
+        &.mini {
+            left:$padding-small;
+            bottom:$padding-small;
+            width: 10rem;
+        }
     }
 }
 
