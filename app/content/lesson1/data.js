@@ -7,8 +7,8 @@
   s.route   = "ElectronicStructureOfTheAtom";
   s.info = "";
   s.primaryPathIndex = 2;  // 3
-  s.rowLeadNumber = 10;      // index for top row
-  s.rowIncrement = 10;
+  s.rowLeadNumber = 100;      // index for top row
+  s.rowIncrement = 100;
 
   s.contentMapData = [
     // index 0
