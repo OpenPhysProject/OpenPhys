@@ -33,7 +33,8 @@
             {route:"Waves",template:"R1_Travelling.ejs",        title:"Classical Travelling Waves", icons:["video"]},
             {route:"",                                          title:""},
             {route:"",                                          title:""},
-            {route:"",                                          title:""},
+            {route:"",                                          title:""},            
+            {route:"Quiz_Classical", template:"Quiz_Classical.ejs", title:"Quiz:\n Classical Physics",icons:["quiz"] },
         ],
     },  
     //index 2
@@ -47,7 +48,9 @@
             {route:"",                                          title:""},
             {route:"StandingWaves",template:"R2_Standing.ejs",  title:"Classical Standing Waves",  icons:["video"]},
             {route:"",                                          title:""}, 
-            {route:"",                                          title:""},           
+            {route:"",                                          title:""}, 
+            {route:"",                                          title:""},            
+            {route:"Quiz_Waves", template:"Quiz_Waves.ejs",     title:"Quiz:\n Waves",icons:["quiz"] },           
         ]
     }, 
     // index 3 
@@ -66,7 +69,7 @@
            {route:"Potential", template:"R3_Potential.ejs", title:"The Nuclear Potential in the Quantum Atom" }, 
            {route:"Orbitals",  template:"R3_Orbitals.ejs",  title:"More on Electron Orbitals" },
            {route:"Beyond",    template:"R3_Beyond.ejs",    title:"Beyond the Quantum Atom"}, 
-           {route:"Quiz",      template:"R3_Quiz.ejs",      title:"Quiz",   icons:["quiz"]},              
+           {route:"Quiz_EarlyAtoms",      template:"Quiz_EarlyAtoms.ejs",      title:"Quiz: Early Atomic Models",   icons:["quiz"]},              
         ],
     },
     // index 4 
