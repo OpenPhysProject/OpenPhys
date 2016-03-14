@@ -20,12 +20,14 @@ $strongLinkMargin:  $map-card-margin + $map-card-size/2 - $strongLinkSize/2;
     vertical-align: top;
     display: inline-block;
     white-space: normal;
+    color: $color_map_card_text;
     
     &.empty{
         visibility: hidden;
     }
 
     &.visited{
+        color: $color_map_card_text_visited;
         .map-card-container {
             background: $color_map_card_visited;
             border-style : Solid;
@@ -37,6 +39,7 @@ $strongLinkMargin:  $map-card-margin + $map-card-size/2 - $strongLinkSize/2;
         }
     }
     &.current{
+        color: $color_map_card_highlight;
         .map-card-container {
             background: $color_map_card_current;
             border-style : Solid;
@@ -135,7 +138,7 @@ $endNodeHeight: 10rem;
     font-family: $fontFamily-mapCard;
     font-size: $fontSize-mapCard;
     font-weight: bold;
-    line-height: 1.6rem;
+    line-height: 1.5rem;
 }
 
 .map-card-footer {

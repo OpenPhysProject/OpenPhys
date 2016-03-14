@@ -17,11 +17,11 @@
         startNode: true,
         endNode: true,
         mapCards: [
-            {title:"The Lesson Concept Map",    route:"Tile"},
-            {title:"Navigate with Arrow Keys",  route:"Nav"},
-            {title:"The Map Icon",              route:"ContentMap"},
-            {title:"Exploring Larger Maps",     route:"LargerMaps"}, 
-            {title:"The OpenPhys Logo",         route:"MapLogo"},         
+            {title:"the lesson concept map",    route:"Tile"},
+            {title:"navigate with arrow keys",  route:"Nav"},
+            {title:"the map icon",              route:"ContentMap"},
+            {title:"exploring larger maps",     route:"LargerMaps"}, 
+            {title:"the openphys logo",         route:"MapLogo"},         
         ]
     },
     ];
