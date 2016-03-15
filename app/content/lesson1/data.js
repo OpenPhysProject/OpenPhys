@@ -8,96 +8,86 @@
   s.info = "";
   s.primaryPathIndex = 2;  // 3
   s.rowLeadNumber = 100;      // index for top row
-  s.rowIncrement = 100;
+  s.rowIncrement  = 100;
 
-  s.contentMapData = [
+  s.contentMapData = [   
     // index 0
-//    {
-//        mapCards: [
-//            {title:"", route:""},
-//            {title:"", route:""},
-//            {title:"", route:""},
-//            {title:"", route:""},
-//            {title:"", route:""},
-//        ],
-//    },   
-    // index 1
     {
         mapCards: [
             {route:"",                                          title:""},
             {route:"",                                          title:""},
             {route:"",                                          title:""},           
-            {route:"CP",   template:"R1_ClassicalPhysics.ejs",  title:"Classical Physics (1800s)"},
+            {route:"CP",   template:"R1_ClassicalPhysics.ejs",  title:"classical physics (1800s)"},
             {route:"",                                          title:""},
             {route:"",                                          title:""},
-            {route:"Waves",template:"R1_Travelling.ejs",        title:"Classical Travelling Waves", icons:["video"]},
+            {route:"Waves",template:"R1_Travelling.ejs",        title:"classical travelling waves", icons:["video"]},
             {route:"",                                          title:""},
             {route:"",                                          title:""},
             {route:"",                                          title:""},            
-            {route:"Quiz_Classical", template:"Quiz_Classical.ejs", title:"Quiz:\n Classical Physics",icons:["quiz"] },
+            {route:"Quiz_Classical", template:"Quiz_Classical.ejs", title:"quiz:\n classical physics",icons:["quiz"] },
         ],
     },  
-    //index 2
+    //index 1
     {
         mapCards: [
             {route:"",                                          title:""},
             {route:"",                                          title:""},
             {route:"",                                          title:""},          
-            {route:"EM",           template:"R2_EM.ejs",        title:"Classical Electro - magnetism" },
-            {route:"Angular",      template:"R2_Angular.ejs",   title:"Angular Momentum",    icons:["video"]},
+            {route:"EM",           template:"R2_EM.ejs",        title:"classical electro - magnetism" },
+            {route:"Angular",      template:"R2_Angular.ejs",   title:"angular momentum",    icons:["video"]},
             {route:"",                                          title:""},
-            {route:"StandingWaves",template:"R2_Standing.ejs",  title:"Classical Standing Waves",  icons:["video"]},
+            {route:"StandingWaves",template:"R2_Standing.ejs",  title:"classical standing waves",  icons:["video"]},
             {route:"",                                          title:""}, 
             {route:"",                                          title:""}, 
             {route:"",                                          title:""},            
-            {route:"Quiz_Waves", template:"Quiz_Waves.ejs",     title:"Quiz:\n Waves",icons:["quiz"] },           
+            {route:"Quiz_Waves", template:"Quiz_Waves.ejs",     title:"quiz:\n waves",icons:["quiz"] },           
         ]
     }, 
-    // index 3 
+    // index 2 
     {
         startNode: true,
         endNode: true,
         horizontalLinks: OER.linkType.strong,
         mapCards: [
-           {route:"Models",    template:"R3_Models.ejs",    title:"Atomic Models",           icons:["interaction"]},
-           {route:"Dalton",    template:"R3_Dalton.ejs",    title:"Dalton's Atoms (1805)",   icons:["interaction"]},
-           {route:"Plum",      template:"R3_Plum.ejs",      title:"Plum Pudding Atom (1904)"},  
-           {route:"Rutherford",template:"R3_Ruth.ejs",      title:"Classical Rutherford Nuclear Atom (1910's)",  icons:["interaction"]}, 
-           {route:"Bohr",      template:"R3_Bohr.ejs",      title:"Quantized Bohr Atom \n(1913)" }, 
-           {route:"QM",        template:"R3_QM.ejs",        title:"Quantum Mechanics:\n De Broglie Matter Waves"},
-           {route:"QAtomOne",  template:"R3_QAtomOne.ejs",  title:"Electrons in the Quantum Atom",               icons:["video"]},
-           {route:"Potential", template:"R3_Potential.ejs", title:"The Nuclear Potential in the Quantum Atom" }, 
-           {route:"Orbitals",  template:"R3_Orbitals.ejs",  title:"More on Electron Orbitals" },
-           {route:"Beyond",    template:"R3_Beyond.ejs",    title:"Beyond the Quantum Atom"}, 
-           {route:"Quiz_EarlyAtoms",      template:"Quiz_EarlyAtoms.ejs",      title:"Quiz: Early Atomic Models",   icons:["quiz"]},              
+           {route:"Models",    template:"R3_Models.ejs",    title:"atomic models",           icons:["interaction"]},
+           {route:"Dalton",    template:"R3_Dalton.ejs",    title:"Dalton's atoms (1805)",   icons:["interaction"]},
+           {route:"Plum",      template:"R3_Plum.ejs",      title:"plum pudding atom (1904)"},  
+           {route:"Rutherford",template:"R3_Ruth.ejs",      title:"classical Rutherford nuclear atom (1910's)",  icons:["interaction"]}, 
+           {route:"Bohr",      template:"R3_Bohr.ejs",      title:"quantized Bohr atom \n(1913)" }, 
+           {route:"QM",        template:"R3_QM.ejs",        title:"quantum mechanics:\n De Broglie matter waves"},
+           {route:"QAtomOne",  template:"R3_QAtomOne.ejs",  title:"electrons in the quantum atom",               icons:["video"]},
+           {route:"Potential", template:"R3_Potential.ejs", title:"the nuclear potential in the quantum atom" }, 
+           {route:"Orbitals",  template:"R3_Orbitals.ejs",  title:"more on electron orbitals" },
+           {route:"Beyond",    template:"R3_Beyond.ejs",    title:"beyond the quantum atom"}, 
+           {route:"Quiz_EarlyAtoms", template:"Quiz_EarlyAtoms.ejs",  title:"quiz: early atomic models",   icons:["quiz"]},              
         ],
     },
-    // index 4 
+    // index 3 
     {
         mapCards: [
            {route:"500_0",  title:""},
            {route:"500_1",  title:""},
            {route:"500_2",  title:""},
-           {route:"Fail",   template:"R4_Cracks.ejs",   title:"Classical Atom - Failures" },
+           {route:"Fail",   template:"R4_Cracks.ejs",   title:"classical atom - failures" },
            {route:"",                                   title:""},
-           {route:"SE",     template:"R4_SE.ejs",       title:"The Schrodinger Equation"},
-           {route:"EMore",  template:"R4_EMore.ejs",       title:"More on Electrons in the Quantum Atom"},
+           {route:"SE",     template:"R4_SE.ejs",       title:"the Schrodinger equation"},
+           {route:"EMore",  template:"R4_EMore.ejs",       title:"more on electrons in the quantum atom"},
            {route:"",       title:""},
-           {route:"Shell",  template:"R4_Shell.ejs",    title:"Modern Electron Shell Model"},          
+           {route:"Shell",  template:"R4_Shell.ejs",    title:"modern electron shell model"},          
         ], 
     },
-    // index 5  
+    // index 4  
     {
         mapCards: [
            {route:"",       title:""},
            {route:"",       title:""},
            {route:"",       title:""},
-           {route:"Spectra", template:"R5_Spectra.ejs", title:"Atomic Spectra & Rydberg Formula", }, 
+           {route:"Spectra", template:"R5_Spectra.ejs", title:"atomic spectra & Rydberg formula", }, 
            {route:"",       title:""},
-           {route:"WF",    template:"R5_WF.ejs", title:"The Wave Function", },
+           {route:"WF",    template:"R5_WF.ejs", title:"the wave function", },
            {route:"",       title:""},
            {route:"",       title:""}, 
-           {route:"Success", template:"R5_Success.ejs", title:"Successes of Quantum Atom"},          
+           {route:"Success", template:"R5_Success.ejs", title:"successes of quantum atom"},          
         ],
     },
 

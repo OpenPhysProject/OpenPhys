@@ -8,30 +8,32 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
 
 (function () {
     'use strict';
+    
     var p = {};     // prototype for this class
     var s = {};     // static for this class
+    
     p.template= JST['app/content/lesson1/templates/R2_Angular.ejs'];     // template used to create html for this view
     p.events = {};  // events, used by backbone to set up event handlers on html elements
+
     //p.button = null;        // html button element    
     p.stage = null;         // easeljs stage
     p.width = null;         // stage width
     p.height = null;        // stage height
-    // Easeljs shapes:
-    p.photonsource1 = null;  // easeljs shape   
-    p.target = null;        // target for x-rays
-    // EaselJS bitmaps:
-    p.background = null;    // background image
+    p.electrons = null;     // array of easeljs shapes
+    p.nucleus = null;       // easeljs shape
+     
     p.tickerBind = null;    // reference to bound function, binding lets us call back in this scope
     p.buttonBind = null;    // reference to bound function
-    p.Wave = null;
-    p.Arc2 = null;
-    p.Wave_ymax = 50;
-    p.Wave_yinc = 0.8;      // oscillation speed
-    p.t = 0; // time
-    p.rotation_deg = 0.0;
+ 
+    p.electronProps = {
+        angle:    0.0,           // initial angle, with
+        angleInc: 0.02,  // 0.04
+        originX: 400,    originY: 200,
+        radius:  100,  //  Orbital Radius
+        colour: "rgba(200,255,200,1.0",
+        size: 90
+    }; 
     
-    p.photonProps1 = {sourceX: 400, sourceY: 200, source_colour: "darkgreen", colour: "red", size: 5,  scale: 1.000 };    
-     
     /**
      * backbone initialize function
      * called on creation by OER.LessonBaseView.updateContent
@@ -54,41 +56,40 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
             this.setElement(this.template());
         }
 
-        // Set up createjs stage and touch support
+        // setup createjs stage and touch support
         var c = $(".lesson-content-canvas", this.$el)[0];
         this.stage = new createjs.Stage(c);
         if (createjs.Touch.isSupported()) {createjs.Touch.enable(this.stage);}
-        this.width  = c.width;
+        this.width = c.width;
         this.height = c.height;
         
-       //===============  CONTENT ====================//                         
+       // draw Static circle (nucleus)
+        this.nucleus = new createjs.Shape();
+        this.nucleus.graphics.beginFill("rgba(200,255,200,1.0").drawCircle(0, 0, 20);
+        this.nucleus.x =  this.electronProps.originX; // x position
+        this.nucleus.y =  this.electronProps.originY;
+        this.stage.addChild(this.nucleus);  // add this shape to the stage
+        
+        // draw circle (electron)
+        this.electrons = [];    // create empty array
+        this.electronProps.angle = 0.0;
+        this.handleButton();
+        this.electronProps.angle = Math.PI;
+        this.handleButton();
+
         // set up createjs ticker to update stage
         createjs.Ticker.timingMode = createjs.Ticker.RAF;   // sets ticks to happen on browser request animation frame
-        this.tickerBind            = this.tick.bind(this);
+        this.tickerBind = this.tick.bind(this);
         createjs.Ticker.addEventListener("tick", this.tickerBind);
     };
     
-     /* createjs tick event, that is run multiple frames per second
+    /**
+     * createjs tick event, that is run multiple frames per second
      * called by createjs tick event
      * @param {type} event
      */
     p.tick = function(event) {
-        // update the stage 
-        this.stage.removeAllChildren();  // a bit drastic
-        //
-
-        this.drawArc(200,130, this.rotation_deg/2, 100); //
-        this.drawArc(400,200, this.rotation_deg,   180); // x0,y0,rot-speed, radius       
-        this.drawArc(850,425, this.rotation_deg/2, 400);
-        this.rotation_deg += 1;
-        
-          // Text 
-        this.txt = new createjs.Text("Angular Momentum", "24px Arial", "#FFF");
-        this.txt.x = 320;  this.txt.y = 10;
-        //this.txt.rotation = 20;  //txt.outline = true;
-        this.stage.addChild(this.txt);      
-        
-        this.t += 1;                // clock for simulations
+        // update the stage
         this.stage.update(event);   // redraw shapes on the stage
     };
 
@@ -103,80 +104,54 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         createjs.Ticker.removeEventListener("tick", this.tickerBind);
         Backbone.View.prototype.remove.call(this, options);
     };
- 
-    p.drawArc = function(x0,y0,rotation_deg, radius) {
-     // Arc
-        var a, c,s,s1,c1,s2,c2, segments = 180; // 32
-        var redcol,greencol, col,rcol;
-        var angle1=0.0, angle2;
-        //var radius = 150;
-        //var x0 = 400, y0=200;  // disk origin
-        var x1, y1;
-        var angle_inc = 2*Math.PI/segments;
-        var rotation   = -(rotation_deg/360)*2*Math.PI; // rotates fill color
-       
-        this.Arc2 = new createjs.Shape();
-        this.Arc2.graphics.setStrokeStyle(1);
-
-        for (a=0; a<segments; a++){  
-            s1 = Math.sin(angle1+rotation);  // used for fill color
-            c1 = Math.cos(angle1+rotation);  //
-            //s2 = Math.sin(angle1+rotation);  // used for fill color
-            //c2 = Math.sin(angle1+rotation);  //           
-            
-            x1 = x0 + radius*Math.cos(angle1);  // first point on disk perimeter
-            y1 = y0 + radius*Math.sin(angle1);  //
-            angle2 = angle1 + angle_inc;
-            redcol  = (240.0*s1*s1).toFixed(0);
-            greencol= (240.0*c1*c1).toFixed(0);
-            col     = "rgba(" + redcol + "," + greencol+ ",0,1)";  // fill color for segment
-            this.Arc2.graphics.beginFill(col);
-            this.Arc2.graphics.beginStroke(col);
-            this.Arc2.graphics.moveTo(x0,y0).lineTo(x1,y1);
-            this.Arc2.graphics.arc(x0,y0,radius, angle1, angle2);  
-            this.Arc2.graphics.lineTo(x0,y0);
-            this.Arc2.graphics.endStroke(); 
-            angle1 = angle2;
-             }
-        this.stage.addChild(this.Arc2);
-    };   
     
-    p.drawWave = function(cycles, cycleshift, y0, wavespeed, colour) {
-     // sine wave
-     // y0: vertical offset of plot
-     // cycleshift = 0.0  --> sin
-     // cycleshift = 0.5  --> -sin
-     // cycleshift = 0.25 --> cos
-        var xmin,xmax,xrange,x,y, radians;
-        xmin = -1;
-        xmax = 800;
-        xrange = xmax-xmin; 
-        this.Wave = new createjs.Shape();
-        //this.Wave.on("tick",this.WaveTick);  // not very useful, so far.
-        this.Wave.graphics.setStrokeStyle(3);
-        this.Wave.graphics.beginStroke(colour).moveTo(xmin,y0);
-        
-        // Physics
-        var wavelength = xmax/cycles;
-        var freq = wavespeed/wavelength;        // relative to tick rate
-        var yamp = this.Wave_ymax; // * Math.cos(2*Math.PI* freq * this.t);  
-        cycleshift =  2*Math.PI*freq*this.t;
-                  
-        for (x=0; x<xmax; x++){
-            radians = 2*Math.PI*((x/xrange)*cycles - cycleshift);
-            this.Wave.graphics.lineTo(xmin+x, y0+yamp*Math.sin(radians));
-        };
-        
-        this.Wave.graphics.endStroke(); // horizontal
-        this.stage.addChild(this.Wave);
+    /**
+     * click listener for button
+     */
+    p.handleButton = function() {
+        var e = this.drawElectron();
+        this.stage.addChild(e); // add electron to stage
+        this.electrons.push(e); // add electron to array
     };
-                 
+
+// ELECTRON CODE *********************************************************************************
+    // draw electron and add it to stage
+    p.drawElectron = function() {
+        // Actual Orbital radius
+        var e = this.electronProps; // convenience
+        var radius = Math.round(e.radius); // orbital radius
+        
+        var electron = new createjs.Shape();
+        electron.graphics.beginFill(e.colour).drawCircle(0, 0, e.size); // electron radius
+        electron.x =  e.originX;           // initial x position
+        electron.y =  e.originY + radius;
+        electron.on("tick",this.electronTick);  // add tick listener to electron, which is called by createjs tick event
+        
+        // Define parameters to be used for each tick
+        var v = electron.tickProps = {};
+        v.originX     = e.originX;
+        v.originY     = e.originY;
+        v.angle       = e.angle; // Math.random()*e.angleDelta    + e.angle;
+        v.angleInc    = e.angleInc; //Math.random()*e.angleIncDelta + e.angleInc;
+        v.radius      = radius;
+        return electron;
+    };
+   
    // ============== EVOLUTION ================ //
-    
-    function Hello2() {
-        var tmp;
-        tmp= 10;
-        return tmp;
+    p.electronTick = function () {
+        // Electron spirals in to nucleus
+        var t = this.tickProps;
+        
+        //if (t.radius > p.electronProps.radius_min) { 
+            //t.radius = t.radius - p.electronProps.radial_decay; // radius decreases
+            //t.angleInc *= 1.005;                // make the angle change faster
+        //}
+        //else{
+            
+        //};
+        this.x = t.originX + t.radius*Math.sin(t.angle);  // 
+        this.y = t.originY + t.radius*Math.cos(t.angle);
+        t.angle += t.angleInc;
     };
 
     // add the above code as a backbone view class in our namespace
