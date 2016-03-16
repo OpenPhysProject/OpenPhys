@@ -32,7 +32,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         radius:  160,    dr:       40,   // starting Orbital Radius and random element
         radial_decay: 1,
         radius_min: 6,
-        colour: "rgba(100,100,255,0.7",
+        colour: "rgba(100,100,255,0.7)",
         size: 8
     }; 
     
