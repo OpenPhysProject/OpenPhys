@@ -18,7 +18,7 @@
             {route:"",                                          title:""},
             {route:"",                                          title:""},           
             {route:"CP",   template:"R1_ClassicalPhysics.ejs",  title:"classical physics (1800s)"},
-            {route:"",                                          title:""},
+            {route:"Linear",  template:"R1_Linear.ejs",         title:"linear momentum"},
             {route:"",                                          title:""},
             {route:"Waves",template:"R1_Travelling.ejs",        title:"classical travelling waves", icons:["video"]},
             {route:"",                                          title:""},

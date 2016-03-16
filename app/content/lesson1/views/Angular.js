@@ -92,8 +92,6 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
      */
     p.tick = function(event) {
         // update the stage
-       // p.nucleus.rotation += 1;
-        
         this.stage.update(event);   // redraw shapes on the stage
     };
 
@@ -168,14 +166,6 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
     p.electronTick = function () {
         // Electron spirals in to nucleus
         var t = this.tickProps;
-        
-        //if (t.radius > p.electronProps.radius_min) { 
-            //t.radius = t.radius - p.electronProps.radial_decay; // radius decreases
-            //t.angleInc *= 1.005;                // make the angle change faster
-        //}
-        //else{
-            
-        //};
         this.x = t.originX + t.radius*Math.sin(t.angle);  // 
         this.y = t.originY + t.radius*Math.cos(t.angle);
         t.angle += t.angleInc;
