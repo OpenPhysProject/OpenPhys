@@ -30,7 +30,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         angleInc: 0.01,  // 0.04
         originX: 400,    originY: 200,
         radius:  100,  //  Orbital Radius
-        colour: "rgba(200,255,100,1.0",
+        colour: "rgba(200,255,100,1.0)",
         size: 50
     }; 
     
