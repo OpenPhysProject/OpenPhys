@@ -34,6 +34,15 @@ h3 {
     margin-bottom: 1.0rem;
 }
 
+.lesson-content-quote {
+    // for longer quotes
+    font-style: italic;
+    color: #606060;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
 .lesson-content-boxed {
     @extend .col-xs-12;
     @extend .col-sm-6;
@@ -49,7 +58,7 @@ h3 {
     margin-bottom: 1.5rem;
 }
 
-// used for note at bottom of content page
+// used for ?
 .lesson-content-info {
     color: $color_gray-dark;
     font-style: italic;
@@ -57,6 +66,7 @@ h3 {
     margin-bottom: 1.5rem;
 }
 
+// used for page number and group
 .lesson-content-footer {
     @extend .col-xs-12;
     color: $color_gray-dark;

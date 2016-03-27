@@ -219,6 +219,6 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
         // set value * z / r * 10 -11
     };
 
-    OER.Views.ElectronicStructureOfTheAtom.NuclearPotential = Backbone.View.extend(p, s);
+    OER.Views.ElectronicStructureOfTheAtom.Potential = Backbone.View.extend(p, s);
 
 })();
