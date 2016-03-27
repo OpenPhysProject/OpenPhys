@@ -58,7 +58,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
             this.setElement(this.template());
         }
         
-        // setup reference to button and click listener
+        // set up reference to button and click listener
         this.button = $(".lesson-content-button", this.$el)[0];    // $ is jquery, this.$el is this views html as a jquery object
         this.buttonBind = this.handleButton.bind(this);     // create reference to bound function, binding makes a function be called in this scope
         this.button.addEventListener("click", this.buttonBind); //
@@ -103,7 +103,7 @@ OER.Views.ElectronicStructureOfTheAtom = OER.Views.ElectronicStructureOfTheAtom 
      * @param {type} options
      */
     p.remove = function(options) {
-        this.button.removeEventListener("click");
+        this.button.removeEventListener("click", this.buttonBind);
         if (createjs.Touch.isSupported()) {createjs.Touch.disable(this.stage);}
         createjs.Ticker.removeEventListener("tick", this.tickerBind);
 
