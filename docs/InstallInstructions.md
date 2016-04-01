@@ -1,4 +1,7 @@
-### Setup
+### Install Instructions
+This file explains how to setup the openphys project locally for development purposes.
+
+#### Setup
 Run everything in "" below from the command prompt.  Do not use powershell.
 
 Check if you have node (at-least 0.10.x)
@@ -17,7 +20,7 @@ Install NPM and Bower Dependencies from the root folder of the project
 "npm install"
 "bower install"
 
-###Trouble Shooting
+#### Trouble Shooting
 
 For windows user, you can use the following if you run into trouble:
 
@@ -39,7 +42,7 @@ If you have trouble with node version.
 
 8. You can use "grunt server" to check if you have successfully set up the dependencies.
 
-### Usage
+#### Usage
 The content in the repo was generated using https://github.com/yeoman/generator-backbone
 
 We Use Grunt to run tasks for testing and building the project
@@ -49,9 +52,9 @@ We Use Grunt to run tasks for testing and building the project
 For a quick walkthrough, check out http://code.tutsplus.com/tutorials/building-apps-with-the-yeoman-workflow--net-33254
 
 
-### Notes on Editing Grunt Tasks
+#### Notes on Editing Grunt Tasks
 
-#### Grunt Prefix Syntax
+##### Grunt Prefix Syntax
 
 One of our goals is to compile *.scss & *.sass files in different subdirectories.
 
