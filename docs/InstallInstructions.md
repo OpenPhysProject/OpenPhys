@@ -1,22 +1,27 @@
 ### Install Instructions
 This file explains how to setup the openphys project locally for development purposes.
+If you haven't already done so, clone the [OpenPhys repo](https://github.com/OpenPhysProject/OpenPhys.git). 
+Learn more about cloning a repo [here](https://help.github.com/articles/cloning-a-repository/).
 
 #### Setup
-Run everything in "" below from the command prompt.  Do not use powershell.
 
-Check if you have node (at-least 0.10.x)
+1. Open command prompt. Do not use powershell. Run everything in "" below from the command prompt.
+
+2. Navigate to the project folder, for example "cd c:\dev\OpenPhys"
+
+3. Check if you have node (at-least 0.10.x)
 "node -v"
 If you don't have node, go install it form http://nodejs.org/
 ** NOTE node v 0.12.0 will not work, and there is an outstanding bug with them for it.
 
-Check if you have bower and grunt installed.
+4. Check if you have bower and grunt installed.
 "npm bower -v"
 "npm grunt -v"
 
 If not, run the following.
 "npm install -g bower grunt-cli"
 
-Install NPM and Bower Dependencies from the root folder of the project
+5. Install NPM and Bower Dependencies from the root folder of the project
 "npm install"
 "bower install"
 
