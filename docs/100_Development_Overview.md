@@ -1,4 +1,4 @@
-### Project Overview
+### Development Overview
 OpenPhys is built on current web standards and best practices.  It is a responsive, mobile first web app. The goal of this document is
 to briefly describe the tools used and the projects structure to help new developers get up to speed more quickly.
 
