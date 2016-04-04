@@ -1,4 +1,4 @@
-### How To Set up a Development Environment
+### How to set up a Development Environment
 This file explains how to set up your own OpenMap project locally for development purposes.  
 If you haven't already done so, clone the [OpenPhys repo](https://github.com/OpenPhysProject/OpenPhys.git). 
 Learn more about cloning a repo [here](https://help.github.com/articles/cloning-a-repository/).
