@@ -1,4 +1,5 @@
 ###Update Content: Replace Files With Your Own Work
+
 Most of the following steps can be done by your IT department, 
 but you will need to create the lesson and the related text.  
 Replace the OpenPhys logo with your own logo.  

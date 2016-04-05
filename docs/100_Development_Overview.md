@@ -1,11 +1,21 @@
 ### Development Overview (for developers)
-OpenPhys is built on current web standards and best practices.  It is a responsive, mobile first web app. The goal of this document is
-to briefly describe the tools used and the projects structure to help new developers get up to speed more quickly.
+OpenPhys is built on current web standards and best practices.  It is a responsive, mobile first web app. 
+The goal of this document is
+to briefly describe the tools used and the project structure.
+
+
+#### Git Repository [OJ PLEASE FIX THIS UP. I DONT UNDERSTAND THE GIT/CLONE PROCESS]
+All source code is stored in a git repository. In overview these are the steps to set up the repository:  
+1. clone  
+2. install git locally  
+3. install SourceTree  
+4. edit cloned files  
+
 
 #### Development Tools
 You will need the following:
 
-1. An IDE to edit the files. We used [NetBeans](https://netbeans.org/)
+1. An IDE to edit the files. This project was developed with [NetBeans](https://netbeans.org/)
 2. [Git](https://git-scm.com/) installed, and a GUI tool like [SourceTree](https://www.sourcetreeapp.com/) can be useful.
 3. For uploading the site, an ftp client such as [FileZilla](https://filezilla-project.org/)
 4. [nodejs](https://nodejs.org/en/) installed
