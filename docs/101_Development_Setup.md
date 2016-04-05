@@ -3,7 +3,7 @@ This file explains how to set up your own OpenMap project locally for developmen
 If you haven't already done so, clone the [OpenPhys repo](https://github.com/OpenPhysProject/OpenPhys.git). 
 Learn more about cloning a repo [here](https://help.github.com/articles/cloning-a-repository/).
 
-#### Setup
+#### Install grunt (uses node, npm, bower)
 
 1. Open command prompt. Do not use powershell. Run everything in "" below from the command prompt.
 

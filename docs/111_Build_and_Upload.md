@@ -1,5 +1,10 @@
 ### Build and Upload
 
+####Prerequisites
+The following must be installed and configured:
+
+
+
 #### Pull latest
 
 #### grunt build

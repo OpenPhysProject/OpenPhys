@@ -4,7 +4,8 @@ The goal of this document is
 to briefly describe the tools used and the project structure.
 
 
-#### Git Repository [OJ PLEASE FIX THIS UP. I DONT UNDERSTAND THE GIT/CLONE PROCESS]
+#### Git Repository [OJ PLEASE FIX THIS UP. I DONT UNDERSTAND THE GIT/CLONE PROCESS. Does clone come before or after
+installation. what about user registratino on github. please explain outline here, then refer to git docs for details]
 All source code is stored in a git repository. In overview these are the steps to set up the repository:  
 1. clone  
 2. install git locally  
