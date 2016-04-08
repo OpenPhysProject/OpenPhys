@@ -1,5 +1,14 @@
 ###Advanced: More Advanced Changes
 
+####Alter Lesson Page Appearance
+You can add visuals that affect individual content.
+
+####Alter Lesson Page Behavior
+You can add view js to change behavior.
+
+####Add a new Lesson
+Check out lessonDocs
+
 ####Alter Website Appearance.  
 You can change the website visuals by altering the scss files in the app/styles folder.  
 The app/styles/settings folder contains scss files that define all the global values used in styles.  

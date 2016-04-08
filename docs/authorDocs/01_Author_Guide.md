@@ -7,7 +7,7 @@ Content: text, pictures, quizzes etc.
 ### Tutorial
 For this tutorial, we assume that:   
 1. You are the author and want to add new content (or modify existing content).   
-2. your website has already been set up (typically done by IT staff),   
+2. Your website has already been set up (typically done by IT staff),   
 3. You have a team member who will upload your content to the website. 
 This process is explained in elsewhere.
 
