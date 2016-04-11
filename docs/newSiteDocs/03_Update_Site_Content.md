@@ -1,7 +1,9 @@
-###Update Content: Replace Files With Your Own Work
-
+### Update Site Content
+Replace Content Files With Your Own Work  
 Most of the following steps can be done by your IT department, 
 but you will need to create the lesson and the related text.  
+
+####Replace Logo
 Replace the OpenPhys logo with your own logo.  
 In the app/content/logo folder, replace the following files with your own graphics:  
 logo-icon.svg (image),  
@@ -10,7 +12,7 @@ logo-wordmark.svg (OpenPhys name)
 If you do not want one of the 3 aspects of the logo (icon, wordmark, or tagline),
  you can remove them from app/index.html in <div class=”logo”> starting at line 19.  
 
-###Update First Page Text (Intro and Outro Tiles)
+####Update First Page Text (Intro and Outro Tiles)
 There are two special tiles on the front page. They must exist, but you can change the content. 
 
 Intro Tile: the very first tile on the website main page (contains logo and very basic instructions)  
@@ -32,3 +34,6 @@ In app/content, remove all the subfolders ‘Lesson1’, ‘Lesson2’ etc.,
 In file app/index.html, remove related lesson script links (starting at line 160, everything 
 after <!-- Content--> except Intro).  
 In file app/scripts/main.js, remove related lessons from the loadData method (line 67).  
+
+####Back To Top
+[newSiteDocs](https://github.com/OpenPhysProject/OpenPhys/blob/master/docs/newSiteDocs/README.md)

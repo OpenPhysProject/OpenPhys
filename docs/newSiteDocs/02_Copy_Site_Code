@@ -1,5 +1,4 @@
-#### Create your Git Repository (by Cloning)
-
+### Copy Site Code
 Download the files (“Clone” OpenPhys Repository)  
 
 All the files needed are freely available on the internet. 
@@ -14,3 +13,6 @@ your own project (repository).
 
 Instructions on cloning a repository can be found at
  https://help.github.com/articles/cloning-a-repository/.
+
+####Next Doc
+[Update Site Content](https://github.com/OpenPhysProject/OpenPhys/blob/master/docs/newSiteDocs/03_Update_Site_Content.md)
