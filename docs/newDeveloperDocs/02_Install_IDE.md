@@ -11,3 +11,6 @@ Admin access to computer.
 
 #### Configuration
 Netbeans – right click on an .ejs file:  ‘open as’ html  
+
+#### Next Doc
+[Install FTP Client](https://github.com/OpenPhysProject/OpenPhys/blob/master/docs/newDeveloperDocs/03_Install_FTP_Client.md)

@@ -8,3 +8,6 @@ Admin access to computer
 
 #### Installation
 1. [nodejs](https://nodejs.org/en/)
+
+#### Next Doc
+[Install Libraries](https://github.com/OpenPhysProject/OpenPhys/blob/master/docs/newDeveloperDocs/05_Install_Libraries.md)

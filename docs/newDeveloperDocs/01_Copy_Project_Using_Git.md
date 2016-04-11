@@ -21,8 +21,7 @@ Admin access to computer.
 
 1. [Git](https://git-scm.com/)  
 2. [SourceTree](https://www.sourcetreeapp.com/)
-3. Clone the [OpenPhys repo](https://github.com/OpenPhysProject/OpenPhys.git).) Learn more about cloning a repo [here](https://help.github.com/articles/cloning-a-repository/).  
+3. Clone the [OpenPhys repo](https://github.com/OpenPhysProject/OpenPhys.git).) Learn more about cloning a repo [here](https://help.github.com/articles/cloning-a-repository/).
 
-
-
-6. Follow [Development_Setup.md](https://github.com/OpenPhysProject/OpenPhys/blob/master/docs/101_Development_Setup.md)
+#### Next Doc
+[Install IDE](https://github.com/OpenPhysProject/OpenPhys/blob/master/docs/newDeveloperDocs/02_Install_IDE.md)
