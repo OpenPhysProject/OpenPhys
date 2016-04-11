@@ -9,4 +9,4 @@ If you do not have an IT department, you will need to investigate the many optio
 pick what works best for your situation.
 
 ####Next Doc
-[Copy Site Code](https://github.com/OpenPhysProject/OpenPhys/blob/master/docs/newSiteDocs/02_Copy_Site_Code)
+[Copy Site Code](https://github.com/OpenPhysProject/OpenPhys/blob/master/docs/newSiteDocs/02_Copy_Site_Code.md)
