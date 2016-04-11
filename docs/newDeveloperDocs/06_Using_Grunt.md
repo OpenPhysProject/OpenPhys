@@ -1,6 +1,6 @@
 ### Using Grunt
-Grunt is a javascript task running the runs via nodejs.  It does a lot of the 
-repetitive steps of web development for you.
+Grunt is a javascript task runner that runs via nodejs.  It automates repetitive 
+tasks of web development.
 
 ####Prerequisites
 Admin access to computer
@@ -14,10 +14,14 @@ If not, run the following.
 "npm install -g grunt-cli"
 
 2. To test the site locally, run  
-"grunt serve"
+"grunt serve"  
+This is very helpful in development when you want to test what you are working on 
+before pushing it to a live site.
 
 3. To build the site for deployment, run  
-"grunt build"
+"grunt build"  
+The build is located in the /dist folder and is what you would push to the web server 
+using the ftp client.
 
 #### Editing Grunt Tasks
 Grunt Prefix Syntax

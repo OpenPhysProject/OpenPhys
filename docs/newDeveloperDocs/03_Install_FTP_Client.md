@@ -1,6 +1,7 @@
 ### install ftp Client
 File Transfer Protocol (ftp) clients allow you to upload files to web servers that 
-host the files for you web site. We use FileZilla.
+host the files for you web site. You will need this if you want to be able to 
+update a site with changes. We use FileZilla.
 
 ####Prerequisites
 None

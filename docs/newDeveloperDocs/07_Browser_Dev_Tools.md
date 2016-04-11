@@ -11,4 +11,4 @@ We use [Chrome](https://www.google.com/chrome/). These tools can be essential in
 diagnosing problems and understanding issues. Learn more [here](https://developer.chrome.com/devtools).
 
 #### Back to Top
-[README](https://github.com/OpenPhysProject/OpenPhys/blob/master/docs/newDeveloperDocs/README.md)
+[newDeveloperDocs](https://github.com/OpenPhysProject/OpenPhys/blob/master/docs/newDeveloperDocs/README.md)
