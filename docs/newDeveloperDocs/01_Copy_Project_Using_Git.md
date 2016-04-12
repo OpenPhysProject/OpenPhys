@@ -1,7 +1,7 @@
 ### Copy Project Using Git
 
 #### git, github, and SourceTree
-Git is a source code management system, what you install is software that understands how 
+*Git* is a source code management system. You install software that allows you 
 to work with git code stores (repositories). A GUI for using your local git can be useful 
 (we use SourceTree). Github is a cloud service for git repositories, often used to share 
 opensource projects. When using git you have a local copy of the entire project on your 
