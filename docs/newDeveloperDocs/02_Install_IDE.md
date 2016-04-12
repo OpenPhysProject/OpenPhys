@@ -1,12 +1,13 @@
 ### Install IDE  
-In order to easily work with the files in the project, you will want to install 
-a tool for editing code (IDE). Specifically one that works with javascript, 
-html, and css (scss).  We use Netbeans, a powerful file editor for web development.  
+In order to easily work with the files in the project, you need to install 
+a tool for editing code (IDE). 
+We use Netbeans, a powerful file editor for web development.  
+Netbeans works well with javascript, html, and css (scss).  
 
 #### Prerequisites
-Admin access to computer.
+Admin access to your own computer.
 
-#### Installation
+#### Installation (links to Netbeans site)
 1. [NetBeans](https://netbeans.org/)
 
 #### Configuration

@@ -1,11 +1,11 @@
 ### Using Grunt
-Grunt is a javascript task runner that runs via nodejs.  It automates repetitive 
+Grunt is a Javascript task runner that runs via nodejs.  It automates repetitive 
 tasks of web development.
 
 ####Prerequisites
-Admin access to computer
-nodejs
-grunt
+Admin access to computer.  
+nodejs installed.  
+grunt installed.  
 
 #### Installation
 1. Check if you have grunt installed.  
@@ -13,18 +13,26 @@ grunt
 If not, run the following.  
 "npm install -g grunt-cli"
 
-2. To test the site locally, run  
-"grunt serve"  
-This is very helpful in development when you want to test what you are working on 
-before pushing it to a live site.
+#### Local Testing
+You can fully test your web site locally, without uploading to the web server.
+This is very useful.
 
-3. To build the site for deployment, run  
+To test the site locally, run "grunt serve" at the command line prompt. 
+This is very helpful in development for testing your site locally (on your development computer) 
+before pushing it to a live site.
+This will produce the web site with an address like this: http://localhost:9000/
+
+#### Prepare Files for Upload
+When all files are ready for upload to the site. 
+To build the site for deployment, run  
 "grunt build"  
-The build is located in the /dist folder and is what you would push to the web server 
+The build is located in the /dist folder. The files here are the ones that you will push to the web server 
 using the ftp client.
 
 #### Editing Grunt Tasks
-Grunt Prefix Syntax
+The operation of the grunt tasks can be modified.
+
+Grunt Prefix Syntax  
 One of our goals is to compile *.scss & *.sass files in different subdirectories.
 
 However, the premium version that Gruntfile.js generated includes a syntax that

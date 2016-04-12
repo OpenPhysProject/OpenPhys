@@ -4,7 +4,7 @@ It is required to install command line tools (grunt, bower) and javascript libra
 used by this project.
 
 ####Prerequisites
-Admin access to computer
+Admin access to your computer
 
 #### Installation
 1. [nodejs](https://nodejs.org/en/)

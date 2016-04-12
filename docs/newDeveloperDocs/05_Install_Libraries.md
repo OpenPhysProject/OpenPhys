@@ -4,7 +4,7 @@ The initial content in the repo was generated using https://github.com/yeoman/ge
 For a quick walkthrough, check out http://code.tutsplus.com/tutorials/building-apps-with-the-yeoman-workflow--net-33254
 
 ####Prerequisites
-Admin access to computer
+Admin access to your computer.  
 nodejs
 
 #### Installation
