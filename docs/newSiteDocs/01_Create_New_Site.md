@@ -1,5 +1,5 @@
 ###Create New Site
-First Steps: Choose a website name (Domain) and a Web Hosting Service
+Choose a website name (Domain) and a Web Hosting Service
 
 A domain name refers to the website name (url) used to visit your site, such as http://openphys.med.ualberta.ca/. 
 ‘Web Hosting’ refers to the web server computers where the files of the website are stored and served to the internet from. 
