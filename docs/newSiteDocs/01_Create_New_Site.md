@@ -7,7 +7,7 @@ You can find a more detailed explaination of domain name and hosting at: https:/
 If you have an IT department, pick a website name for your project then ask them to get the domain and set up hosting.  
  
 If you do not have an IT department, you will need to investigate the many options for choosing domain names and web hosting and 
-pick what works best for your situation. 
+pick what works best for your situation. For instance 'GoDaddy' provides this service, but there are many others.
 
 ####Next Doc
 [Copy Site Code](https://github.com/OpenPhysProject/OpenPhys/blob/master/docs/newSiteDocs/02_Copy_Site_Code.md)
