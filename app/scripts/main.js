@@ -235,7 +235,7 @@
  */
 $(document).ready(function () {
     'use strict';
-    
+    // FastClick - library removes 300ms delay on touch devices
     $(function() {FastClick.attach(document.body);});
 
     var app = new OER.Application();
