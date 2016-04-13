@@ -1,6 +1,0 @@
-### Google Analytics
-
-#### Implemented:
-
-#### Future:  
-

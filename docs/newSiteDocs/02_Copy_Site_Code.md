@@ -15,4 +15,4 @@ Instructions on cloning a repository can be found at
  [https://help.github.com/articles/cloning-a-repository/](https://help.github.com/articles/cloning-a-repository/).
 
 ####Next Doc
-[Update Site Content](https://github.com/OpenPhysProject/OpenPhys/blob/master/docs/newSiteDocs/03_Update_Site_Content.md)
+[Update Site Logo](https://github.com/OpenPhysProject/OpenPhys/blob/master/docs/newSiteDocs/03_Update_Site_Logo.md)
