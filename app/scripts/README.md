@@ -2,11 +2,11 @@
 
 This folder and sub-folders contain .js scripts
 
-collections\ -  
+collections\ - lesson collection and mapcard collection 
 controls\    -   
 core\        -  
 models\      -  
-templates\   - 
+templates\   -   
 views\       -  
 
 main.js      -  an important file  
