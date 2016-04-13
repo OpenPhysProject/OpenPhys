@@ -16,10 +16,11 @@ package.json -
 
 #### Top level folders
 
-app/ - contains ...
-dist/ - 
-docs / - 
-firstversion/ - obsolete
-nbproject/ - 
+app/ - contains ...  
+dist/ -   
+docs / -   
+firstversion/ - obsolete  
+nbproject/ -   
 netbeans_modules/ - 
-test/ - 
+node_modules/ -     
+test/ -   
