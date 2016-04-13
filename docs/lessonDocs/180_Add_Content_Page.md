@@ -7,8 +7,8 @@ They are actually html files.
 This requires a title and at least some text.
 
 ##### Lesson Styles
-
-#####
+There are default styles set for all elements on the page. 
+To use these just copy from another template file, replacing only the lesson content.  
 
 
 #### 2) Create an entry in data.js 
