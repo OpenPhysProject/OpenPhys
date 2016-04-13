@@ -1,4 +1,4 @@
-### How To Add New Styles to a Lesson 
+### How To add new styles to a Lesson 
 
 This page explains how to add new CSS styles to a lesson.
 
