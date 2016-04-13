@@ -9,6 +9,7 @@ Admin access to your own computer.
 
 #### Installation (links to Netbeans site)
 1. [NetBeans](https://netbeans.org/)
+2. [NetBeans Modules](https://github.com/OpenPhysProject/OpenPhys/blob/master/netbeans_modules/ReadMe.md)
 
 #### Configuration
 Netbeans – right click on an .ejs file:  ‘open as’ html  
