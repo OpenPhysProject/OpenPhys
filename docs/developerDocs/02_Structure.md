@@ -21,4 +21,4 @@ as a [README.md](https://github.com/OpenPhysProject/OpenPhys/blob/master/app/sty
 better sense of what different files are responsible for and how all the files relate to each other.
 
 ####Next Doc
-[Update Site Logo](https://github.com/OpenPhysProject/OpenPhys/blob/master/docs/developerDocs/03_Example.md)
+[Example](https://github.com/OpenPhysProject/OpenPhys/blob/master/docs/developerDocs/03_Example.md)
