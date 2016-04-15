@@ -7,8 +7,6 @@ LessonList controlls the layout and width of the LessonTiles
 
 // lesson list ********************************************************************
 .lesson-list {
-    display: flex;
-    flex-flow: row wrap;
     width: 100%;
 
     transition: all $duration-default linear;

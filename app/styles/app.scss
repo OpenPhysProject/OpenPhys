@@ -16,6 +16,7 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstr
 // Views
 @import "views/index.scss";
 @import "views/LessonViewContainer.scss";
+@import "views/IntroTileView.scss";
 @import "views/LessonTileView.scss";
 @import "views/LessonList.scss";
 @import "views/LessonBaseView.scss";
@@ -26,7 +27,6 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstr
 
 // ****************************************************************************
 // Imports from content
-@import "../content/Logo/logo.scss";
 @import "../content/userGuide/styles/userGuideUI.scss";
 @import "../content/lesson1/styles/Row1_Col5.scss";
 @import "../content/lesson6/styles/CanvasPhoton.scss";

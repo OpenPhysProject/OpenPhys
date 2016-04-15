@@ -15,7 +15,7 @@
     var p = Application.prototype;
     
     p.homeView = null;      // jquery object, contains all tileViews
-    p.outroTile = null;     // jquery object, tile
+    //p.outroTile = null;     // jquery object, tile
     p.lessonBaseView = null;   // backbone view, common container for all content views
     p.loader = null;        // js object, handles loading distractor
     p.logo = null;          // jquery object, handles logo
@@ -28,12 +28,14 @@
     p.init = function () {
         this.loader = new scope.Loader();
         this.homeView = $(".lesson-list");
-        this.outroTile = $(".outro-tile", this.homeView);
+        //this.outroTile = $(".outro-tile", this.homeView);
         this.logo = $(".logo");
         
+        /*
         this.setTileMinHeight();
         window.addEventListener("resize", _.debounce(this.setTileMinHeight.bind(this), 60), false);
-                
+        */  
+        
         this.loadData();
         this.createTileView();
         
@@ -42,7 +44,7 @@
         
         // todo start preloading assets with PreloadJS
         this.setUpRouter();
-        this.logo.click("click", this.handleLogoClick);
+        //this.logo.click("click", this.handleLogoClick);
         this.loader.hide();
     };
     
@@ -51,6 +53,7 @@
      * visible.
      * @method setTileMinHeight
      */
+    /*
     p.setTileMinHeight = function () {
         var introTile =   $(".intro-tile", this.homeView);
         var introContentContainer = $(".lesson-tile-content-container-intro", introTile);
@@ -58,9 +61,12 @@
         
         introTile.css("min-height", h);
         
+        /*
         h = $(".lesson-tile-content-container", this.outroTile).height();
         this.outroTile.css("min-height", h);
+        /
     };
+    */
       
     /**
      * Load all lesson data into collection
@@ -137,7 +143,8 @@
         var v;
         for (var i = 0, l = this.lessons.length; i < l; i++ ) {
             v = new scope.Views.LessonTileView({model:this.lessons.at(i)});
-            this.outroTile.before(v.el);
+            //this.outroTile.before(v.el);
+            this.homeView.append(v.el);
         }
     };
     
@@ -169,10 +176,9 @@
     p.showHomeViewIn = function() {
         this.homeView.removeClass("out");
         this.homeView.addClass("in");
-        this.logo.removeClass("mini");
         var currentTile = $(".current", this.homeView);
         currentTile.removeClass("current");
-        this.setTileMinHeight();
+        //this.setTileMinHeight();
         window.scrollTo(0,1);   // OJR hides chrome on mobile browser
     }
     
@@ -193,7 +199,6 @@
         // tranisition out homeView
         this.homeView.removeClass("in");
         this.homeView.addClass("out");
-        this.logo.addClass("mini");
         
         this.lessonBaseView.updateModel(m);
         

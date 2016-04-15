@@ -1,8 +1,7 @@
 /*******************************************************************************
 The home page contains multiple lesson tiles
 
-Defines styles for home page individual tiles and the intro and outro tiles
-tile layout and width are determined by LessonList.scss
+Defines styles for home page individual tiles
 *******************************************************************************/
 
 // Sass variables used only in this file ******************************************
@@ -22,23 +21,13 @@ $tile-margin: 0.5rem;
 // This sets the appearance of the tiles
 // lesson-tile is the top level container
 .lesson-tile {
-    /*
-    @extend .col-xs-4;
-    @extend .col-sm-3;
-    @extend .col-md-3;
-    @extend .col-lg-2;
-    */
-    //height: 0;
     @include transitionSetting;
     position: relative;
-    width: 100%;
-    //margin-top: $tile-margin;
-    //margin-left: $tile-margin;
+    float: left;
+    width: 33%;
+    //height: 100%;
     overflow: hidden;
     cursor: pointer;
-    //background: $color_background-gradient;
-   //box-shadow: 0px 0px 0.5px 1px rgba(0,0,0,.3);
-   // top right bottom left    
 }
 
 // tile container is inside the lesson tile
@@ -47,8 +36,8 @@ $tile-margin: 0.5rem;
 }
 // inner is inside the tile container
 .lesson-tile-inner{
-   border: 5px outset #c0c0c0;
-   border-width: 2px 4px 4px 2px;
+   //border: 5px outset #c0c0c0;
+   //border-width: 2px 4px 4px 2px;
 //    box-shadow: 1px 1px 1px 1px rgba(0,0,0,.3);
     position:absolute;
     top: 0;
@@ -108,64 +97,6 @@ $tile-margin: 0.5rem;
     color: $color_white-default;
 }
 
-// Intro & Outro TILE **********************************************************
-.intro-tile, .outro-tile {
-    width: 100%;
-    cursor: default;
-    box-shadow: 1px 1px 1px 1px rgba(0,0,0,.3);
-    min-height: 1000px;  // arbitrary value that forces content to start with correct height, overwritten in code
-}
-
-.lesson-tile-container-intro, .lesson-tile-container-outro {
-    margin-top: 100%;
-}
-
-.lesson-tile-intro-title, .lesson-tile-outro-title {
-    width: 100%;
-    padding-left: $padding-small;
-    padding-right: $padding-small;
-    font-size: $fontSize-subtitle;
-}
-
-.lesson-tile-intro-title {
-    padding-bottom: $padding-small;
-}
-
-.lesson-tile-outro-title {
-    padding-top: $padding-small/2;
-}
-
-.lesson-tile-intro-content {
-    font-size: $fontSize-med;
-    padding-left: $padding-small;
-    padding-right: $padding-small;
-}
-
-.lesson-tile-outro-content {
-    width: 100%;
-    padding-left: $padding-small;
-    padding-right: $padding-small;
-    padding-bottom: $padding-small/2;
-}
-
-.lesson-tile-content-container, .lesson-tile-content-container-intro {
-    position: absolute;
-    //width: 100%;
-    overflow: visible;
-}
-
-.lesson-tile-content-container-intro {
-    top: 7rem+$padding-small*2;
-    left: $padding-small;
-}
-
-.lesson-tile-inner-outro {
-    position:absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
 
 // Breakpoints *******************************************************************
 @media (min-width: $bp_width_small_phone) {
@@ -179,29 +110,6 @@ $tile-margin: 0.5rem;
         font-size: $fontSize-tile*0.60;
         line-height: $fontSize-tile*0.60;
         padding: 0 $fontSize-tile*0.60;
-    }
-    
-    .intro-tile {
-        width: 50%;
-    }
-    .lesson-tile-container-intro {
-        margin-top: 100%;
-    }
-    .lesson-tile-content-container-intro {
-        
-    }
-    .lesson-tile-intro-title {
-        font-size: $fontSize-large;
-    }
-    .lesson-tile-intro-content {
-        font-size: $fontSize-body;
-    }
-    
-    .outro-tile {
-        width: 100%;
-    }
-    .lesson-tile-container-outro {
-        margin-top: 50%;
     }
 }
 
@@ -217,30 +125,6 @@ $tile-margin: 0.5rem;
         line-height: $fontSize-tile*0.70;
         padding: 0 $fontSize-tile*0.70;
     }
-    
-    .intro-tile {
-        width: 66.6%;
-    }
-    .lesson-tile-container-intro {
-        margin-top: 50%;
-    }
-    .lesson-tile-content-container-intro {
-        top: $padding-small*2;
-        left: $logo-ratio-medium + $padding-small;
-    }
-    .lesson-tile-intro-title {
-        font-size: $fontSize-subtitle;
-    }
-    .lesson-tile-intro-content {
-        font-size: $fontSize-med;
-    }
-    
-    .outro-tile {
-        width: 100%;
-    }
-    .lesson-tile-container-outro {
-        margin-top: 33.3%;
-    }
 }
 
 @media (min-width: $bp_width_small) {
@@ -254,30 +138,6 @@ $tile-margin: 0.5rem;
         font-size: $fontSize-tile*0.80;
         line-height: $fontSize-tile*0.80;
         padding: 0 $fontSize-tile*0.80;
-    }
-    .lesson-tile-intro-title {
-        font-size: $fontSize-subtitle;
-    }
-    .lesson-tile-intro-content {
-        font-size: $fontSize-med;
-    }
-    
-    .intro-tile {
-        width: 66.6%;
-    }
-    .lesson-tile-container-intro {
-        margin-top: 50%;
-    }
-    .lesson-tile-content-container-intro {
-        top: $padding-small*2.5;
-        left: $logo-ratio-medium + $padding-small;
-    }
-    
-    .outro-tile {
-        width: 66.6%;
-    }
-    .lesson-tile-container-outro {
-        margin-top: 50%;
     }
 }
 
@@ -293,31 +153,6 @@ $tile-margin: 0.5rem;
         line-height: $fontSize-tile;
         padding: 0 $fontSize-tile;
     }
-    
-    .intro-tile {
-        width: 50%;
-    }
-    .lesson-tile-container-intro {
-        margin-top: 50%;
-    }
-    .lesson-tile-content-container-intro {
-        top: $padding-small*3;
-        left: $logo-ratio-large + $padding-small;
-    }
-    .lesson-tile-intro-title {
-        font-size: $fontSize-largest;
-    }
-    .lesson-tile-intro-content {
-        font-size: $fontSize-large;
-    }
-
-    
-    .outro-tile {
-        width: 50%;
-    }
-    .lesson-tile-container-outro {
-        margin-top: 50%;
-    }
 }
 
 @media (min-width: $bp_width_large) {
@@ -331,29 +166,5 @@ $tile-margin: 0.5rem;
         font-size: $fontSize-tile*1.20;
         line-height: $fontSize-tile*1.20;
         padding: 0 $fontSize-tile*1.20;
-    }
-    
-    .intro-tile {
-        width: 50%;
-    }
-    .lesson-tile-container-intro {
-        margin-top: 50%;
-    }
-    .lesson-tile-content-container-intro {
-        top: $padding-small*3;
-        left: $logo-ratio-huge + $padding-small;
-    }
-    .lesson-tile-intro-title {
-        font-size: $fontSize-largest;
-    }
-    .lesson-tile-intro-content {
-        font-size: $fontSize-large;
-    }
-  
-    .outro-tile {
-        width: 50%;
-    }
-    .lesson-tile-container-outro {
-        margin-top: 50%;
     }
 }
