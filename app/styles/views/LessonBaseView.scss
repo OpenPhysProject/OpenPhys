@@ -114,6 +114,25 @@ the same regardless of the content that is being shown.
 
 
 // navigation UI container, buttons, and breakpoints
+.ui-nav-home {
+    position:fixed;
+    left: $padding-small;
+    bottom: $padding-small;
+    display: inline-block;
+    width: 7rem;
+    height: 7rem; // change to $ui-button-width;
+    /*
+    z-index: $z-fg;
+    iOS safari bug, z-index not properly supported
+    transform fixes iOS but breaks chrome...
+    transform: translateZ(30px);
+    */
+    transform: translateZ(30px);
+    z-index: $z-fg;
+    cursor: pointer;
+    
+}
+
 .nav-button-container {
     position:fixed;
     right: 0;

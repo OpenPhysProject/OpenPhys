@@ -48,6 +48,7 @@ OER.Views = OER.Views || {};
         this.navUp = $(".ui-nav-up", this.$el);
         this.navDown = $(".ui-nav-down", this.$el);
         this.navRight = $(".ui-nav-right", this.$el);
+        $(".ui-nav-home", this.$el).click("click", this.handleHomeClick);
         this.contentUpdateBind = this.handleContentUpdate.bind(this);
 
         this.hammerObject = new Hammer(this.el, {
@@ -216,6 +217,15 @@ OER.Views = OER.Views || {};
 
 
 // Navigation ********************************************************************
+    /**
+     * when home icon is clicked, route to homeView
+     * @method handleHomeClick
+     */
+    p.handleHomeClick = function (){
+      OER.router.go();  
+    };
+
+    
     /**
      * When the current content changes, trigger updating the content and the
      * nav icons

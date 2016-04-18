@@ -17,8 +17,7 @@
     p.homeView = null;      // jquery object, contains all tileViews
     //p.outroTile = null;     // jquery object, tile
     p.lessonBaseView = null;   // backbone view, common container for all content views
-    p.loader = null;        // js object, handles loading distractor
-    p.logo = null;          // jquery object, handles logo
+    p.loader = null;            // js object, handles loading distractor
     p.lessons = null;          // backbone lesson collection, stores all content data
     
     /**
@@ -29,7 +28,6 @@
         this.loader = new scope.Loader();
         this.homeView = $(".lesson-list");
         //this.outroTile = $(".outro-tile", this.homeView);
-        this.logo = $(".logo");
         
         /*
         this.setTileMinHeight();
@@ -44,7 +42,6 @@
         
         // todo start preloading assets with PreloadJS
         this.setUpRouter();
-        //this.logo.click("click", this.handleLogoClick);
         this.loader.hide();
     };
     
@@ -220,14 +217,6 @@
             homeView.addClass("hidden");
             LessonBaseView.show(showMap);
         }, OER.settings.MAIN_TO_CONTENT);
-    };
-    
-    /**
-     * when logo is clicked, route to homeView
-     * @method handleLogoClick
-     */
-    p.handleLogoClick = function (){
-      scope.router.go();  
     };
     
     scope.Application = Application;
