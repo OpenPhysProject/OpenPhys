@@ -40,17 +40,7 @@ Defines styles for home page intro tiles
 
 .ui-button-cc, .ui-button-people {
     float: left;
-    min-height: 44px;
-    min-width: 44px;
-    
-    &:hover { 
-        .intro-ui-fill {
-            fill: $color_gray-darkest;
-        }
-        .intro-ui-stroke {
-            stroke: $color_gray-default;
-        }
-    }
+    @extend %type_button-default;
 }
 
 .ui-button-people {

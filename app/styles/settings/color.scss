@@ -39,3 +39,10 @@ $color_map_card_current:        rgba(255, 255, 255, 1);
 $color_map_card_highlight:      rgba(34, 64, 153, 1);
 $color_map_card_text:           $color_white-default;
 $color_map_card_text_visited:   rgba(129,129,130, 1);
+
+$color_button_default_primary: $color_white-default;
+$color_button_default_secondary: $color_gray-light;
+$color_button_hover_primary: $color_gray-light;
+$color_button_hover_secondary: $color_gray-default;
+$color_button_down_primary: $color_gray-default;
+$color_button_down_secondary: $color_gray-dark;

@@ -1,0 +1,35 @@
+/*********************************************
+
+Button Default
+
+*********************************************/
+
+%type_button-default {
+    min-height: 44px;
+    min-width: 44px;
+ 
+    .button-fill {
+        fill: $color_button_default_primary;
+    }
+    .button-stroke {
+        stroke: $color_button_default_primary;
+    }
+
+    &.down { 
+        .button-fill {
+            fill: $color_button_down_primary;
+        }
+        .button-stroke {
+            stroke: $color_button_down_primary;
+        }
+    }
+    
+    &:hover { 
+        .button-fill {
+            fill: $color_button_hover_primary;
+        }
+        .button-stroke {
+            stroke: $color_button_hover_primary;
+        }
+    }
+}

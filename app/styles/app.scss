@@ -11,6 +11,7 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstr
 @import "settings/zindex.scss";
 
 // Controls
+@import "controls/button-default.scss";
 @import "controls/loader.scss";
 
 // Views
