@@ -115,6 +115,7 @@ the same regardless of the content that is being shown.
 
 // navigation UI container, buttons, and breakpoints
 .ui-nav-home {
+    @extend %type_button-default-secondary;
     position:fixed;
     left: $padding-small;
     bottom: $padding-small;

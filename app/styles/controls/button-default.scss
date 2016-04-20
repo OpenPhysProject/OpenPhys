@@ -33,3 +33,33 @@ Button Default
         }
     }
 }
+
+%type_button-default-secondary {
+    min-height: 44px;
+    min-width: 44px;
+ 
+    .button-fill {
+        fill: $color_button_secondary_fill;
+    }
+    .button-stroke {
+        stroke: $color_button_secondary_stroke;
+    }
+
+    &.down { 
+        .button-fill {
+            fill: $color_button_down_secondary_fill;
+        }
+        .button-stroke {
+            stroke: $color_button_down_secondary_stroke;
+        }
+    }
+    
+    &:hover { 
+        .button-fill {
+            fill: $color_button_hover_secondary_fill;
+        }
+        .button-stroke {
+            stroke: $color_button_hover_secondary_stroke;
+        }
+    }
+}

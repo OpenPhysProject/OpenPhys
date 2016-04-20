@@ -39,8 +39,8 @@ Defines styles for home page intro tiles
 }
 
 .ui-button-cc, .ui-button-people {
-    float: left;
     @extend %type_button-default;
+    float: left;
 }
 
 .ui-button-people {
