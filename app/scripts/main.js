@@ -20,6 +20,12 @@
     p.loader = null;            // js object, handles loading distractor
     p.lessons = null;          // backbone lesson collection, stores all content data
     
+    // intro vars
+    p.peopleContent = null; // jquery object, text
+    p.peopleButton = null;  // jquery object, button
+    p.ccContent = null;     // jquery object, text
+    p.ccButton = null;      // jquery object, button
+    
     /**
      * setup properties, load data, create views, kick off application
      * @method init
@@ -27,6 +33,12 @@
     p.init = function () {
         this.loader = new scope.Loader();
         this.homeView = $(".lesson-list");
+        this.peopleContent = $(".intro-tile-people-content");
+        this.peopleButton = $(".ui-button-people");
+        this.peopleButton.click("click", this.handlePeopleClick.bind(this));
+        this.ccContent = $(".intro-tile-cc-content");
+        this.ccButton = $(".ui-button-cc");
+        this.ccButton.click("click", this.handleCcClick.bind(this));
         //this.outroTile = $(".outro-tile", this.homeView);
         
         /*
@@ -217,6 +229,30 @@
             homeView.addClass("hidden");
             LessonBaseView.show(showMap);
         }, OER.settings.MAIN_TO_CONTENT);
+    };
+    
+    /**
+     * Show / hide people content text 
+     * @method handlePeopleClick
+     */
+    p.handlePeopleClick = function () {
+        if (this.ccButton.hasClass("down")) {
+            this.handleCcClick();
+        }
+        this.peopleButton.toggleClass("down");
+        this.peopleContent.toggleClass("out in");
+    };
+    
+    /**
+     * Show / hide cc content text 
+     * @method handleCcClick
+     */
+    p.handleCcClick = function () {
+        if (this.peopleButton.hasClass("down")) {
+            this.handlePeopleClick();
+        }
+        this.ccButton.toggleClass("down");
+        this.ccContent.toggleClass("out in");
     };
     
     scope.Application = Application;

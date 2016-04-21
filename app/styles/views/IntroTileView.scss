@@ -34,6 +34,14 @@ Defines styles for home page intro tiles
     bottom: 7rem;
     width: 100%;
     padding: 0 3rem;
+    
+    &.out {
+        opacity: 0;
+    }
+
+    &.down {
+        opacity: 1;
+    }
 }
 
 .intro-tile-content {
@@ -135,14 +143,6 @@ $intro-tile-height: 	20rem;
         width: calc(100% - 25rem);
         height: $intro-tile-height;
         padding: 0 1rem;
-        
-        &.out {
-            opacity: 0;
-        }
-        
-        &.down {
-            opacity: 1;
-        }
     }
 
     .intro-tile-content {
