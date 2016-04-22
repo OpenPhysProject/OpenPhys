@@ -47,8 +47,8 @@ Defines styles for home page intro tiles
 .intro-tile-content {
     padding-bottom: $padding-small;
     font: $fontFamily-mapCard;
-    font-size: $fontSize-body;
-    line-height: $fontSize-body+0.1;
+    font-size: $fontSize-small;
+    line-height: $fontSize-small+0.1;
     color: $color_white-default;
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -133,7 +133,7 @@ $intro-tile-height: 	20rem;
         //top: 0;
         left: 1rem;
         padding: 1rem;
-        width: 16rem;
+        width: 12rem;
         // center
         top: 50%;
         transform: translateY(-50%);        
@@ -143,8 +143,8 @@ $intro-tile-height: 	20rem;
     .intro-tile-content-container {
         position:absolute;
         bottom: 0;
-        left: 17rem;
-        width: calc(100% - 25rem);
+        left: 13rem;
+        width: calc(100% - 21rem);
         height: $intro-tile-height;
         padding: 0 1rem;
     }
@@ -180,5 +180,19 @@ $intro-tile-height: 	20rem;
     .ui-button-people {
         position: absolute;
         bottom: 3rem;
+    }
+    
+    @media (min-width: $bp_width_small) {
+        .logo {
+            width: 16rem;
+        }
+        .intro-tile-content-container {
+            left: 17rem;
+            width: calc(100% - 25rem);
+        }
+        .intro-tile-content {
+            font-size: $fontSize-body;
+            line-height: $fontSize-body+0.1;
+        }
     }
 }
