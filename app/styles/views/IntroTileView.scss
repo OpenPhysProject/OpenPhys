@@ -48,7 +48,11 @@ Defines styles for home page intro tiles
     padding-bottom: $padding-small;
     font: $fontFamily-mapCard;
     font-size: $fontSize-body;
+    line-height: $fontSize-body+0.1;
     color: $color_white-default;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
 }
 
 .intro-tile-content-title {
