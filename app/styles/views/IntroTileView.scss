@@ -39,7 +39,8 @@ Defines styles for home page intro tiles
         opacity: 0;
     }
 
-    &.down {
+    &.in {
+        z-index: $z-fg;
         opacity: 1;
     }
 }
