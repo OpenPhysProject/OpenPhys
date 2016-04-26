@@ -16,3 +16,19 @@ body {
 .hidden {
     display: none;
 }
+
+a:link {
+    color: $color_link;
+    text-decoration: none;
+
+
+}
+a:visited {
+    text-decoration: none;
+    color: $color_link_visited;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: $color_link_hover;
+}
