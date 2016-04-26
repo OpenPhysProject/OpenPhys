@@ -116,8 +116,11 @@ Defines styles for home page intro tiles
     }
 }
 
+
+// portrait change to top  *****************************************************
 $intro-tile-height: 	20rem;
-// portrait change to top
+$intro-padding-tiny:    0.2rem;
+
 @media screen and (orientation:portrait) {
     .intro-tile {
         width: 100%;
@@ -132,9 +135,9 @@ $intro-tile-height: 	20rem;
     .logo {
         position:absolute;
         //top: 0;
-        left: 1rem;
-        padding: 1rem;
-        width: 12rem;
+        left: $intro-padding-tiny;
+        padding: $intro-padding-tiny;
+        width: 10rem;
         // center
         top: 50%;
         transform: translateY(-50%);        
@@ -144,24 +147,24 @@ $intro-tile-height: 	20rem;
     .intro-tile-content-container {
         position:absolute;
         bottom: 0;
-        left: 13rem;
-        width: calc(100% - 21rem);
+        left: 10.4rem;
+        width: calc(100% - 16.8rem);
         height: $intro-tile-height;
-        padding: 0 1rem;
+        padding: 0 $intro-padding-tiny;
     }
 
     .intro-tile-content {
         float: left;
         width: 50%;
         height: 100%;
-        padding: 1rem;
+        padding: $intro-padding-tiny;
     }
 
     // ui
     .intro-tile-ui-container {
         position:absolute;
         bottom: 0;
-        right: 1rem;
+        right: $intro-padding-tiny;
         width: 6rem;
         height: $intro-tile-height;
     }
@@ -185,15 +188,23 @@ $intro-tile-height: 	20rem;
     
     @media (min-width: $bp_width_small) {
         .logo {
+            left: $padding-small;
+            padding: $padding-small;
             width: 16rem;
         }
         .intro-tile-content-container {
             left: 17rem;
             width: calc(100% - 25rem);
+            padding: 0 $padding-small;
         }
         .intro-tile-content {
             font-size: $fontSize-body;
             line-height: $fontSize-body+0.1;
+            padding: $padding-small;
         }
+        .intro-tile-ui-container {
+            right: $padding-small;
+        }
+
     }
 }
