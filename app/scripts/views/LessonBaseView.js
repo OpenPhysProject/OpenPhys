@@ -270,10 +270,15 @@ OER.Views = OER.Views || {};
             }
         }
         if (next) {
-            if (navEl.hasClass("out")) {
+            var s = navEl.attr("class");
+            if (s.indexOf("out") != -1) {
                 navEl.on("click", {col: colChange, row: rowChange}, this.navigate.bind(this));
+                
+                navEl.attr("class", s.replace("out", "in"));
+                /*
                 navEl.removeClass("out");
                 navEl.addClass("in");
+                */
             }
         } else {
             this.navOut(navEl);
@@ -290,10 +295,14 @@ OER.Views = OER.Views || {};
      */
     p.navigateColumn = function (navCollection, colChange, rowChange, navEl) {
         if (navCollection.at(this.colInContentMap + colChange) && navCollection.at(this.colInContentMap + colChange).get("title")) {
-            if (navEl.hasClass("out")) {
+            var s = navEl.attr("class");
+            if (s.indexOf("out") != -1) {
                 navEl.on("click", {col: colChange, row: rowChange}, this.navigate.bind(this));
+                navEl.attr("class", s.replace("out", "in"));
+                /*
                 navEl.removeClass("out");
                 navEl.addClass("in");
+                */
             }
         } else {
             this.navOut(navEl);
@@ -323,8 +332,13 @@ OER.Views = OER.Views || {};
      */
     p.navOut = function (navEl) {
         navEl.off("click");
+        
+        var s = navEl.attr("class");
+        navEl.attr("class", s.replace("in", "out"));
+        /*
         navEl.removeClass("in");
         navEl.addClass("out");
+        */
     };
 
     /**
@@ -337,28 +351,28 @@ OER.Views = OER.Views || {};
         switch (event.keyCode) {
             // left arrow
             case 37:
-                if (this.navLeft.hasClass("in")) {
+                if (this.navLeft.attr("class").indexOf("in") != -1) {
                     change.data.col = -1;
                     this.navigate(change);
                 }
                 break;
                 // up arrow
             case 38:
-                if (this.navUp.hasClass("in")) {
+                if (this.navUp.attr("class").indexOf("in") != -1) {
                     change.data.row = -1;
                     this.navigate(change);
                 }
                 break;
                 // right arrow
             case 39:
-                if (this.navRight.hasClass("in")) {
+                if (this.navRight.attr("class").indexOf("in") != -1) {
                     change.data.col = 1;
                     this.navigate(change);
                 }
                 break;
                 // down arrow
             case 40:
-                if (this.navDown.hasClass("in")) {
+                if (this.navDown.attr("class").indexOf("in") != -1) {
                     change.data.row = 1;
                     this.navigate(change);
                 }
@@ -381,19 +395,19 @@ OER.Views = OER.Views || {};
         var change = {data: {row: 0, col: 0}};
         switch (event.type) {
             case 'swiperight':
-                if (this.navLeft.hasClass("in")) {
+                if (this.navLeft.attr("class").indexOf("in") != -1) {
                     change.data.col = -1;
                     this.navigate(change);
                 }
                 break;
             case 'swipedown':
-                if ($(window).scrollTop() === 0 && this.navUp.hasClass("in")) {
+                if ($(window).scrollTop() === 0 && this.navUp.attr("class").indexOf("in") != -1) {
                     change.data.row = -1;
                     this.navigate(change);
                 }
                 break;
             case 'swipeleft':
-                if (this.navRight.hasClass("in")) {
+                if (this.navRight.attr("class").indexOf("in") != -1) {
                     change.data.col = 1;
                     this.navigate(change);
                 }
@@ -401,7 +415,7 @@ OER.Views = OER.Views || {};
 
             case 'swipeup':
                 if ($(window).height() + $(window).scrollTop()
-                        === $(document).height() && this.navDown.hasClass("in")) {
+                        === $(document).height() && this.navDown.attr("class").indexOf("in") != -1) {
                     change.data.row = 1;
                     this.navigate(change);
                 }

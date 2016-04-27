@@ -141,7 +141,6 @@ the same regardless of the content that is being shown.
     padding: $padding-small;
     height: auto;
     width: auto;
-    background: $color_nav_button_background;
     /*
     z-index: $z-fg;
     iOS safari bug, z-index not properly supported
@@ -159,6 +158,7 @@ the same regardless of the content that is being shown.
 }
 
 .ui-nav-left, .ui-nav-up, .ui-nav-down, .ui-nav-right, .lesson-base-menu-button {
+    @extend %type_button-default-secondary;
     display: inline-block;
     width: $ui-button-width;
     height: $ui-button-width;
@@ -167,28 +167,6 @@ the same regardless of the content that is being shown.
 
     &.out {
         opacity: 0.3;
-    }
-
-    // OJR change this to target the svg itself and change the color
-    &:hover {
-        border-color: $color_white-default;
-        background: $color_white-default;
-    }
-}
-
-.lesson-base-menu-button {
-    width: $ui-button-width*1.4;
-}
-
-.ui-button-svg-display {
-    fill:$color_gray-darker;
-}
-
-.ui-button-svg {
-    fill:$color_gray-darker;
-
-    &:hover {
-        fill:$color_gray-dark;
     }
 }
 
