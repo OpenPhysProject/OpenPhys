@@ -24,6 +24,8 @@
     s.CLOSE_MAP = t.duration_default;       // delay before closing MapView after card selected
     s.TRANS_CONTENT = t.duration_long;
     
+    s.LESSON_BASE_NAV_BUTTON = t.duration_longer;
+            
     scope.settings = s;
 
 }(window.OER = window.OER || {}));

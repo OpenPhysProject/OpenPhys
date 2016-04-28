@@ -134,6 +134,14 @@ the same regardless of the content that is being shown.
     
 }
 
+    .nav-button-svg {
+        transform-origin: bottom right;
+        transition: max-width max-height $duration-longer ease-in-out;
+        //transition: max-height $duration-longer ease-in-out;
+        
+        max-width: 7rem;
+        max-height: 7rem;
+    }
 .nav-button-container {
     position:fixed;
     right: 0;
@@ -141,23 +149,34 @@ the same regardless of the content that is being shown.
     padding: $padding-small;
     height: auto;
     width: auto;
-    /*
-    z-index: $z-fg;
-    iOS safari bug, z-index not properly supported
-    transform fixes iOS but breaks chrome...
-    transform: translateZ(30px);
-    */
-    transform: translateZ(30px);
-    z-index: $z-fg;
+    
+    &.in {
+        /*
+        z-index: $z-fg;
+        iOS safari bug, z-index not properly supported
+        transform fixes iOS but breaks chrome...
+        transform: translateZ(30px);
+        */
+        transform: translateZ(30px);
+        z-index: $z-fg;
+        .nav-button-svg {
+            max-width: 50rem;
+            max-height: 50rem;
+        }
+    }
+    
+    &.out {
+        opacity: 0;
+    }
 }
-
 .ui-nav {
     display: inline-block;
     width: $ui-button-width;
     height: $ui-button-width;
 }
 
-.ui-nav-left, .ui-nav-up, .ui-nav-down, .ui-nav-right, .lesson-base-menu-button {
+.ui-nav-left, .ui-nav-up, .ui-nav-down, .ui-nav-right, .lesson-base-menu-button, 
+.ui-nav-left-small, .ui-nav-up-small, .ui-nav-down-small, .ui-nav-right-small, .lesson-base-cross-button {
     @extend %type_button-default-secondary;
     display: inline-block;
     width: $ui-button-width;
