@@ -7,6 +7,7 @@ Defines styles for home page intro tiles
 
 // Intro TILE **********************************************************
 .intro-tile {
+    transition: opacity $duration-default ease-in-out;
     position: relative;
     float: left;
     width: 33%;
@@ -14,6 +15,7 @@ Defines styles for home page intro tiles
     background-image: url(/content/Logo/background-side.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    opacity: 1;
 }
 
 .intro-tile-container {
