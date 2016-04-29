@@ -21,17 +21,13 @@ the same regardless of the content that is being shown.
     height: 100%;
     left:0;
     top:0;
-    transition: all $duration-default linear;
-    transform-origin: top left;
+    opacity: 1;
+    transition: opacity $duration-default $ease-animation;
     &.in {
-        // add transition
         opacity: 1;
-        transform: none;
     }
     &.out {
-        // add transition
         opacity: 0;
-        transform: scale(0.1);
     }
     &.no-scroll {
         overflow: hidden;

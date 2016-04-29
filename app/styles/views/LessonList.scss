@@ -9,15 +9,11 @@ LessonList controlls the layout and width of the LessonTiles
 .lesson-list {
     width: 100%;
 
-    transition: all $duration-default linear;
-    //transform-origin: top left;
+    transition: all $duration-default $ease-animation;
     &.in {
-        // add transition
-        //opacity: 1;
-        //transform: scale(1);
+        
     }
     &.out {
-        //transform: scale(0.1);
         .lesson-tile, .intro-tile {
             opacity: 0;
             &.current {

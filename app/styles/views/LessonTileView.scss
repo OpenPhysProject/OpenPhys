@@ -12,7 +12,7 @@ $tile-margin: 0.5rem;
 // Sass mixin included in some classes ******************************************
 @mixin transitionSetting {
     transition-property: opacity;
-    transition-timing-function: ease-in-out;
+    transition-timing-function: $ease-animation;
     transition-duration: $duration-long;
 }
 
