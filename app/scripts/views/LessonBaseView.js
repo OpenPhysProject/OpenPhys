@@ -34,6 +34,10 @@ OER.Views = OER.Views || {};
     p.navRight = null;
     p.changeDirection = "";
     
+    p.navButtonBig = null;
+    p.navButtonSmall = null;
+    p.navTimeout = null;
+    
     p.events = {
         "click .lesson-base-menu-button": "toggleNav",
     };
@@ -44,6 +48,9 @@ OER.Views = OER.Views || {};
         this.render();
         this.title = $(".lesson-base-title", this.$el);
         this.contentContainer = $(".lesson-base-content-container", this.$el);
+        this.navButtonBig = $(".nav-button-big", this.$el);
+        this.navButtonSmall = $(".nav-button-small", this.$el);
+        this.navButtonSmall.click("click", this.handleSmallNavClick.bind(this));
         this.navLeft = $(".ui-nav-left", this.$el);
         this.navUp = $(".ui-nav-up", this.$el);
         this.navDown = $(".ui-nav-down", this.$el);
@@ -100,6 +107,12 @@ OER.Views = OER.Views || {};
 
         this.handleContentTransaction();
         this.changeDirection = "";
+        if(this.$el.width() < 768) {
+            clearTimeout(this.navTimeout);
+            this.navButtonSmall.removeClass("in").addClass("out");
+            this.navButtonBig.removeClass("out").addClass("in");
+            this.navTimeout = setTimeout(this.shrinkNavButton.bind(this), OER.settings.LESSON_BASE_NAV_BUTTON_DELAY);
+        }
     };
     
     /**
@@ -224,6 +237,34 @@ OER.Views = OER.Views || {};
     p.handleHomeClick = function (){
       OER.router.go();  
     };
+    
+    /**
+     * hide small nav button and reveal large nav button
+     * @method handleSmallNavClick
+     */
+    p.handleSmallNavClick = function() {
+        this.navButtonSmall.removeClass("in").addClass("out");
+        this.navButtonBig.removeClass("out").addClass("in");
+        //this.navTimeout = setTimeout(this.shrinkNavButton.bind(this), OER.settings.LESSON_BASE_NAV_BUTTON);
+    };
+    
+    /**
+     * make big nav button shrink
+     * @method shrinkNavButton
+     */
+    p.shrinkNavButton = function() {
+        this.navButtonBig.removeClass("in");
+        this.navTimeout = setTimeout(this.swapNavButton.bind(this), OER.settings.LESSON_BASE_NAV_BUTTON_TRANSITION);
+    };
+    
+    /**
+     * hide big nav button and reveal small
+     * @method swapNavButton
+     */
+    p.swapNavButton = function() {
+        this.navButtonSmall.removeClass("out").addClass("in");
+        this.navButtonBig.addClass("out");
+    }
 
     
     /**
