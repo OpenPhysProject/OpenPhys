@@ -14,8 +14,11 @@
     s.contentMapData = [
         // index 0
         {
+            startNode: true,
+            endNode: true,
+            horizontalLinks: OER.linkType.strong,
             mapCards: [
-                {route: "Atom",                  title: "atoms" },
+                {route: "Atom",                  title: "ATOMS \n\n\n - - - - - - - - - - - >>> " },
                 {route: "AtomsMakeUpEverything", title: "almost everything is made from atoms" },
                 {route:"",                       title:""  },
                 {route: "AtomTypes",            group:"stability", title: "different types of atom", },
@@ -28,8 +31,11 @@
         },
         // index 1
         {
+            startNode: true,
+            endNode: true,
+            horizontalLinks: OER.linkType.strong,
             mapCards: [
-                {route: "ActiveNucleus", title: "the active nucleus" },
+                {route: "ActiveNucleus", title: "NUCLEI - - - >>>" },
                 {route: "AtomicNucleus", title: "the atomic nucleus",   group:"nucleus"},
                 {route: "InsideNucleus", title: "inside the nucleus",   group:"nucleus"},
                 {route: "PeriodicTable", title: "periodic table",       group:"stability"},
@@ -42,11 +48,11 @@
         },
         //index 2
         { 
-            //startNode: true,
-            //endNode: true,
-            //horizontalLinks: OER.linkType.strong,
+            startNode: true,
+            endNode: true,
+            horizontalLinks: OER.linkType.strong,
             mapCards: [
-                {                  title: "nuclear radiation",  route: "NuclearRadiation"},
+                {                  title: "NUCLEAR RADIATION - >>>",  route: "NuclearRadiation"},
                 { group:"nucleus", title: "nuclei can radiate",  route: "NucleiRadiate"},
                 { group:"nucleus ", title: "labeling nuclides",  route: "LabelingNuclides"},
                 { group:"stability", title: "stable nuclides",  route: "StableNuclides"},
@@ -64,7 +70,7 @@
             endNode: true,
             horizontalLinks: OER.linkType.strong,
             mapCards: [
-                { group:" ",      title: "RADIOACTIVITY \nstructure & decay",       route: "StructureDecay"},
+                { group:"structure & decay ", title: "RADIOACTIVITY \n - - - - - - - - - - - >>> ",       route: "StructureDecay"},
                 { group:"nucleus", title: "the sleeper at the heart",               route: "SleeperAtHeart"},
                 { group:"nucleus", title: "shell model of nuclear structure",       route: "NuclearStructure"},
                 { group:"stability",title: "binding energy and mass defect",        route: "BindingEnergy"},
