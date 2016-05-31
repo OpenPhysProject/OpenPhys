@@ -18,49 +18,44 @@
             //endNode: true,
             horizontalLinks: OER.linkType.strong,
             mapCards: [
-                {route: "Atom",                  title: "\n\nAtoms \n - - - - - - - - - - - >>> " },
-                {route: "AtomsMakeUpEverything", title: "almost everything is made from atoms" },
-                {route: "AtomTypes",             group:"stability", title: "different types of atom" },
-                {route: "AtomPower",            group:"World", title: "the power of atoms" }
+                {route: "Atom",             template:"Atoms.ejs",             title: "ATOMS ",   group:"atoms"},
+                {route: "Nucleus",          template:"Nucleus.ejs",           title: "NUCLEI",   group:"nuclei"},
+                {route: "Nuclides",         template:"Nuclides.ejs",          title: "NUCLIDES", group:"nuclides"},
+                {route: "NuclearRadiation", template:"NuclearRadiation.ejs",  title: "NUCLEAR RADIATION", group:"radiation"},
+                {route: "Structure",        template:"Structure.ejs",         title: "NUCLEAR STRUCTURE", group:"structure"},                
             ],
         },
         // index 1
         {
-            startNode: true,
-            //endNode: true,
-            horizontalLinks: OER.linkType.strong,
             mapCards: [
-                {route: "ActiveNucleus", title: "\nNuclei and Nuclides \n - - - - - - - - - - - >>>" },
-                {route: "AtomicNucleus", title: "the atomic nucleus",   group:"nucleus"},
-                {route: "InsideNucleus", title: "inside the nucleus",   group:"nucleus"},
-                {route: "PeriodicTable", title: "periodic table",       group:"stability"},
-                {route: "RadionuclidesIRL",     title: "radionuclides in real life", group:"world" }
+                {route: "AtomEverything",   template:"AtomsEvery.ejs",   title: "(almost) everything is made from atoms", group:"atoms"},
+                {route: "AtomicNucleus",    template:"AtomicNucleus.ejs",   title: "the atomic nucleus",                  group:"nuclei"},
+                {route: "LabelingNuclides", template:"LabelingNuclides.ejs", title: "labeling nuclides",       group:"nuclides"}, 
+                {route: "NucleiRadiate",    template:"NucleiRadiate.ejs",    title: "nuclei can radiate",      group:"radiation"},
+                {route: "SleeperAtHeart",   template:"SleeperAtHeart.ejs", title: "the sleeper at the heart",  group:"structure"},               
+              //  {route: "RadionuclidesIRL", template:"RadionuclidesIRL.ejs",    title: "radionuclides in real life", group:"world" }
             ],
         },
         //index 2
         { 
-            startNode: true,
-            endNode: true,
-            horizontalLinks: OER.linkType.strong,
             mapCards: [
-                {                  title: "Properties of Nuclear Radiation \n - - - - - - - - - - - >>>",  route: "NuclearRadiation"},
-                { group:"nucleus", title: "nuclei can radiate",  route: "NucleiRadiate"},
-                { group:"nucleus ", title: "labeling nuclides",  route: "LabelingNuclides"},
-                { group:"world ",  title: "radiation in the world",  route: "RadiationInWorld"}
-
+                {route: "AtomTypes",     template:"AtomsTypes.ejs",    title: "different types of atom", group:"atoms" },
+                {route: "PeriodicTable", template:"PeriodicTable.ejs", title: "periodic table",          group:"nuclei"},
+                {title:""},
+                {title:""},
+                {route: "Shell",         template:"Shell.ejs",         title: "shell model of nuclear structure", group:"structure"},
+            //    {route: "RadiationInWorld",  template:"RadiationInWorld.ejs", title: "radiation in the world", group:"world " }
             ],
         },
-        //index 3, primary path
+        //index 3
         {
-            startNode: true,
-            endNode: true,
-            horizontalLinks: OER.linkType.strong,
             mapCards: [
-                {  title: "Nuclear Structure and Radioactive Decay\n - - - - - - - - - - - >>> ",       route: "StructureDecay"},
-                { group:"nucleus", title: "the sleeper at the heart",               route: "SleeperAtHeart"},
-                { group:"nucleus", title: "shell model of nuclear structure",       route: "NuclearStructure"},
-                { group:"world",    title: "nuclear structure in the real world",   route: "NuclearStructureIRL"},
-                 {  title: "liquid drop model",  route: "LiquidDropModel"},
+                {route: "AtomPower",  template:"AtomsPower.ejs",       title: "the power of atoms", group:"atoms" },            
+                {route: "InsideNucleus", template:"InsideNucleus.ejs", title: "inside the nucleus",  group:"nuclei"},
+                {title:""},
+                {title:""},
+                {route: "LiquidDropModel",template:"LiquidDropModel.ejs",  title: "liquid drop model", group:"structure"}
+             //   {route: "StructureIRL",   template:"StructureIRL.ejs",     title: "nuclear structure in the real world",group:"world"},               
             ]
         },
         //index 4
