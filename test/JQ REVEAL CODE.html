@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#definition1").hide();
+    $("#definition2").hide();
+    $("#term3 + span").hide();
+
+    $("#term1").click(function(){
+        $("#definition1").toggle(200);
+    });
+
+    $("#term2").click(function(){
+        $("#definition2").toggle(200);
+    });
+
+    $("#term3").click(function(){
+        $("#term3 + span").toggle(200);
+    });
+
+});
+</script>
+</head>
+<body>
+
+The
+<span id="term1"> <b> nucleus </b> </span>
+is small. More information here.
+<br/>
+<div id="definition1"><b><i>(Nucleus: center of the atom)</i></b></div>
+
+The
+<span id="term2"> <b> proton </b> </span>
+<span id="definition2"><b><i>(Proton: hydrogen nucleus)</i></b> </span>
+is small. More information here.
+<br/>
+The
+<span id="term3"> <b> electron </b> </span>
+<span id="def"><b><i>(electron: negative)</i></b> </span>
+is small. More information here.
+<br/>
+
+<p>This is another small paragraph.</p>
+<br/>
+more text
+
+</body>
+</html>

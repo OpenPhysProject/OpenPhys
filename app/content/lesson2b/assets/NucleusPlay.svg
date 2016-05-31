@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 41.2 44" style="enable-background:new 0 0 41.2 44;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FAAF40;stroke:#F6921E;stroke-width:0.5;stroke-miterlimit:10;}
+	.st1{fill:#BBBDBF;stroke:#D0D2D3;stroke-width:0.5;stroke-miterlimit:10;}
+</style>
+<circle class="st0" cx="10.6" cy="20.6" r="8.5">
+  <animateTransform attributeName = "transform" attributeType="XML" type = "rotate"
+    from = "0 12 20 "
+    to = "360 12 20"
+    dur = "2.6s" repeatCount="indefinite"/>
+</circle>
+
+<circle class="st0" cx="22.1" cy="10.6" r="8.5">
+  <animateTransform attributeName = "transform" attributeType="XML" type = "rotate"
+    from = "360 23 11 "
+    to = "0 23 11"
+    dur = "2.9s" repeatCount="indefinite"/>
+</circle>
+
+<circle class="st1" cx="30.6" cy="17.1" r="8.5">
+  <animateTransform attributeName = "transform" attributeType="XML" type = "rotate"
+    from = "0 29 18 "
+    to = "360 29 18"
+    dur = "2s" repeatCount="indefinite"/> 
+</circle>
+
+<circle class="st1" cx="13.6" cy="14.6" r="8.5">
+  <animateTransform attributeName = "transform" attributeType="XML" type = "rotate"
+    from = "360 12 15 "
+    to    = "0 12 15"
+    dur = "2.4s" repeatCount="indefinite"/> 
+</circle>
+
+<circle class="st1" cx="29.2" cy="33" r="8.5">
+  <animateTransform attributeName = "transform" attributeType="XML" type = "rotate"
+    from = "360 29 32 "
+    to    = "0 29 32"
+    dur = "1s" repeatCount="indefinite"/> 
+</circle>
+
+<circle class="st0" cx="15.3" cy="33" r="8.5">
+  <animateTransform attributeName = "transform" attributeType="XML" type = "rotate"
+    from = "360 16 32 "
+    to    = "0 16 32"
+    dur = "1.5s" repeatCount="indefinite"/> 
+</circle>
+
+<circle class="st0" cx="30.6" cy="25.6" r="8.5">
+ <animateTransform attributeName = "transform" attributeType="XML" type = "rotate"
+    from = "360 30 24 "
+    to    = "0 30 24"
+    dur = "1.8s" repeatCount="indefinite"/> 
+</circle>
+
+<circle class="st1" cx="22.1" cy="25.6" r="8.5">
+ <animateTransform attributeName = "transform" attributeType="XML" type = "rotate"
+    from = "360 23 24 "
+    to    = "0 23 24"
+    dur = "2.2s" repeatCount="indefinite"/> 
+</circle>
+
+</svg>

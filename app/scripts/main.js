@@ -89,8 +89,11 @@
        var m = new scope.Models.LessonModel(OER.data.lesson1, {parse: true, viewPath: "lesson1"});
        this.lessons.add(m);
        
-       m  =  new scope.Models.LessonModel(OER.data.lesson2, {parse: true, viewPath: "lesson2"});
+       m  =  new scope.Models.LessonModel(OER.data.lesson2a, {parse: true, viewPath: "lesson2a"});
        this.lessons.add(m);
+       
+       m  =  new scope.Models.LessonModel(OER.data.lesson2b, {parse: true, viewPath: "lesson2b"});
+       this.lessons.add(m);       
   
        m  =  new scope.Models.LessonModel(OER.data.lesson3, {parse: true, viewPath: "lesson3"});
        this.lessons.add(m);
@@ -269,4 +272,10 @@ $(document).ready(function () {
     $(function() {FastClick.attach(document.body);});
 
     var app = new OER.Application();
+    
+    // In wrong place: this code should be run after page is loaded.
+   // $("#definition1").hide();
+   //     $("#term1").click(function(){
+   //     $("#definition1").toggle(200);
+   // });
 });

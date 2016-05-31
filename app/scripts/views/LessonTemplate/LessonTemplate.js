@@ -48,7 +48,20 @@ OER.Views = OER.Views || {};
             
             var reset = $(".lesson-content-quiz-reset", this.$el);
             reset.on("click", this.handleQuizReset.bind(this));
+            
+            
+            // Code for Definition reveal: (doesnt work here, so far)
+            //$("#definition1").hide();
+           // $(".definition").hide(); // try it this way. nope.
+            
+          //  var definitionVar = $(".term", this.$el);
+           // definitionVar.on("click", this.handleDefinitionClick.bind(this));
+            
+           // $("#term1").click(function(){
+            //    $("#definition1").toggle(200);
+            //    });
         },
+        
         
         /**
          * handle an answer being clicked
