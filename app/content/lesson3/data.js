@@ -8,8 +8,8 @@
     s.info = "";
     s.jumpNav = false;    
     s.primaryPathIndex = 0;
-    s.rowLeadNumber = 100;
-    s.rowIncrement = 100;
+    s.rowLeadNumber = 1;
+    s.rowIncrement = 1;
     
     s.contentMapData = [  
 
@@ -37,7 +37,7 @@
                 {route:"200_0", title:"" },
                 {route:"200_1", title:"" }, 
                 {route:"200_2", title:"" },           
-                {route:"200_3", title:"e=mc<sup>2</sup> for an electron at rest" },  
+                {route:"200_3", title:"e=mc<sup>2</sup> for an electron at rest", icons:["quiz"] },  
                 {route:"200_4", title:"e=mc<sup>2</sup> for classical motion"  }, 
                 {route:"200_5", title:"e=mc<sup>2</sup> for bound electrons" },            
             ],  
@@ -49,9 +49,19 @@
                 {route:"300_0", title:"" },
                 {route:"300_1", title:"" }, 
                 {route:"300_2", title:"" },           
-                {route:"300_3", title:"e=mc<sup>2</sup> for a proton at rest"  },
-                {route:"300_4", title:"e=mc<sup>2</sup> for relativistic motion" },            
+                {route:"300_3", title:"e=mc<sup>2</sup> for a proton at rest", icons:["quiz"] },
+                {route:"300_4", title:"e=mc<sup>2</sup> for relativistic motion", icons:["quiz"] },            
                 {route:"300_5", title:"e=mc<sup>2</sup> for a nucleus"  },           
+            ],     
+        },
+          // index 3,
+         {
+            mapCards: [
+                {title:"" },
+                {title:"" }, 
+                {title:"" }, 
+                {title:"" },
+                {route:"400_3", title:"e=mc<sup>2</sup> for classical motion revisited", icons:["quiz"]  },            
             ],     
         },
         
