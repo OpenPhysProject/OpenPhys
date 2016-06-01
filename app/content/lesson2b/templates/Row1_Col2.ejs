@@ -1,23 +1,51 @@
-<div class="lesson-content">
-    <div class="lesson-content-title">Inside the Nucleus</div>
+<div class="lesson-content container">
+    <div class="lesson-content-title">Activity and Exponential Decay</div>
     <div class="lesson-content-body">
-        Nuclei are made from two types of particle: <strong>protons</strong> and 
-        <strong>neutrons</strong>, which collectively are known as <strong>nucleons</strong>. 
-        A proton has a <font color="red"><strong>positive</strong></font> 
-        electric charge, and is very slightly lighter than a neutron, which is 
-        uncharged. Apart from these differences, the two particles are very similar, 
-        both being made out of 3 <strong>quarks</strong>, which are held together 
-        by the <strong>strong nuclear force</strong> by exchange of particles 
-        called <strong>gluons</strong>. 
-       The three quarks in a proton are 'up, up, down', while in the neutron the three quarks are 'down, down, up'.
-        The <strong>residual</strong> strong 
-        nuclear force binds all the nucleons together to form a nucleus. It is called the strong
-        force because in forming a nucleus it overcomes the electrical repulsion between protons.
-    </div>
+        <div class="lesson-content-memo">Not everything is built to last</div>
+        
+        <div class="col-sm-9 col-md-7 col-lg-6">
+        A piece of radioactive material (containing a population of radionuclides) can be 
+        described by the amount of radiation it produces.
+        <strong>Activity</strong> refers to the number of decays per second for a given sample.
+        The SI unit for activity is the <strong>Becquerel (Bq)</strong>. 
+        An older unit is the<strong> Curie</strong>, 
+        which is the activity of approximately 1 gram of radium. 
+        The <strong>specific activity</strong> is the activity per unit mass (e.g. Bq/gram or Ci/gram).
+        
+        <ul style="list-style-type:none">
+            <li> 1 Bq = 1 decay / sec = 1 dps </li>
+            <li> 1 Curie = 3.7 x 10<sup>10</sup> Bq = 37 GBq </li>
+        </ul>
+
+        Activity (A) of a sample is given by <strong>λN</strong>, 
+        where <strong>λ</strong> is the <strong>decay constant</strong>
+        and <strong>N</strong> the number of nuclides.
+        Activity decreases exponentially with time (t), according to A = A<sub>0</sub>e<sup>-λt</sup>, 
+        where A<sub>0</sub> is the initial activity.
+        
+        The <strong>half-life</strong> (T<sub>1/2</sub>) of a nuclide is the time it takes for activity to fall to 50%, 
+        which is also the time for half the nuclei to decay. 
+        This can vary from billions of years (e.g. 238-U 4.468 billion years) to a tiny fraction of a second. 
+       
+         <ul style="list-style-type:none">
+            <li> A = λ N </li>
+            <li> A = A<sub>0</sub>e<sup>-λt</sup> </li>
+            <li> T<sub>1/2</sub> = log<sub>e</sub>(2)/λ =~ 0.693/λ </li>
+        </ul>
+        <strong>Radioactive Equilibrium</strong> can occur if the daughter half-life is shorter than the parent.
+        <strong>Transient equilibrium</strong> occurs if the daughter's half-life is not much longer, 
+        such as Molybdenum-99 (67 hr) to Technetium-99m (6 hr). 
+        <strong>Secular equilibrium</strong> occurs if the daughter T<sub>1/2</sub> is much shorter, 
+        such as Radium-226 (1600 years, α) to Radon-222 (3.82 days, α).
+        </div>
+        
+        <div class="col-sm-3 col-md-5 col-lg-6">
+        <img class="img-responsive lesson-content-image" src="/content/lesson2b/assets/Exponential2.svg"/>
+        <img class="lesson-content-image" src="/content/lesson2b/assets/NuclearTransPanel01.svg"/>
+        </div>
+        
+        </div>
          
-         <img class="lesson-content-image" src="/content/lesson2b/assets/Nucleus.svg"/>
-            
-        <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>
+        
         
 </div>
-

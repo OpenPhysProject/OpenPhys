@@ -11,7 +11,7 @@ OER.Views.Radioactivity = OER.Views.Radioactivity || {};
     
     var p = {};     // prototype for this class
     var s = {};     // static for this class
-    p.template= JST['app/content/lesson2b/templates/Row3_Col0.ejs'];     // template used to create html for this view
+    p.template= JST['app/content/lesson2b/templates/Row1_Col0.ejs'];     // template used to create html for this view
     p.events = {};  // events, used by backbone to set up event handlers on html elements   
     p.stage = null;         // easeljs stage
     p.width = null;         // stage width
