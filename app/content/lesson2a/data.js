@@ -56,8 +56,8 @@
 //                {title:""},
 //                {route: "LiquidDropModel",template:"LiquidDropModel.ejs",  title: "liquid drop model", group:"structure"}
              //   {route: "StructureIRL",   template:"StructureIRL.ejs",     title: "nuclear structure in the real world",group:"world"},               
-            ]
-        },
+  //          ]
+  //      },
         //index 4
 //        {
 //            mapCards: [
