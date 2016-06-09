@@ -62,7 +62,7 @@
            {route:"Orbitals",  template:"R3_Orbitals.ejs",  title:"more on electron orbitals" },
            {route:"Beyond",    template:"R3_Beyond.ejs",    title:"beyond the quantum atom"}, 
            {route:"Summary",    template:"R3_Summary.ejs",    title:"summary of atomic models"},            
-           {route:"Quiz_EarlyAtoms", template:"Quiz_EarlyAtoms.ejs",  title:"quiz: early atomic models",   icons:["quiz"]},              
+           {route:"Quiz_EarlyAtoms", template:"Quiz_EarlyAtoms.ejs",  title:"quiz: atomic models",   icons:["quiz"]},              
         ],
     },
     // index 3 
