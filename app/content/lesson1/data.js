@@ -87,7 +87,7 @@
            {route:"",       title:""},
            {route:"",       title:""},
            {route:"Spectra", template:"R5_Spectra.ejs", title:"atomic spectra & Rydberg formula" }, 
-           {route:"WF",    template:"R5_WF.ejs", title:"the wave function" },
+           {route:"",       title:""},
            {route:"",       title:""},
            {route:"",       title:""}, 
            {route:"Success", template:"R5_Success.ejs", title:"successes of quantum atom"},          
