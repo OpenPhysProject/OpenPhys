@@ -24,6 +24,7 @@
             {route:"",                                          title:""},
             {route:"",                                          title:""},
             {route:"",                                          title:""},            
+            {route:"",                                          title:""},            
             {route:"Quiz_Classical", template:"Quiz_Classical.ejs", title:"quiz:\n classical physics",icons:["quiz"] },
         ],
     },  
@@ -39,6 +40,7 @@
             {route:"",                                          title:""},
             {route:"",                                          title:""}, 
             {route:"",                                          title:""}, 
+            {route:"",                                          title:""},  
             {route:"",                                          title:""},            
             {route:"Quiz_Waves", template:"Quiz_Waves.ejs",     title:"quiz:\n waves",icons:["quiz"] },           
         ]
@@ -59,6 +61,7 @@
            {route:"Potential", template:"R3_Potential.ejs", title:"the nuclear potential in the quantum atom" }, 
            {route:"Orbitals",  template:"R3_Orbitals.ejs",  title:"more on electron orbitals" },
            {route:"Beyond",    template:"R3_Beyond.ejs",    title:"beyond the quantum atom"}, 
+           {route:"Summary",    template:"R3_Summary.ejs",    title:"summary of atomic models"},            
            {route:"Quiz_EarlyAtoms", template:"Quiz_EarlyAtoms.ejs",  title:"quiz: early atomic models",   icons:["quiz"]},              
         ],
     },
