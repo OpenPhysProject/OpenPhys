@@ -76,7 +76,10 @@
            {route:"SE",     template:"R4_SE.ejs",       title:"the Schrodinger equation"},
            {route:"EMore",  template:"R4_EMore.ejs",    title:"more on electrons in the quantum atom"},
            {route:"",                                   title:""},
-           {route:"Shell",  template:"R4_Shell.ejs",    title:"modern electron shell model"},          
+           {route:"Shell",  template:"R4_Shell.ejs",    title:"modern electron shell model"},         
+           {route:"",                                   title:""},
+           {route:"",                                   title:""},
+           {route:"Quiz_Modern", template:"Quiz_Modern.ejs",  title:"quiz: quantum atom",   icons:["quiz"]}, 
         ], 
     },
     // index 4  
