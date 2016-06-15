@@ -3,7 +3,7 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 720 720" style="enable-background:new 0 0 720 720;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:url(#XMLID_103_);}
+	.st0{fill:url(#XMLID_102_);}
 	.st1{fill:#271E2A;}
 	.st2{fill:#29409A;}
 	.st3{fill:#FFFFFF;}
@@ -16,7 +16,7 @@
 	.st10{font-size:48px;}
 </style>
 <g id="Layer_1">
-	<radialGradient id="XMLID_103_" cx="360" cy="360" r="288" gradientUnits="userSpaceOnUse">
+	<radialGradient id="XMLID_102_" cx="360" cy="360" r="288" gradientUnits="userSpaceOnUse">
 		<stop  offset="0.1882" style="stop-color:#00A9B1"/>
 		<stop  offset="0.2722" style="stop-color:#10ABB3"/>
 		<stop  offset="0.3953" style="stop-color:#43B1B8"/>
@@ -114,7 +114,7 @@
 		</g>
 	</g>
 	<rect id="XMLID_100_" x="477" y="666" class="st7" width="153" height="36"/>
-	<text id="XMLID_101_" transform="matrix(1 0 0 1 497.917 691.5596)" class="st8 st9">NUCLEI</text>
+	<text id="XMLID_101_" transform="matrix(1 0 0 1 481.6992 691.5596)" class="st8 st9">NUCLEUS</text>
 </g>
 <g id="Layer_5">
 	<g id="XMLID_16_">
@@ -128,12 +128,16 @@
 				L646.4,14.6z"/>
 		</g>
 	</g>
+	<g id="XMLID_104_">
+		<g id="XMLID_183_">
+			<path id="XMLID_187_" d="M432,35.1c24.4,0,48.7,0,73.1,0c39,0,78,0,117.1,0c8.9,0,17.8,0,26.7,0c3.2,0,3.2-5,0-5
+				c-24.4,0-48.7,0-73.1,0c-39,0-78,0-117.1,0c-8.9,0-17.8,0-26.7,0C428.8,30.1,428.8,35.1,432,35.1L432,35.1z"/>
+		</g>
+	</g>
 	<g id="XMLID_30_">
-		<g id="XMLID_136_">
-			<path id="XMLID_145_" d="M72.9,35.1c19.1,0,38.2,0,57.4,0c45.9,0,91.8,0,137.7,0c55.5,0,111,0,166.6,0c47.8,0,95.7,0,143.5,0
-				c15.8,0,31.6,0,47.4,0c7.4,0,15,0.5,22.4,0c0.3,0,0.7,0,1,0c3.2,0,3.2-5,0-5c-19.1,0-38.2,0-57.4,0c-45.9,0-91.8,0-137.7,0
-				c-55.5,0-111,0-166.6,0c-47.8,0-95.7,0-143.5,0c-15.8,0-31.6,0-47.4,0c-7.4,0-15-0.5-22.4,0c-0.3,0-0.7,0-1,0
-				C69.7,30.1,69.7,35.1,72.9,35.1L72.9,35.1z"/>
+		<g id="XMLID_170_">
+			<path id="XMLID_174_" d="M72.9,35.1c24.2,0,48.4,0,72.7,0c38.6,0,77.2,0,115.8,0c8.9,0,17.7,0,26.6,0c3.2,0,3.2-5,0-5
+				c-24.2,0-48.4,0-72.7,0c-38.6,0-77.2,0-115.8,0c-8.9,0-17.7,0-26.6,0C69.7,30.1,69.7,35.1,72.9,35.1L72.9,35.1z"/>
 		</g>
 	</g>
 	<g id="XMLID_37_">
@@ -160,10 +164,9 @@
 				L647.1,30.9z"/>
 		</g>
 	</g>
-	<polygon id="XMLID_86_" class="st3" points="432,63 288,63 288.9,23.6 432.9,23.6 	"/>
-	<rect id="XMLID_94_" x="279.8" y="14.6" class="st7" width="162" height="54"/>
-	<text transform="matrix(1 0 0 1 297.5503 48.7181)" class="st8 st10">10</text>
-	<text transform="matrix(0.583 0 0 0.583 346.7964 32.7342)" class="st8 st10">-10</text>
-	<text transform="matrix(1 0 0 1 384.0981 48.7181)" class="st8 st10">m</text>
+	<rect id="XMLID_94_" x="279" y="9" class="st7" width="162" height="54"/>
+	<text transform="matrix(1 0 0 1 296.7099 43.0795)" class="st8 st10">10</text>
+	<text transform="matrix(0.583 0 0 0.583 345.956 27.0956)" class="st8 st10">-10</text>
+	<text transform="matrix(1 0 0 1 383.2578 43.0795)" class="st8 st10">m</text>
 </g>
 </svg>
