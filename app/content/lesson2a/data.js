@@ -41,10 +41,18 @@
             mapCards: [
                 {route: "AtomPower",  template:"AtomsPower.ejs",       title: "the power of atoms", group:"atoms" },
                 {route: "InsideNucleus", template:"InsideNucleus.ejs", title: "inside the nucleus",  group:"nuclei"},
-                {title:""},
+                {route: "Quiz_Nuclides",  template:"Quiz_Nuclides.ejs",       title: "Quiz: Nuclide", group:"nuclides" },
                 {title:""},
                {route: "LiquidDropModel",template:"LiquidDropModel.ejs",  title: "liquid drop model", group:"structure"},
             //    {route: "RadiationInWorld",  template:"RadiationInWorld.ejs", title: "radiation in the world", group:"world " }
+            ],
+        },
+        //index 3
+        { 
+            mapCards: [
+                {title:""},
+                {route: "Quiz_Nucleus",  template:"Quiz_Nucleus.ejs",       title: "Quiz: Nuclei", group:"nuclei" },
+
             ],
         },
         //index 3
