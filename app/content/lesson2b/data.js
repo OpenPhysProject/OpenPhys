@@ -48,7 +48,7 @@
         {
             mapCards: [
                 {                  title: ""},
-                { group:"stability", title: "special relativity",  route: "SpecialRelativity"},
+                { group:"",        title:"",  route:""},
                 { group:"",        title:"",  route:""},
                 { group:"alpha",   title: "decay chain / series",  route: "DecayChain"},
                 { group:"beta",    title: "positron release or electron capture?",  route: "ReleaseCapture"},
