@@ -4,7 +4,7 @@
   s.title   = "Photon Beam Attenuation";
   s.preview = "/content/lesson1/assets/icon_atomicstructure.svg"; //svg image for tile
   s.themeColor = "#009688";
-  s.route   = "ElectronicStructureOfTheAtom";
+  s.route   = "Beam";
   s.info = "";
   s.primaryPathIndex = 2;  // 3
   s.rowLeadNumber = 100;      // index for top row
@@ -20,10 +20,10 @@
             {route:"Attenuation",     template:"Attenuation.ejs",     title:"Photon Beam Attenuation"},
             {route:"Fluence",         template:"Fluence.ejs",         title:"Fluence"},
             {route:"Distance",           template:"Distance.ejs",      title:"Distance"},
-            {route:"Photon Absorption",     template:"Absorption.ejs",     title:"Photon Absorption"},
-            {route:"Beam Scattering",         template:"Scattering.ejs",         title:"Beam Scattering"},
+            {route:"PhotonAbsorption",     template:"Absorption.ejs",     title:"Photon Absorption"},
+            {route:"BeamScattering",         template:"Scattering.ejs",         title:"Beam Scattering"},
             {route:"Measurements",           template:"Measurements.ejs",      title:"Experimental Measurements"},
-            {route:"Exp Def",           template:"Exp_Def.ejs",      title:"Exponential Definition"},
+            {route:"ExpDef",           template:"Exp_Def.ejs",      title:"Exponential Definition"},
         ],
     },  
     //index 1
@@ -31,11 +31,11 @@
         mapCards: [
             {route:"",                              title:""},
             {route:"",                              title:""},
-            {route:"Inverse Square Law",           template:"Inverse_Sq_Law.ejs",      title:"Inverse Square Law"},
+            {route:"InverseSquareLaw",           template:"Inverse_Sq_Law.ejs",      title:"Inverse Square Law"},
             {route:"PE",     template:"PE.ejs",     title:"Photoelectric Effect"},
             {route:"Coherent",         template:"Coherent.ejs",         title:"Coherent Scattering"},
             {route:"PDD",           template:"PDD.ejs",      title:"Percentage Depth Dose"},
-            {route:"Exp Def",           template:"Exp_Conditions.ejs",      title:"Exponential Conditions"},         
+            {route:"ExpConditions",           template:"Exp_Conditions.ejs",      title:"Exponential Conditions"},         
         ]
     }, 
     // index 2 
@@ -64,6 +64,6 @@
     },
     ];
 
-    scope.lesson1 = s;
+    scope.lesson8 = s;
 
 }(window.OER.data = window.OER.data || {}));
