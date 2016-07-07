@@ -27,6 +27,7 @@
                 { group:"beta ",  title: "beta particle radiation",  route: "BetaParticleRadiation"},
                 { group:"excited", title: "gamma radiation",  route: "GammaRadiation"},
                 { group:"world ",  title: "radiation in the world",  route: "RadiationInWorld"},
+                { group:"quiz ",  title: "quiz: radioactivity",  route: "LevelQuiz"},
             ],
         },
         //index 1
