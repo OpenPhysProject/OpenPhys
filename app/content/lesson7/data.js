@@ -89,6 +89,17 @@
                 {title: "", image: "", route: ""},
             ],
         },
+        // index 7
+        {
+            mapCards: [
+                {title: "", image: "", route: ""},
+                {title: "", image: "", route: ""},
+                {title: "", image: "", route: ""},
+                {title: "800.3 Quiz: Production Event", image: "", route: "Quiz"}, 
+                {title: "", image: "", route: ""},            
+                {title: "", image: "", route: ""},
+            ],
+        },
 
     ];
     
