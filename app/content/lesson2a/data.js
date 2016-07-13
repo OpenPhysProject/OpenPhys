@@ -3,7 +3,7 @@
     
     s.title = "Nucleus";
     s.preview = "/content/lesson2a/assets/icon_nucleus.svg"; //svg image
-    s.themeColor = "#00BCD4";
+    s.themeColor = "#60C7DB";
     s.route = "Nucleus";
     s.info = "";
     s.jumpNav = true;

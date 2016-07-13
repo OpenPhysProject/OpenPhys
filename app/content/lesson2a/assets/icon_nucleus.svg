@@ -5,11 +5,11 @@
 <style type="text/css">
 	.st0{display:none;}
 	.st1{display:inline;fill:#50C5D7;}
-	.st2{fill:#06BCD4;}
+	.st2{display:inline;fill:#06BCD4;}
 	.st3{display:none;opacity:0.75;}
 	.st4{display:inline;opacity:0.5;fill:#FFFFFF;}
 	.st5{opacity:0.6;fill:#FFFFFF;}
-	.st6{opacity:0.7;}
+	.st6{opacity:0.6;}
 	.st7{fill:#2AABA3;}
 	.st8{display:inline;opacity:0.6;fill:#FFFFFF;}
 	.st9{display:inline;opacity:0.75;}
@@ -19,8 +19,8 @@
 <g id="Layer_3" class="st0">
 	<rect id="XMLID_6_" x="-9" y="-18" class="st1" width="738" height="747"/>
 </g>
-<g id="Layer_2">
-	<rect id="XMLID_5_" x="0" y="0" class="st2" width="720" height="720"/>
+<g id="Layer_2" class="st0">
+	<rect id="XMLID_5_" x="-9" y="-18" class="st2" width="738" height="747"/>
 </g>
 <g id="Layer_4" class="st3">
 	<circle id="XMLID_7_" class="st4" cx="360" cy="245.6" r="101.6"/>

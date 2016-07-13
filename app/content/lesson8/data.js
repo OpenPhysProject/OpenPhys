@@ -2,8 +2,8 @@
   var s = {};
 
   s.title   = "Photon Beam Attenuation";
-  s.preview = "/content/lesson1/assets/icon_atomicstructure.svg"; //svg image for tile
-  s.themeColor = "#009688";
+  s.preview = "/content/lesson1/assets/icon_attenuation.svg"; //svg image for tile
+  s.themeColor = "#7D2985";
   s.route   = "Beam";
   s.info = "";
   s.primaryPathIndex = 2;  // 3
