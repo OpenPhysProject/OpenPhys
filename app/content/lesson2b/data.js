@@ -23,7 +23,9 @@
         },
 
         //index 1
-        { 
+        {             startNode: true,
+            //endNode: true,
+            horizontalLinks: OER.linkType.strong,
             mapCards: [
                 { title: "Properties of Nuclear Radiation \n - - - - - - - - - - - >>>",  route: "NuclearRadiation", template:"properties.ejs"},
                 { group:"stability", title: "stable nuclides",  route: "StableNuclides", template:"stable_nuclides.ejs"},
@@ -36,7 +38,9 @@
             ],
         },
         //index 2
-        {
+        {            startNode: true,
+            //endNode: true,
+            horizontalLinks: OER.linkType.strong,
             mapCards: [
                 {  title: "Nuclear Structure and Radioactive Decay\n - - - - - - - - - - - >>> ",       route: "StructureDecay", template:"structure_decay.ejs"},
                 { group:"stability",title: "binding energy and mass defect",        route: "BindingEnergy", template:"binding.ejs"},
