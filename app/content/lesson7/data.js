@@ -31,7 +31,7 @@
                {title: "200.4 Absorption of Dose", image: "", route: "Dose"}, 
                {title: "200.5 Annhiliation Event", image: "", route: "Ann"}, 
                {title: "200.6 Summary", image: "", route: "Summary"}, 
-                {title: "200.6 Quiz", image: "", route: "Quiz"},          
+                {title: "200.6 Quiz", image: "", route: "Quiz", icons:["quiz"]},          
             ],
         },
         // index 2
@@ -95,7 +95,7 @@
                 {title: "", image: "", route: ""},
                 {title: "", image: "", route: ""},
                 {title: "", image: "", route: ""},
-                {title: "800.3 Quiz: Production Event", image: "", route: "Quiz"}, 
+                {title: "800.3 Quiz: Production Event", image: "", route: "Quiz", icons:["quiz"]}, 
                 {title: "", image: "", route: ""},            
                 {title: "", image: "", route: ""},
             ],

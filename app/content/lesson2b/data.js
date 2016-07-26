@@ -32,7 +32,7 @@
                 { group:"beta ",  title: "beta particle radiation",  route: "BetaParticleRadiation", template:"R1_beta.ejs"},
                 { group:"excited", title: "gamma radiation",  route: "GammaRadiation", template:"R1_gamma.ejs"},
                 { group:"world ",  title: "radiation in the world",  route: "RadiationInWorld", template:"rad_world.ejs"},
-                { group:"quiz ",  title: "quiz: radioactivity",  route: "LevelQuiz", template:"quiz_rad.ejs"},
+                { group:"quiz ",  title: "quiz: radioactivity",  route: "LevelQuiz", template:"quiz_rad.ejs", icons:["quiz"]},
             ],
         },
         //index 2

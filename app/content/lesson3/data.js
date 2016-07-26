@@ -28,7 +28,7 @@
                 {route:"100_6", title:"e=mc<sup>2</sup> for a photon?"  },
                 {route:"100_7", title:"e=mc<sup>2</sup> and antimatter" },  
                 {route:"100_8", title:"e=mc<sup>2</sup> summary" },    
-                {route:"100_9", title:"quiz: e=mc<sup>2</sup>" },    
+                {route:"100_9", title:"quiz: e=mc<sup>2</sup>", icons:["quiz"]},    
             ],        
         },
 

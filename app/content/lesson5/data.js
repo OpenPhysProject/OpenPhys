@@ -21,7 +21,7 @@
                 {route:"100_2", title:"Scenarios"        }, 
                 {route:"100_3", title:"Optical PE Effect"},           
                 {route:"100_4", title:"X-ray, Low Z"     },      
-                {route:"100_5", title:"Quiz: PE"     },      
+                {route:"100_5", title:"Quiz: PE"     ,icons:["quiz"]},      
             ],    
         },
          // index 1,
