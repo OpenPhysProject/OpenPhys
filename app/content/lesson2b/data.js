@@ -18,7 +18,7 @@
            mapCards: [
                 {route:"",                                          title:""},
                 {route:"",                                          title:""},
-                { group:"nuclide",  title: "intro to exponentials",        route: "Exponential", template:"exp_intro.ejs"},
+                { group:"nuclide",  title: "intro to exponentials",        route: "ExponentialIntro", template:"exp_intro.ejs"},
            ],
         },
 
@@ -50,6 +50,7 @@
                 { group:"excited", title: "Decay of Excited States",                route: "ExcitedStateDecay", template:"R2_gamma.ejs"},
                 { group:"world",    title: "nuclear structure in the real world",   route: "NuclearStructureIRL", template:"structure_world.ejs"},
                 { group:"summary",    title: "summary of decay processes",   route: "Summary", template:"summary.ejs"},
+                { group:"quiz",    title: "quiz: radioactivity 2",   route: "LevelQuiz2", template:"quiz_rad_2.ejs"},
             ],
         },
         //index 3
