@@ -2,10 +2,32 @@
     <div class="lesson-content-title">Mu</div>
 
     <div class="lesson-content-body">
-        <div class="lesson-content-memo">TBD</div>
+        <div class="lesson-content-memo">Attenuation Coefficient</div>
             <div class="col-xs-12 col-sm-6"> 
-
-                   TBD 
+                Consider a beam incident onto an absorber, some of the primary photons will be transmitted without any interaction.
+                In the simplest case we can define a single, <strong>linear attenuation constant, &mu;</strong> 
+                ('mu') with units of 'per meter (m<sup>-1</sup>)'.
+                This coefficient is not necessarily a constant, so this is a different from the situation in radioactive decay.
+                The attenuation coefficient depends upon energy and the nature of the absorber.
+                <br>The linear attenuation constant is the sum of the individual coefficients for each attenuation effect separately.
+                <br><font color='blue'>&mu;<sub>TOTAL</sub></font> = &tau;<sub>PHOTO</sub> + &sigma;<sub>COHERENT</sub> + &sigma;<sub>COMPTON</sub> + &kappa;<sub>PAIR</sub>
+                <br>Beam intensity can then be described as: I = I<sub>0</sub>*e<sup>-&mu;x</sup>
+                
+                <br><br>To understand tissue absorption properties it is often useful to normalize for density.
+                This is done by dividing the <font color='blue'><strong>linear attenuation constant, &mu;</strong></font> 
+                by density, &rho;.
+                <br>The <strong>mass attenuation constant</strong> is: <strong>&mu;/&rho;</strong> with units of cm<sup>2</sup>/g.
+                <br>A material's thickness can be defined as <strong>&rho;x</strong>.
+                <br>Beam intensity can then be described as: I = I<sub>0</sub>e<sup>-(&mu;/&rho;)(&rho;x)</sup>
+                
+                <br><br>Energy is transferred from the beam into electron kinetic energy. 
+                A single photon may experience several energy loss interactions.
+                The energy transfer coefficient refers to the average energy transferred out of the beam to KE per interaction.
+                The <strong>energy transfer coefficient, &mu;<sub>tr</sub> </strong>
+                    is the fraction of photon energy transferred into electron KE per unit thickness of absorber:
+                    <br>&mu;<sub>tr</sub> = &mu;(E<sub>tr</sub>/hf)
+         
+                    <br>
             </div>  
 
 
