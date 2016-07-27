@@ -50,7 +50,7 @@
                 { group:"excited", title: "Decay of Excited States",                route: "ExcitedStateDecay", template:"R2_gamma.ejs"},
                 { group:"world",    title: "nuclear structure in the real world",   route: "NuclearStructureIRL", template:"structure_world.ejs"},
                 { group:"summary",    title: "summary of decay processes",   route: "Summary", template:"summary.ejs"},
-                { group:"quiz",    title: "quiz: radioactivity 2",   route: "LevelQuiz2", template:"quiz_rad_2.ejs"},
+                { group:"quiz",    title: "quiz: radioactivity 2",   route: "LevelQuiz2", template:"quiz_rad_2.ejs", icons:["quiz"]},
             ],
         },
         //index 3

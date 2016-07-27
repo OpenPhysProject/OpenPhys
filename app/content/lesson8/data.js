@@ -59,7 +59,7 @@
             {route:"PP",           template:"PP.ejs",      title:"Pair Production"},
             {route:"",                              title:""},
             {route:"",                              title:""},
-            {route:"Mu 2",           template:"Mu2.ejs",      title:"Attenuation Constant 2"},    
+            {route:"Mu 2",           template:"Mu2.ejs",      title:"Attenuation Constant 2",   icons:["quiz"]},    
         ], 
     },
     ];
