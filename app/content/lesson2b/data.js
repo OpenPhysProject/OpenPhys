@@ -3,7 +3,7 @@
     
     s.title = "Radioactivity";
     s.preview = "/content/lesson2b/assets/icon_radioactivity.svg"; //svg image
-    s.themeColor = "4D1B52";
+    s.themeColor = "#4D1B52";
     s.route = "Radioactivity";
     s.info = "";
     s.primaryPathIndex = 2;  // 3
