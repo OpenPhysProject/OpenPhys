@@ -56,7 +56,7 @@
             {route:"",                              title:""},
             {route:"",                              title:""},
             {route:"",                              title:""},
-            {route:"PP",           template:"PP.ejs",      title:"Pair Production"},
+            {route:"PP",           template:"Photodisintegration.ejs",      title:"Photodisintegration"},
             {route:"",                              title:""},
             {route:"",                              title:""},
             {route:"Mu 2",           template:"Mu2.ejs",      title:"Attenuation Constant 2",   icons:["quiz"]},    
