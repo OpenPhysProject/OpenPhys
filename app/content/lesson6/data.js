@@ -8,8 +8,8 @@
     s.info = "";
     s.jumpNav = true;    
     s.primaryPathIndex = 0;
-    s.rowLeadNumber = 100;      // index for top row
-    s.rowIncrement = 100; 
+    s.rowLeadNumber = 1;      // index for top row
+    s.rowIncrement = 1; 
     
     s.contentMapData = [  
         // index 0,

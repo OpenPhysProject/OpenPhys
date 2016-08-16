@@ -8,6 +8,8 @@
     s.info = "";
     s.jumpNav = true;
     s.primaryPathIndex = 1;
+    s.rowLeadNumber = 1;
+    s.rowIncrement = 1;
     
     s.contentMapData = [
         // index 0
@@ -15,7 +17,7 @@
             mapCards: [
                 {title: "", image: "", route: ""},
                 {title: "", image: "", route: ""},            
-                {title: "100.2 Matter & Antimatter", image: "", route: "Matter"},
+                {title: "Matter & Antimatter", image: "", route: "Matter"},
             ],
         },
         // index 1
@@ -24,14 +26,14 @@
             endNode: true,
             horizontalLinks: OER.linkType.strong,
             mapCards: [
-               {title: "200.0 Introduction", image: "", route: "Intro"},
-               {title: "200.1 Pair Production Animation", image: "", route: "Anim"},           
-               {title: "200.2 Pair Production Overview", image: "", route: "Pair"},
-               {title: "200.3 Electron & Positron Production Event", image: "", route: "Prod"}, 
-               {title: "200.4 Absorption of Dose", image: "", route: "Dose"}, 
-               {title: "200.5 Annhiliation Event", image: "", route: "Ann"}, 
-               {title: "200.6 Summary", image: "", route: "Summary"}, 
-                {title: "200.6 Quiz", image: "", route: "Quiz", icons:["quiz"]},          
+               {title: "Introduction", image: "", route: "Intro"},
+               {title: "Pair Production Animation", image: "", route: "Anim"},           
+               {title: "Pair Production Overview", image: "", route: "Pair"},
+               {title: "Electron & Positron Production Event", image: "", route: "Prod"}, 
+               {title: "Absorption of Dose", image: "", route: "Dose"}, 
+               {title: "Annhiliation Event", image: "", route: "Ann"}, 
+               {title: "Summary", image: "", route: "Summary"}, 
+                {title: "Quiz", image: "", route: "Quiz", icons:["quiz"]},          
             ],
         },
         // index 2
@@ -40,9 +42,9 @@
                 {title: "", image: "", route: ""},
                 {title: "", image: "", route: ""},
                 {title: "", image: "", route: ""},
-                {title: "300.3 Energy Balance in Production Event", image: "", route: "Balance"},           
+                {title: "Energy Balance in Production Event", image: "", route: "Balance"},           
                 {title: "", image: "", route: ""},            
-                {title: "300.5 Positron Emission Tomography (PET)", image: "", route: "PET"},
+                {title: "Positron Emission Tomography (PET)", image: "", route: "PET"},
             ], 
         },
         // index 3
@@ -51,7 +53,7 @@
                 {title: "", image: "", route: ""},
                 {title: "", image: "", route: ""},
                 {title: "", image: "", route: ""},
-                {title: "400.3 Collision Cross Section", image: "", route: "Cross"}, 
+                {title: "Cross Section", image: "", route: "Cross"}, 
                 {title: "", image: "", route: ""},            
                 {title: "", image: "", route: ""},
             ],
@@ -62,7 +64,7 @@
                 {title: "", image: "", route: ""},
                 {title: "", image: "", route: ""},
                 {title: "", image: "", route: ""},
-                {title: "500.3 Energy Dependence of Production Event", image: "", route: "Energy"}, 
+                {title: "Energy Dependence of Production Event", image: "", route: "Energy"}, 
                 {title: "", image: "", route: ""},            
                 {title: "", image: "", route: ""},
             ],
@@ -73,7 +75,7 @@
                 {title: "", image: "", route: ""},
                 {title: "", image: "", route: ""},
                 {title: "", image: "", route: ""},
-                {title: "600.3 Z Dependence of Production Event", image: "", route: "Z"}, 
+                {title: "Z Dependence of Production Event", image: "", route: "Z"}, 
                 {title: "", image: "", route: ""},            
                 {title: "", image: "", route: ""},
             ], 
@@ -84,7 +86,7 @@
                 {title: "", image: "", route: ""},
                 {title: "", image: "", route: ""},
                 {title: "", image: "", route: ""},
-                {title: "700.3 Interactive Graph", image: "", route: "Graph"}, 
+                {title: "Interactive Graph", image: "", route: "Graph"}, 
                 {title: "", image: "", route: ""},            
                 {title: "", image: "", route: ""},
             ],
@@ -95,7 +97,7 @@
                 {title: "", image: "", route: ""},
                 {title: "", image: "", route: ""},
                 {title: "", image: "", route: ""},
-                {title: "800.3 Quiz: Production Event", image: "", route: "Quiz", icons:["quiz"]}, 
+                {title: "Quiz: Production Event", image: "", route: "Quiz", icons:["quiz"]}, 
                 {title: "", image: "", route: ""},            
                 {title: "", image: "", route: ""},
             ],

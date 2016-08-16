@@ -8,6 +8,8 @@
     s.info = "";
     s.jumpNav = false;    
     s.primaryPathIndex = 0;
+    s.rowLeadNumber = 1;
+    s.rowIncrement = 1;
     
     s.contentMapData = [  
         // index 0,
