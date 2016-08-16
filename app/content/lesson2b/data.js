@@ -47,7 +47,7 @@
                 { group:"nuclide",  title: "activity and exponential decay",        route: "Exponential", template:"activity_decay.ejs"},
                 { group:"alpha",    title: "alpha decay process",                   route: "AlphaDecay", template:"R2_alpha.ejs"},
                 { group:"beta",     title: "weak-force mediated nuclear change",    route: "NuclearChange", template:"R2_beta.ejs"},
-                { group:"excited", title: "Decay of Excited States",                route: "ExcitedStateDecay", template:"R2_gamma.ejs"},
+                { group:"excited", title: "decay of excited states",                route: "ExcitedStateDecay", template:"R2_gamma.ejs"},
                 { group:"world",    title: "nuclear structure in the real world",   route: "NuclearStructureIRL", template:"structure_world.ejs"},
                 { group:"summary",    title: "summary of decay processes",   route: "Summary", template:"summary.ejs"},
                 { group:"quiz",    title: "quiz: radioactivity 2",   route: "LevelQuiz2", template:"quiz_rad_2.ejs", icons:["quiz"]},
