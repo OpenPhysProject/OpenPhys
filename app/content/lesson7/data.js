@@ -33,7 +33,7 @@
                {title: "absorption of dose", image: "", route: "Dose"}, 
                {title: "annhiliation event", image: "", route: "Ann"}, 
                {title: "summary", image: "", route: "Summary"}, 
-                {title: "quiz", image: "", route: "Quiz", icons:["quiz"]},          
+               {title: "quiz", image: "", route: "Quiz", icons:["quiz"]},          
             ],
         },
         // index 2
