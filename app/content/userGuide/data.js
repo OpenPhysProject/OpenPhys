@@ -20,8 +20,7 @@
             {title:"the lesson concept map",    route:"Tile"},
             {title:"navigate with arrow keys",  route:"Nav"},
             {title:"the map icon",              route:"ContentMap"},
-            {title:"exploring larger maps",     route:"LargerMaps"}, 
-            {title:"the openphys logo",         route:"MapLogo"},         
+            {title:"exploring larger maps",     route:"LargerMaps"},   
         ]
     },
     ];
