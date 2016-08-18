@@ -19,7 +19,7 @@
         mapCards: [
             {title:"the lesson concept map",    route:"Tile"},
             {title:"navigate with arrow keys",  route:"Nav"},
-            {title:"the map icon",              route:"ContentMap"},
+           // {title:"the map icon",              route:"ContentMap"},
             {title:"exploring larger maps",     route:"LargerMaps"},   
         ]
     },
