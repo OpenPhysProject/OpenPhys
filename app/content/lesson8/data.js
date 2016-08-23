@@ -68,7 +68,7 @@
             {route:"",                              title:""},
             {route:"",                              title:""},
             {route:"",                              title:""},
-            { group:"absorption", route:"Quiz 1",           template:"Quiz_Abs.ejs",      title:"quiz: absorption",   icons:["quiz"]},
+            { group:"absorption", route:"Quiz 2",           template:"Quiz_Abs.ejs",      title:"quiz: absorption",   icons:["quiz"]},
             {route:"",                              title:""},
             {route:"",                              title:""},
             {route:"",                              title:""},
