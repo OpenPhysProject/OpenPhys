@@ -17,10 +17,10 @@
         startNode: true,
         endNode: true,
         mapCards: [
-            {title:"the lesson concept map",    route:"Tile"},
-            {title:"navigate with arrow keys",  route:"Nav"},
+            {title:"the lesson concept map",    route:"Tile",     template:"Row0_Col0.ejs"},
+            {title:"navigate with arrow keys",  route:"Nav",     template:"Row0_Col1.ejs"},
            // {title:"the map icon",              route:"ContentMap"},
-            {title:"exploring larger maps",     route:"LargerMaps"},   
+            {title:"exploring larger maps",     route:"LargerMaps",     template:"Row0_Col3.ejs"},   
         ]
     },
     ];
