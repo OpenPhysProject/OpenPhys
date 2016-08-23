@@ -56,7 +56,7 @@
             {route:"",                              title:""},
             {route:"",                              title:""},
             {route:"",                              title:""},
-            { group:"absorption", route:"PD",           template:"Photo- disintegration.ejs",      title:"photodisintegration"},
+            { group:"absorption", route:"PD",           template:"Photodisintegration.ejs",      title:"photo- disintegration"},
             { group:"scattering", route:"Quiz 1",           template:"Quiz_Scatter.ejs",      title:"quiz: scattering",   icons:["quiz"]},
             { group:"measurements", route:"",                              title:""},
             { group:"mu", route:"Mu 2",           template:"Mu2.ejs",      title:"worked examples: attenuation constant",   icons:["quiz"]},    
