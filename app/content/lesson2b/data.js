@@ -42,7 +42,7 @@
             //endNode: true,
             horizontalLinks: OER.linkType.strong,
             mapCards: [
-                {  title: "NUCLEAR STRUCTURE & RADIOACTIVE DECAY",       route: "StructureDecay", template:"structure_decay.ejs"},
+                { title: "NUCLEAR STRUCTURE & RADIOACTIVE DECAY",       route: "StructureDecay", template:"structure_decay.ejs"},
                 { group:"stability",title: "binding energy and mass defect",        route: "BindingEnergy", template:"binding.ejs"},
                 { group:"nuclide",  title: "activity and exponential decay",        route: "Exponential", template:"activity_decay.ejs"},
                 { group:"alpha",    title: "alpha decay process",                   route: "AlphaDecay", template:"R2_alpha.ejs"},
