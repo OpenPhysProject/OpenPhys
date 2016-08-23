@@ -33,7 +33,7 @@
                 {route:"100_0",     title:"COMPTON SCATTERING - BASIC CONCEPTS" },
                 {route:"Incident",  title:"photon scattering",      icons:["interaction"]},
                 {route:"100_2",     title:"scatterer properties (& Rayleigh)"      },  
-                {route:"100_3",     title:"scattered x-Ray"             }, 
+                {route:"100_3",     title:"scattered x-ray"             }, 
                 {route:"100_4",     title:"compton recoil electron" },
                 {route:"100_5",     title:"level summary (basic)"  },  
                 {route:"100_6",     title:"level quiz (basic)",   icons:["quiz"]},             
@@ -60,7 +60,7 @@
                 {route:"300_3", title:"energy & sattered photon", group:"energy"   }, 
                 {route:"300_4", title:"energy & recoil electron", group:"energy"  },          
                 {route:"300_5", title:"level summary (energy)", group:"energy"   },  
-                {route:"300_6", title:"level quiz (energy)",  icons:["quiz"], group:"energy"},            
+                {route:"300_6", title:"level quiz (energy)",  icons:["quiz"], group:"energy"    },            
             ],        
         },  
     ];
