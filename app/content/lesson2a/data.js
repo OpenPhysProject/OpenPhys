@@ -22,7 +22,7 @@
                 {route: "Nucleus",          template:"Nucleus.ejs",           title: "NUCLEI",   group:"nuclei"},
                 {route: "Nuclides",         template:"Nuclides.ejs",          title: "NUCLIDES", group:"nuclides"},
                 {route: "NuclearRadiation", template:"NuclearRadiation.ejs",  title: "NUCLEAR RADIATION", group:"radiation"},
-                {route: "Structure",        template:"Structure.ejs",         title: "NUCLEAR STRUCTURE", group:"structure"},                
+                {route: "Structure",        template:"Structure.ejs",         title: "NUCLEAR STRUCTURE", group:"structure", icons:["video"]},                
             ],
         },
         // index 1
@@ -41,7 +41,7 @@
             mapCards: [
                 {route: "AtomPower",  template:"AtomsPower.ejs",       title: "the power of atoms", group:"atoms" },
                 {route: "InsideNucleus", template:"InsideNucleus.ejs", title: "inside the nucleus",  group:"nuclei"},
-                {route: "Quiz_Nuclides",  template:"Quiz_Nuclides.ejs",       title: "quiz: nuclide", group:"nuclides",   icons:["quiz"]},
+                {route: "Quiz_Nuclides",  template:"Quiz_Nuclides.ejs",       title: "quiz: nuclides", group:"nuclides",   icons:["quiz"]},
                 {title:""},
                {route: "LiquidDropModel",template:"LiquidDropModel.ejs",  title: "liquid drop model", group:"structure"},
             //    {route: "RadiationInWorld",  template:"RadiationInWorld.ejs", title: "radiation in the world", group:"world " }
@@ -51,7 +51,7 @@
         { 
             mapCards: [
                 {title:""},
-                {route: "Quiz_Nucleus",  template:"Quiz_Nucleus.ejs",       title: "quiz: nuclei", group:"nuclei",   icons:["quiz"]},
+                {route: "Quiz_Nucleus",  template:"Quiz_Nucleus.ejs",       title: "quiz: nuclei", group:"nucleus",   icons:["quiz"]},
 
             ],
         },
