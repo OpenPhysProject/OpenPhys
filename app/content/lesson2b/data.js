@@ -27,7 +27,7 @@
             //endNode: true,
             horizontalLinks: OER.linkType.strong,
             mapCards: [
-                { title: "PROPERTIES OF NUCLEAR RADIATION",  route: "NuclearRadiation", template:"properties.ejs"},
+                { title: "NUCLEAR RADIATION",  route: "NuclearRadiation", template:"properties.ejs"},
                 { group:"stability", title: "stable nuclides",  route: "StableNuclides", template:"stable_nuclides.ejs"},
                 { group:"nuclide ",  title: " unstable nuclides",  route: "UnstableNuclides", template:"unstable_nuclides.ejs"},
                 { group:"alpha",       title: "alpha particle radiation",  route: "AlphaParticleRadiation", template:"R1_alpha.ejs"},
