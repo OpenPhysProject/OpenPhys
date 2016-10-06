@@ -128,7 +128,7 @@ OER.Views.Compton = OER.Views.Compton || {};
      * @param {type} options
      */
     p.remove = function(options) {
-        this.button.removeEventListener("click");
+        this.button.removeEventListener("click", this.buttonBind);
         if (createjs.Touch.isSupported()) {createjs.Touch.disable(this.stage);}
         createjs.Ticker.removeEventListener("tick", this.tickerBind);
         Backbone.View.prototype.remove.call(this, options);

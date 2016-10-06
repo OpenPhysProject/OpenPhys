@@ -12,23 +12,27 @@
   <div class="lesson-content-title col-xs-12 lesson-content-100">Photon Scattering </div>
   <div class="lesson-content-body col-xs-12">
 
-      <div class="lesson-content-memo"> The incoming X-ray </div>
+    <div class="lesson-content-memo"> The incoming X-ray </div>
       
-      The term <strong>incident photon</strong> refers to the incoming X-ray particle.
-      X-rays photons can have a wide range of energies, 
-      similar to the way in which light can have a range of colors.
-      A single X-ray photon has a specific energy, given by E = hf, 
-      where h is Planck's constant, and f is the frequency of oscillation.
-      The frequency of X-ray photons is far higher than that of visible light photons.
-    <br/> 
-    <input type="button" value="Fire Photons" class="lesson-content-button">
-    <br><br>
-
-    Scatter Position <span class="lesson6-disp-scatterY"> tbd</span>
-    <input type="range" min="100" max="500" step="20" value="130" class="lesson6-scatterY" />
-    <br>
-       
-    <canvas class="lesson-content-canvas-photon" width="600" height="200"></canvas>
+    <div class="col-md-8 col-lg-8">
+        The term <strong>incident photon</strong> refers to the incoming X-ray particle.
+        X-rays photons can have a wide range of energies, 
+        similar to the way in which light can have a range of colors.
+        A single X-ray photon has a specific energy, given by E = hf, 
+        where h is Planck's constant, and f is the frequency of oscillation.
+        The frequency of X-ray photons is far higher than that of visible light photons.
+        <br/><br/>
+        Click the X-ray source to file multiple photons, or for single photons, this button:
+        <input type="button" value="Single Photon" class="lesson-content-button">
+        <br>
+    </div>
+    
+    <div class="col-md-12 col-lg-12">  
+        Scatter Position <span class="lesson6-disp-scatterY"> tbd</span>
+        <input type="range" min="100" max="500" step="20" value="130" class="lesson6-scatterY" />
+        <br>
+        <canvas class="lesson-content-canvas-photon" width="600" height="200"></canvas>
+    </div>
     
    <img class="img-responsive lesson-content-image" src="/content/lesson6/assets/ComptonIncident.svg" />  
     <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>
