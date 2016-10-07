@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<style>
+/*******************************************
+REM VALUE
+Controls root element font size(rem) applied to <HTML>
+*******************************************/
+$fontSize-root: 10px;	// (1rem)
+
+/*******************************************
+FAMILIES
+*******************************************/
+$fontFamily-default:    'Lato', sans-serif;
+$fontFamily-title:      'Lato', sans-serif;
+$fontFamily-mapCard:    'Source Sans Pro', sans-serif;
+/*******************************************
+FONT SIZES
+*******************************************/
+$fontSize-largest: 	2.2rem;
+$fontSize-subtitle:     2.0rem; // used for h3 titles
+$fontSize-large:       1.8rem;
+$fontSize-med:          1.7rem;
+$fontSize-body: 	1.6rem;
+$fontSize-small: 	1.4rem;
+       
+.lesson-content-memo {
+    font: 'Arial';
+    font-size: 14pt;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    color: darkred; // OJR this should be defined in settings/color
+}
+.lesson-content-title {
+    font: $fontFamily-title;
+    font-size: 24pt; //$fontSize-largest;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+.lesson-content-body {
+    // for larger screen sizes
+   font: $fontFamily-title;
+   font-size: 14pt;
+   width: 70%;
+}
+h3 {
+    // used for subtitles
+    font-size: $fontSize-subtitle;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.lesson-content-image {
+  margin: 0.5rem;
+  width: 50%;
+  max-width: 400px;
+}
+</style>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+ <!-- ************************************************************************ -->   
+<body>
+    
+<div class="lesson-content-title col-xs-12">Happy Happy X-ray</div>    
+    <div class="lesson-content-body col-xs-12 ">
+        <div class="lesson-content-memo" style='color: darkorange'> X-rays can lose energy and change direction. </div> 
+      
+        <div>
+            <h3>Compton</h3>
+            In <strong>Compton X-ray scattering</strong>, also known as the <strong>Compton effect</strong>, 
+            an X-ray photon can lose a large fraction of its energy in a single collision.
+            The incident X-ray photon is scattered by a free electron, which recoils. 
+            This recoil electron may receive a large KE, and so go on to produce many ionization events. 
+            The scattered photon has less energy, and so longer wavelength, than the incident photon.
+        </div>
+
+        <div>
+          <h3>Radiotherapy</h3>
+          In <strong>radiotherapy</strong> X-rays are used to kill tumors.
+          Compton X-ray scattering is the most important effect leading to absorbed dose in 
+          external beam radiotherapy. 
+          The recoil electron has high kinetic energy, which results in ionization and excitation, 
+          leading to chemical damage and cell death. 
+        </div>
+         <img class="img-responsive lesson-content-image" src="Einstein.svg" />        
+    </div>
+
+</body>
+</html>

@@ -42,7 +42,7 @@
          // index 2,
          {
             mapCards: [
-                {route:"3_0", title:"  --- Level 3 --- \n The scattering angle",             group:"angle"  },
+                {route:"3_0", title:"--- Level 3 --- \n The scattering angle", group:"angle"  },
                 {route:"3_1", title:"incident photon impact parameter", group:"angle"  },
                 {route:"3_2", title:"scattering angle and scatterer",   group:"angle"  },  
                 {route:"3_3", title:"the scattered photon angle",       group:"angle"  }, 
