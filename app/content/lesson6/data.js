@@ -57,7 +57,7 @@
                 {route:"4_0", title:"--- Level 4 --- \n Incident photon energy", group:"energy"    },
                 {route:"4_1", title:"energy of incident x-ray", group:"energy"   },
                 {route:"4_2", title:"energy & scatterer", group:"energy"         },  
-                {route:"4_3", title:"energy & sattered photon", group:"energy"   }, 
+                {route:"4_3", title:"energy & scattered photon", group:"energy"   }, 
                 {route:"4_4", title:"energy & recoil electron", group:"energy"  },          
                 {route:"4_5", title:"level 4 summary (energy)", group:"energy"   },  
                 {route:"4_6", title:"level 4 quiz (energy)",  icons:["quiz"], group:"energy"    },            
