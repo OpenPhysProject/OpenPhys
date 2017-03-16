@@ -2,50 +2,54 @@
     <div class="lesson-content-title">Fluence</div>
 
     <div class="lesson-content-body">
-        <div class="lesson-content-memo">Flow</div>
+        <div class="lesson-content-memo">The beam over time</div>
             <div class="col-xs-12 col-sm-6"> 
+                <strong>Fluence</strong> is a measure of beam strength, integrated over time.
+                In radiotherapy, fluence can be used to describe a particular treatment, i.e.
+                            a specific beam intensity, on for a specific duration.
+                Dose delivered by the beam is proportional to fluence.
+                <br/><br/>
+                          
                 <table class="table" style="background-color:white;">
                           <tr>
                               <th data-field="">TERM</th>
                               <th data-field="">EQUATION</th>
                               <th data-field="experiment">DEFINITION</th>
-
                           </tr>
                           <tr>
                             <td><strong>Particle Fluence</strong></td>
-                            <td>&Phi; = <sup>dN</sup>/<sub>da</sub> = <sup>Particles</sup>/<sub>Area</sub></td>
-                            <td><strong>Fluence</strong> describes a beam pulse or a treatment with a beam. 
-                            This is a TOTAL NUMBER of particles per unit area.
-                              <br><strong>So if the beam is on longer, then the fluence is higher.</strong>
-                            Fluence can be used to describe a particular treatment, i.e.
-                            a specific beam intensity on for a specific duration.</td>
+                            <td>&Phi; = <sup>dN</sup>/<sub>dA</sub> = <sup>Particles</sup>/<sub>Area</sub></td>
+                            <td><strong>Particle fluence</strong> is the TOTAL NUMBER of particles per unit area.
+                            If the beam is on longer, then the fluence is higher.
+                            </td>
                              </tr>
                           <tr>
-
                             <td><strong>Particle Fluence Rate</strong></td>
-                              <td>&phi; = <sup>d&Phi;</sup>/<sub>dt</sub> = <sup>Fluence</sup>/<sub>Time</sub></td>
-                            <td><strong>Fluence Rate</strong> describes a beam property, 
-                            so the maximum fluence rate can be used to describe the machine's capability. 
+                              <td><sup>d&Phi;</sup>/<sub>dt</sub> = <sup>Fluence</sup>/<sub>Time</sub></td>
+                            <td><strong>Fluence rate</strong> describes the beam at an instant.
+                                A machine capable of a higher maximum fluence rate can deliver treatments quicker. 
                               A higher <strong>flux density</strong> (=fluence rate) will result in a higher <strong>dose rate.</strong></td>
 
                           </tr>
                           <tr>
                               <td><strong>Fluence Map</strong></td>
-                              <td> </td>
-                            <td>This is a picture of the fluence for a particular treatment.
-                            A good fluence map will be high over the target and low over nearby sensitive anatomy.</td>
+                              <td> &Phi;(x,y)</td>
+                              <td>A <strong>fluence map</strong> is a cross-sectional image of the delivered dose.              
+                            A 'good' fluence map will be high over the target (tumor) and low over any nearby sensitive anatomy.</td>
                           </tr>
 
                           <tr>
                               <td><strong>Energy Fluence</strong></td>
-                             <td>&Psi; = <sup>dE</sup>/<sub>da</sub> = <sup>Energy</sup>/<sub>Area</sub></td>
-                            <td> </td>
+                             <td>&Psi; = <sup>dE</sup>/<sub>dA</sub> = <sup>Energy</sup>/<sub>Area</sub></td>
+                             <td><strong>Energy fluence</strong> is the energy per cross-section area delivered
+                                 by the beam. (J/m<sup>2</sup>)</td>
                            </tr>
 
                           <tr>
                             <td><strong>Energy Fluence Rate</strong> </td>
-                            <td>&psi; = <sup>d&Psi;</sup>/<sub>dt</sub> = <sup>EnergyFluence</sup>/<sub>Time</sub></td>
-                            <td></td> 
+                            <td><sup>d&Psi;</sup>/<sub>dt</sub></td>
+                            <td><strong>Energy fluence rate</strong> describes the cross-sectional energy density of the beam. 
+                            It is like the instantaneous beam brightness, in terms of energy.</td> 
                           </tr>
 
                 </table>
