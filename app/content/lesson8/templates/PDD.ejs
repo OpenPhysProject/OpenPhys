@@ -1,27 +1,30 @@
 <div class="lesson-content container">
-    <div class="lesson-content-title">PDD</div>
+    <div class="lesson-content-title">Percentage Depth Dose</div>
 
     <div class="lesson-content-body">
         <div class="lesson-content-memo">Percentage Depth Dose</div>
             <div class="col-xs-12 col-sm-6"> 
                 
+             Percentage Depth Dose (PDD) is the dose profile down the central axis of a beam,
+             normalized to the point of maximum dose (D<sub>max</sub>).
+             <br/><br/>
+             PDD_at_D = (Dose-at-D / Dose-at-Dmax) * 100%
+             <br/><br/>
              PDD changes with three main effects, beam attenuation, inverse-square law and scattered dose.
-             Less attenuation provides a higher PDD.
+             A higher PDD (beyond dmax) indicates less attenuation with depth.
         <table class="table" style="background-color:white;">
             <tr>
-                <th data-field="">PDD Increases With</th>
-                <th data-field="">Because</th>
-
+                <th data-field="">PDD increases with:</th>
+                <th data-field="">Reason</th>
             </tr>
             <tr>   
                 <td>Photon Energy</td>
-                <td>Photons are more penetrating.</td>
+                <td>Higher energy photons are more penetrating.</td>
 
             </tr>
             <tr>
                 <td>Field Size</td>
-                <td>More dose from scatter.</td>
-
+                <td>The wider field provides more dose from scatter into the beam.</td>
 
             </tr>
             <tr>
@@ -30,7 +33,6 @@
  
             <tr>
                
-
         </table>
         
             </div>  

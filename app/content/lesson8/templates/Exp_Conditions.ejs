@@ -1,23 +1,35 @@
 <div class="lesson-content container">
-    <div class="lesson-content-title"> Conditions for Exponential Attenuation.</div>
+    <div class="lesson-content-title"> Conditions for Exponential Attenuation</div>
     <div class="lesson-content-body">
-        
+    <div class="lesson-content-memo">A simple model</div>
          <!-- LHS -->
      <div class="col-sm-12 col-md-6 col-lg-6">   
          
+        It is sometimes useful to approximate beam attenuation in an absorber by a simple exponential model.
+        Exact exponential behavior requires:
+        <ol type='1'>
+            <li>A narrow beam</li>
+            <li>A mono-energetic beam</li>
+            <li>A uniform absorber</li>
+        </ol> 
+        
+        These are restrictive and idealized conditions, not often found in practice.
+        What is useful, is that this allows us to compare <strong>attenuation coefficients</strong>
+        for different materials.
+        
+        <br/><br/><strong>Beam Width Condition</strong><br/>
+        Scatter into the beam can increase the photon flux significantly, 
+        so exponential behavior is only possible under narrow beam conditions.
+        
+        <br/><br/><strong>Energy Condition</strong><br/>
         Different photons have different interaction probabilities and beam attenuation, 
         the photons are usually not identical, but have different energies (<strong>heterogeneous</strong> beam).
-        <br>A second issue is since attenuation is an interaction (unlike radioactive-decay), it depends upon the <strong>absorber composition</strong>,
+        
+        <br/><br/><strong>Absorber Uniformity Condition</strong><br/>
+        Since attenuation is an interaction (unlike radioactive-decay), 
+        it depends upon the <strong>absorber composition</strong>,
         and this varies, such as between soft tissue, bone and air.
-        <br>Thirdly, <strong>scatter into the beam</strong> can increase the photon flux significantly, 
-        so exponential behavior is only possible under narrow beam conditions.
-        <br>
-        <strong>Exact exponential behavior requires:</strong>
-        <ol type='1'>
-            <li>A narrow beam.</li>
-            <li>A mono-energetic beam.</li>
-            <li>A uniform absorber.</li>
-        </ol>   
+   
         <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>
      </div>
          

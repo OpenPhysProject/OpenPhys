@@ -22,21 +22,21 @@
             { group:"distance",    route:"Distance",        template:"Distance.ejs",      title:"DISTANCE"},
             { group:"absorption",  route:"PhotonAbsorption",template:"Absorption.ejs",    title:"PHOTON ABSORPTION"},
             { group:"scattering",  route:"BeamScattering",  template:"Scattering.ejs",    title:"BEAM SCATTERING"},
-            { group:"measurements",route:"Measurements",    template:"Measurements.ejs",  title:"EXPERIMENTAL MEASUREMENTS"},
-            { group:"mu",          route:"ExpDef",          template:"Exp_Def.ejs",       title:"exponential definition"},
+            { group:"quality",     route:"Quality",         template:"Quality.ejs",       title:"BEAM QUALITY"},
+            { group:"mu",          route:"ExpConditions",   template:"Exp_Conditions.ejs",title:"exponential conditions"},
         ],
     },  
     //index 1
     {
         mapCards: [
-            {route:"",                              title:""},
-            {route:"",                              title:""},
+            {route:"", title:""},
+            {route:"", title:""},
             { group:"distance",     route:"InverseSquareLaw", template:"Inverse_Sq_Law.ejs", title:"inverse square law"},
-            { group:"absorption",   route:"PE",               template:"PE.ejs",             title:"photoelectric effect"},
+            { group:"absorption",   route:"PE",               template:"PE.ejs",             title:"photoelectric absorption"},
             { group:"scattering",   route:"Coherent",         template:"Coherent.ejs",       title:"coherent scattering"},
             { group:"measurements", route:"PDD",              template:"PDD.ejs",            title:"percentage depth dose"},
-            { group:"mu",           route:"ExpConditions",    template:"Exp_Conditions.ejs", title:"exponential conditions"},         
-        ]
+            { group:"mu",           route:"ExpDef",           template:"Exp_Def.ejs",       title:"exponential definition"},         
+        ],
     }, 
     // index 2 
     {
