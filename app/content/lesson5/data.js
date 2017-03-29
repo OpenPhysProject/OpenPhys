@@ -13,28 +13,46 @@
     
     s.contentMapData = [  
         // index 0,
+          {
+            mapCards: [    
+                {route:"QLight",  template:"QuantumLight.ejs", title:"quantum light"}, 
+                {route:"100_1", title:"" }, 
+                {route:"100_2", title:"" },                 
+                {route:"History", template:"History.ejs",      title:"Einstein and Millikan"},
+            ],                  
+        },       
+        // index 1
         {
             startNode: true,
             endNode: true, 
             horizontalLinks: OER.linkType.strong,
             mapCards: [
-                {route:"100_0", title:"PE introduction"  },
-                {route:"100_1", title:"PE history"       },
-                {route:"100_2", title:"scenarios"        }, 
-                {route:"100_3", title:"optical PE effect"},           
-                {route:"100_4", title:"x-ray, low Z"     },      
-                {route:"100_5", title:"quiz: PE"     ,icons:["quiz"]},      
+                {route:"Hit",       template:"PhotonHitsAtom.ejs", title:"photon hits atom" },
+                {route:"Conditions",template:"Conditions.ejs",     title:"conditions for PE interaction" }, 
+                {route:"Results",  template:"Results.ejs",      title:"consequences of PE interaction"},            
+                {route:"Optical",   template:"Optical.ejs",     title:"case 1:\n optical PE effect"},  
+                {route:"Beam",      template:"BeamAtten.ejs",   title:"beam attenuation"},                
+                {route:"Tissue",    template:"Tissue.ejs",      title:"case 2:\n X-ray PE in tissue" },
+                {route:"Metal",    template:"XrayMetal.ejs",    title:"case 3:\n X-ray PE in metal" },               
+                {route:"Quiz1",     template:"Quiz1.ejs",       title:"quiz: PE"  ,icons:["quiz"]},      
             ],    
         },
-         // index 1,
+         // index 2,
          {
             mapCards: [ 
-                {route:"200_0", title:"" }, 
-                {route:"200_1", title:"" },
-                {route:"200_2", title:"" },  
-                {route:"200_3", title:"quantum light"},           
+                {route:"Scenarios", template:"Scenarios.ejs", title:"scenarios"},               
+                {route:"PhotonE", template:"PhotonEnergy.ejs", title:"dependence upon photon energy" },
+                {route:"Electron",  template:"ElectronFate.ejs",   title:"fate of photoelectron"},               
             ],                  
         },
+         // index 3,
+         {
+            mapCards: [ 
+                {route:"300_0", title:"" }, 
+                {route:"AtomicZ", template:"AtomicZ.ejs", title:"dependence upon Z" },  
+                {route:"Atom",    template:"AtomFate.ejs", title:"fate of excited atom"},              
+            ],                  
+        },        
     ];
 
     scope.lesson5 = s;
