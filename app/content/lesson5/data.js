@@ -46,7 +46,7 @@
                 {route:"Electron",  template:"ElectronFate.ejs",   title:"fate of photoelectron"}, 
                 {route:"200_0", title:"" },
                 {route:"200_1", title:"" },
-                {route:"KEdge", template:"KEdge.ejs", title:"K shell effects" },
+                {route:"KEdge", template:"KEdge.ejs", title:"K shell effects",icons:["interaction"] },
                 {route:"PEvsC", template:"PEvsCompton.ejs", title:"review:\n PE vs. Compton" },
             ],                  
         },
