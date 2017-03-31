@@ -9,7 +9,6 @@ $button-bar-size: $ui-button-width + $padding-small*3;
 
 // common lesson content styles
 
-
 .lesson-content-title {
     font: $fontFamily-title;
     font-size: $fontSize-largest;
@@ -19,14 +18,27 @@ $button-bar-size: $ui-button-width + $padding-small*3;
 
 h3 {
     // used for subtitles
+    font-style: italic;
     font-size: $fontSize-subtitle;
     font-weight: bold;
     margin-bottom: 0.3rem;
+    margin-top: 0.9rem;
 }
+
+lcterm{    // highlight and bold a term or definition
+    background:#ffff66; // a yellow
+    font-weight: bold;
+}
+
+//.lesson-content-term{
+    // highlight and bold a term or definition
+//    background: yellow;
+//    font-weight: bold;
+//}
 
 .lesson-content-equation {
     // for text equations
-    font-size: $fontSize-largest;
+    font-size: $fontSize-large;
     font-weight: bold;
     margin: auto;
     width: 70%;

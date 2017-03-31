@@ -1,20 +1,35 @@
 <div class="lesson-content container">
-  <div class="lesson-content-title col-xs-12">Beam Attenuation</div>
+  <div class="lesson-content-title col-xs-12">Beam Attenuation for PE </div>
    
-      <div class="lesson-content-body">
+      <div class="lesson-content-body col-xs-12">
             <div class="lesson-content-memo"> Radiation Beam </div> 
         <div class="row">
            <!-- LHS -->
            <div class="col-md-6 col-lg-6">     
-            For penetrating X-ray radiation beams, the PE effect causes beam attenuation.
-            The two cases included here are penetration through tissue (low Z) and through metal (high Z).
-            
-            Since the PE effect is sensitive to Z, there are some differences between the two cases.
+            For penetrating X-ray radiation beams, the PE effect causes beam attenuation. 
+            We can consider linear attenuation for each effect separately:  
+            <div class="lesson-content-equation">
+                μ<sub>TOTAL</sub> = τ<sub>PHOTO</sub> + σ<sub>COHERENT</sub> + 
+                σ<sub>COMPTON</sub> + κ<sub>PAIR</sub> 
+                <br/>
+                <br/>
+                I = I<sub>0</sub> e<sup>-τx</sup>
+                <br/>
+                τ - <lcterm>photoelectric linear attenuation coeff</lcterm>
+            </div>
             <br/>
+            <div class="lesson-content-equation">
+                 I = I<sub>0</sub> e<sup>(τ/ρ)xρ</sup>
+                 <br/>
+                τ/ρ  - <lcterm>mass photoelectric linear attenuation coeff</lcterm>
+           </div>          
+            
+            <h3>Two Scenarios</h3>
+            The two cases included here are penetration through tissue (low Z) and through metal (high Z).
+            Since the PE effect is sensitive to Z, there are some differences between the two cases.
             In both cases,
             the PE effect removes photons from the beam, without scattering. 
             This is a difference from Compton (in which the photon is survives, but redirected and at lower energy).
-                         
           </div>  
    
             <!-- RHS -->

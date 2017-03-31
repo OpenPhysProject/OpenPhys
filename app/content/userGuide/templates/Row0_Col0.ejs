@@ -1,25 +1,50 @@
 <div class="lesson-content container">
    
-      <div class="jumbotron">
-        <h1>OpenPhys User's Guide</h1> 
-        <h2><%- title %></h2> 
-      </div>
-    
-      <div class="lesson-content-body"> 
-      <div class="lesson-content-title">Web-site: Lesson Tile --> Lesson Map --> Page </div>  
-         The OpenPhys web site is based on a novel design using a 2D concept map for each lesson.
-         <br/><br/>
-      
-        <ul>
-            <li><strong>FRONT PAGE:</strong> The <strong>front page</strong> of the web site shows the lesson tiles.</li>
-            <li><strong>LESSON TILES:</strong> Click anywhere on a <strong>lesson tile</strong> to open the concept map for that lesson.</li>
-            <li><strong>CONCEPT MAP:</strong> Each <strong>Concept Map</strong> shows pages arranged according to topic and level of difficulty</li>
-            <li>Move UP the map for simpler content, DOWN for deeper content</li>
-        </ul>
-        
-        <br/>
-        <div class="lesson-content-footer"><%- number %>  <%- group %></div>
-       
+    <div class="jumbotron">
+    <h1>OpenPhys User's Guide</h1> 
+    <!-- <h2><%- title %></h2> -->
     </div>
-    
+
+    <div class="lesson-content-body"> 
+    <!-- <div class="lesson-content-title"> How To</div> -->
+        <div class="col-md-8 col-lg-8">
+         
+            The home page shows the lesson tiles:
+                <div>
+                 <img class="img-responsive lesson-content-image" src="/content/userGuide/assets/OpenPhysTiles.png" />
+                </div>
+            Click (anywhere) on a <strong>colored lesson tile</strong> to open the lesson concept map:
+            <div>
+                <img class="img-responsive lesson-content-image" src="/content/userGuide/assets/Map.png" />
+             </div>
+             Navigate and click the map to open a page (such as this one).
+             The lesson <strong>Concept Maps</strong> are the heart of the OpenPhys web site.
+             This novel design both organizes the concepts and provides navigation.
+
+             <h3>Map Organization</h3>
+             Pages are arranged according to:
+             <ul>
+                 <li>Topic (left to right). The main path starts at a circle on the left.</li>
+                 <li>Level of difficulty (top to bottom). 
+                     Move UP the map for simpler content, DOWN for deeper content. </li>
+             </ul>
+             On a first visit, you would typically follow the main path, 
+             but you are free to visit pages in whatever order you wish.
+              
+             <h3>Map Navigation</h3>
+             Depending on your device (PC, laptop, touch etc.), you can navigate by all the usual methods:
+            <ul>
+                <li>Keyboard arrow keys</li>
+                <li>Directional D-pad control (see next page -->)</li>
+                <li>swipe</li>
+                <li>Mouse click and drag</li>
+                <li>The D-pad shrinks to save space - just tap to expand again</li>
+            </ul>
+             To return to the map from a page, either <lcterm>click the 'm' key</lcterm>
+             or use the central map icon on the D-pad control.
+            <br/>
+            <div class="lesson-content-footer"><%- number %>  <%- group %></div>
+
+        </div>
+     </div>
 </div>
