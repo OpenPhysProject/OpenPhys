@@ -17,10 +17,12 @@
         startNode: true,
         endNode: true,
         mapCards: [
-            {title:"the lesson concept map\n\n CLICK ON THIS SQUARE next !!",  route:"Tile", template:"Row0_Col0.ejs"},
-            {title:"navigate with arrow keys",                                 route:"Nav",  template:"Row0_Col1.ejs"},
-           // {title:"the map icon",              route:"ContentMap"},
-            {title:"exploring larger maps",     route:"LargerMaps",     template:"Row0_Col3.ejs"},   
+          {route:"Guide1",    template:"Guide1.ejs", title:"overview\n\n CLICK HERE NEXT!"},
+          {route:"Nav",       template:"Nav.ejs", title:"navigate with arrow keys" },
+          {route:"Students",  template:"Students.ejs", title:"openphys for students" }, 
+          {route:"Educators", template:"Educators.ejs", title:"openphys for educators" },           
+          {route:"Credits",   template:"Credits.ejs", title:"credits" },             
+                  // {title:"the map icon",              route:"ContentMap"},
         ]
     },
     ];
