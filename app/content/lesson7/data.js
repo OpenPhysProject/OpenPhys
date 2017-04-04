@@ -6,100 +6,73 @@
     s.themeColor = "#F44336";
     s.route = "Pair";
     s.info = "";
-    s.jumpNav = true;
+    s.jumpNav = false;
     s.primaryPathIndex = 1;
     s.rowLeadNumber = 1;
     s.rowIncrement = 1;
     
     s.contentMapData = [
         // index 0
-        {
+        {  startNode: false,
+            endNode: false,
             mapCards: [
-                {title: "", image: "", route: ""},
-                {title: "", image: "", route: ""},            
-                {title: "matter & antimatter", image: "", route: "Matter"},
+                {route: "1", title: ""},            
+                {route: "Matter", template: "Anti.ejs", title: "matter & antimatter" },
+                {route: "Cross", template:"Cross.ejs", title: "collision cross section" },                
+                {route: "3", title: ""},
+                {route: "4", title: ""},
             ],
         },
-        // index 1
-        {
-            startNode: true,
-            endNode: true,
+        // index 1                        
+        { startNode: true,
+            endNode: true, // for some reason this has a bug. It requires the extra blank page.
             horizontalLinks: OER.linkType.strong,
             mapCards: [
-               {title: "introduction", image: "", route: "Intro"},
-               {title: "pair production animation", image: "", route: "Anim"},           
-               {title: "pair production overview", image: "", route: "Pair"},
-               {title: "electron & positron production event", image: "", route: "Prod"}, 
-               {title: "absorption of dose", image: "", route: "Dose"}, 
-               {title: "annhiliation event", image: "", route: "Ann"}, 
-               {title: "summary", image: "", route: "Summary"}, 
-               {title: "quiz", image: "", route: "Quiz", icons:["quiz"]},          
+               {route: "Intro",    template:"Intro.ejs",   title: "introduction" },
+               {route: "Overview", template:"Overview.ejs",title: "pair production overview" },  
+               {route: "Prod",     template:"Prod.ejs",    title: "electron & positron production event" },       
+               {route: "Dose",     template:"Dose.ejs",    title: "absorption of dose" },       
+               {route: "Ann",      template:"Ann.ejs",     title: "annihilation event" },   
+               {route: "Summary",  template:"Summary.ejs", title: "summary" },         
+               {route: "Quiz1",    template:"Quiz1.ejs",   title: "quiz1", icons:["quiz"]},
+              // {route: "10",       title: "" }, //
             ],
         },
         // index 2
         {
             mapCards: [
-                {title: "", image: "", route: ""},
-                {title: "", image: "", route: ""},
-                {title: "", image: "", route: ""},
-                {title: "energy balance in production event", image: "", route: "Balance"},           
-                {title: "", image: "", route: ""},            
-                {title: "positron emission tomography (PET)", image: "", route: "PET"},
+                {route: "20",       title: "" }, 
+             //   {route: "Anim",    template:"Anim.ejs",      title: "pair production animation" },             
+                {route: "21",                                title: "" },
+                {route: "Balance", template:"EnBalance.ejs", title: "energy balance"},           
+                {route: "22",                                title: ""},            
+                {route: "PET",     template:"PET.ejs",       title: "positron emission tomography (PET)"},
             ], 
         },
         // index 3
         {
             mapCards: [
-                {title: "", image: "", route: ""},
-                {title: "", image: "", route: ""},
-                {title: "", image: "", route: ""},
-                {title: "cross section", image: "", route: "Cross"}, 
-                {title: "", image: "", route: ""},            
-                {title: "", image: "", route: ""},
+                {route: "40",                                    title: "" },
+                {route: "41",                                    title: "" },
+                {route: "EnergyProd", template:"EnergyProd.ejs", title: "energy dependence" }, 
             ],
         },
-        // index 4
-        {
+         // index 4
+         {startNode: false,
+            horizontalLinks: OER.linkType.weak,
             mapCards: [
-                {title: "", image: "", route: ""},
-                {title: "", image: "", route: ""},
-                {title: "", image: "", route: ""},
-                {title: "energy dependence of production event", image: "", route: "Energy"}, 
-                {title: "", image: "", route: ""},            
-                {title: "", image: "", route: ""},
-            ],
-        },
-         // index 5
-         {
-            mapCards: [
-                {title: "", image: "", route: ""},
-                {title: "", image: "", route: ""},
-                {title: "", image: "", route: ""},
-                {title: "Z dependence of production event", image: "", route: "Z"}, 
-                {title: "", image: "", route: ""},            
-                {title: "", image: "", route: ""},
+                {route: "50",                          title: "" },
+                {route: "51",                          title: "" },
+                {route: "ZProd",    template:"ZProd.ejs", title: "Z dependence" },
+                {route: "IntGraph", template:"IntGraph.ejs", title:"interactive graph"},
             ], 
         },
-        // index 6
-        {
+        // index 5
+        {   
             mapCards: [
-                {title: "", image: "", route: ""},
-                {title: "", image: "", route: ""},
-                {title: "", image: "", route: ""},
-                {title: "interactive graph", image: "", route: "Graph"}, 
-                {title: "", image: "", route: ""},            
-                {title: "", image: "", route: ""},
-            ],
-        },
-        // index 7
-        {
-            mapCards: [
-                {title: "", image: "", route: ""},
-                {title: "", image: "", route: ""},
-                {title: "", image: "", route: ""},
-                {title: "quiz: production event", image: "", route: "Quiz", icons:["quiz"]}, 
-                {title: "", image: "", route: ""},            
-                {title: "", image: "", route: ""},
+                {route: "70",    title: ""},
+                {route: "71",    title: "" },
+                {route: "Quiz2", template:"QuizProd.ejs", title: "quiz: production event", icons:["quiz"]}, 
             ],
         },
 

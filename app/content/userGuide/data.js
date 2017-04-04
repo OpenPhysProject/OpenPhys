@@ -17,11 +17,12 @@
         startNode: true,
         endNode: true,
         mapCards: [
-          {route:"Guide1",    template:"Guide1.ejs", title:"overview\n\n CLICK HERE NEXT!"},
-          {route:"Nav",       template:"Nav.ejs", title:"navigate with arrow keys" },
-          {route:"Students",  template:"Students.ejs", title:"openphys for students" }, 
-          {route:"Educators", template:"Educators.ejs", title:"openphys for educators" },           
-          {route:"Credits",   template:"Credits.ejs", title:"credits" },             
+          {route:"Guide1",    template:"Guide1.ejs",       title:"overview\n\n CLICK HERE NEXT!"},
+          {route:"Nav",       template:"Nav.ejs",          title:"navigate with arrow keys" },
+          {route:"Special",   template:"SpecialPages.ejs", title:"special pages" },
+          {route:"Students",  template:"Students.ejs",     title:"openphys for students" }, 
+          {route:"Educators", template:"Educators.ejs",    title:"openphys for educators" },           
+          {route:"Credits",   template:"Credits.ejs",      title:"credits" },             
                   // {title:"the map icon",              route:"ContentMap"},
         ]
     },

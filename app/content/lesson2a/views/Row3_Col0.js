@@ -11,7 +11,7 @@ OER.Views.Nucleus = OER.Views.Nucleus || {};
     
     var p = {};     // prototype for this class
     var s = {};     // static for this class
-    p.template= JST['app/content/lesson2a/templates/Structure.ejs'];     // template used to create html for this view
+    p.template= JST['app/content/lesson2a/templates/Decay.ejs'];     // template used to create html for this view
     p.events = {};  // events, used by backbone to set up event handlers on html elements   
     p.stage = null;         // easeljs stage
     p.width = null;         // stage width
@@ -274,6 +274,6 @@ OER.Views.Nucleus = OER.Views.Nucleus || {};
     };
 
     // add the above code as a backbone view class in our namespace
-    OER.Views.Nucleus.Structure = Backbone.View.extend(p, s);    
+    OER.Views.Nucleus.Decay = Backbone.View.extend(p, s);    
 
 })();

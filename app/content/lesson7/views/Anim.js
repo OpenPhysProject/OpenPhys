@@ -6,7 +6,7 @@ OER.Views.Pair = OER.Views.Pair || {};
 
     OER.Views.Pair.Anim = Backbone.View.extend({
 
-        template: JST['app/content/lesson7/templates/Row1_Col1.ejs'],
+        template: JST['app/content/lesson7/templates/Anim.ejs'],
 
         events: {},
         

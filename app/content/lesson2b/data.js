@@ -23,8 +23,8 @@
         },
 
         //index 1
-        {             startNode: true,
-            //endNode: true,
+        {  startNode: true,
+            endNode: true,
             horizontalLinks: OER.linkType.strong,
             mapCards: [
                 { title: "NUCLEAR RADIATION",  route: "NuclearRadiation", template:"NuclearRadiation.ejs"},
@@ -38,8 +38,8 @@
             ],
         },
         //index 2
-        {            startNode: true,
-            //endNode: true,
+        {   startNode: true,
+            endNode: true,
             horizontalLinks: OER.linkType.strong,
             mapCards: [
                 { title: "NUCLEAR STRUCTURE",       route: "StructureDecay", template:"structure_decay.ejs"},

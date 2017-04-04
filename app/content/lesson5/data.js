@@ -54,7 +54,7 @@
          {
             mapCards: [ 
                 {route:"300_0", title:"" }, 
-                {route:"AtomicZ", template:"AtomicZ.ejs", title:"dependence upon Z" },  
+                {route:"AtomicZ", template:"AtomicZ.ejs", title:"dependence upon Z",icons:["interaction"]  },  
                 {route:"Atom",    template:"AtomFate.ejs", title:"fate of excited atom"},              
             ],                  
         },   
