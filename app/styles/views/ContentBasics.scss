@@ -26,7 +26,9 @@ h3 {
 }
 
 lcterm{    // highlight and bold a term or definition
-    background:#ffff66; // a yellow
+    //background: #ffff66; // bright yellow
+    //background: #FFC;  // dim yellow   
+    background:lemonchiffon;  // dim yellow     
     font-weight: bold;
 }
 
