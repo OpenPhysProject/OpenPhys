@@ -79,7 +79,11 @@ OER.Views = OER.Views || {};
                 
                 // add end node
                 if (this.contentMap[i].endNode) {
-                    var linkType = this.contentMap[i].at(this.contentMap.length-1).get("linkLeft");
+                    //JCS var linkType = this.contentMap[i].at(this.contentMap.length-1).get("linkLeft");
+                    // for maps with many rows e.g. nucleus, "linkLeft" became not defined, not allowing
+                    // the end node to be set true. I hard coded the link type here and this seems to work.
+                    // in my maps the end node is only used for main paths, so the linkType is always 'strong'.
+                    var linkType = OER.linkType.strong;
                     var endNode = JST['app/scripts/templates/MapEndNode.ejs']({linkLeft: linkType});
                     $newdiv.append(endNode);
                 }
