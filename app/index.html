@@ -177,6 +177,15 @@
         <!--May 2017 WAS: <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         
+        <!-- See Mathjax documentation at: http://docs.mathjax.org/en/latest/start.html -->
+        <!-- MAr 2018 JCS -->
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+            });
+            </script>
+            <script type="text/javascript" async src="path-to-mathjax/MathJax.js?config=TeX-AMS_CHTML"></script>
+        
         <script type="text/javascript" src="https://code.createjs.com/createjs-2015.11.26.combined.js"></script>
         <!-- TODO replace this with min file
         <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
@@ -268,12 +277,18 @@
         
         <!-- Lesson 8 Radiation Beam-->
         <script src="content/lesson8/data.js"></script>    
+  
+        <!-- Lesson 9 NMR -->
+        <script src="content/lesson9/data.js"></script> 
+        
+        <!-- Lesson 10 Inside a Pixel -->
+        <script src="content/lesson10/data.js"></script> 
         
         <!-- Lesson ? Interaction of X-ray Photons with an Absorber -->
         
-        <!-- Lesson 9 X-ray production Processes (Bremsstrahlung and characteristic X-rays) -->
+        <!-- Lesson ? X-ray production Processes (Bremsstrahlung and characteristic X-rays) -->
         
-        <!-- Lesson 10 Electron Trajectories in Electric and Magnetic Fields -->
+        <!-- Lesson ? Electron Trajectories in Electric and Magnetic Fields -->
         
         <!-- Sandbox -->        
        <!-- <script src="content/Sandbox/views/Row0_Col4.js"></script> -->
