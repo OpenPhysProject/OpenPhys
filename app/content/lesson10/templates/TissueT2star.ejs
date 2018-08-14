@@ -1,0 +1,30 @@
+<div class="lesson-content">
+  <div class="lesson-content-title col-xs-12">Tissue: T2*</div>
+
+    <div class="lesson-content-body col-xs-12">
+            <div class="lesson-content-memo">Intrinsic microscopic inhomogeneities</div>
+
+           <!-- LHS -->
+           <div class="col-md-7 col-lg-7">
+T2* is the envelope of the FID after an excitation pulse. It is a time constant that represents the exponential decay of signal (dephasing of transverse magnetization, $M_{xy}$). This is due to many causes, including spin-spin interactions, tissue magnetic susceptibility (e.g. iron in the body), and magnetic field inhomogeneities.
+The relationship between T2* and T2 is:
+$$1/T2^* = 1/T2 + 1/T2_i$$
+where $1/T2_i = \gamma \triangle B_i$ accounts for the magnetic field inhomogeneities across a voxel contributing to the decay. That being said, if there were no magnetic field inhomogeneities and the magnet was completely uniform, T2* would equal T2. T2* can be a problem because signal is lost, however, it can also be useful as a contrast mechanism, e.g. iron content in the body can be detected by T2*. Functional imaging (fMRI) uses T2* contrast due to iron in the blood.
+               <br/><br/>
+<h3>	Reversible vs. Irreversible</h3>
+	Static inhomogeneities causing T2* decay can be recovered/refocused by $180^{\circ}$ RF pulses. These are reversible. However, T2 signal loss cannot be recovered by refocusing pulses due to randomization. So T2 decay is irreversible.
+               <br/><br/>
+               <br/><br/>
+               <br/><br/>
+               <br/><br/>
+            </div>
+
+            <!-- RHS -->
+            <div class="col-md-5 col-lg-5">
+             <img class="img-responsive lesson-content-image" src="/content/lesson10/assets/Nucleus.svg" />
+            </div>
+
+        <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>
+    </div>
+
+</div>

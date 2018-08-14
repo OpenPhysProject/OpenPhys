@@ -6,8 +6,22 @@
 
            <!-- LHS -->
            <div class="col-md-7 col-lg-7">
-	The flip angle (a.k.a. tip angle, nutation angle) refers to the angle between the net magnetization and $B_0$. The stronger the RF pulse applied or/and the longer duration of the pulse, the greater the flip angle. A wider angle means that the net $M$ experiences a larger rotation or is tipped to a larger degree relative to $B_0$ when the RF pulse is applied. The symbol for flip angle is $\alpha$ and its units are degrees or radians. ($\pi$ = $180^{\circ}$)
+	The flip angle (a.k.a. tip angle, nutation angle) of a pulse refers to the angle that the RF pulse tips the magnetization from the z-axis. The stronger the RF pulse applied or/and the longer duration of the pulse, the greater the flip angle.
+	Flip angle affects magnetization in the transverse plane, represented by the equation: $$M_{xy} = M_Zsin(\theta)$$
+	where $\theta$ = flip angle.
+	A wider angle means that the net $M$ experiences a larger rotation or is tipped to a larger degree relative to $B_0$ when the RF pulse is applied. The symbol for flip angle is $\alpha$. Units: degrees/radians. ($\pi$ = $180^{\circ}$)
 	Click on the pages below to learn more about the common flip angles used for imaging!
+               <br/><br/>
+<h3>	Square Pulses</h3>
+We learned previously that protons precess around the magnetic field lines with an angular frequency ($\omega$) proportional to the magnetic field strength, $B$. This is the Larmor equation:
+$$\omega_0 = \gamma B_0 \quad {\rm (1)}$$
+In the rotating frame during a square pulse, with amplitude $B_1$, the equation simply becomes
+$$\omega_1 = \gamma B_1 \quad {\rm (2)}$$
+The difference between equations (1) and (2) is that (1) is for free precession whereas (2) is specific to the square pulse. During the pulse, the spins come down at a certain frequency, $\omega_1$. Given that the flip angle for a square pulse is: $$\phi = \omega t \quad {\rm (3)}$$
+we can combine the two equations (2) \& (3) to make:
+$$\phi = \omega_1 t_p = \gamma B_1 t_p$$
+where $t_p$ is the pulse time and $B_1$ is the amplitude of the pulse.
+               <br/><br/>
                <br/><br/>
                <br/><br/>
                <br/><br/>

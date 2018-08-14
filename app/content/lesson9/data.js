@@ -1,7 +1,7 @@
 (function (scope) {
     var s = {};
   
-     s.title = "NMR";
+     s.title = "NMR (MRI 101)";
      s.preview = "/content/lesson9/assets/NucleusStill.svg";  //svg image 
      s.themeColor = "#4CAF50"; 
      s.route = "NMR"; 
@@ -21,26 +21,6 @@ mapCards: [
       {title:""}, 
       {title:""}, 
       {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-   ], 
- }, 
- // Row 1
-{ 
-    startNode: true,
-    endNode: true,
-    horizontalLinks: OER.linkType.strong,
-
-mapCards: [
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
       {route:"Frequency", template:"Frequency.ejs", title:"frequency"},
       {title:""}, 
       {title:""}, 
@@ -49,7 +29,7 @@ mapCards: [
       {title:""}, 
    ], 
  }, 
- // Row 2
+ // Row 1
 { 
 mapCards: [
       {title:""}, 
@@ -65,7 +45,7 @@ mapCards: [
       {title:""}, 
    ], 
  }, 
- // Row 3
+ // Row 2
 { 
 mapCards: [
       {title:""}, 
@@ -81,8 +61,12 @@ mapCards: [
       {title:""}, 
    ], 
  }, 
- // Row 4
+ // Row 3
 { 
+    startNode: true,
+    endNode: true,
+    horizontalLinks: OER.linkType.strong,
+
 mapCards: [
       {route:"IntroNMR", template:"IntroNMR.ejs", title:"introduction to nmr"},
       {route:"EnergyLevels", template:"EnergyLevels.ejs", title:"energy levels"},
@@ -92,12 +76,12 @@ mapCards: [
       {route:"Larmor", template:"Larmor.ejs", title:"precession (Larmor)"},
       {route:"B1RFField", template:"B1RFField.ejs", title:"radio-frequency magnetic field (B1)"},
       {route:"RFPulses", template:"RFPulses.ejs", title:"rf pulses"},
-      {route:"RF90Pulse", template:"RF90Pulse.ejs", title:"90 degree rf pulse"},
+      {route:"RF90Pulse", template:"RF90Pulse.ejs", title:"90 deg rf pulse"},
       {route:"FID", template:"NMR_FID.ejs", title:"nmr experiment and fid"},
-      {route:"TRT1", template:"TR_T1.ejs", title:"TR and T1"},
+      {route:"TRT1", template:"TR-T1.ejs", title:"TR and T1"},
    ], 
  }, 
- // Row 5
+ // Row 4
 { 
 mapCards: [
       {route:"History", template:"HistoryNMR.ejs", title:"history of nmr"},
@@ -109,38 +93,6 @@ mapCards: [
       {title:""}, 
       {route:"RFCoils", template:"RFcoils.ejs", title:"rf coils"},
       {route:"SingleSpin", template:"PrecessionSingleSpin.ejs", title:"precession for a single spin"},
-      {title:""}, 
-      {title:""}, 
-   ], 
- }, 
- // Row 6
-{ 
-mapCards: [
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-   ], 
- }, 
- // Row 7
-{ 
-mapCards: [
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
       {title:""}, 
       {title:""}, 
    ], 

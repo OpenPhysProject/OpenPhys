@@ -1,0 +1,36 @@
+<div class="lesson-content">
+  <div class="lesson-content-title col-xs-12">    TR and T1</div>
+
+    <div class="lesson-content-body col-xs-12">
+            <div class="lesson-content-memo">	Increasing TR allows more time for $M_z$ to recover $\rightarrow$ increasing the signal level</div>
+
+           <!-- LHS -->
+           <div class="col-md-7 col-lg-7">
+<h3>	TR</h3>
+TR, or repetition time, is a basic pulse sequence parameter in MRI. It represents the time between the RF $B_1$ excitation pulses (add figure) and is measured in milliseconds (ms). Knowing the TR and setting the value appropriately is important for obtaining quality MR images.
+After the excitation pulse is applied, longitudinal magnetization $M_z$ starts to recover instantly.
+               <br/><br/>
+<h3>	T1</h3>
+T1 is the time it takes for $63\%$ $M_z$ to recover back to equilibrium after a $90^{\circ}$ pulse. This process is known as T1 relaxation or Spin-Lattice relaxation.
+$M_z$ and T1 are related by the following formula:
+$$M_z(t) = M_0(1-e^{-t/T1})$$  where $M_z(t)$ is the longitudinal magnetization at time $t$ and $M_0$ is the initial magnetization.
+As you can see, the recovery of $M_z$ occurs exponentially.
+For example, if $t$ = 0, then $M_z$ = 0. If $t$ = T1, then $M_z$ = 0.63$M_0$.
+Add figure.
+               <br/><br/>
+<h3>	Importance of TR in acquiring MR images</h3>
+If TR is set too short, the longitudinal magnetization won't have enough time to recover to equilibrium before it is converted to transverse magnetization again. As a result, the signal to noise ratio (SNR) will be low (which is what you don't want as this will produce lower quality images). Thus to improve the SNR and achieve a higher signal output, TR has to be set appropriately to allow enough time for $M_z$ to recover.
+               <br/><br/>
+               <br/><br/>
+               <br/><br/>
+            </div>
+
+            <!-- RHS -->
+            <div class="col-md-5 col-lg-5">
+             <img class="img-responsive lesson-content-image" src="/content/lesson9/assets/Nucleus.svg" />
+            </div>
+
+        <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>
+    </div>
+
+</div>

@@ -1,0 +1,38 @@
+<div class="lesson-content">
+  <div class="lesson-content-title col-xs-12">   Imaging Gradients</div>
+
+    <div class="lesson-content-body col-xs-12">
+            <div class="lesson-content-memo">   Spatially encoding the MR signal</div>
+
+           <!-- LHS -->
+           <div class="col-md-7 col-lg-7">
+Gradient coils add or subtract to the main magnetic field, $B_0$, in a predictable fashion and are used in spatial encoding of MR signal. You can tell where in a certain slice a signal comes from by using a magnetic gradient field. The coils are embedded in the MRI machine and a secondary magnetic field is generated from current being passed through these coils, which will affect the main magnetic field. There are 3 types of gradient coils used: x-, y-, z-, one for each direction. Therefore, each coil can produce a field gradient where the $B_z$ changes linearly along these 3 directions.
+               <br/><br/>
+<h3>	Field Gradient</h3>
+	This secondary magnetic field, also known as a field gradient $G$, varies depending on $x$. So a change in $B$ is due to $xG_x$:
+	$$B_{\rm (TOTAL)} = B_0 + xG_x$$
+	where units $B_{\rm (TOTAL)}$ and $B_0$ = T and $G$ = mT/m.
+               <br/><br/>
+<h3>	mT/m</h3>
+	As stated above, the units for gradient is mT/m (millitelsa/meter) whereas the other variables are to the unit of one. Therefore, remember to apply the proper conversion and make all of the units the same when doing calculations.
+	Note: 1T = 1000mT and 0.001T = 1mT
+	For ex:$$B_{\rm (TOTAL)} = B_0 + xG_x$$
+	$$T = T + m \times \frac{mT}{m}\left(\frac{1}{1000}\right)$$
+               <br/><br/>
+<h3>	Frequencies</h3>
+	We can make the applied $B_0$ field vary linearly in a defined direction, in order to make the resonant frequency vary within the patient. So the original Larmor equation becomes:
+	$$\omega = \gamma(B_0 +xG_x)$$
+	The protons in the region of interest will experience different magnetic fields, and thus rotate with various frequencies as a function of position along the gradient direction (e.g. 63, 64 and 65 MHz). This change in frequency can be used for spatial encoding. If the origin is 0, then $x$ = 0. If $G_x>0$, a larger $x$ will equate to a higher precession frequency.
+               <br/><br/>
+               <br/><br/>
+            </div>
+
+            <!-- RHS -->
+            <div class="col-md-5 col-lg-5">
+             <img class="img-responsive lesson-content-image" src="	/content/lesson10/assets/ImagingGradient.png" />
+            </div>
+
+        <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>
+    </div>
+
+</div>
