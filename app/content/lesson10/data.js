@@ -2,7 +2,7 @@
     var s = {};
   
      s.title = "Inside an MRI Pixel";
-     s.preview = "/content/lesson10/assets/NucleusStill.svg";  //svg image 
+     s.preview = "/content/lesson10/assets/SpinIcon.png";  //svg image 
      s.themeColor = "#4CAF50"; 
      s.route = "Pixel"; 
      s.info = ""; 

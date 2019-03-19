@@ -119,6 +119,9 @@
        m  =  new scope.Models.LessonModel(OER.data.lesson10, {parse: true, viewPath: "lesson10"});
        this.lessons.add(m);
        
+       m  =  new scope.Models.LessonModel(OER.data.lesson11, {parse: true, viewPath: "lesson11"});
+       this.lessons.add(m);
+       
      //  m  =  new scope.Models.LessonModel(OER.data.Sandbox, {parse: true, viewPath: "Sandbox"});
      //  this.lessons.add(m);      
     };

@@ -2,7 +2,7 @@
     var s = {};
   
      s.title = "NMR (MRI 101)";
-     s.preview = "/content/lesson9/assets/NucleusStill.svg";  //svg image 
+     s.preview = "/content/lesson9/assets/SpinIcon.png";  //svg image 
      s.themeColor = "#4CAF50"; 
      s.route = "NMR"; 
      s.info = ""; 
@@ -48,7 +48,7 @@ mapCards: [
  // Row 2
 { 
 mapCards: [
-      {title:""}, 
+      {route:"NMRObjectives", template:"NMRObjectives.ejs", title:"nmr objectives"},
       {title:""}, 
       {route:"Magnetism", template:"Magnetism_BField.ejs", title:"magnetism and magnetic field"},
       {title:""}, 
