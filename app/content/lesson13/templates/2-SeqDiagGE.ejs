@@ -1,0 +1,76 @@
+<div class="lesson-content">
+  <div class="lesson-content-title col-xs-12">  Sequence Diagram for GE</div>
+
+    <div class="lesson-content-body col-xs-12">
+            <div class="lesson-content-memo">	Slice-Selective Excitation ... Phase Encoding  ... Readout</div>
+
+           <!-- LHS -->
+           <div class="col-md-4 col-lg-4">
+<style>
+	.slidecontainer{ width: 100%; }
+	.slider{ float: left;  margin:10px; }
+	.slider:hover { opacity: 1; }
+/*
+	.slider {
+	-webkit-appearance: none;
+	width: 30%;
+	height: 25px;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+	margin: 10px;
+	}
+	.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 25px;
+	height: 25px;
+	background: #4CAF50;
+	cursor: pointer;
+	}
+	.slider::-moz-range-thumb {
+		width: 25px;
+		height: 25px;
+		background: #4CAF50;
+		cursor: pointer;
+	}
+*/
+</style>
+<table style="width:100%">
+<tr>  <th>Parameter</th>  <th> </th>  <th>Value</th>  </tr>
+	<tr>
+	<td>Excite Flip</td>
+	<td> <input type="range" min="15" max="90" step="5", value="70" class="slider" id="Param1GE"  style="width: 90%;"> </td>
+	<td> <span id="outParam1GE" >Param3 </span> </td>
+	</tr>
+	<tr>
+		<td>Pulse Len</td>
+		<td> <input type="range" min="30" max="60" step="5", value="60" class="slider" id="Param3GE" style="width: 90%;"> </td>
+		<td>  <span id="outParam3GE" >  </span> </td >
+	 </tr>
+	<tr>
+		<td>TE</td>
+		<td>  <input type="range" min="150" max="380" step="10", value="250" class="slider" id="Param2GE" style="width: 90%;"> </td>
+		<td> <span id="outParam2GE" style="float: left;">  </span> </td>
+	</tr>
+</table>
+<br/><br/>
+            </div>
+
+            <!-- RHS -->
+        	<div class="col-md-8 col-lg-8">
+	<div class="col-md-12"  >
+		<canvas id="SeqDiagGEcanvas"  style="border:1px solid #000000;" ></canvas>
+	</div>
+	<script>
+			myMainGE();
+	</script>
+<br/><br/>
+            </div>
+
+        <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>
+    </div>
+
+</div>

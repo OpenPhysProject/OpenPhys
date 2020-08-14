@@ -1,0 +1,127 @@
+<div class="lesson-content">
+  <div class="lesson-content-title col-xs-12">  Spin Precession in the Transverse Plane</div>
+
+    <div class="lesson-content-body col-xs-12">
+            <div class="lesson-content-memo">	(no Mz in this simulation)</div>
+
+           <!-- LHS -->
+           <div class="col-md-4 col-lg-4">
+	<div style="height: 300px; overflow: scroll; background-color: lightblue;">
+<style>
+	.slidecontainer{ width: 100%; }
+	.slider{ float: left;  margin:10px; }
+	.slider:hover { opacity: 1; }
+</style>
+<table style="width:100%">
+<tr>  <th> Set frequency offset: </th>  </tr>
+<tr>
+<td> <input type="range" min="-10" max="10" step="1", value="0" class="slider" id="MSB_6" style="width: 90%;"> </td>
+<td>  <span id="MSB_out6" >  </span> </td >
+</tr>
+<tr>  <th> Set gradients: </th>   </tr>
+<!-- Gx and Gy swapped here. Left-Right should be X, not Y, as I originally coded it. -->
+<tr>
+<td> <input type="range" min="-6" max="6" step="0.5", value="0" class="slider" id="MSB_3" style="width: 90%;"> </td>
+<td>  <span id="MSB_out3" >  </span> </td >
+</tr>
+<tr>
+<td> <input type="range" min="-6" max="6" step="0.5", value="0" class="slider" id="MSB_2" style="width: 90%;"> </td>
+<td>  <span id="MSB_out2" >  </span> </td >
+</tr>
+<tr>  <th>Use reset:</th>    </tr>
+<tr>
+<td> <input type="range" min="5" max="80" step="1", value="15" class="slider" id="MSB_5" style="width: 90%;"> </td>
+<td>  <span id="MSB_out5" > 5 </span> </td >
+</tr>
+<tr>
+<td> <input type="range" min="5" max="100" step="5", value="30" class="slider" id="MSB_4" style="width: 90%;"> </td>
+<td>  <span id="MSB_out4" > </span> </td>
+</tr>
+<tr>
+<td> <input type="range" min="0" max="100" step="5", value="100" class="slider" id="Param1MultiSpin" style="width: 90%;"> </td>
+<td>  <span id="outParam1MultiSpin" >  </span> </td >
+</tr>
+</table>
+</div>
+<br>
+<table style="width:100%">
+	<tr>
+	<td>  <span > 	<button onclick="resetGradandFreq();">                                      Freq, Grad=0 </button> </span> </td >
+	<td>  <span > 	<button onclick="initMultiSpinB();">                                           Phase=0       </button> </span> </td >
+	<td>  <span > 	<button onclick="initANY(nxb); resetGradandFreq(); initMultiSpinB();"> Reset All  </button> </span> </td >
+	</tr>
+</table>
+<br>
+<span id="displayM" >  </span>
+<br/><br/>
+            </div>
+
+            <!-- RHS -->
+        	<div class="col-md-8 col-lg-8">
+	<div>
+		<canvas id="MultiSpinBCanvas"  style="border:1px solid #000000;" ></canvas>
+	</div>
+	<script>
+	"use strict"
+	var nxb     = 30; //45;
+	var Seq = {};	// not used yet.
+	var GxB = 0; 	// also slider
+	var GyB = 0;		// also slider
+	var offFreq; // slider6
+	var sat;     	// also slider
+	// Fixed Parameters (probably)
+	var deltaT = 0.01; //-0.05 //-0.5 // time step: small value is slower
+	var ObjWidth    = 0.02; //ObjLen/10;  //usually much less than ObjLen to give a line
+	var PhantomSize = 7.0, CameraZ = 5.0; // these 2 together make phantom fill screen.
+	var ny; //     = nx;
+	var nOBJ; //   = nx * ny;  // the objects are the spins
+	var phantom_spins = 0; // actual number of spins used in phantom (i.e. for which light=50)
+	// Other Declarations
+	var Obj=[], angles=[], freq=[], vecUP=[], vecSIDE=[], material=[], xLocation=[], yLocation=[];
+	var light=[];
+	var updateCountMXY = 0;   // to slow down display of MXY updates
+	var WidthMS = window.innerWidth/2;
+	var HeightMS = WidthMS; // window.innerHeight/2;
+	var scene    = new THREE.Scene();
+	var camera   = new THREE.PerspectiveCamera( 70, WidthMS/HeightMS, 0.1, 1000 );
+	var renderer = new THREE.WebGLRenderer( { canvas: MultiSpinBCanvas }  );
+	// INIT RENDERER
+	//renderer.setSize( window.innerWidth/2, HeightMS );
+	renderer.setSize( WidthMS, HeightMS );  // so square. I hope it fits
+	// these variables are referenced by name in file:  lesson11/scriptsMRI/MultiSpin2B.js
+	var slider1MultiSpin = document.getElementById("Param1MultiSpin");
+	var MSB_slider2       = document.getElementById("MSB_2");
+	var MSB_slider3       = document.getElementById("MSB_3");
+	var MSB_slider4       = document.getElementById("MSB_4");
+	var MSB_slider5       = document.getElementById("MSB_5");
+	var MSB_slider6       = document.getElementById("MSB_6"); // frequency offset
+	MultiSpinBTop();
+	</script>
+<br/><br/>
+<h3>	Exercise 1: Spin Phases</h3>
+ 
+ <br/> $\quad\rightarrow$ 1) Set: Spin Size to MAX
+ <br/> $\quad\rightarrow$ 2) Set: Spin Number to MIN
+ <br/> $\quad\rightarrow$ 3) Click RESTART button
+ <br/> $\quad\rightarrow$ 4) Set: Gx slider to 1 mT/m
+ <br/> $\quad\rightarrow$ 5) Watch a single spin as it rotates. How is the colour related to spin orientation?
+ <br/> $\quad\rightarrow$ NOTE: In NMR, when spins have the same orientation their signals add coherently. This called being 'in phase'.
+ 
+<br/><br/>
+<h3>	Exercise 2: Gradient Echoes</h3>
+ 
+ <br/> $\quad\rightarrow$ 1) Set: Spin Size to Small
+ <br/> $\quad\rightarrow$ 2) Set: Spin Number to Large
+ <br/> $\quad\rightarrow$ 3) Click RESTART button
+ <br/> $\quad\rightarrow$ 4) Set Gx=4 mT/m, and wait for a couple of seconds.
+ <br/> $\quad\rightarrow$ 5) Can you now bring all spins back into phase by using a negative Gx gradient?
+ <br/> $\quad\rightarrow$ 6) Try this again with different negative values of Gx. What happens?
+ <br/> $\quad\rightarrow$ NOTE: Bringing spins back into phase by reversing a gradient is called a `gradient echo' ?
+ 
+<br/><br/>
+            </div>
+
+        <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>
+    </div>
+
+</div>

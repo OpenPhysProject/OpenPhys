@@ -1,0 +1,100 @@
+<div class="lesson-content">
+  <div class="lesson-content-title col-xs-12">  Inversion Recovery</div>
+
+    <div class="lesson-content-body col-xs-12">
+            <div class="lesson-content-memo">	Inversion Recovery</div>
+
+           <!-- LHS -->
+           <div class="col-md-4 col-lg-4">
+<style>
+	.slidecontainer{ width: 100%; }
+	.slider{ float: left;  margin:10px; }
+	.slider:hover { opacity: 1; }
+/*
+	.slider {
+	-webkit-appearance: none;
+	width: 30%;
+	height: 25px;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+	margin: 10px;
+	}
+	.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 25px;
+	height: 25px;
+	background: #4CAF50;
+	cursor: pointer;
+	}
+	.slider::-moz-range-thumb {
+		width: 25px;
+		height: 25px;
+		background: #4CAF50;
+		cursor: pointer;
+	}
+*/
+</style>
+<table style="width:100%">
+<tr>  <th>Relaxation</th>  <th> </th>  <th>T1</th>  </tr>
+	<tr>
+	<td>T1 (first)</td>
+	<td> <input type="range" min="50" max="1000" step="5", value="300" class="slider" id="Param0" style="width: 90%;"> </td>
+	<td>  <span id="outParam0" >  </span> </td >
+	</tr>
+	<tr>
+	<td>T1 (second)</td>
+	<td>  <input type="range" min="50" max="1000" step="10", value="500" class="slider" id="Param1" style="width: 90%;"> </td>
+	<td> <span id="outParam1">  </span> </td>
+	</tr>
+</table>
+<br/><br/>
+<table style="width:100%">
+<tr>  <th>Mz </th>  <th> </th>  <th>TI</th>  </tr>
+<tr>
+	<td>Time since 180 (TI)</td>
+	<td> <input type="range" min="0" max="500" step="5", value="50" class="slider" id="Param2" style="width: 90%;"> </td>
+	<td>  <span id="outParam2" >  </span> </td >
+</tr>
+<tr>
+	<td>Mz (1st)</td>
+	<td>  <span id="outMz1" >  </span> </td >
+	<td>   </td>
+</tr>
+<tr>
+	<td>Mz (2nd)</td>
+	<td>  <span id="outMz2" >  </span> </td >
+	<td>   </td>
+</tr>
+<tr>
+<td> (Mz1 - Mz2) </td>
+<td>  <span id="outMz3" >  </span> </td >
+<td>   </td>
+</tr>
+</table>
+	 <br/>
+	 <div class="lesson-content-note">
+	(Mz1 - Mz2) is contrast. <br/>
+	The spike is just a marker for Mz readings.
+	</div>
+<br/><br/>
+            </div>
+
+            <!-- RHS -->
+        	<div class="col-md-8 col-lg-8">
+	<div class="col-md-12"  >
+		<canvas id="id_SR_canvas"  style="border:1px solid #000000;" ></canvas>
+	</div>
+	<script>
+			InvRecoverMain();  //  in lesson11/scriptsMRI/SatRecover.js
+	</script>
+<br/><br/>
+            </div>
+
+        <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>
+    </div>
+
+</div>

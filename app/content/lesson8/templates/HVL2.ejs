@@ -1,0 +1,33 @@
+<div class="lesson-content container">
+    <div class="lesson-content-title">Half Value Layer (HVL) Graph </div>
+
+    <div class="lesson-content-body">
+        <div class="lesson-content-memo">Absorption of half the beam</div>
+            <div> 
+                HVL (Half-Value Layer) describes the beam directly in terms of penetration ability. 
+            </div>  
+ 
+        <div class="col-sm-10 col-md-10 col-lg-10">        
+                <canvas id="myChartC"  style="border:1px solid #000000;" ></canvas>  
+            </div>
+    
+        <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>     
+    </div>
+    
+   <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0">  </script> -->
+    <script>   
+    var labels1 = ['0 HVL', '1 HVL', '2 HVL', '3 HVL', '4 HVL', '5 HVL', '6 HVL']
+    var dataset1 = [{
+            label: 'Beam Intensity',
+            fill: false,
+            radius:5,
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [1.0, 1/2, 1/4, 1/8, 1/16, 1/32, 1/64] }]
+
+    var ctxA     =  document.getElementById('myChartC').getContext('2d');
+    var content1 =  { type: 'line',  data: {labels: labels1, datasets: dataset1}, options: {} }
+    var chartA = new Chart(ctxA, content1);
+    </script>
+    
+    </div>

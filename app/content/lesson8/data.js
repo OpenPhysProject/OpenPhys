@@ -41,9 +41,9 @@
     // index 2 
     {
         mapCards: [
-            {route:"",                              title:""},
-            {route:"",                              title:""},
-            {route:"",                              title:""},
+            {route:""},
+            {route:""},
+            {route:""},
             { group:"absorption",   route:"PP",       template:"PP.ejs",       title:"pair production"},
             { group:"scattering",   route:"Compton",  template:"Compton.ejs",  title:"compton scattering"},
             { group:"measurements", route:"HVL",      template:"HVL.ejs",      title:"half value layer"},
@@ -53,25 +53,25 @@
     // index 3 
     {
         mapCards: [
-            {route:"",                              title:""},
-            {route:"",                              title:""},
-            {route:"",                              title:""},
-            { group:"absorption", route:"PD",           template:"Photodisintegration.ejs",      title:"photo- disintegration"},
-            { group:"scattering", route:"Quiz 1",           template:"Quiz_Scatter.ejs",      title:"quiz: scattering",   icons:["quiz"]},
-            { group:"measurements", route:"",                              title:""},
-            { group:"mu", route:"Mu 2",           template:"Mu2.ejs",      title:"worked examples: attenuation constant",   icons:["quiz"]},    
+            {route:""},
+            {route:""},
+            {route:""},
+            { group:"absorption", route:"PD",     template:"Photodisintegration.ejs",  title:"photo- disintegration"},
+            { group:"scattering", route:"Quiz 1", template:"Quiz_Scatter.ejs",      title:"quiz: scattering",   icons:["quiz"]},
+            { group:"measurements", route:"HVL2", template:"HVL2.ejs",      title:"hvl graph", icons:["interaction"]},
+            { group:"mu",           route:"HVL3", template:"HVL3.ejs",      title:"mu graphics",  icons:["interaction"]},            
         ], 
     },
     //index 4
         {
         mapCards: [
-            {route:"",                              title:""},
-            {route:"",                              title:""},
-            {route:"",                              title:""},
-            { group:"absorption", route:"Quiz 2",           template:"Quiz_Abs.ejs",      title:"quiz: absorption",   icons:["quiz"]},
-            {route:"",                              title:""},
-            {route:"",                              title:""},
-            {route:"",                              title:""},
+            {route:""},
+            {route:""},
+            {route:""},
+            { group:"absorption", route:"Quiz 2",  template:"Quiz_Abs.ejs", title:"quiz: absorption",   icons:["quiz"]},
+            {route:""},
+            {route:""},  
+            { group:"mu", route:"MuQuiz",          template:"Mu2.ejs",  title:"worked examples: attenuation constant",   icons:["quiz"]},
         ], 
     },
     ];

@@ -1,10 +1,10 @@
 (function (scope) {
     var s = {};
   
-     s.title = "MRI Course";
+     s.title = "Contrast";
      s.preview = "/content/lesson11/assets/SpinIcon.png";  //svg image 
      s.themeColor = "#4CAF50"; 
-     s.route = "ImaSeq"; 
+     s.route = "Contrast"; 
      s.info = ""; 
      s.jumpNav = false;  // false 
      s.primaryPathIndex = 1; 
@@ -15,39 +15,31 @@
 
  // Row 0
 { 
-    startNode: true,
-    endNode: true,
-    horizontalLinks: OER.linkType.strong,
-
 mapCards: [
-      {route:"GradientMod", template:"GradientModule.ejs", title:"gradient module"},
-      {route:"Motifs", template:"Motifs.ejs", title:"sequence motifs"},
-      {route:"Patterns", template:"SeqPatterns.ejs", title:"sequence patterns"},
-      {route:"Clinical", template:"Clinical.ejs", title:"clinical sequences (major module)"},
-      {route:"Contrast", template:"Contrast.ejs", title:"contrast"},
-      {route:"Artifacts", template:"Artifacts.ejs", title:"artifacts"},
-      {route:"KSpace", template:"KSpaceTech.ejs", title:"k space methods"},
-      {route:"Trade", template:"Trade.ejs", title:"trade-offs"},
-      {route:"Detect", template:"Detect.ejs", title:"detection"},
-      {route:"ShimMod", template:"ShimModule.ejs", title:"shim module"},
+      {route:"Domains", template:"1-Four-Domains.ejs", title:"four domains of MRI"},
+      {title:""}, 
+      {title:""}, 
+      {title:""}, 
+      {title:""}, 
+      {title:""}, 
       {title:""}, 
       {title:""}, 
    ], 
  }, 
  // Row 1
 { 
+    startNode: true,
+    endNode: true,
+    horizontalLinks: OER.linkType.strong,
+
 mapCards: [
-      {route:"GradientIntro", template:"GradientIntro.ejs", title:"gradient intro"},
+      {route:"ContrastModule", template:"2-Contrast-Intro.ejs", title:"CONTRAST and SEQUENCES"},
+      {route:"Contrast", template:"2-Contrast.ejs", title:"contrast"},
+      {route:"Sequences", template:"2-Pulse-Sequences.ejs", title:"pulse sequences"},
       {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
-      {title:""}, 
+      {route:"SeqDiagSE", template:"2-SeqDiagSE.ejs", title:"* INTERACTIVE * pulse sequence diagram SE"},
+      {route:"spinsmotion", template:"2-MovingSpins.ejs", title:"spins in motion"},
+      {route:"Artifacts", template:"2-Artifacts.ejs", title:"artifacts"},
       {title:""}, 
    ], 
  }, 
@@ -55,9 +47,44 @@ mapCards: [
 { 
 mapCards: [
       {title:""}, 
+      {route:"contrasts", template:"3-Contrast.ejs", title:"contrasts"},
+      {route:"optimum", template:"Parameters.ejs", title:"pulse sequence parameters"},
       {title:""}, 
       {title:""}, 
       {title:""}, 
+      {title:""}, 
+      {title:""}, 
+   ], 
+ }, 
+ // Row 3
+{ 
+mapCards: [
+      {title:""}, 
+      {title:""}, 
+      {route:"catalogue", template:"4-Catalog.ejs", title:"sequence catalogue"},
+      {title:""}, 
+      {title:""}, 
+      {title:""}, 
+      {title:""}, 
+      {title:""}, 
+   ], 
+ }, 
+ // Row 4
+{ 
+mapCards: [
+      {title:""}, 
+      {title:""}, 
+      {route:"Patterns", template:"5-SeqPatterns.ejs", title:"sequence patterns"},
+      {title:""}, 
+      {title:""}, 
+      {title:""}, 
+      {title:""}, 
+      {title:""}, 
+   ], 
+ }, 
+ // Row 5
+{ 
+mapCards: [
       {title:""}, 
       {title:""}, 
       {title:""}, 

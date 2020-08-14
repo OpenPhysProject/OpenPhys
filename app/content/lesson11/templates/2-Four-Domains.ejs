@@ -1,0 +1,93 @@
+<div class="lesson-content">
+  <div class="lesson-content-title col-xs-12"> Fourier Domains of MRI</div>
+
+    <div class="lesson-content-body col-xs-12">
+            <div class="lesson-content-memo">Is your head beginning to spin?</div>
+
+           <!-- LHS -->
+           <div class="col-md-9 col-lg-9">
+<h3>	MRI Topics</h3>
+	There are four views into MRI, listed below.
+	Mastery of these four, and especially how they are related, is the key to a mastery of MRI.
+<br/><br/>
+<h3>	 4 Domains: Space / Time / Data / Image</h3>
+.
+<br/><br/>
+<h3>	Domain 1: Space</h3>
+	The spatial domain is where the spins exist, distributed throughout 3D space within the sample / object / patient.
+	The purpose of MRI is to map out this spatial distribution of spins, to form an image.
+	To understand the image formation process,
+	it is often necessary to mentally visualize what is happening to the magnetic fields and the spins in different locations within the patient.
+	All issues of geometric accuracy, so important for RT, are matters of the spatial domain.
+	In an EBRT photon treatment or in CT the photon X-ray beam travels from a point source in straight lines to the target or image detector. The geometric accuracy in both cases is therefore very simply dependent upon only the mechanical accuracy of the machine construction and the accuracy of the gantry and couch motions.
+	In MR there is no point source, no beam, no diverging geometry and no equivalent to beam attenuation or PDD.
+	However in MRI the situation is more complicated. There are no photons travelling in straight lines.
+	There are only various magnetic fields, which naturally travel in loops. (Think of iron fillings and a bar magnet.)
+It is a matter of considerable engineering to force the magnetic field lines go in straight lines (and also the gradient of the fields).
+How this is achieved and the limitations are issues in the spatial domain.
+For instance the magnetic field lines can be forced to be parallel only over a certain imaging volume. At the edges of the volume
+the lines will inevitably start to curve, resulting (never mind the details now) in image geometric distortions.
+If the patient is too large or positioned off center, then the MRI images will be distorted.
+Another issue is that MRIs do not have a mechanically defined isocenter in quite the same rigorous way as Linacs do.
+Again, depending on the magnetic fields and the spins, the center of the image can shift or be blurred.
+The spatial domain issues are are therefore more complex in MR that in CT.
+<br/><br/>
+<h3>	Domain 2: Time</h3>
+	When we choose to perform MRI, we execute a series of steps, sequentially in time. This is called a pulse sequence.
+	The spins respond in various ways, including T1 and T2 relaxation processes (which are exponential over time).
+	There is a great variety of pulse sequences for different purposes.
+	To operate an MRI, a familiarity with many of these variants is necessary.
+	The choice and configuration of pulse sequence is how different types of image are acquired.
+	These choices and settings are made directly by the MR operator.
+	For CT there is no real equivalent to the pulse sequence. In CT photons are either transmitted, absorbed or scattered.
+	There is no concept of ``preparing'' the imaged object, then later probing the prepared state.
+	Each CT photon is independent, and there is no concept of manipulating the sample over time in CT imaging, by the action of the imaging system.
+	%The only thing that does accumulate over time is dose, but that is not measured in imaging.
+	In MRI the spins retain a memory of previously applied magnetic fields (the spin phase), but there is nothing like this in CT.
+	In CT the only control is the geometry of the beams and the number and energies of the photons used.
+	in MRI therefore, many different manipulations can be performed prior to reading out the NMR signal to generate different data,
+	including selecting different image contrasts.
+	This is powerful, but more complex than the CT case.
+	Topics: pulse sequence diagrams.
+<br/><br/>
+<h3>	Domain 3: The Data Domain</h3>
+	As the spins respond to the pulse sequence, NMR RF signals are collected and stored in the computer as a data table, like a spreadsheet.
+	This is called k-space or the Fourier domain. Different MR techniques fill up the k-space spreadsheet in different ways, but all methods must fill it up somehow, because a full table is needed to form each image.
+	During  certain periods during the pulse sequence, data is collected and added to the raw data table. The whole purpose of the pulse sequence is to prepare for and create these readout periods during which data is collected.
+	It is important to appreciate the data domain, because the quality of the final image depends fully upon the quality and quantity of the data in the k-space spreadsheet. Some examples:
+ 
+ <br/> $\quad\rightarrow$ 	If there is not enough data, the final image will be of low spatial resolution.
+ <br/> $\quad\rightarrow$ 	If the data is of low quality, the image may be noisy (low signal/noise ratio - SNR).
+ <br/> $\quad\rightarrow$  	Corrupted or missing data in the k-space data can cause image artifacts. (Complicated looking image artifacts often have very simple explanations in k-space.)
+ <br/> $\quad\rightarrow$ 	It can take many seconds or minutes to fill the data table, so sometimes patient motion or flow can cause problems. The order in which the data is collected can be important.
+ <br/> $\quad\rightarrow$ 	The gradients are the main tools used to fill the k-space data array.
+ 
+The data collected is analogous to the multiple projections needed to make a CT image.
+The difference between X-ray and CT is that CT requires views from many angles to build up enough data.
+This is basically the same concept as in MRI. It takes time to acquire the multiple view data (called phase encoding).
+For most common MR techniques it is necessary to wait between each view (TR period), so MR acquisitions can be slow (minutes).
+There is no real equivalent of the single view X-ray (e.g. chest X-ray) in MRI, but there are some rapid techniques that can acquire an image in under a second (EPI). However, these fast MR techniques are usually more technically difficult to perform (not simpler like a chest X-ray).
+A lot of MR R \& D is into techniques to speed up the imaging, while retaining image quality.
+<br/><br/>
+<h3>	Domain 4: The Image Domain</h3>
+	The images themselves!
+	Images are formed from the raw data k-space spreadsheet using the Fourier transform (FFT).
+	Although it is necessary, it is not sufficient to have high quality k-space data.
+	For reliable visualization of patient anatomy, the image data must be properly processed and displayed.
+	The appearance of normal anatomy and pathology in an MR image depends upon pulse sequence selected and the timing parameters selected (TE and TR in particular.).
+	Unlike CT:
+ <br/> $\quad\rightarrow$MR images can be collected in any slice plane ...
+ <br/> $\quad\rightarrow$In MR, slice thickness, pixel size, etc. are all fully electronically controllable. There will be maximum and minimum limits for all parameters, but there are no mechanical restrictions.
+ <br/> $\quad\rightarrow$In MR, there is no detector device (like a flat panel in CBCT) with
+<br/><br/>
+            </div>
+
+            <!-- RHS -->
+            <div class="col-md-3 col-lg-3">
+             <img class="img-responsive lesson-content-image" src="/content/lesson11/assets/SpinIcon.png" />
+            </div>
+
+        <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>
+    </div>
+
+</div>

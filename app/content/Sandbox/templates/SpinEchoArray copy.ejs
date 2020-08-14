@@ -1,0 +1,290 @@
+<div class="lesson-content">
+    <div class="lesson-content-title"><%- title %></div>
+    
+     <div class="lesson-content-body">
+        <div class="lesson-content-memo">NMR spin echo simulation</div>  
+        <div class="col-sm-10 col-md-10 col-lg-10" 
+         id="Caption" style="text-align: center; font-size: 20pt; padding:1pt; margin:0pt; background-color: lightblue;"> 
+        NMR Simulation   </div>
+ 
+        <div class="col-sm-10 col-md-10 col-lg-10">        
+            <canvas id="my3DCanvas2" width="1000" height="500" style="width:100%; height:100%; border:1px solid #000000;" ></canvas>  
+        </div>
+    
+        <!-- <button type="button" onclick="restartState()"> restart</button> -->
+        <button type="button" onclick="           seqState=99;"> Restart   </button>
+        <button type="button" onclick="{tend=t; seqState = 1;}"> Excite 90 </button>
+        <button type="button" onclick="{tend=t; seqState = 3;}"> Refocus 180</button>
+        
+        <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>     
+    </div>
+   
+<script>
+   // Uses https://threejs.org/ 3D graphics library
+   // GLOBAL VARIABLES
+    var camera, scene, renderer, geometry, material, mesh;
+    var seqState=0;
+    var frameNum;
+    var canvasWidth = 1000 ;
+    var canvasHeight=  500 ;        
+    var nSpins = 11;
+    var nPlots= 1;
+    var ArrowLength = 400; //200; //500;
+    var frequency   = 0.05; // controls spread of arrows
+    var xshifts=[0,0];
+    //var xshift = 0;
+    var k, tend, t = 0;
+    var M = []; // Magnetization vectors
+    var arrowM = [];
+    //flip_deg_max = 90;
+    //speed = -0.003 * Math.PI / 2;
+    var MX,MY,MZ ;
+    
+    // bloch simulation code (bloch.js):
+    var M1 = [0,0,1];
+    var M2 = [];
+    var Vec = 1;
+    var B_1x   = [Math.PI/180, 0, 0];
+    var B_90x  = [Math.PI/2,   0, 0];
+    var B_180x = [Math.PI,     0, 0];
+    
+    var B_90y  = [0, Math.PI/2, 0];
+    var B_180y = [0, Math.PI,   0];
+ 
+    M2 = rot_frame(M1, B_180y, Vec); // from bloch.js
+    console.log(M1,M2);
+        
+    // ---- STARTS HERE ----    
+    init();
+    animate();
+
+    // ---- FUNCTIONS ----
+    function init() {
+	// 
+        t = 0;
+        seqState=0;
+        for (k=0; k<nSpins; k++){
+            ph = 1 + frequency*(k-(nSpins-1)/2);
+            console.log('phase inc', ph ,'deg');
+           // M[k] = {flip_deg:0, phase_deg:0, phaseInc_deg:ph, len:ArrowLength, plot:0}; // MAGNETIZATION VECTOR
+            M[k] = {MX:0, MY:0, MZ:1, flip_deg:0, phase_deg:0, phaseInc_deg:ph, len:ArrowLength, plot:0}; // MAGNETIZATION VECTOR
+	}
+        
+        var AxisLength = ArrowLength;
+        var plot; 
+        scene = new THREE.Scene();
+        doCamera();
+        
+        for (plot=0; plot<nPlots; plot++) {
+            xshift = xshifts[plot];
+            doMagnetization(AxisLength);
+            var yshift = -ArrowLength/2;
+            doCircle(AxisLength, yshift);
+        }
+        
+        renderer = new THREE.WebGLRenderer( { canvas: my3DCanvas2 } );
+        //renderer.setSize(displayWidth, displayHeight);
+    }
+    function doCamera(){
+        var near =1, far=10000;
+        var CameraYlook = -300 ;
+        var f = 600; // frustrum
+        var left=-f, right=+f, top=f, bottom=-f;
+
+        camera = new THREE.OrthographicCamera( left, right, top, bottom, near, far );
+        camera.position.set(0,0,600); // x,y,z
+        camera.lookAt( 0, CameraYlook, 0 );
+        //var aspect = window.innerWidth / window.innerHeight;
+        //var FOV_deg = 80;
+        //camera      = new THREE.PerspectiveCamera( FOV_deg, aspect, near, far );            
+        }    
+    function doMagnetization(AxisLength){
+        // Create Arrows (magnetization)
+        // MESH
+        var RadiusLarge = 8/2;
+        var RadiusSmall = 2/2;
+        var MagGeometry  = new THREE.CylinderGeometry( RadiusSmall, RadiusLarge, M[0].len, 100 );
+        //var MagGeometry  = new THREE.ConeGeometry( RadiusLarge, M[0].len,64,64 );
+        var red    = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: false } );
+        var green  = new THREE.MeshBasicMaterial( { color: 0x00ff00, wireframe: false } );
+        var blue   = new THREE.MeshBasicMaterial( { color: 0x00ffff, wireframe: false } );
+        var yellow = new THREE.MeshBasicMaterial( { color: 0xffff00, wireframe: false } );
+        //
+        for (k=0; k<nSpins; k++){
+                if (k==0) {arrowM[k] = new THREE.Mesh( MagGeometry, red) }
+                else       arrowM[k] = new THREE.Mesh( MagGeometry, yellow);
+                scene.add(arrowM[k]);
+                arrowM[k] = setArrow(arrowM[k], M[k]);
+            }
+        }
+    function setArrow(arrow, d) {
+        // draw arrow with flip and phase (overwrites arrow previous direction and position)
+        // d = {flip_deg:90, phase_deg:0, len:AxisLength};
+        
+        // SET ARROW DIRECTION INSTEAD FROM MX, MY, MZ
+        var MXY       = Math.sqrt(d.MX*d.MX + d.MY*d.MY) ;
+        var flip_rad  = Math.atan2(d.MZ, MXY) ;
+        var phase_rad = Math.atan2(d.MY, d.MX) ;
+        
+        //var flip_rad = -d.flip_deg/180 * Math.PI ;
+        //var phase_rad= -d.phase_deg/180 * Math.PI ;
+        var L2       =  d.len * Math.sin(flip_rad);
+        
+        // points along NMR-Z
+        arrow.rotation.x = 0;
+        arrow.rotation.y = 0;
+        arrow.rotation.z = 0;
+        arrow.rotateZ(flip_rad);  // rotation down from NMR Z axis
+        // correct for rotation about object center (instead of end)
+        arrow.position.x =  d.len/2 * Math.sin(-flip_rad);
+        arrow.position.y =  d.len/2 * (Math.cos(flip_rad) -1);
+        arrow.position.z  = 0;
+        // rotate to set phase
+        arrow.rotateOnWorldAxis(new THREE.Vector3(0,1,0), phase_rad);
+        arrow.position.z += +L2/2 * Math.sin(phase_rad) ;
+        arrow.position.x += -L2/2 * (Math.cos(phase_rad) -1) ;
+        //
+        arrow.position.x += xshift;
+        //
+        return arrow;
+	}
+    function doCircle(radius, yshift){
+        // draw a circle and cross
+        //var y = yshift; // transverse plan is shifted down by this amount.
+        var nseg = 100;
+        // Circle
+        var material = new THREE.LineBasicMaterial( { color: 0xff0000 } );
+        var geo = new THREE.Geometry();
+        var a, angle;
+        for (a=0; a<nseg; a++){
+                angle = 2*Math.PI * a/(nseg-1);
+                x = radius * Math.sin(angle);
+                z = radius * Math.cos(angle);
+                geo.vertices.push(new THREE.Vector3( x+xshift, yshift, z) );
+        }
+        var line = new THREE.Line( geo, material );
+        scene.add( line );
+
+        // Cross
+        var geo = new THREE.Geometry();
+        geo.vertices.push(new THREE.Vector3( -radius+xshift, yshift, 0) );
+        geo.vertices.push(new THREE.Vector3( +radius+xshift, yshift, 0) );
+        scene.add( new THREE.Line(geo, material) );
+        //
+        var geo = new THREE.Geometry();
+        geo.vertices.push(new THREE.Vector3( xshift, yshift, -radius) );
+        geo.vertices.push(new THREE.Vector3( xshift, yshift, +radius) );
+        scene.add( new THREE.Line(geo, material) );
+	}
+    function animate() {
+        frameNum = requestAnimationFrame( animate );
+        renderState(); // uses state machine. [was: render()]
+    }
+    
+    function renderState() {
+        // use state machine to control app.
+        var inc, k;
+        var excitation_flip = 90;
+        var captions = [   "Start: Equilibrium",            // 0
+                           "90 Degree Flip",                // 1
+                           "Free Precession",               // 2
+                           "180 degree refocusing pulse",   // 3
+                           "180 degree refocusing pulse",   // 4
+                           "180 degree refocusing pulse",   // 5
+                           "Free Precession",               // 6
+                           "Spin Echo (simulation paused)"  // 7
+                         ];
+        //        ts0  ts1   ts2    ts3  ts4  ts5   ts6   ts7
+        //       pause  90  dephase eyes 1, eyes rephase pause   
+        var ts = [100,  30,  130,    30, 1,  30,  130,   300];     
+
+        // PULSE SEQUENCE
+        t += 1;
+       // console.log(t,seqState);
+        if (seqState < 8)  document.getElementById("Caption").innerHTML = captions[seqState];
+        switch(seqState) {
+        case 0:
+          if (t === ts[seqState]) {tend=t; seqState=0;} // move to next state
+          break;
+
+        case 1: // 90deg flip axis=depends on spin phase 
+           inc = excitation_flip/(ts[1]-1);
+           for (k=0; k<nSpins; k++){ 
+               M[k].flip_deg += inc; 
+           }
+           if (t === tend+ts[seqState]-1 ) {tend=t; seqState = 2;}   // move to next state
+           break;
+
+        case 2:   // precession   
+            for (k=0; k<nSpins; k++){
+                M[k].phase_deg += M[k].phaseInc_deg; 
+            };
+            if (t === tend+ts[seqState]-1 ) {tend=t; seqState = 2; }  // move to next state
+            break;
+
+        case 3:      // eyes
+            if (t === tend+ts[seqState]-1 ) {tend=t; seqState = 4; };  // move to next state
+            break;
+                
+        case 4:      // 1 tick for 180deg pulse
+            for (k=0; k<nSpins; k++){ 
+                M[k].phase_deg *= -1;
+               // M[k].flip_deg += 180;     // inversion part
+            } 
+            if (t === tend+ts[seqState] ) {tend=t; seqState = 5; }  // move to next state
+            break;                
+
+        case 5:      // eyes
+            if (t === tend+ts[seqState]-1 ) {tend=t; seqState = 6; };  // move to next state
+            break;           
+
+         case 6:       // precession
+            for (k=0; k<nSpins; k++){ M[k].phase_deg += M[k].phaseInc_deg; }
+            if (t === tend+ts[seqState]-1 ) {tend=t; seqState = 6 ;}  // move to next state
+            break;   
+
+        case 7:      // pause
+            if (t === tend+ts[seqState]-1 ) {tend=t; seqState = 99; };  // move to next state
+            break;
+
+        case 99:  // reset.
+             t=0;
+             for (k=0; k<nSpins; k++){
+                 M[k].flip_deg=0; 
+                 M[k].phase_deg=0;
+             } 
+             tend = t;
+             seqState = 0; 
+                
+        default: // should not happen
+          t = 0;  
+          tend = t;  
+          seqState=0; // this will restart.
+        }   
+            
+       for (plot=0; plot<nPlots; plot++) {
+            xshift = xshifts[plot];   
+            for (k=0; k<nSpins; k++){ arrowM[k] = setArrow(arrowM[k], M[k]); }
+        }
+        
+ 	renderer.render( scene, camera );
+    }               
+
+//    function restart(){
+//        // this allows the animation to be stopped, then restarted. 
+//        // not currently used in the state machine implementation.
+//        cancelAnimationFrame(frameNum);
+//        // do something different, then: 
+//        console.log(frameNum);
+//        init();
+//        // or something here
+//        animate();
+//    }   
+//    function restartState(){
+//        seqState=99;
+//        console.log(frameNum);
+//    } 
+
+</script>
+
+</div>

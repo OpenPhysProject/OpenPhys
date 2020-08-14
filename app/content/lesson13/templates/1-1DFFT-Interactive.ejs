@@ -1,0 +1,85 @@
+<div class="lesson-content">
+  <div class="lesson-content-title col-xs-12">	1D Fourier Transform</div>
+
+    <div class="lesson-content-body col-xs-12">
+            <div class="lesson-content-memo">	FFT of spin echo</div>
+
+           <!-- LHS -->
+           <div class="col-md-4 col-lg-4">
+	<!--  1-1DFFT-Interactive.tex (source file)  -->
+	<!--
+		CSS (style the page)
+	-->
+	<style>
+	.chart-container {
+		width: 600px;
+		height:300px
+	}
+	</style>
+	<!--
+		 HTML code for the sliders (arranged in a table)
+	-->
+	Adjust these sliders to change the display:
+	<br/><br/>
+	<table style="width:100%">
+	<tr>  <th> </th>  <th> </th>  <th> </th>  </tr>
+	<tr>
+		<td>Frequency Offset</td>
+		<td> <input type="range" min="-300" max="300" step="1", value="10" class="slider" id="id1_FFT1D_A" style="width: 90%;"> </td>
+		<td>  <span id="out1_FFT1D_A" >  </span> </td >
+	</tr>
+	<tr>
+		<td>T2*</td>
+		<td> <input type="range" min="5" max="500" step="5", value="80" class="slider" id="id3_FFT1D_A" style="width: 90%;"> </td>
+		<td>  <span id="out3_FFT1D_A" >  </span> </td >
+	</tr>
+	</table>
+	<br/><br/>
+	The upper plot is a represent of a spin echo signal.
+	The lower plot shows the frequency content of the spin echo: the frequency spectrum.
+	<br/><br/>
+	Q) How do the frequency and the T2* values affect the spectrum?
+	<br/><br/>
+	Note: The Fast Fourier Transform (FFT) is an algorithm that pulls out the frequency components of time signals.
+<br/><br/>
+            </div>
+
+            <!-- RHS -->
+        	<div class="col-md-8 col-lg-8">
+	<!--  1-1DFFT-Interactive.tex (source file) -->
+	<div class="chart-container">
+	<canvas id="ChartTime_FFT1D_A"></canvas>
+	</div>
+	<div class="chart-container">
+	<canvas id="ChartFreq_FFT1D_A"></canvas>
+	</div>
+<br/><br/>
+	<!--
+		1-1DFFT-Interactive.tex (source file)
+		This the code in index.html is needed to declare the JS files used:
+				<script src="content/lesson11/scriptsMRI/Complex.js"> </script>
+				<script src="content/lesson11/scriptsMRI/cfft.js">    </script>
+				<script src="content/lesson11/scriptsMRI/FFT1Dcode2.js"></script>
+				<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	-->
+	<script>
+	/// Parameters are collected from the HTML, and sent to the JavaScript
+	"use strict"
+	var parsFFT1D = {cycles:10, T2:80, NP:512};
+	parsFFT1D.ctxTime    = document.getElementById('ChartTime_FFT1D_A').getContext('2d');
+	parsFFT1D.ctxFreq    = document.getElementById('ChartFreq_FFT1D_A').getContext('2d');
+	parsFFT1D.slider1_id = "id1_FFT1D_A";
+	parsFFT1D.slider3_id= "id3_FFT1D_A";
+	parsFFT1D.out1_id    = "out1_FFT1D_A";
+	parsFFT1D.out3_id   = "out3_FFT1D_A";
+	var temp200 = 10.0;
+	// Call External Code. It is from: /Users/Jonathan/OpenPhys/app/content/lesson11/scriptsMRI/FFT1Dcode2.js
+	Top_FFT1D( parsFFT1D );
+	</script>
+<br/><br/>
+            </div>
+
+        <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>
+    </div>
+
+</div>

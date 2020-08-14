@@ -1,0 +1,113 @@
+<div class="lesson-content">
+  <div class="lesson-content-title col-xs-12">	1D Fourier Transform Flex</div>
+
+    <div class="lesson-content-body col-xs-12">
+            <div class="lesson-content-memo">	Flexible FFT</div>
+
+           <!-- LHS -->
+           <div class="col-md-4 col-lg-4">
+	<!--  1DFFT-Flex.tex (source file)  -->
+	<!--
+		CSS (style the page)
+	-->
+	<style>
+	.chart-container {
+		width: 600px;
+		height:300px
+	}
+	</style>
+	<!--
+		 HTML code for the sliders (arranged in a table)
+	-->
+	Sliders set frequency. Number in white box is amplitude.
+	(For fine frequency control, select a slider, then use keyboard arrow keys).
+	<br/>
+	<table style="width:100%">
+	<tr>  <th> </th>  <th> </th>  <th> </th>  </tr>
+	<tr> <td> </td>
+	<td>  Frequency  </td>
+	<td>   </td >
+	<td> Amplitude  </td>
+	</tr>
+	<tr> <td>Freq 0</td>
+		<td> <input type="range" min="-128" max="128" step="1", value="5" class="slider" id="id_f0" style="width: 90%;"> </td>
+		<td>  <span id="flexout0" >  </span> </td >
+		<td> <input type="number" id="a0" name="quantity" min="-1" max="1", step="0.1", value="1" >  </td>
+	</tr>
+	<tr> <td>Freq 1</td>
+			<td> <input type="range" min="-128" max="128" step="1", value="10" class="slider" id="id_f1" style="width: 90%;"> </td>
+			<td>  <span id="flexout1" >  </span> </td >
+			<td> <input type="number" id="a1" name="quantity" min="-1" max="1", step="0.1", value="0" >  </td>
+	</tr>
+	<tr> <td>Freq 2</td>
+			<td> <input type="range" min="-128" max="128" step="1", value="15" class="slider" id="id_f2" style="width: 90%;"> </td>
+			<td>  <span id="flexout2" >  </span> </td >
+			<td> <input type="number" id="a2" name="quantity" min="-1" max="1", step="0.1", value="0" >  </td>
+	</tr>
+	<tr>	<td>Freq 3</td>
+			<td> <input type="range" min="-128" max="128" step="1", value="20" class="slider" id="id_f3" style="width: 90%;"> </td>
+			<td>  <span id="flexout3" >  </span> </td >
+			<td> <input type="number" id="a3" name="quantity" min="-1" max="1", step="0.1", value="0" >  </td>
+	</tr>
+	<tr>	<td>Freq 4</td>
+			<td> <input type="range" min="-128" max="128" step="1", value="25" class="slider" id="id_f4" style="width: 90%;"> </td>
+			<td>  <span id="flexout4" >  </span> </td >
+			<td> <input type="number" id="a4" name="quantity" min="-1" max="1", step="0.1", value="0" >  </td>
+			</tr>
+	<tr>	<td>Freq 5</td>
+			<td> <input type="range" min="-128" max="128" step="1", value="30" class="slider" id="id_f5" style="width: 90%;"> </td>
+			<td>  <span id="flexout5" >  </span> </td >
+			<td> <input type="number" id="a5" name="quantity" min="-1" max="1", step="0.1", value="0" >  </td>
+			</tr>
+		</table>
+	<br/>
+	<div class="lesson-content-note" >
+		The upper plot is the sum of sine waves.
+		The lower plot is the frequency spectrum, calculated by the FFT.
+		(The vertical axis is auto-scaling.)
+		<br/>
+		Q) How do the frequency and the amplitude values affect the spectrum?
+		<br/>
+		Note: The Fast Fourier Transform (FFT) is an algorithm that pulls out the frequency components of time signals.
+	</div>
+<br/><br/>
+            </div>
+
+            <!-- RHS -->
+        	<div class="col-md-8 col-lg-8">
+	<!--  1-1DFFT-Interactive.tex (source file) -->
+	<div class="chart-container">
+	<canvas id="ChartTime_Flex"></canvas>
+	</div>
+	<div class="chart-container">
+	<canvas id="ChartFreq_Flex"></canvas>
+	</div>
+<br/><br/>
+	<!--
+		1DFFT-Interactive.tex (source file)
+		This the code in index.html is needed to declare the JS files used:
+				<script src="content/lesson11/scriptsMRI/Complex.js"> </script>
+				<script src="content/lesson11/scriptsMRI/cfft.js">    </script>
+				<script src="content/lesson11/scriptsMRI/FFT1Dcode2.js"></script>
+				<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	-->
+	<script>
+	/// Parameters are collected from the HTML, and sent to the JavaScript
+	"use strict"
+	var fpars = {cycles:[5, 10, 15, 20, 25, 30],  amp:[1, 0, 0, 0, 0, 0], NP:512};
+	fpars.ctxTime    = document.getElementById('ChartTime_Flex').getContext('2d');
+	fpars.ctxFreq    = document.getElementById('ChartFreq_Flex').getContext('2d');
+	fpars.slider_id = ["id_f0", "id_f1", "id_f2", "id_f3", "id_f4", "id_f5"];
+	fpars.out_id    = ["flexout0",  "flexout1", "flexout2", "flexout3", "flexout4", "flexout5"];
+	fpars.amp_id    = ["a0",  "a1", "a2", "a3", "a4", "a5"];
+	var temp200 = 10.0;
+	// Call External Code. here: /Users/Jonathan/OpenPhys/app/content/lesson11/scriptsMRI/FFT1Dflex.js
+	Top_FFT_Flex( fpars );
+	</script>
+<br/><br/>
+            </div>
+
+        <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>
+    </div>
+
+</div>

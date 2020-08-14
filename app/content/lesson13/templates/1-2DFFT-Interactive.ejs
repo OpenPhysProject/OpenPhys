@@ -1,0 +1,80 @@
+<div class="lesson-content">
+  <div class="lesson-content-title col-xs-12">	2D FFT and k-Space</div>
+
+    <div class="lesson-content-body col-xs-12">
+            <div class="lesson-content-memo">	2D FFT</div>
+
+           <!-- LHS -->
+           <div class="col-md-4 col-lg-4">
+<h3>	2D Fourier Transform (Interactive)</h3>
+			<!-- CSS  -->
+	<style>
+	.chart-container {
+		width: 600px;
+		height:300px
+	}
+	</style>
+	2D FFT (Drag sliders to move k-space dot)
+	<p> k-Space (Real) | k-Space (Imag) </p>
+	<p> FFT (Real)     | FFT (Imag) </p>
+	<div class="slidecontainer">
+	X:
+	<input type="range" min="0" max="31" value="1" class="slider" id="RangeX">
+	<span id="outX"></span>
+	</div>
+	<div class="slidecontainer">
+	Y:
+	<input type="range" min="0" max="31" value="1" class="slider" id="RangeY">
+	<span id="outY"></span>
+	</div>
+	(In this demo, the k-space origin is in the upper left, not in the center)
+<br/><br/>
+<h3>	Notes:</h3>
+ 
+ <br/> $\quad\rightarrow$ This page demonstrates how a point in k-space contributes to the image domain.
+ <br/> $\quad\rightarrow$ This interactive JavaScript is performing 2D FFT in the user's browser.
+ <br/> $\quad\rightarrow$ 	In the future, this capability can be used to create many other interactions to teach k-space and imaging concepts.
+ 
+<br/><br/>
+            </div>
+
+            <!-- RHS -->
+        	<div class="col-md-8 col-lg-8">
+	<div>
+	<canvas id="FFT2DCanvas" width="256" height="256"
+	style="width:60%; height:60%; border:1px solid #FF0000;" ></canvas>
+	</div>
+<br/><br/>
+<script>
+"use strict"
+//---- CODE BEGINS HERE ----
+var parsFFT2D = {np:32, displayScale: 1, posX:1, posY:1};  // np is image matrix
+parsFFT2D.c   = document.getElementById("FFT2DCanvas");
+parsFFT2D.ctx = parsFFT2D.c.getContext("2d");
+parsFFT2D.ps  = 128/parsFFT2D.np;  	// pixel size;
+// https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_rangeslider
+	parsFFT2D.sliderX = document.getElementById("RangeX");
+	parsFFT2D.outputX = document.getElementById("outX");
+	parsFFT2D.outputX.innerHTML = parsFFT2D.sliderX.value;
+	parsFFT2D.sliderY = document.getElementById("RangeY");
+	parsFFT2D.outputY = document.getElementById("outY");
+	parsFFT2D.outputY.innerHTML = parsFFT2D.sliderY.value;
+	parsFFT2D.sliderX.oninput = function() {
+	parsFFT2D.posX              = this.value;
+	parsFFT2D.outputX.innerHTML = parsFFT2D.posX;
+	calcDisplayFFT2D();
+}
+	parsFFT2D.sliderY.oninput = function() {
+	parsFFT2D.posY              = this.value;
+	parsFFT2D.outputY.innerHTML = parsFFT2D.posY;
+	calcDisplayFFT2D();
+}
+calcDisplayFFT2D(); // in fft2d_code.js
+</script>
+<br/><br/>
+            </div>
+
+        <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>
+    </div>
+
+</div>

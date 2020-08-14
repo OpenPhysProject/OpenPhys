@@ -1,0 +1,112 @@
+<div class="lesson-content">
+  <div class="lesson-content-title col-xs-12">  Gradient and Spins</div>
+
+    <div class="lesson-content-body col-xs-12">
+            <div class="lesson-content-memo">	gradient and spins</div>
+
+           <!-- LHS -->
+           <div class="col-md-4 col-lg-4">
+<style>
+	.slidecontainer{ width: 100%; }
+	.slider{ float: left;  margin:10px; }
+	.slider:hover { opacity: 1; }
+</style>
+<table style="width:100%">
+<tr>  <th> Set gradient(s) to see spin precession: </th>   </tr>
+<!-- Gx and Gy swapped here. Left-Right should be X, not Y, as I originally coded it. -->
+<tr>
+<td> <input type="range" min="-6" max="6" step="1", value="0" class="slider" id="Param3MultiSpin" style="width: 90%;"> </td>
+<td>  <span id="outParam3MultiSpin" >  </span> </td >
+</tr>
+<tr>
+<td> <input type="range" min="-6" max="6" step="1", value="0" class="slider" id="Param2MultiSpin" style="width: 90%;"> </td>
+<td>  <span id="outParam2MultiSpin" >  </span> </td >
+</tr>
+<tr>  <th>Use Restart for these:</th>    </tr>
+<tr>
+<td> <input type="range" min="5" max="80" step="1", value="15" class="slider" id="Param5MultiSpin" style="width: 90%;"> </td>
+<td>  <span id="outParam5MultiSpin" > 5 </span> </td >
+</tr>
+<tr>
+<td> <input type="range" min="5" max="100" step="5", value="30" class="slider" id="Param4MultiSpin" style="width: 90%;"> </td>
+<td>  <span id="outParam4MultiSpin" > </span> </td>
+</tr>
+<tr>
+<td> <input type="range" min="0" max="100" step="5", value="100" class="slider" id="Param1MultiSpin" style="width: 90%;"> </td>
+<td>  <span id="outParam1MultiSpin" >  </span> </td >
+</tr>
+	<tr>
+	<td>  <span > 	<button onclick="initA(); initMultiSpin();">RESTART</button> </span> </td >
+	</tr>
+</table>
+<br/><br/>
+<h3>Exercise 1: Spin Phases</h3>
+	<div class="lesson-content-note">
+ 
+ <br/> $\quad\rightarrow$ 1) Set: Spin Size to MAX
+ <br/> $\quad\rightarrow$ 2) Set: Spin Number to MIN
+ <br/> $\quad\rightarrow$ 3) Click RESTART button
+ <br/> $\quad\rightarrow$ 4) Set: Gx slider to 1 mT/m
+ <br/> $\quad\rightarrow$ 5) Watch a single spin as it rotates. How is the colour related to spin orientation?
+ <br/> $\quad\rightarrow$ NOTE: In NMR, when spins have the same orientation their signals add coherently. This called being 'in phase'.
+ 
+	</div>
+<br/><br/>
+<h3>	Exercise 2: Gradient Echoes</h3>
+	<div class="lesson-content-note">
+ 
+ <br/> $\quad\rightarrow$ 1) Set: Spin Size to Small
+ <br/> $\quad\rightarrow$ 2) Set: Spin Number to Large
+ <br/> $\quad\rightarrow$ 3) Click RESTART button
+ <br/> $\quad\rightarrow$ 4) Set Gx=4 mT/m, and wait for a couple of seconds.
+ <br/> $\quad\rightarrow$ 5) Can you now bring all spins back into phase by using a negative Gx gradient?
+ <br/> $\quad\rightarrow$ 6) Try this again with different negative values of Gx. What happens?
+ <br/> $\quad\rightarrow$ NOTE: Bringing spins back into phase by reversing a gradient is called a `gradient echo' ?
+ 
+</div>
+<br/><br/>
+            </div>
+
+            <!-- RHS -->
+        	<div class="col-md-8 col-lg-8">
+	<div>
+		<canvas id="MultiSpinCanvas"  style="border:1px solid #000000;" ></canvas>
+	</div>
+	<script>
+	"use strict"
+	var nx     = 30; //45;
+	var Seq = {};	// not used yet.
+	var Gx = 0; 	// also slider
+	var Gy = 0;		// also slider
+	var sat;     	// also slider
+	// Fixed Parameters (probably)
+	var deltaT = 0.01; //-0.05 //-0.5 // time step: small value is slower
+	var ObjWidth    = 0.02; //ObjLen/10;  //usually much less than ObjLen to give a line
+	var PhantomSize = 7.0, CameraZ = 5.0; // these 2 togeher make phantom fill screen.
+	var ny; //     = nx;
+	var nOBJ; //   = nx * ny;  // the objects are the spins
+	// Other Declarations
+	var Obj=[], angles=[], freq=[], vecUP=[], vecSIDE=[], material=[], xLocation=[], yLocation=[];
+	var light=[];
+	var WidthMS = window.innerWidth/2;
+	var HeightMS = WidthMS; // window.innerHeight/2;
+	var scene    = new THREE.Scene();
+	var camera   = new THREE.PerspectiveCamera( 70, WidthMS/HeightMS, 0.1, 1000 );
+	var renderer = new THREE.WebGLRenderer( { canvas: MultiSpinCanvas }  );
+	// INIT RENDERER
+	//renderer.setSize( window.innerWidth/2, HeightMS );
+	renderer.setSize( WidthMS, HeightMS );  // so square. I hope it fits
+	var slider1MultiSpin = document.getElementById("Param1MultiSpin");
+	var slider2MultiSpin = document.getElementById("Param2MultiSpin");
+	var slider3MultiSpin = document.getElementById("Param3MultiSpin");
+	var slider4MultiSpin = document.getElementById("Param4MultiSpin");
+	var slider5MultiSpin = document.getElementById("Param5MultiSpin");
+	MultiSpinTop();
+	</script>
+<br/><br/>
+            </div>
+
+        <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>
+    </div>
+
+</div>

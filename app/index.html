@@ -47,28 +47,28 @@
                                 <a href="https://github.com/OpenPhysProject/OpenPhys">https://github.com/OpenPhysProject/OpenPhys</a>
                                 </div>
                             </div>
-                                
+
                             <div class="intro-tile-content">
                                 <div class="intro-tile-content-title">License</div>
                                 <div class="intro-tile-content-text">
                                 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">
                                     <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
-                                <br />This work is licensed under a 
+                                <br />This work is licensed under a
                                 <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.
                                 </div>
                             </div>
-                            
+
                         </div>
                         <div class="intro-tile-content-container intro-tile-people-content out">
                              <div class="intro-tile-content">
-                             
+
                             </div>
                             <div class="intro-tile-content">
                                 <div class="intro-tile-content-title">Contact</div>
-                                <div class="intro-tile-content-text">  
+                                <div class="intro-tile-content-text">
                                      <a href="mailto:openphys@ualberta.ca">openphys@ualberta.ca</a>
                                     <br/>
-                      <a href="https://openphys.med.ualberta.ca/Instructions/Credits" target="_blank">Credits page</a>               
+                      <a href="https://openphys.med.ualberta.ca/Instructions/Credits" target="_blank">Credits page</a>
                                 </div>
                             </div>
                             <div class="intro-tile-content">
@@ -128,10 +128,10 @@
                                 <a href="https://github.com/OpenPhysProject/OpenPhys" target="_blank">https://github.com/OpenPhysProject/OpenPhys</a>
                                 . The map framework is easily reusable for any type of content.
                                 </div>
-                                
+
                                 <div class="lesson-tile-outro-title">Comments</div>
                                 <div class="lesson-tile-outro-content">
-                                    We are currently actively seeking feedback!  So please email comments on content and 
+                                    We are currently actively seeking feedback!  So please email comments on content and
                                     design concepts to <a href="mailto:openphys@ualberta.ca">openphys@ualberta.ca</a>
                                 </div>
 
@@ -173,12 +173,12 @@
           ga('create', 'UA-75146649-1', 'auto');
           ga('send', 'pageview');
         </script>
-        
+
         <!-- CDN libraries -->
         <!-- https://www.mathjax.org/cdn-shutting-down/ -->
         <!--May 2017 WAS: <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        
+
         <!-- See Mathjax documentation at: http://docs.mathjax.org/en/latest/start.html -->
         <!-- MAr 2018 JCS -->
         <script type="text/x-mathjax-config">
@@ -186,20 +186,28 @@
             tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
             });
             </script>
+        <!-- does not work hmm
             <script type="text/javascript" async src="path-to-mathjax/MathJax.js?config=TeX-AMS_CHTML"></script>
-        
+        -->
+
         <script type="text/javascript" src="https://code.createjs.com/createjs-2015.11.26.combined.js"></script>
         <!-- TODO replace this with min file
         <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
         -->
-        
+
+        <!-- JCS Added March-2019 for charts -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0">  </script>
+
+        <!-- JCS Added April-2019 for 3D Graphics -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/103/three.min.js"> </script>
+
         <!-- build:js scripts/vendor.js -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/lodash/dist/lodash.compat.js"></script>
         <script src="bower_components/backbone/backbone.js"></script>
         <script src="bower_components/fastclick/lib/fastclick.js"></script>
         <script src="bower_components/hammerjs/hammer.js"></script>
-        <!-- endbuild -->
+        <!-- endbuild  -->
 
         <!-- build:js scripts/plugins.js -->
         <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
@@ -233,73 +241,97 @@
         <script src="scripts/views/MapCardView.js"></script>
         <script src="scripts/views/DefaultContentView.js"></script>
         <script src="scripts/views/LessonTemplate/LessonTemplate.js"></script>
-        
+
         <!-- Content -->
         <!-- intro -->
         <!--<script src="content/userGuide/views/Row0_Col3.js"></script>
         not sure what this did? made the button work -->
         <script src="content/userGuide/data.js"></script>
-        
+
         <!-- Lesson 1 Electronic Structure of the Atom -->
         <script src="content/lesson1/views/Waves.js"></script>
         <script src="content/lesson1/views/Angular.js"></script>
         <script src="content/lesson1/views/StandingWaves.js"></script>
-        <script src="content/lesson1/views/Models.js"></script>       
-        <script src="content/lesson1/views/Dalton.js"></script>       
+        <script src="content/lesson1/views/Models.js"></script>
+        <script src="content/lesson1/views/Dalton.js"></script>
         <script src="content/lesson1/views/Rutherford.js"></script>
-        <script src="content/lesson1/views/QAtomOne.js"></script> 
+        <script src="content/lesson1/views/QAtomOne.js"></script>
         <script src="content/lesson1/data.js"></script>
-  
+
         <!-- Lesson 2a Nucleus-->
         <script src="content/lesson2a/views/DecayAnim.js"></script>
         <script src="content/lesson2a/data.js"></script>
-        
+
         <!-- Lesson 2b Radioactivity-->
         <script src="content/lesson2b/views/structure_decay.js"></script>
         <script src="content/lesson2b/data.js"></script>
- 
+
          <!-- Lesson 3 E=mc2 -->
-        <script src="content/lesson3/data.js"></script>        
- 
+        <script src="content/lesson3/data.js"></script>
+
         <!-- Lesson 4 Electromagnetic -->
-       <!-- <script src="content/lesson4/data.js"></script>    -->    
-        
+       <!-- <script src="content/lesson4/data.js"></script>    -->
+
          <!-- Lesson 5 PE -->
-        <script src="content/lesson5/data.js"></script>        
-        
+        <script src="content/lesson5/data.js"></script>
+
         <!-- Lesson 6 Compton -->
         <script src="content/lesson6/views/Row0_Col1.js"></script>
-        <script src="content/lesson6/views/Row1_Col1.js"></script>       
+        <script src="content/lesson6/views/Row1_Col1.js"></script>
         <script src="content/lesson6/data.js"></script>
-        
+
         <!-- Lesson 7 Pair Prod-->
-      <script src="content/lesson7/assets/animation/pair production main.js"></script> 
-        <script src="content/lesson7/views/Anim.js"></script> 
-        <script src="content/lesson7/data.js"></script> 
-        
+      <script src="content/lesson7/assets/animation/pair production main.js"></script>
+        <script src="content/lesson7/views/Anim.js"></script>
+        <script src="content/lesson7/data.js"></script>
+
         <!-- Lesson 8 Radiation Beam-->
-        <script src="content/lesson8/data.js"></script>    
-  
+        <script src="content/lesson8/data.js"></script>
+        
+        <!-- Lesson 12 X-ray Tube -->
+        <script src="content/lesson12/data.js"></script>
+
         <!-- Lesson 9 NMR -->
-        <script src="content/lesson9/data.js"></script> 
-        
+        <script src="content/lesson9/data.js"></script>
+        <script src="content/lesson11/scriptsMRI/SatRecover.js"></script>
+
         <!-- Lesson 10 Inside a Pixel -->
-        <script src="content/lesson10/data.js"></script> 
+        <script src="content/lesson10/data.js"></script>
         
-        <!-- Lesson 11 ImaSeq -->
-        <script src="content/lesson11/data.js"></script>     
+       <!-- Lesson 13 Gradient -->
+        <script src="content/lesson13/data.js"></script>
+            <script src="content/lesson11/scriptsMRI/MultiSpin2.js"></script>
+            <script src="content/lesson11/scriptsMRI/MultiSpin2B.js"></script>
         
-        <!-- Lesson ? Interaction of X-ray Photons with an Absorber -->
-        
-        <!-- Lesson ? X-ray production Processes (Bremsstrahlung and characteristic X-rays) -->
+        <!-- Lesson 11 Contrast -->
+        <script src="content/lesson11/data.js"></script>
+        <script src="content/lesson11/scriptsMRI/SeqDiag01.js"></script>
+		<script src="content/lesson11/scriptsMRI/Larmor.js"></script>
+		<script src="content/lesson11/scriptsMRI/3-SeqDiagGE.js"></script>
+		<script src="content/lesson11/scriptsMRI/Complex.js"> </script>
+		<script src="content/lesson11/scriptsMRI/cfft.js">    </script>
+		<script src="content/lesson11/scriptsMRI/FFT1Dcode2.js"></script>
+		<script src="content/lesson11/scriptsMRI/FFT2Dcode3.js"></script>
+
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+
+        <!-- Lesson 14 RT -->        
+        <script src="content/lesson14/data.js"></script>
+      
+         <!-- Lesson 15 Spectrum -->        
+        <script src="content/lesson15/data.js"></script>
+        <script src="content/lesson11/scriptsMRI/FFT1Dflex.js"></script>
+        <script src="content/lesson11/scriptsMRI/FFT1Dflex2.js"></script>       
         
         <!-- Lesson ? Electron Trajectories in Electric and Magnetic Fields -->
-        
-        <!-- Sandbox -->        
-       <!-- <script src="content/Sandbox/views/Row0_Col4.js"></script> -->
-       <!-- <script src="content/Sandbox/views/Row0_Col3.js"></script> -->
-      <!--  <script src="content/Sandbox/data.js"></script> -->
-        
+
+        <!-- Sandbox -->
+      <!--  <script src="content/Sandbox/views/Row0_Col4.js"></script> -->
+      <!--  <script src="content/Sandbox/views/threeDemo.js"></script> -->
+       <script src="content/Sandbox/templates/bloch.js"></script>
+      <script src="content/Sandbox/data.js"></script>
+
         <!-- endbuild -->
     </body>
 </html>

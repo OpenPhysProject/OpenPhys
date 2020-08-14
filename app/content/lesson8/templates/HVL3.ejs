@@ -1,0 +1,54 @@
+<div class="lesson-content container">
+    <div class="lesson-content-title">Mu Graphics</div>
+
+    <div class="lesson-content-body">
+        <div class="lesson-content-memo">exponential attenuation</div>
+            <div> 
+                Here is an example of different exponential beam attenuations.
+                
+                Hover over the points on the graphs to see the data.
+            </div>  
+ 
+        <div class="col-md-10">        
+                <canvas id="myChart3"  style="border:1px solid #000000;" ></canvas>  
+            </div>
+    
+        <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>     
+    </div>
+    
+    <script> 
+        // this uses Chart.js Javascript Library   https://www.chartjs.org/
+        // 
+        // From ThreeExp.js. There may be a better way.
+    var labels1 = ['0 cm', '1 cm', '2 cm', '3 cm', '4 cm', '5 cm', '6 cm'];
+    //var bg = 'rgb(255, 255, 255, 0)';
+    var col = ['rgb(255, 99, 132)', 'rgb(132, 99, 255)', 'rgb(132, 255, 99)', 'rgb(132, 0, 99)']
+    var ds2 = {label: '', radius:5, fill: false, backgroundColor:col[0], borderColor:col[0], data:[]};
+    var ds3 = {label: '', radius:5, fill: false, backgroundColor:col[1], borderColor:col[1], data:[]};
+    var ds4 = {label: '', radius:5, fill: false, backgroundColor:col[2], borderColor:col[2], data:[]};
+    var ds5 = {label: '', radius:5, fill: false, backgroundColor:col[3], borderColor:col[3], data:[]};
+    // Create data
+    var i;
+    var mu_per_cm = [0.25, 0.5, 0.693, 1.0]; // 0.693 gives HVL = 1cm
+    var n = 7 ;
+    for (i = 0; i < n; i++) {
+            d_cm = i ; 
+            ds2.data[i] = Math.exp(-d_cm * mu_per_cm[0]).toPrecision(3); // limited precision is good for tooltips
+            ds3.data[i] = Math.exp(-d_cm * mu_per_cm[1]).toPrecision(3);
+            ds4.data[i] = Math.exp(-d_cm * mu_per_cm[2]).toPrecision(3);
+            ds5.data[i] = Math.exp(-d_cm * mu_per_cm[3]).toPrecision(3);
+    }
+    ds2.label = 'mu=' + mu_per_cm[0].toString();
+    ds3.label = 'mu=' + mu_per_cm[1].toString();
+    ds4.label = 'mu=' + mu_per_cm[2].toString();
+    ds5.label = 'mu=' + mu_per_cm[3].toString();
+    //console.log(datasets[1].data)
+    var scale2 = { xAxes: [{display: true, scaleLabel: {display: true, labelString: 'Depth (cm)'} }],
+                   yAxes: [{display: true, scaleLabel: {display: true, labelString: 'Beam Intensity'} }] };
+    var ctxB      =  document.getElementById('myChart3').getContext('2d');
+    var content2 =  { type: 'line',  data: {labels: labels1, datasets: [ds2,ds3,ds4,ds5]}, options: {scales: scale2} };
+    var chart = new Chart(ctxB, content2);
+   </script>
+
+    
+    </div>

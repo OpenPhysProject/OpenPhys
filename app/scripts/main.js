@@ -113,17 +113,29 @@
        m  =  new scope.Models.LessonModel(OER.data.lesson8, {parse: true, viewPath: "lesson8"});
        this.lessons.add(m);       
        
-       m  =  new scope.Models.LessonModel(OER.data.lesson9, {parse: true, viewPath: "lesson9"});
+       m  =  new scope.Models.LessonModel(OER.data.lesson12, {parse: true, viewPath: "lesson12"}); // X-ray Tube
+       this.lessons.add(m); 
+       
+       m  =  new scope.Models.LessonModel(OER.data.lesson9, {parse: true, viewPath: "lesson9"}); // NMR
        this.lessons.add(m);
        
-       m  =  new scope.Models.LessonModel(OER.data.lesson10, {parse: true, viewPath: "lesson10"});
+       m  =  new scope.Models.LessonModel(OER.data.lesson15, {parse: true, viewPath: "lesson15"}); // Spectrum
+       this.lessons.add(m);
+        
+       m  =  new scope.Models.LessonModel(OER.data.lesson10, {parse: true, viewPath: "lesson10"}); // Inside a Pixel
        this.lessons.add(m);
        
-       m  =  new scope.Models.LessonModel(OER.data.lesson11, {parse: true, viewPath: "lesson11"});
+       m  =  new scope.Models.LessonModel(OER.data.lesson13, {parse: true, viewPath: "lesson13"}); // Gradient
+       this.lessons.add(m);     
+       
+       m  =  new scope.Models.LessonModel(OER.data.lesson11, {parse: true, viewPath: "lesson11"}); // Contrast
        this.lessons.add(m);
        
-     //  m  =  new scope.Models.LessonModel(OER.data.Sandbox, {parse: true, viewPath: "Sandbox"});
-     //  this.lessons.add(m);      
+       m  =  new scope.Models.LessonModel(OER.data.lesson14, {parse: true, viewPath: "lesson14"}); // RT
+       this.lessons.add(m);
+     
+       m  =  new scope.Models.LessonModel(OER.data.Sandbox, {parse: true, viewPath: "Sandbox"});
+       this.lessons.add(m);      
     };
     
     /**

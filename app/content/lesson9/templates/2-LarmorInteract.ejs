@@ -1,0 +1,47 @@
+<div class="lesson-content">
+  <div class="lesson-content-title col-xs-12">  Interactive Larmor Precession</div>
+
+    <div class="lesson-content-body col-xs-12">
+            <div class="lesson-content-memo">	Just spin</div>
+
+           <!-- LHS -->
+           <div class="col-md-4 col-lg-4">
+<style>
+		.slidecontainer{ width: 100%; }
+		.slider{ float: left;  margin:10px;	}
+		.slider:hover { opacity: 1; }
+</style>
+<div >
+Set the magnetic field strength with the slider. How does the spin respond?
+	<table style="width:100%">
+		<tr>  <th> </th>  <th> </th>  <th> </th>  </tr>
+		<tr>
+			<td>Field</td>
+			<td> <input type="range" min="0" max="3" step="0.5", value="1" class="slider" id="Param1Larmor" style="width: 80%;"> </td>
+			<td>  <span id="outParam1Larmor" >  </span> </td >
+		</tr>
+		<tr>
+			<td> </td>
+		 	<td>  </td>
+		 	<td> </td>
+		 </tr>
+	</table>
+	</div>
+<br/><br/>
+            </div>
+
+            <!-- RHS -->
+        	<div class="col-md-8 col-lg-8">
+	<div >
+		<canvas id="LarmorCanvas"  style="border:1px solid #000000;" ></canvas>
+	</div>
+	<script>
+		myLarmorMain();
+	</script>
+<br/><br/>
+            </div>
+
+        <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>
+    </div>
+
+</div>

@@ -1,7 +1,7 @@
 (function (scope) {
     var s = {};
   
-     s.title = "NMR (MRI 101)";
+     s.title = "NMR";
      s.preview = "/content/lesson9/assets/SpinIcon.png";  //svg image 
      s.themeColor = "#4CAF50"; 
      s.route = "NMR"; 
@@ -89,12 +89,12 @@ mapCards: [
       {title:""}, 
       {route:"OtherNuclei", template:"OtherNuclei.ejs", title:"the spins of other nuclei"},
       {title:""}, 
-      {title:""}, 
+      {route:"LarmorInter", template:"2-LarmorInteract.ejs", title:"* INTERACTIVE * Larmor"},
       {title:""}, 
       {route:"RFCoils", template:"RFcoils.ejs", title:"rf coils"},
       {route:"SingleSpin", template:"PrecessionSingleSpin.ejs", title:"precession for a single spin"},
       {title:""}, 
-      {title:""}, 
+      {route:"SatRecover", template:"SatRecover.ejs", title:"* INTERACTIVE * Saturation Recovery"},
    ], 
  }, 
   // end...    

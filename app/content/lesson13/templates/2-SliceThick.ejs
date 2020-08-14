@@ -1,0 +1,34 @@
+<div class="lesson-content">
+  <div class="lesson-content-title col-xs-12">    Slice Width</div>
+
+    <div class="lesson-content-body col-xs-12">
+            <div class="lesson-content-memo">	Stronger gradient $\rightarrow$ reduced slice thickness</div>
+
+           <!-- LHS -->
+           <div class="col-md-6 col-lg-6">
+<h3> Slice Thickness</h3>
+	To change the slice thickness, we adjust the gradient. The formula for slice thickness is:
+	$$\Delta Z = \frac{\Delta\omega}{\gamma G_{sl}}$$
+	where $\Delta Z$ = slice width, $\Delta \omega$ = RF bandwidth, $\gamma$ = gyromagnetic ratio, and $G_{sl}$ = slice gradient
+If we apply a stronger gradient, then the slice thickness would be reduced and vice-versa.
+<br/><br/>
+Remember that a gradient is like a second magnetic field that distorts the main magnetic field. Applying a stronger/weaker gradient means we are affecting the frequency of each plane, so the slice becomes smaller/larger, respectively.
+A thinner slice means that fewer spins were flipped.
+<br/><br/>
+<h3>	Slice-Selective RF Pulse</h3>
+The details of the RF pulse shape affect the slice. See diagram - this wavy shape is a SINC pulse.
+The range of frequencies within the pulse (bandwidth) is key.
+If we apply a larger RF bandwidth, this would increase the slice thickness.
+Thus, slice selection is a combination of RF and gradient fields.
+<br/><br/>
+            </div>
+
+            <!-- RHS -->
+            <div class="col-md-6 col-lg-6">
+             <img class="img-responsive lesson-content-image-zoom-600" src="	/content/lesson13/assets/SincFourier.png" />
+            </div>
+
+        <div class="lesson-content-footer">Page <%- number %>  <%- group %></div>
+    </div>
+
+</div>
